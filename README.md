@@ -1,29 +1,15 @@
-# react-components-starter
+<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+    <img src="./public/logo.png" alt="logo"     width="80" />
+</div>
 
-A starter for creating a React component library.
+<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+    <h1><strong>useful-react-hooks</strong></h1>
+</div>
 
-## Development
+> Developed by [**Sebastian Marat Urdanegui Bisalaya**](https://sebastianurdanegui.com)
 
-- Install dependencies:
+## **Introduction**
 
-```bash
-npm install
-```
+## **Getting Started**
 
-- Run the playground:
-
-```bash
-npm run play
-```
-
-- Run the unit tests:
-
-```bash
-npm run test
-```
-
-- Build the library:
-
-```bash
-npm run build
-```
+## **API Docs**
