@@ -1,8 +1,8 @@
 <p align="center">
-    <a href="https://exploryq.vercel.app" align="center">
-        <img width="60" src="./public/logo.png" alt="Website Link" />
-    </a>
+    <img src="./public/logo.png" alt="useful-react-hooks" height="60">
 </p>
+
+<h2 align="center">useful-react-hooks</h2>
 
 > Developed by [**Sebastian Marat Urdanegui Bisalaya**](https://sebastianurdanegui.com)
 
