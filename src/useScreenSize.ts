@@ -1,11 +1,27 @@
 import * as React from 'react';
 
-export type ScreenSize = {
+export interface ScreenSize {
     width: number;
     height: number;
 }
 
-export function useScreenSize() {
+/**
+ * `useScreenSize` returns the current screen size.
+ * 
+ * @returns The current screen size.
+ * 
+ * @example
+ * ```tsx
+ * const { width, height } = useScreenSize();
+ * ```
+ * 
+ * @author Sebastian Marat Urdanegui Bisalaya <sebastianurdanegui.com>
+ * 
+ * @since 0.0.1
+ * @version 0.0.1
+ * 
+ */
+export function useScreenSize(): ScreenSize {
     const [size, setSize] = React.useState<ScreenSize>({
         height: 0,
         width: 0,
