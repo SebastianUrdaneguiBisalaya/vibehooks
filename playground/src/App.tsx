@@ -1,9 +1,10 @@
-import { MyButton } from '../../src'
+import { useScreenSize } from '../../src'
 
 export function App() {
+  const size = useScreenSize();
   return (
-    <>
-      <MyButton type="primary" />
-    </>
+    <div className='container'>
+      <h1>{size.width}</h1>
+    </div>
   )
 }
