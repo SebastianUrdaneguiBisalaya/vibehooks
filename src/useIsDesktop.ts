@@ -2,7 +2,27 @@ import * as React from 'react';
 
 import { useScreenSize } from './useScreenSize';
 
-export function useIsDesktop(width: number = 0) {
+/**
+ * `useIsDesktop` returns true if the screen size is greater than or equal to the given width.
+ * 
+ * @typeParm boolean
+ * 
+ * @param width Width to compare with the screen size.
+ 
+* @returns A boolean value indicating if the screen size is greater than or equal to the given width.
+ * 
+ * @example
+ * ```tsx
+ * const isDesktop = useIsDesktop(1000);
+ * ```
+ * 
+ * @author Sebastian Marat Urdanegui Bisalaya <sebastianurdanegui.com>
+ * 
+ * @since 0.0.1
+ * @version 0.0.1
+ * 
+ */
+export function useIsDesktop(width: number = 0): boolean {
     const screenSize = useScreenSize();
     const [isDesktop, setIsDesktop] = React.useState<boolean>(false);
 
