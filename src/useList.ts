@@ -6,7 +6,7 @@ export interface List<T> {
 
 export interface ListReturn<T> {
     items: T[];
-    add: (idx: number, item: T) => void;
+    insert: (idx: number, item: T) => void;
     push: (item: T) => void;
     remove: (idx: number) => void;
     update: (idx: number, item: T) => void;
@@ -18,11 +18,11 @@ export interface ListReturn<T> {
  * @typeParam T Type of the items in the list.
  * 
  * @param defaultValue - An array of default values to initialize the list with.
- * @returns An object containing the list items, methods to push, remove, and update items by index, and a method to add items to the end of the list.
+ * @returns An object containing the list items, methods to push, remove, and update items by index, and an insert method to add items to the end of the list.
  *
  * @example
  * ```tsx
- * const { items, add, remove, update } = useList<string>(['item1', 'item2']);
+ * const { items, insert, push, remove, update } = useList<string>(['item1', 'item2']);
  * ```
  *
  * @author Sebastian Marat Urdanegui Bisalaya <sebastianurdanegui.com>
@@ -34,7 +34,7 @@ export interface ListReturn<T> {
 export function useList<T>({ defaultValue }: List<T>): ListReturn<T> {
     const [items, setItems] = React.useState<T[]>(defaultValue || []);
 
-    const add = React.useCallback((idx: number, item: T) => {
+    const insert = React.useCallback((idx: number, item: T) => {
         setItems(prevItems => {
             const copy = [...prevItems];
             copy.splice(idx, 0, item);
@@ -64,7 +64,7 @@ export function useList<T>({ defaultValue }: List<T>): ListReturn<T> {
 
     return {
         items,
-        add,
+        insert,
         push,
         remove,
         update,
