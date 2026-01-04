@@ -36,8 +36,9 @@ export interface IntersectionObserverReturn<T extends Element> {
  * @typeParm T DOM element type. (e.g. HTMLDivElement).
  * 
  * @param options IntersectionObserverOptions Configurations.
- 
-* @returns An object with the reference, visibility state, and last entry.
+ * @param externalRef Ref to the element to observe.
+ * 
+ * @returns An object with the reference, visibility state, and last entry.
  * 
  * @example
  * ```tsx
@@ -56,14 +57,25 @@ export interface IntersectionObserverReturn<T extends Element> {
  * 
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
  */
-export function useIntersectionObserver<T extends Element = HTMLElement>(options?: IntersectionObserverOptions): IntersectionObserverReturn<T> {
-    const ref = React.useRef<T | null>(null);
+export function useIntersectionObserver<T extends Element = HTMLElement>(options?: IntersectionObserverOptions, externalRef?: React.RefObject<T | null>): IntersectionObserverReturn<T> {
+    const internalRef = React.useRef<T | null>(null);
+    const ref = externalRef ?? internalRef;
 
     const [entry, setEntry] = React.useState<IntersectionObserverEntry | null>(null);
     const [isVisible, setIsVisible] = React.useState<boolean>(false);
 
     const callbackRef = React.useRef(options?.onChange);
     callbackRef.current = options?.onChange;
+
+    const observerOptions = React.useMemo(() => {
+        return {
+            root: options?.root,
+            rootMargin: options?.rootMargin,
+            threshold: options?.threshold,
+        } as IntersectionObserverInit;
+    }, [options?.root, options?.rootMargin, options?.threshold])
+
+    const once = options?.once;
 
     const onceRef = React.useRef(false);
 
@@ -78,15 +90,15 @@ export function useIntersectionObserver<T extends Element = HTMLElement>(options
             setEntry(firstEntry);
             setIsVisible(firstEntry.isIntersecting);
             callbackRef.current?.(firstEntry);
-            if (options?.once && firstEntry.isIntersecting && !onceRef.current) {
+            if (once && firstEntry.isIntersecting && !onceRef.current) {
                 onceRef.current = true;
                 observer.unobserve(element);
                 observer.disconnect();
             }
-        }, options);
+        }, observerOptions);
         observer.observe(element);
         return () => observer.disconnect();
-    }, [options?.root, options?.rootMargin, options?.threshold, options?.once, ref]);
+    }, [observerOptions, ref, once]);
     return {
         ref,
         entry,
