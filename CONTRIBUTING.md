@@ -1,6 +1,7 @@
 # **Contributing**
 
 We welcome contributions from the community! 🎉
+
 If you’d like to improve this project, follow these steps:
 
 1. **Fork** this repository and clone your fork:
