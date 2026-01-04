@@ -22,7 +22,7 @@ export interface ListReturn<T> {
  *
  * @example
  * ```tsx
- * const { items, add, remove, update } = useList<string[]>(['item1', 'item2']);
+ * const { items, add, remove, update } = useList<string>(['item1', 'item2']);
  * ```
  *
  * @author Sebastian Marat Urdanegui Bisalaya <sebastianurdanegui.com>
