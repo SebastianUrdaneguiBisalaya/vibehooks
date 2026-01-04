@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./public/logo.webp" alt="useful-react-hooks">
+    <img src="./public/logo.png" alt="useful-react-hooks">
 </p>
 
 <h2 align="center">useful-react-hooks</h2>
