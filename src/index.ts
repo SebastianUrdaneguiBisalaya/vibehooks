@@ -1,5 +1,6 @@
 export { useAsyncState } from './useAsyncState';
 export { useAutoScroll } from './useAutoScroll';
+export { useBatteryStatus } from './useBatteryStatus';
 export { useCopyToClipboard } from './useCopyToClipboard';
 export { useDebouncedState } from './useDebouncedState';
 export { useFocusTrap } from './useFocusTrap';
