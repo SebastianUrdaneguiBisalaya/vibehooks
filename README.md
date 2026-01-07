@@ -10,6 +10,16 @@
 
 ## **Getting Started**
 
+**Coming soon...** ✌🏻
+
+```bash
+npm install vibehooks
+```
+
+```bash
+npm install vibehooks/useIsDesktop
+```
+
 ## **API Docs**
 
 ## **Contributing**
