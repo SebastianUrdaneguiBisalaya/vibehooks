@@ -10,9 +10,6 @@
 
 ## **Getting Started**
 
-**Coming soon...** ✌🏻
-
-
 ## **API Docs**
 
 ## **Contributing**
