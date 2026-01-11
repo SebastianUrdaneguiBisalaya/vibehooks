@@ -3,7 +3,7 @@
 </p>
 
 <p align="center" style="font-size: 1.2rem; font-weight: bold;">
-Modern, unopinionated React hooks with a focus on developer experience - from sebastianurdanegui.com.
+Modern, unopinionated React hooks with a focus<br/>on developer experience - from sebastianurdanegui.com.
 </p>
 
 ## **Introduction**
