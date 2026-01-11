@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./public/logo.png" alt="useful-react-hooks">
+    <img src="./public/logo.png" alt="useful-react-hooks" height="40px">
 </p>
 
 <br/>
