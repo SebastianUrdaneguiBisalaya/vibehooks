@@ -11,7 +11,9 @@
 		"types": [],
 		"declaration": true,
 		"emitDeclarationOnly": true,
-		"verbatimModuleSyntax": true
+		"verbatimModuleSyntax": true,
+		"strict": true,
+		"skipLibCheck": true,
 	},
 	"include": ["src"]
 }
