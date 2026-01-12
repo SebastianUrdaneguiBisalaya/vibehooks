@@ -22,7 +22,7 @@ npm install @vibehooks
 Using `pnpm`:
 
 ```bash
-pnpm install @vibehooks
+pnpm add @vibehooks
 ```
 
 But you can also install only the hooks you need with the following command:
@@ -36,7 +36,7 @@ npm install @vibehooks/useToggle
 Using `pnpm`:
 
 ```bash
-pnpm install @vibehooks/useToggle
+pnpm add @vibehooks/useToggle
 ```
 
 That package is fully typed with TypeScript and comes with all the types you need.
