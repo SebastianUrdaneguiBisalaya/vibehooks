@@ -7,7 +7,6 @@ export { useCookies } from './useCookies';
 export { useCopyToClipboard } from './useCopyToClipboard';
 export { useCountDown } from './useCountDown';
 export { useDebouncedState } from './useDebouncedState';
-export { useFocusTrap } from './useFocusTrap';
 export { useGeolocation } from './useGeolocation';
 export { useHoverIntent } from './useHoverIntent';
 export { useFile } from './useFile';
