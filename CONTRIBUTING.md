@@ -7,8 +7,8 @@ If you’d like to improve this project, follow these steps:
 1. **Fork** this repository and clone your fork:
 
 ```bash
-git clone https://github.com/SebastianUrdaneguiBisalaya/useful-react-hooks.git
-cd useful-react-hooks
+git clone https://github.com/SebastianUrdaneguiBisalaya/vibehooks.git
+cd vibehooks
 npm install
 ```
 
