@@ -65,7 +65,7 @@ export interface ObjectListReturn<T extends Record<string, unknown>> {
  * updatePartial(0, { active: false });
  * ```
  *
- * @author Sebastian Marat Urdanegui Bisalaya <sebastianurdanegui.com>
+ * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
  * @since 0.0.1
  * @version 0.0.1

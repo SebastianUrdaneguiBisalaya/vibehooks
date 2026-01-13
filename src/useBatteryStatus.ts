@@ -66,7 +66,7 @@ declare global {
  * @example
  * ```tsx
  * const { isSupported, battery } = useBatteryStatus();
- * 
+ *
  * if (!isSupported) {
  *   return <span>Battery API not supported</span>;
  * }
@@ -78,11 +78,11 @@ declare global {
 );
  * ```
  *
- * @author Sebastian Marat Urdanegui Bisalaya <sebastianurdanegui.com>
+ * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
  * @since 0.0.1
  * @version 0.0.1
- * 
+ *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API
  *
  */

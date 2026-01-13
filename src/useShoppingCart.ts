@@ -57,7 +57,7 @@ export interface UseShoppingCartReturn<T extends Record<string, unknown>> {
  * cart.getDetails();
  * ```
  *
- * @author Sebastian Marat Urdanegui Bisalaya <sebastianurdanegui.com>
+ * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
  * @since 0.0.1
  * @version 0.0.1
