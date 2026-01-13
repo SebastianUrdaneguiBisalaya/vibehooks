@@ -20,7 +20,6 @@
 		},
 		"./package.json": "./package.json"
 	},
-	"private": true,
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
