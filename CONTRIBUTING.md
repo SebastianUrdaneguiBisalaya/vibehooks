@@ -9,7 +9,18 @@ If you’d like to improve this project, follow these steps:
 ```bash
 git clone https://github.com/SebastianUrdaneguiBisalaya/vibehooks.git
 cd vibehooks
+```
+
+Using `npm`:
+
+```bash
 npm install
+```
+
+Using `pnpm`:
+
+```bash
+pnpm install
 ```
 
 2. **Create a new branch for your feature or fix:**
