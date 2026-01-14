@@ -23,7 +23,7 @@ export { useList } from './useList';
 export { useLocalStorage } from './useLocalStorage';
 export { useNotifications } from './useNotifications';
 export { useObjectList } from './useObjectList';
-export { useOnlyNetwork } from './useOnlyNetwork';
+export { useNetworkInformation } from './useNetworkInformation';
 export { usePageVisibility } from './usePageVisibility';
 export { usePermissions } from './usePermissions';
 export { usePopover } from './usePopover';
