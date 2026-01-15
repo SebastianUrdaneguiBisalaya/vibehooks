@@ -1,27 +1,27 @@
 import * as React from 'react';
 
 export interface UseDebouncedStateOptions {
-  /**
-   * Delay in milliseconds before the debounced value is updated.
-   */
-  delay: number;
+	/**
+	 * Delay in milliseconds before the debounced value is updated.
+	 */
+	delay: number;
 }
 
 export interface UseDebouncedStateReturn<T> {
-  /**
-   * The inmediate (non-debounced) value.
-   */
-  value: T;
+	/**
+	 * The inmediate (non-debounced) value.
+	 */
+	value: T;
 
-  /**
-   * The debounced value, updated after the specified delay.
-   */
-  debouncedValue: T;
+	/**
+	 * The debounced value, updated after the specified delay.
+	 */
+	debouncedValue: T;
 
-  /**
-   * State setter for the inmediate value.
-   */
-  setValue: React.Dispatch<React.SetStateAction<T>>;
+	/**
+	 * State setter for the inmediate value.
+	 */
+	setValue: React.Dispatch<React.SetStateAction<T>>;
 }
 
 /**
@@ -57,32 +57,32 @@ export interface UseDebouncedStateReturn<T> {
  *
  */
 export function useDebouncedState<T>(
-  initialValue: T,
-  options: UseDebouncedStateOptions,
+	initialValue: T,
+	options: UseDebouncedStateOptions
 ): UseDebouncedStateReturn<T> {
-  const { delay } = options;
-  const [value, setValue] = React.useState<T>(initialValue);
-  const [debouncedValue, setDebouncedValue] = React.useState<T>(initialValue);
+	const { delay } = options;
+	const [value, setValue] = React.useState<T>(initialValue);
+	const [debouncedValue, setDebouncedValue] = React.useState<T>(initialValue);
 
-  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+	const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  React.useEffect(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    }
-  }, [value, delay]);
+	React.useEffect(() => {
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
+		}
+		timeoutRef.current = setTimeout(() => {
+			setDebouncedValue(value);
+		}, delay);
+		return () => {
+			if (timeoutRef.current) {
+				clearTimeout(timeoutRef.current);
+			}
+		};
+	}, [value, delay]);
 
-  return {
-    value,
-    debouncedValue,
-    setValue,
-  }
+	return {
+		value,
+		debouncedValue,
+		setValue,
+	};
 }

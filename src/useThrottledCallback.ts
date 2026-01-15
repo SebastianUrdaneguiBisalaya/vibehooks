@@ -1,14 +1,14 @@
 import * as React from 'react';
 
 export interface UseThrottledCallbackOptions {
-  /**
-   * Minimum time in milliseconds between callback executions.
-   */
-  delay: number;
+	/**
+	 * Minimum time in milliseconds between callback executions.
+	 */
+	delay: number;
 }
 
 export type ThrottledCallback<TArgs extends readonly unknown[]> = (
-  ...args: TArgs
+	...args: TArgs
 ) => void;
 
 /**
@@ -45,25 +45,26 @@ export type ThrottledCallback<TArgs extends readonly unknown[]> = (
  *
  */
 export function useThrottledCallback<TArgs extends readonly unknown[]>(
-  callback: (...args: TArgs) => void,
-  options: UseThrottledCallbackOptions,
+	callback: (...args: TArgs) => void,
+	options: UseThrottledCallbackOptions
 ): ThrottledCallback<TArgs> {
-  const { delay } = options;
+	const { delay } = options;
 
-  const lastCallRef = React.useRef<number>(0);
-  const callbackRef = React.useRef<ThrottledCallback<TArgs>>(callback);
+	const lastCallRef = React.useRef<number>(0);
+	const callbackRef = React.useRef<ThrottledCallback<TArgs>>(callback);
 
-  React.useEffect(() => {
-    callbackRef.current = callback;
-  }, [callback])
+	React.useEffect(() => {
+		callbackRef.current = callback;
+	}, [callback]);
 
-  return React.useCallback(
-    (...args: TArgs) => {
-      const now = Date.now();
-      if (now - lastCallRef.current >= delay) {
-        lastCallRef.current = now;
-        callbackRef.current(...args);
-      }
-    }, [delay]
-  )
+	return React.useCallback(
+		(...args: TArgs) => {
+			const now = Date.now();
+			if (now - lastCallRef.current >= delay) {
+				lastCallRef.current = now;
+				callbackRef.current(...args);
+			}
+		},
+		[delay]
+	);
 }
