@@ -1,25 +1,25 @@
 import * as React from 'react';
 
 export interface UseUserActivationResult {
-  /**
-   * Whether the user has ever interacted with the document.
-   */
-  hasBeenActive: boolean;
+	/**
+	 * Whether the user has ever interacted with the document.
+	 */
+	hasBeenActive: boolean;
 
-  /**
-   * Whether there is a current transient user activation.
-   */
-  isActive: boolean;
+	/**
+	 * Whether there is a current transient user activation.
+	 */
+	isActive: boolean;
 
-  /**
-   * Forces a re-read of the current activation state.
-   */
-  refresh: () => void;
+	/**
+	 * Forces a re-read of the current activation state.
+	 */
+	refresh: () => void;
 
-  /**
-   * Indicates whether the UserActivation API is supported.
-   */
-  isSupported: boolean;
+	/**
+	 * Indicates whether the UserActivation API is supported.
+	 */
+	isSupported: boolean;
 }
 
 /**
@@ -49,51 +49,55 @@ export interface UseUserActivationResult {
  *
  */
 export function useUserActivation(): UseUserActivationResult {
-  const isSupported = typeof navigator !== 'undefined' && typeof navigator.userActivation !== 'undefined';
+	const isSupported =
+		typeof navigator !== 'undefined' &&
+		typeof navigator.userActivation !== 'undefined';
 
-  const readState = React.useCallback(() => {
-    if (!isSupported) {
-      return {
-        isActive: false,
-        hasBeenActive: false,
-      }
-    }
-    return {
-      hasBeenActive: navigator.userActivation.hasBeenActive,
-      isActive: navigator.userActivation.isActive,
-    };
-  }, [isSupported]);
+	const readState = React.useCallback(() => {
+		if (!isSupported) {
+			return {
+				isActive: false,
+				hasBeenActive: false,
+			};
+		}
+		return {
+			hasBeenActive: navigator.userActivation.hasBeenActive,
+			isActive: navigator.userActivation.isActive,
+		};
+	}, [isSupported]);
 
-  const [state, setState] = React.useState(() => readState());
+	const [state, setState] = React.useState(() => readState());
 
-  const refresh = React.useCallback(() => {
-    setState(readState());
-  }, [readState]);
+	const refresh = React.useCallback(() => {
+		setState(readState());
+	}, [readState]);
 
-  React.useEffect(() => {
-    if (!isSupported) return;
+	React.useEffect(() => {
+		if (!isSupported) return;
 
-    const events: Array<keyof WindowEventMap> = [
-      'mousedown',
-      'keydown',
-      'touchstart',
-      'pointerdown',
-    ];
+		const events: Array<keyof WindowEventMap> = [
+			'mousedown',
+			'keydown',
+			'touchstart',
+			'pointerdown',
+		];
 
-    const handler = () => {
-      refresh();
-    };
+		const handler = () => {
+			refresh();
+		};
 
-    events.forEach((event) => window.addEventListener(event, handler, { passive: true }))
-    return () => {
-      events.forEach((event) => window.removeEventListener(event, handler))
-    }
-  }, [isSupported, refresh]);
+		events.forEach(event =>
+			window.addEventListener(event, handler, { passive: true })
+		);
+		return () => {
+			events.forEach(event => window.removeEventListener(event, handler));
+		};
+	}, [isSupported, refresh]);
 
-  return {
-    hasBeenActive: state.hasBeenActive,
-    isActive: state.isActive,
-    refresh,
-    isSupported,
-  }
+	return {
+		hasBeenActive: state.hasBeenActive,
+		isActive: state.isActive,
+		refresh,
+		isSupported,
+	};
 }
