@@ -1,31 +1,31 @@
 import * as React from 'react';
 
 export interface UseHoverIntentOptions {
-  /**
-   * Delay (ms) before considering hover as intentional.
-   */
-  delay?: number;
+	/**
+	 * Delay (ms) before considering hover as intentional.
+	 */
+	delay?: number;
 
-  /**
-   * Pixel movement tolerance before canceling intent.
-   */
-  tolerance?: number;
+	/**
+	 * Pixel movement tolerance before canceling intent.
+	 */
+	tolerance?: number;
 }
 
 export interface UseHoverIntentResult {
-  /**
-   * Whether the hover is considered intentional.
-   */
-  isIntent: boolean;
+	/**
+	 * Whether the hover is considered intentional.
+	 */
+	isIntent: boolean;
 
-  /**
-   * Event handlers to spread on the target element.
-   */
-  handlers: {
-    onMouseEnter?: React.MouseEventHandler;
-    onMouseMove?: React.MouseEventHandler;
-    onMouseLeave?: React.MouseEventHandler;
-  }
+	/**
+	 * Event handlers to spread on the target element.
+	 */
+	handlers: {
+		onMouseEnter?: React.MouseEventHandler;
+		onMouseMove?: React.MouseEventHandler;
+		onMouseLeave?: React.MouseEventHandler;
+	};
 }
 
 /**
@@ -54,69 +54,71 @@ export interface UseHoverIntentResult {
  *
  */
 export function useHoverIntent(
-  options: UseHoverIntentOptions = {}
+	options: UseHoverIntentOptions = {}
 ): UseHoverIntentResult {
-  const { delay = 100, tolerance = 6 } = options;
-  const [isIntent, setIsIntent] = React.useState<boolean>(false);
+	const { delay = 100, tolerance = 6 } = options;
+	const [isIntent, setIsIntent] = React.useState<boolean>(false);
 
-  const timeoutRef = React.useRef<number | null>(null);
-  const lastPointRef = React.useRef<{ x: number, y: number } | null>(null);
+	const timeoutRef = React.useRef<number | null>(null);
+	const lastPointRef = React.useRef<{ x: number; y: number } | null>(null);
 
-  const clear = React.useCallback(() => {
-    if (timeoutRef.current !== null) {
-      window.clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-  }, []);
+	const clear = React.useCallback(() => {
+		if (timeoutRef.current !== null) {
+			window.clearTimeout(timeoutRef.current);
+			timeoutRef.current = null;
+		}
+	}, []);
 
-  const onMouseEnter = React.useCallback<React.MouseEventHandler>(
-    (event) => {
-      lastPointRef.current = { x: event.clientX, y: event.clientY };
-      clear();
-      timeoutRef.current = window.setTimeout(() => {
-        setIsIntent(true);
-      }, delay);
-    }, [delay, clear]
-  );
+	const onMouseEnter = React.useCallback<React.MouseEventHandler>(
+		event => {
+			lastPointRef.current = { x: event.clientX, y: event.clientY };
+			clear();
+			timeoutRef.current = window.setTimeout(() => {
+				setIsIntent(true);
+			}, delay);
+		},
+		[delay, clear]
+	);
 
-  const onMouseMove = React.useCallback<React.MouseEventHandler>(
-    (event) => {
-      if (!lastPointRef.current) return;
-      const dx = Math.abs(event.clientX - lastPointRef.current.x);
-      const dy = Math.abs(event.clientY - lastPointRef.current.y);
+	const onMouseMove = React.useCallback<React.MouseEventHandler>(
+		event => {
+			if (!lastPointRef.current) return;
+			const dx = Math.abs(event.clientX - lastPointRef.current.x);
+			const dy = Math.abs(event.clientY - lastPointRef.current.y);
 
-      if (dx > tolerance || dy > tolerance) {
-        clear();
-        setIsIntent(false);
-        timeoutRef.current = window.setTimeout(() => {
-          setIsIntent(true);
-        }, delay);
-        lastPointRef.current = {
-          x: event.clientX,
-          y: event.clientY,
-        }
-      }
-    }, [tolerance, clear, delay]
-  );
+			if (dx > tolerance || dy > tolerance) {
+				clear();
+				setIsIntent(false);
+				timeoutRef.current = window.setTimeout(() => {
+					setIsIntent(true);
+				}, delay);
+				lastPointRef.current = {
+					x: event.clientX,
+					y: event.clientY,
+				};
+			}
+		},
+		[tolerance, clear, delay]
+	);
 
-  const onMouseLeave = React.useCallback<React.MouseEventHandler>(() => {
-    clear();
-    lastPointRef.current = null;
-    setIsIntent(false);
-  }, [clear]);
+	const onMouseLeave = React.useCallback<React.MouseEventHandler>(() => {
+		clear();
+		lastPointRef.current = null;
+		setIsIntent(false);
+	}, [clear]);
 
-  React.useEffect(() => {
-    return () => {
-      clear();
-    }
-  }, [clear]);
+	React.useEffect(() => {
+		return () => {
+			clear();
+		};
+	}, [clear]);
 
-  return {
-    isIntent,
-    handlers: {
-      onMouseEnter,
-      onMouseMove,
-      onMouseLeave,
-    }
-  };
+	return {
+		isIntent,
+		handlers: {
+			onMouseEnter,
+			onMouseMove,
+			onMouseLeave,
+		},
+	};
 }

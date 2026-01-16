@@ -1,25 +1,25 @@
 import * as React from 'react';
 
 export interface UseScreenWakeLockResult {
-  /**
-   * Whether the wake lock is currently active.
-   */
-  isActive: boolean;
+	/**
+	 * Whether the wake lock is currently active.
+	 */
+	isActive: boolean;
 
-  /**
-   * Requests a screen wake lock.
-   */
-  request: () => Promise<void>;
+	/**
+	 * Requests a screen wake lock.
+	 */
+	request: () => Promise<void>;
 
-  /**
-   * Releases the wake lock.
-   */
-  release: () => Promise<void>;
+	/**
+	 * Releases the wake lock.
+	 */
+	release: () => Promise<void>;
 
-  /**
-   * Whether the Wake Lock API is supported.
-   */
-  isSupported: boolean;
+	/**
+	 * Whether the Wake Lock API is supported.
+	 */
+	isSupported: boolean;
 }
 
 /**
@@ -46,35 +46,35 @@ export interface UseScreenWakeLockResult {
  *
  */
 export function useScreenWakeLock(): UseScreenWakeLockResult {
-  const isSupported = typeof navigator !== 'undefined' && 'wakeLock' in navigator;
+	const isSupported =
+		typeof navigator !== 'undefined' && 'wakeLock' in navigator;
 
-  const lockRef = React.useRef<WakeLockSentinel | null>(null);
-  const [isActive, setIsActive] = React.useState<boolean>(false);
+	const lockRef = React.useRef<WakeLockSentinel | null>(null);
+	const [isActive, setIsActive] = React.useState<boolean>(false);
 
-  const request = React.useCallback(async () => {
-    if (!isSupported || lockRef.current) return;
-    try {
-      lockRef.current = await navigator.wakeLock.request('screen');
-      setIsActive(true);
-      lockRef.current.addEventListener('release', () => {
-        lockRef.current = null;
-        setIsActive(false);
-      })
-    } catch {
-    }
-  }, [isSupported]);
+	const request = React.useCallback(async () => {
+		if (!isSupported || lockRef.current) return;
+		try {
+			lockRef.current = await navigator.wakeLock.request('screen');
+			setIsActive(true);
+			lockRef.current.addEventListener('release', () => {
+				lockRef.current = null;
+				setIsActive(false);
+			});
+		} catch {}
+	}, [isSupported]);
 
-  const release = React.useCallback(async () => {
-    if (!lockRef.current) return;
-    await lockRef.current.release();
-    lockRef.current = null;
-    setIsActive(false);
-  }, []);
+	const release = React.useCallback(async () => {
+		if (!lockRef.current) return;
+		await lockRef.current.release();
+		lockRef.current = null;
+		setIsActive(false);
+	}, []);
 
-  return {
-    isSupported,
-    isActive,
-    request,
-    release,
-  }
+	return {
+		isSupported,
+		isActive,
+		request,
+		release,
+	};
 }

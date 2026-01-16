@@ -1,30 +1,30 @@
 import * as React from 'react';
 
 export interface UsePictureInPictureResult {
-  /**
-   * Whether Picture-in-Picture is supported by the browser.
-   */
-  isSupported: boolean;
+	/**
+	 * Whether Picture-in-Picture is supported by the browser.
+	 */
+	isSupported: boolean;
 
-  /**
-   * Whether the video is currently in Picture-in-Picture mode.
-   */
-  isActive: boolean;
+	/**
+	 * Whether the video is currently in Picture-in-Picture mode.
+	 */
+	isActive: boolean;
 
-  /**
-   * Requests Picture-in-Picture for the attached video element.
-   */
-  enter: () => Promise<void>;
+	/**
+	 * Requests Picture-in-Picture for the attached video element.
+	 */
+	enter: () => Promise<void>;
 
-  /**
-   * Exits Picture-in-Picture mode if active.
-   */
-  exit: () => Promise<void>;
+	/**
+	 * Exits Picture-in-Picture mode if active.
+	 */
+	exit: () => Promise<void>;
 
-  /**
-   * Ref to the HTMLVideoElement.
-   */
-  videoRef: React.RefObject<HTMLVideoElement | null>;
+	/**
+	 * Ref to the HTMLVideoElement.
+	 */
+	videoRef: React.RefObject<HTMLVideoElement | null>;
 }
 
 /**
@@ -55,44 +55,45 @@ export interface UsePictureInPictureResult {
  *
  */
 export function usePictureInPicture(): UsePictureInPictureResult {
-  const videoRef = React.useRef<HTMLVideoElement | null>(null);
-  const [isActive, setIsActive] = React.useState<boolean>(false);
+	const videoRef = React.useRef<HTMLVideoElement | null>(null);
+	const [isActive, setIsActive] = React.useState<boolean>(false);
 
-  const isSupported = typeof document !== 'undefined' && 'pictureInPictureEnabled' in document;
+	const isSupported =
+		typeof document !== 'undefined' && 'pictureInPictureEnabled' in document;
 
-  const enter = React.useCallback(async () => {
-    if (!isSupported) return;
-    const video = videoRef.current;
-    if (!video) return;
-    if (document.pictureInPictureElement) return;
-    await video.requestPictureInPicture();
-  }, [isSupported]);
+	const enter = React.useCallback(async () => {
+		if (!isSupported) return;
+		const video = videoRef.current;
+		if (!video) return;
+		if (document.pictureInPictureElement) return;
+		await video.requestPictureInPicture();
+	}, [isSupported]);
 
-  const exit = React.useCallback(async () => {
-    if (!isSupported) return;
-    if (!document.pictureInPictureElement) return;
-    await document.exitPictureInPicture();
-  }, [isSupported]);
+	const exit = React.useCallback(async () => {
+		if (!isSupported) return;
+		if (!document.pictureInPictureElement) return;
+		await document.exitPictureInPicture();
+	}, [isSupported]);
 
-  React.useEffect(() => {
-    if (!isSupported) return;
-    const onEnter = () => setIsActive(true);
-    const onExit = () => setIsActive(false);
+	React.useEffect(() => {
+		if (!isSupported) return;
+		const onEnter = () => setIsActive(true);
+		const onExit = () => setIsActive(false);
 
-    document.addEventListener('enterpictureinpicture', onEnter);
-    document.addEventListener('leavepictureinpicture', onExit);
+		document.addEventListener('enterpictureinpicture', onEnter);
+		document.addEventListener('leavepictureinpicture', onExit);
 
-    return () => {
-      document.removeEventListener('enterpictureinpicture', onEnter);
-      document.removeEventListener('leavepictureinpicture', onExit);
-    }
-  }, [isSupported]);
+		return () => {
+			document.removeEventListener('enterpictureinpicture', onEnter);
+			document.removeEventListener('leavepictureinpicture', onExit);
+		};
+	}, [isSupported]);
 
-  return {
-    isSupported,
-    isActive,
-    enter,
-    exit,
-    videoRef,
-  }
+	return {
+		isSupported,
+		isActive,
+		enter,
+		exit,
+		videoRef,
+	};
 }

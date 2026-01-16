@@ -1,48 +1,48 @@
 import * as React from 'react';
 
 export interface UseFileOptions {
-  /**
-   * Allow selecting multiple files
-   */
-  multiple?: boolean;
+	/**
+	 * Allow selecting multiple files
+	 */
+	multiple?: boolean;
 
-  /**
-   * Accepted file types (input accept attribute)
-   * Example: 'image/*', '.pdf'
-   */
-  accept?: string;
+	/**
+	 * Accepted file types (input accept attribute)
+	 * Example: 'image/*', '.pdf'
+	 */
+	accept?: string;
 
-  /**
-   * Whether the file input should be disabled
-   */
-  disabled?: boolean;
+	/**
+	 * Whether the file input should be disabled
+	 */
+	disabled?: boolean;
 }
 
 export interface UseFileResult {
-  /**
-   * Currently selected files.
-   */
-  files: File[];
+	/**
+	 * Currently selected files.
+	 */
+	files: File[];
 
-  /**
-   * Clears the selected files.
-   */
-  reset: () => void;
+	/**
+	 * Clears the selected files.
+	 */
+	reset: () => void;
 
-  /**
-   * Manually sets files (useful for drag & drop).
-   */
-  setFiles: (files: File[] | FileList) => void;
+	/**
+	 * Manually sets files (useful for drag & drop).
+	 */
+	setFiles: (files: File[] | FileList) => void;
 
-  /**
-   * Props to spread into an <input type="file" /> element.
-   */
-  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+	/**
+	 * Props to spread into an <input type="file" /> element.
+	 */
+	inputProps: React.InputHTMLAttributes<HTMLInputElement>;
 
-  /**
-   * Whether at least one file is selected.
-   */
-  hasFiles: boolean;
+	/**
+	 * Whether at least one file is selected.
+	 */
+	hasFiles: boolean;
 }
 
 /**
@@ -84,46 +84,48 @@ export interface UseFileResult {
  * @version 0.0.1
  *
  */
-export function useFile(
-  options: UseFileOptions = {}
-): UseFileResult {
-  const { multiple = false, accept, disabled } = options;
-  const [files, setInternalFiles] = React.useState<File[]>([]);
+export function useFile(options: UseFileOptions = {}): UseFileResult {
+	const { multiple = false, accept, disabled } = options;
+	const [files, setInternalFiles] = React.useState<File[]>([]);
 
-  const setFiles = React.useCallback(
-    (input: File[] | FileList) => {
-      const next = Array.from(input);
-      setInternalFiles(multiple ? next : next.slice(0, 1));
-    }, [multiple]
-  );
+	const setFiles = React.useCallback(
+		(input: File[] | FileList) => {
+			const next = Array.from(input);
+			setInternalFiles(multiple ? next : next.slice(0, 1));
+		},
+		[multiple]
+	);
 
-  const reset = React.useCallback(() => {
-    setInternalFiles([]);
-  }, []);
+	const reset = React.useCallback(() => {
+		setInternalFiles([]);
+	}, []);
 
-  const onChange = React.useCallback<React.ChangeEventHandler<HTMLInputElement>>(
-    (event) => {
-      if (!event.target.files) return;
-      setFiles(event.target.files);
-    }, [setFiles]
-  );
+	const onChange = React.useCallback<
+		React.ChangeEventHandler<HTMLInputElement>
+	>(
+		event => {
+			if (!event.target.files) return;
+			setFiles(event.target.files);
+		},
+		[setFiles]
+	);
 
-  const inputProps: React.InputHTMLAttributes<HTMLInputElement> = React.useMemo(
-    () => ({
-      type: 'file',
-      accept,
-      multiple,
-      disabled,
-      onChange,
-    }),
-    [accept, multiple, disabled, onChange]
-  );
+	const inputProps: React.InputHTMLAttributes<HTMLInputElement> = React.useMemo(
+		() => ({
+			type: 'file',
+			accept,
+			multiple,
+			disabled,
+			onChange,
+		}),
+		[accept, multiple, disabled, onChange]
+	);
 
-  return {
-    files,
-    reset,
-    setFiles,
-    inputProps,
-    hasFiles: files.length > 0,
-  };
+	return {
+		files,
+		reset,
+		setFiles,
+		inputProps,
+		hasFiles: files.length > 0,
+	};
 }
