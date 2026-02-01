@@ -48,7 +48,7 @@ export default function Navbar() {
             Close
           </Button.Primary>
         </div>
-        <NavigationList />
+        <NavigationList toggleMobile={toggleMobile} />
       </div>
       <div
         className={cn('fixed inset-0 z-40 bg-black/50 w-full h-screen transition-transform duration-500 ease-in-out', showModalMobile ? 'flex' : 'hidden')}

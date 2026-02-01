@@ -19,7 +19,7 @@ export interface HooksListProps {
 }
 
 
-export default function NavigationList() {
+export default function NavigationList({ toggleMobile }: { toggleMobile: () => void }) {
   const pathname = usePathname();
 
   const listMajorItems = hooksList.map(item => ({
@@ -79,6 +79,7 @@ export default function NavigationList() {
                             )}
                             href={hook.path}
                             key={hook.name}
+                            onNavigate={toggleMobile}
                           >
                             {hook.name}
                           </Link>
