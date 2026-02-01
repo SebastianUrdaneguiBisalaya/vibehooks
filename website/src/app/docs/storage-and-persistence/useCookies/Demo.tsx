@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 
 import { useCookies } from "../../../../../../src";
-import LayoutDemo from "@/layouts/Layout";
+import { Button } from "@/components/ui/Button";
+import { Layout } from "@/layouts/Layout";
 
 const COOKIE_NAME = 'cookie-consent';
 
@@ -38,26 +39,17 @@ export default function Demo() {
   if (consent === 'accepted') return null;
 
   return (
-    <LayoutDemo
-      title="🍪 Cookies and Privacy"
-    >
-      <p className="text-white/70 text-sm text-center w-full font-reddit-sans">
+    <Layout>
+      <Layout.Title>🍪 Cookies and Privacy</Layout.Title>
+      <Layout.Caption>
         We use cookies to improve your experience. You can accept or decline the use of cookies by clicking on the button below.
-      </p>
-      <div className="w-full flex flex-row items-center gap-4">
-        <button
-          className="w-full font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-900 hover:bg-neutral-950"
-          onClick={handleDecline}
-        >
+      </Layout.Caption>
+      <div className="w-full flex flex-row items-center justify-center gap-2">
+        <Button.Destructive disabled={consent === 'accepted'} onClick={handleDecline}>
           Decline
-        </button>
-        <button
-          className="w-full font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-900 hover:bg-neutral-950"
-          onClick={handleAccept}
-        >
-          Accept
-        </button>
+        </Button.Destructive>
+        <Button.Primary onClick={handleAccept}>Accept</Button.Primary>
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

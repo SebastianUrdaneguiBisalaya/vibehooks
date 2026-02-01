@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 import { useLocalStorage } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
-import LayoutDemo from "@/layouts/Layout";
-import LayoutNotMounted from "@/layouts/LayoutNotMounted";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 import { cn } from "@/lib/cn";
 
 export interface Preferences {
@@ -35,17 +35,21 @@ export default function Demo() {
     }, 100);
   }, []);
 
-  if (!isMounted) return <LayoutNotMounted />;
+  if (!isMounted) {
+    return (
+      <Layout>
+        <Layout.ContentLoading />
+      </Layout>
+    )
+  }
+
   if (!prefs) return null;
 
   return (
-    <LayoutDemo
-      title="Local Storage"
-    >
+    <Layout>
+      <Layout.Title>Local Storage</Layout.Title>
       <div className="w-full flex flex-row items-center gap-4 justify-center">
-        <span className="font-reddit-sans text-sm text-white/70">
-          Compact mode
-        </span>
+        <Tag.Primary>Compact Mode</Tag.Primary>
         <Button.Secondary
           className="rounded-full"
           onClick={handleToggle}
@@ -58,6 +62,6 @@ export default function Demo() {
           />
         </Button.Secondary>
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

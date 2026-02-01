@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useIndexedDB } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import LayoutDemo from "@/layouts/Layout";
+import { Layout } from "@/layouts/Layout";
 
 export interface Note {
   createdAt: number;
@@ -63,10 +63,9 @@ export default function Demo() {
   }
 
   return (
-    <LayoutDemo
-      title="IndexedDB"
-    >
-      <div className="w-full flex flex-row items-center gap-4">
+    <Layout>
+      <Layout.Title>IndexedDB</Layout.Title>
+      <div className="w-full flex flex-row items-center justify-center gap-2">
         <Input.Primary
           onChange={handleOnChange}
           placeholder="Write something here"
@@ -78,18 +77,11 @@ export default function Demo() {
           Save
         </Button.Primary>
       </div>
-      <div>
-        <ul className="">
-          {notes.map(note => (
-            <li
-              className="font-reddit-sans text-sm text-white"
-              key={note.id}
-            >
-              {note.text}
-            </li>
-          ))}
-        </ul>
+      <div className="flex flex-col items-center gap-2">
+        {notes.map(note => (
+          <Layout.Caption key={note.id}>{note.text}</Layout.Caption>
+        ))}
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }
