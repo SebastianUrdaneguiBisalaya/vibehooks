@@ -35,6 +35,7 @@ import { useState, useEffect } from 'react';
 
 import { useUserActivation } from '../../../../../../src';
 import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
 import { Layout } from "@/layouts/Layout";
 
 export default function UserActivationDemo() {
@@ -78,11 +79,11 @@ export default function UserActivationDemo() {
       <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4">
         <div className='flex flex-row items-center justify-center gap-2 w-full border border-white/20 rounded-lg p-2'>
           <Layout.Caption className='text-left'>Did the user ever interact?</Layout.Caption>
-          <Layout.Caption className='text-right'>{hasBeenActive ? 'true' : 'false'}</Layout.Caption>
+          <Tag.Primary className='text-right'>{hasBeenActive ? 'true' : 'false'}</Tag.Primary>
         </div>
         <div className='flex flex-row items-center justify-center gap-2 w-full border border-white/20 rounded-lg p-2'>
           <Layout.Caption className='text-left'>Current transient activation</Layout.Caption>
-          <Layout.Caption className='text-right'>{isActive ? 'true' : 'false'}</Layout.Caption>
+          <Tag.Primary className='text-right'>{isActive ? 'true' : 'false'}</Tag.Primary>
         </div>
       </div>
 
