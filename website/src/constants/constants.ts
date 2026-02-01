@@ -74,16 +74,16 @@ const hooksList: HooksListProps[] = [
         path: "/docs/connectivity-and-async/useIntervalSafe",
       },
       {
+        name: "useServerSentEvent",
+        path: "/docs/connectivity-and-async/useServerSentEvent",
+      },
+      {
         name: "useTaskQueue",
         path: "/docs/connectivity-and-async/useTaskQueue",
       },
       {
         name: "useTimeout",
         path: "/docs/connectivity-and-async/useTimeout",
-      },
-      {
-        name: "useServerSentEvent",
-        path: "/docs/connectivity-and-async/useServerSentEvent",
       },
       {
         name: "useWebsocket",

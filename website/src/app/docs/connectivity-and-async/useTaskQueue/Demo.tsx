@@ -3,7 +3,9 @@
 import { useState } from "react";
 
 import { useTaskQueue, type Task } from "../../../../../../src/useTaskQueue";
-import DemoLayout from "@/layouts/Layout";
+import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const { enqueue, queue, running } = useTaskQueue<string>();
@@ -24,56 +26,33 @@ export default function Demo() {
     enqueue(task);
   };
   return (
-    <DemoLayout
-      title="Tasks Queue"
-    >
-      <button
-        className="px-4 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-md font-bold transition font-reddit-sans text-sm"
-        onClick={addNewTask}
-      >
-        Add Task
-      </button>
-
-      <div className="w-full flex flex-col items-center gap-4">
-        <div className="w-fit flex items-center gap-3 px-4 py-3 bg-neutral-700 rounded-md">
-          <div className={`w-3 h-3 rounded-full ${running ? 'bg-green-500 animate-pulse' : 'bg-gray-300'}`} />
-          <span className="text-sm font-semibold text-white/70 font-reddit-sans">
-            {running ? 'Processing Queue...' : 'System Idle'}
-          </span>
-        </div>
-
-        <div className="flex flex-col gap-3 items-center w-full">
-          <h3 className="text-xs font-reddit-sans font-bold text-white/70 uppercase tracking-wider">
-            Pending Queue ({queue.length})
-          </h3>
-          <div className="flex flex-col items-center gap-2">
-            {queue.length === 0 && <p className="text-sm font-reddit-sans text-white/60">No tasks waiting</p>}
-            {queue.map((task, index) => (
-              <div className="flex gap-2 justify-between items-center px-4 py-3 bg-neutral-700 rounded-md" key={task.id}>
-                <span className="text-sm font-reddit-sans text-white/60">{task.id}</span>
-                {index === 0 && running && (
-                  <span className="text-[10px] font-reddit-sans bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold">
-                    ACTIVE
-                  </span>
-                )}
-              </div>
-            ))}
+    <Layout>
+      <Layout.Title>Task Queue</Layout.Title>
+      {running && <Tag.Loading>Processing queue</Tag.Loading>}
+      {!running && <Tag.Primary>System idle</Tag.Primary>}
+      <Button.Primary onClick={addNewTask}>
+        Add task
+      </Button.Primary>
+      <Layout.Paragraph>Pending Queue ({queue.length})</Layout.Paragraph>
+      <div className="flex flex-col items-center gap-2">
+        {queue.length === 0 && <Layout.Caption>No tasks to process.</Layout.Caption>}
+        {queue.map((task, index) => (
+          <div className="flex gap-2 justify-between items-center px-2 py-1 bg-neutral-700 rounded-md" key={task.id}>
+            <Layout.Caption>{task.id}</Layout.Caption>
+            {index === 0 && running && (
+              <Tag.Primary>Active</Tag.Primary>
+            )}
           </div>
-        </div>
-
-        <div className="w-full flex flex-col items-center gap-2">
-          <h4 className="text-xs font-reddit-sans font-bold text-white/70 uppercase tracking-wider self-center">
-            Completed List
-          </h4>
-          <div className="flex items-center flex-wrap gap-2 w-full">
-            {completed.map((id) => (
-              <span className="px-3 py-1 bg-green-100 text-green-700 text-xs rounded-md border border-green-300 font-reddit-sans" key={id}>
-                {id} ✓
-              </span>
-            ))}
-          </div>
+        ))}
+      </div>
+      <div className="w-full flex flex-col items-center gap-2">
+        <Layout.Paragraph>Completed Tasks ({completed.length})</Layout.Paragraph>
+        <div className="flex items-center flex-wrap gap-2 w-full">
+          {completed.map((id) => (
+            <Layout.Caption key={id}>{id} ✓</Layout.Caption>
+          ))}
         </div>
       </div>
-    </DemoLayout>
+    </Layout>
   )
 }
