@@ -1,0 +1,53 @@
+import CodeBlock from "@/components/shared/Codeblock";
+import Demo from "@/app/docs/connectivity-and-async/useOnline/Demo";
+import Table from "@/components/shared/Table";
+import data from "@/app/docs/connectivity-and-async/useOnline/data.json";
+
+# useOnline
+
+### A hook that tracks and returns the browser's current online connectivity status.
+
+#### Installation
+
+<CodeBlock
+  code={`npm install @vibehooks/react/useOnline`}
+  language="bash"
+/>
+
+#### Description
+
+The **useOnline** hook utilizes **useSyncExternalStore** to subscribe to the browser's **online** and **offline** window events. It provides a real-time reactive boolean based on the **navigator.onLine API**, ensuring that the component stays in sync with the network state and providing a safe default for Server-Side Rendering (SSR) to avoid hydration mismatches.
+
+#### Return values
+
+<Table data={data.returnValues} />
+
+#### Demo
+
+<Demo />
+
+
+#### Source code
+
+```tsx
+'use client';
+
+import { useOnline } from "../../../../../../src";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
+
+export default function Demo() {
+  const { online } = useOnline();
+  return (
+    <Layout>
+      <Layout.Title>Connectivity Monitor</Layout.Title>
+      <Tag.Primary>Status: {online ? '🌐 Online' : '🔌 Offline'}</Tag.Primary>
+      <Layout.Caption>
+        {online
+          ? "You are connected to the network. Proceed with requests."
+          : "Connection lost. Some features may be limited."}
+      </Layout.Caption>
+    </Layout>
+  )
+}
+```

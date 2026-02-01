@@ -1,0 +1,9 @@
+{
+  "returnValues": [
+    {
+      "name": "online",
+      "type": "boolean",
+      "description": "Returns true if the browser is online, and false otherwise. Note that true doesn't necessarily guarantee internet access, only a connection to a network."
+    }
+  ]
+}

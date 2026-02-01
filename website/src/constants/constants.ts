@@ -86,6 +86,10 @@ const hooksList: HooksListProps[] = [
         path: "/docs/connectivity-and-async/useTimeout",
       },
       {
+        name: "useOnline",
+        path: "/docs/connectivity-and-async/useOnline",
+      },
+      {
         name: "useWebsocket",
         path: "/docs/connectivity-and-async/useWebsocket",
       },
