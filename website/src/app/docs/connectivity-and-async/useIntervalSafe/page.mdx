@@ -38,87 +38,75 @@ The **useIntervalSafe** hook provides a safe way to handle intervals in React by
 'use client';
 
 import { useState } from "react";
-import { useIntervalSafe } from "@vibehooks/react/useIntervalSafe";
-import DemoLayout from "@/layouts/LayoutDemo";
-import { cn } from "@/lib/cn";
+
+import { useIntervalSafe } from "../../../../../../src";
+import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const [logs, setLogs] = useState<string[]>([]);
   const {
-    isActive,
-    executionCount,
     cancel,
-    start,
+    executionCount,
+    isActive,
     reset,
+    start,
   } = useIntervalSafe(
     () => {
       const timestamp = new Date().toLocaleTimeString();
-      setLogs((prev) => [`Tick a ${timestamp}`, ...prev].slice(0, 5));
+      setLogs((prev) => [`Tick a ${timestamp}`, ...prev].slice(0, 6));
     },
     {
       delay: 2000,
-      maxExecutions: 5,
-      executeImmediately: true,
+      maxExecutions: 6,
+      startOnMount: false,
     }
   )
 
-  return (
-    <DemoLayout
-      title="Interval Safe"
-    >
-      <span className={cn(
-        "text-xs font-reddit-sans font-bold",
-        isActive ? "text-green-500" : "text-red-500"
-      )}>
-        Status: {isActive ? 'Running' : 'Idle'}
-      </span>
+  const handleReset = () => {
+    reset();
+    setLogs([]);
+  }
 
-      <div className="bg-neutral-800 rounded-md p-4 border border-white/20 w-full">
-        <div className="flex justify-between gap-2 text-sm mb-2 w-full">
-          <span className="text-white/70 font-reddit-sans">Executions:</span>
-          <span className="font-bold font-reddit-sans text-purple-500">{executionCount} / 5</span>
+  return (
+    <Layout>
+      <Layout.Title>Interval Safe</Layout.Title>
+      <Tag.Primary><strong>Status:</strong> {isActive ? 'Running' : 'Idle'}</Tag.Primary>
+      <div className="rounded-md p-2 border border-white/20 max-w-48 w-full">
+        <div className="flex flex-row justify-between gap-2 mb-2">
+          <Layout.Caption className="text-left">Execution:</Layout.Caption>
+          <Layout.Caption className="text-right">{executionCount}/6</Layout.Caption>
         </div>
-        <div className="w-full bg-neutral-700 h-2 rounded-full overflow-hidden">
+        <div className="w-full bg-neutral-600 h-2 rounded-full overflow-hidden">
           <div
-            className="bg-purple-500 h-full transition-all duration-500"
-            style={{ width: `${(executionCount / 5) * 100}%` }}
+            className="bg-neutral-800 h-full transition-all duration-500"
+            style={{ width: `${(executionCount / 6) * 100}%` }}
           />
         </div>
       </div>
 
-      <div className="space-y-2 h-32 overflow-hidden p-3">
-        {logs.length === 0 && <p className="text-white/80 font-reddit-sans text-xs">No activity...</p>}
+      <div className="grid grid-cols-3 gap-x-2 gap-y-3 place-items-center">
         {logs.map((log, i) => (
-          <p key={i} className="text-green-400 font-reddit-sans text-xs">
-            {`> ${log}`}
-          </p>
+          <div className="border border-white/20 px-2 py-1 rounded-xl" key={i}>
+            <Layout.Caption>{log}</Layout.Caption>
+          </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        <button
-          onClick={isActive ? cancel : start}
-          className={cn(
-            'px-4 py-3 cursor-pointer rounded-md font-reddit-sans w-full h-full font-bold transition-colors duration-500 ease-in-out',
-            isActive
-              ? 'bg-white text-black'
-              : 'bg-purple-500 text-white'
-          )}
-        >
+      <div className="flex flex-row items-center gap-2">
+        <Button.Primary onClick={isActive ? cancel : start}>
           {isActive ? 'Pause' : 'Start'}
-        </button>
-        <button
-          onClick={reset}
-          className="px-4 py-3 cursor-pointer font-reddit-sans w-full h-full bg-neutral-800 text-white rounded-md font-bold transition-colors duration-500 ease-in-out"
-        >
+        </Button.Primary>
+        <Button.Warning onClick={handleReset}>
           Reset
-        </button>
+        </Button.Warning>
       </div>
 
-      <p className="text-xs text-white/40 font-reddit-sans">
-        This interval is configured to stop automatically after 5 ticks.
-      </p>
-    </DemoLayout>
+      <Layout.Caption>
+        This interval is configured to stop automatically after 6 ticks.
+      </Layout.Caption>
+    </Layout>
   )
 }
 ```
