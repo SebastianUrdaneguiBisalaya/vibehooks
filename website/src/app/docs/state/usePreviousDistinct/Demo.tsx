@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import { usePreviousDistinct } from '../../../../../../src/index';
+import { Layout } from "@/layouts/Layout";
 
 const colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b'];
 
@@ -11,28 +12,28 @@ export default function Demo() {
   const prevColor = usePreviousDistinct(color);
 
   return (
-    <div className="p-4 rounded-lg shadow-sm border border-white/20 space-y-6">
-      <div className="flex flex-col md:flex-row gap-4 items-center">
-        <div className="flex-1 w-full flex flex-col gap-2">
-          <p className="text-xs font-sora text-white/60 uppercase font-bold">Current</p>
+    <Layout>
+      <Layout.Title>Previous Distinct</Layout.Title>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div className="flex flex-col gap-2">
+          <Layout.Caption>Current</Layout.Caption>
           <div
             className="h-12 w-full rounded-md"
             style={{ backgroundColor: color }}
           />
-          <p className="text-sm font-reddit-sans text-white/80 mt-1 text-center">{color}</p>
+          <Layout.Caption>{color}</Layout.Caption>
         </div>
 
-        <div className="flex-1 w-full flex flex-col gap-2">
-          <p className="text-xs font-sora text-white/60 uppercase font-bold">Previous Distinct</p>
+        <div className="flex flex-col gap-2">
+          <Layout.Caption>Previous (Distinct)</Layout.Caption>
           <div
             className="h-12 w-full rounded-md bg-slate-100"
             style={{ backgroundColor: prevColor }}
           />
-          <p className="text-sm font-reddit-sans mt-1 text-center text-white/80">{prevColor ?? 'None'}</p>
+          <Layout.Caption>{prevColor ?? '—'}</Layout.Caption>
         </div>
       </div>
-
-      <div className="grid grid-cols-4 gap-2">
+      <div className="w-full grid grid-cols-4 gap-2">
         {colors.map((c) => (
           <button
             className="h-8 rounded-md transition-transform active:scale-95 cursor-pointer"
@@ -43,11 +44,14 @@ export default function Demo() {
           />
         ))}
       </div>
-
-      <ul className="list-disc pl-4 flex flex-col gap-1 leading-tight">
-        <li className='font-reddit-sans text-xs text-white/60'>Clicking a different color updates both.</li>
-        <li className='font-reddit-sans text-xs text-white/60'>Clicking the <b>same color twice</b> will not change the Previous value.</li>
-      </ul>
-    </div>
+      <div className='flex flex-col items-center gap-1.5'>
+        <Layout.Caption>
+          Clicking a different color updates both.
+        </Layout.Caption>
+        <Layout.Caption>
+          Clicking the <b>same color twice</b> will not change the Previous value.
+        </Layout.Caption>
+      </div>
+    </Layout>
   );
 }

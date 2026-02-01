@@ -1,6 +1,9 @@
 'use client';
 
 import { useResettableState } from "../../../../../../src";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const [filters, setFilters, resetFilters] = useResettableState({
@@ -14,38 +17,24 @@ export default function Demo() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 p-4 border rounded-lg shadow-sm w-full border-white/20">
-      <h2 className="text-lg font-bold font-sora text-white/60">Product Filters</h2>
-
-      <div className="w-full max-w-sm flex flex-col items-center gap-4">
-        <input
-          className="w-full px-4 py-3 border border-white/40 rounded-md font-reddit-sans focus:ring-0 focus:outline-none"
+    <Layout>
+      <Layout.Title>Resettable State</Layout.Title>
+      <div className="w-full max-w-sm flex flex-col items-center gap-2">
+        <Input.Primary
           onChange={handleQueryChange}
           placeholder="Search products..."
           type="text"
           value={filters.query}
         />
-
-        <div className="w-full flex flex-col md:flex-row items-center gap-4">
-          <button
-            className="flex-1 w-full bg-blue-600 text-white px-4 py-3 rounded-md hover:bg-blue-700 font-reddit-sans text-sm"
-            onClick={() => console.log('Applying:', filters)}
-          >
-            Apply Filters
-          </button>
-
-          <button
-            className="flex-1 w-full bg-gray-100 text-gray-700 px-4 py-3 rounded-md hover:bg-gray-200 font-reddit-sans text-sm"
-            onClick={resetFilters}
-          >
-            Reset to Default
-          </button>
+        <div className="w-full flex flex-row items-center justify-center gap-2">
+          <Button.Primary onClick={() => console.log('Applying:', filters)}>Apply filters</Button.Primary>
+          <Button.Destructive onClick={resetFilters}>Reset to default</Button.Destructive>
         </div>
       </div>
 
-      <pre className="w-full flex flex-col text-white/60 items-center max-w-sm mt-2 p-2 text-sm rounded">
+      <pre className="w-full flex flex-col text-white/60 items-center max-w-sm p-2 text-sm rounded font-reddit-sans">
         {JSON.stringify(filters, null, 2)}
       </pre>
-    </div>
+    </Layout>
   );
 }

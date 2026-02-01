@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import { useThrottledCallback } from '../../../../../../src/index';
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const [rawCount, setRawCount] = useState<number>(0);
@@ -20,28 +21,29 @@ export default function Demo() {
     throttledHandler();
   };
   return (
-    <div className="p-4 w-full space-y-4">
+    <Layout>
+      <Layout.Title>Throttled Callback</Layout.Title>
       <div
-        className="h-64 bg-black/40 rounded-xl flex flex-col items-center justify-center border border-dashed border-white/20 cursor-crosshair group transition-colors hover:border-white/90"
+        className="h-32 w-full bg-black/40 rounded-xl flex flex-col items-center justify-center border border-dashed border-white/20 cursor-crosshair group transition-colors hover:border-white/90"
         onMouseMove={handleMouseMove}
       >
-        <p className="text-purple-500 font-sora text-sm animate-pulse">MOVE MOUSE HERE</p>
-        <p className="text-white/40 text-xs mt-2 font-sora">Check the counters below</p>
+        <Layout.Paragraph>Move mouse here</Layout.Paragraph>
+        <Layout.Caption>Check the counters below</Layout.Caption>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         <div className="p-4 bg-black/40 border border-white/20 rounded-lg shadow-sm">
-          <p className="text-[10px] font-bold text-white/80 font-reddit-sans uppercase tracking-widest">Raw Events</p>
-          <p className="text-3xl font-reddit-sans font-bold text-white/80">{rawCount}</p>
-          <p className="text-xs text-white/40 font-reddit-sans mt-1 italic">Updating ~60-120fps</p>
+          <Layout.Caption>Raw events</Layout.Caption>
+          <Layout.Paragraph>{rawCount}</Layout.Paragraph>
+          <Layout.Caption>Updating ~60-120fps</Layout.Caption>
         </div>
 
         <div className="p-4 bg-black/40 border border-white/20 rounded-lg shadow-sm">
-          <p className="text-[10px] font-bold font-reddit-sans text-purple-500 uppercase tracking-widest">Throttled (100ms)</p>
-          <p className="text-3xl font-reddit-sans font-bold text-purple-500">{throttledCount}</p>
-          <p className="text-xs text-white/40 mt-1 italic font-reddit-sans">Max 10 updates per second</p>
+          <Layout.Caption>Throttled (100ms)</Layout.Caption>
+          <Layout.Paragraph>{throttledCount}</Layout.Paragraph>
+          <Layout.Caption>Max 10 updates per second</Layout.Caption>
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }
