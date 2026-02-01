@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 import { useGeolocation } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
 import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
@@ -47,9 +48,9 @@ export default function Demo() {
   return (
     <Layout>
       <Layout.Title>Geolocation</Layout.Title>
-      <Layout.Caption>
+      <Tag.Primary>
         Status: {permissionState}
-      </Layout.Caption>
+      </Tag.Primary>
 
       {!isSupported ? (
         <p className="text-sm text-red-500 bg-red-50 p-3 rounded font-reddit-sans">Geolocation not supported.</p>
@@ -73,7 +74,7 @@ export default function Demo() {
               Get once
             </Button.Primary>
             <Button.Secondary onClick={toggleTracking}>
-              {watcherId !== null ? 'Stop Tracking' : 'Start Watch'}
+              {watcherId !== null ? 'Stop' : 'Start'}
             </Button.Secondary>
           </div>
         </div>
