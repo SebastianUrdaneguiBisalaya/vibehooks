@@ -16,7 +16,7 @@ import data from "@/app/docs/connectivity-and-async/useIntervalSafe/data.json";
 
 #### Description
 
-The **useIntervalSafe** hook provides a safe way to handle intervals in React by using a **ref** for the callback to prevent stale closures. It extends the native **setInterval** functionality by adding features such as execution capping (**maxExecutions**), immediate execution, and a managed **isActive** state. It is designed to be SSR-safe and automatically cleans up the interval when the component unmounts to prevent memory leaks.
+The **useIntervalSafe** hook provides a safe way to handle intervals in React by using a **ref** for the callback to prevent stale closures. It extends the native **setInterval** functionality by adding features such as execution capping (**maxExecutions**), start on mount, and a managed **isActive** state. It is designed to be SSR-safe and automatically cleans up the interval when the component unmounts to prevent memory leaks.
 
 
 #### Parameters

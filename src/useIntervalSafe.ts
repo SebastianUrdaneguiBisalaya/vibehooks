@@ -7,11 +7,6 @@ export interface UseIntervalOptions {
 	 */
 	delay: number | null;
 	/**
-	 * Whether to execute the callback immediately before starting the interval.
-	 * @default false
-	 */
-	executeImmediately?: boolean;
-	/**
 	 * Maximum number of times to execute the callback.
 	 * If undefined, runs indefinitely until cancelled.
 	 */
@@ -81,13 +76,14 @@ export function useIntervalSafe(
 	callback: () => void,
 	{
 		delay,
-		executeImmediately = false,
 		maxExecutions,
 		startOnMount = true,
 	}: UseIntervalOptions
 ): UseIntervalReturn {
 	const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
-	const callbackRef = React.useRef(callback);
+	const callbackRef = React.useRef<typeof callback>(callback);
+  const executionsRef = React.useRef<number>(0);
+
 	const [isActive, setIsActive] = React.useState<boolean>(false);
 	const [executions, setExecutions] = React.useState<number>(0);
 
@@ -96,49 +92,44 @@ export function useIntervalSafe(
 	}, [callback]);
 
 	const cancel = React.useCallback(() => {
-		if (intervalRef.current !== null) {
+		if (intervalRef.current) {
 			clearInterval(intervalRef.current);
 			intervalRef.current = null;
-			setIsActive(false);
 		}
+    setIsActive(false);
 	}, []);
 
+  const tick = React.useCallback(() => {
+    if (maxExecutions !== undefined && executionsRef.current >= maxExecutions) {
+      cancel();
+      return;
+    }
+    callbackRef.current();
+    executionsRef.current += 1;
+    setExecutions(executionsRef.current);
+    if (maxExecutions !== undefined && executionsRef.current >= maxExecutions) {
+      cancel();
+    }
+  }, [cancel, maxExecutions]);
+
 	const start = React.useCallback(() => {
-		cancel();
-		if (delay === null || delay === undefined) return;
-		if (executeImmediately) {
-			callbackRef.current();
-			setExecutions(1);
-			if (maxExecutions === 1) return;
-		} else {
-			setExecutions(0);
-		}
-		setIsActive(true);
-		intervalRef.current = setInterval(() => {
-			setExecutions(prevCount => {
-				const newCount = prevCount + 1;
-				if (maxExecutions !== undefined && newCount >= maxExecutions) {
-					cancel();
-					return newCount;
-				}
-				callbackRef.current();
-				return newCount;
-			});
-		}, delay);
-	}, [delay, cancel, executeImmediately]);
+		if (delay == null || intervalRef.current) return;
+    executionsRef.current = 0;
+    setExecutions(0);
+    setIsActive(true);
+    intervalRef.current = setInterval(tick, delay);
+	}, [delay, maxExecutions, tick]);
 
 	const reset = React.useCallback(() => {
 		cancel();
-		setExecutions(0);
 		start();
-	}, []);
+	}, [cancel, start]);
 
 	React.useEffect(() => {
-		if (startOnMount) {
-			start();
-		}
-		return cancel;
-	}, [startOnMount, start, cancel]);
+		if (!startOnMount) return;
+    start();
+    return cancel;
+	}, [startOnMount]);
 
 	return {
 		cancel,

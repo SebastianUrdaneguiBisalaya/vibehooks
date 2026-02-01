@@ -11,11 +11,6 @@
       "description": "Delay in milliseconds. If null, the interval will not start."
     },
     {
-      "name": "options.executeImmediately",
-      "type": "boolean",
-      "description": "If true, the callback runs once instantly before the first delay. Default: false."
-    },
-    {
       "name": "options.maxExecutions",
       "type": "number",
       "description": "The maximum number of times the interval should run before self-cancelling."
