@@ -27,7 +27,7 @@ export default function NavigationList({ toggleMobile }: { toggleMobile: () => v
     title: item.title,
   }));
 
-  const [listMajorItemsState, setListMajorItemsState] = useState<Record<string, boolean>>(listMajorItems.reduce((acc, item) => ({ ...acc, [item.title]: true }), {}));
+  const [listMajorItemsState, setListMajorItemsState] = useState<Record<string, boolean>>(listMajorItems.reduce((acc, item) => ({ ...acc, [item.title]: false }), {}));
 
   const toggleMajorItem = (title: string) => {
     setListMajorItemsState(prev => ({ ...prev, [title]: !prev[title] }));
