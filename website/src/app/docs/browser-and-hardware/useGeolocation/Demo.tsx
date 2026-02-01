@@ -69,7 +69,7 @@ export default function Demo() {
 
           {error && <Layout.Error>Error: {error.message}</Layout.Error>}
 
-          <div className="flex gap-2">
+          <div className="flex flex-row justify-center items-center gap-2">
             <Button.Primary onClick={() => getCurrentPosition()}>
               Get once
             </Button.Primary>
