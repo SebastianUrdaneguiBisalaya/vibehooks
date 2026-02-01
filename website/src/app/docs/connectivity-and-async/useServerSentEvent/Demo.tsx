@@ -1,7 +1,12 @@
 'use client';
 
+import { useServerSentEvent } from "../../../../../../src";
+import { Layout } from "@/layouts/Layout";
+
 export default function Demo() {
   return (
-    <div>Demo</div>
+    <Layout>
+      <Layout.Title>Server-Sent Event</Layout.Title>
+    </Layout>
   )
 }

@@ -38,9 +38,9 @@
   ],
   "returnValues": [
     {
-      "name": "socket",
-      "type": "WebSocket | null",
-      "description": "The underlying native WebSocket instance."
+      "name": "connect",
+      "type": "() => void",
+      "description": "Manually connect the Websocket."
     },
     {
       "name": "isConnected",
@@ -66,11 +66,6 @@
       "name": "send",
       "type": "(data) => void",
       "description": "Function to transmit data through the socket."
-    },
-    {
-      "name": "reconnect",
-      "type": "() => void",
-      "description": "Manually forces a disconnection and immediate reconnection attempt."
     },
     {
       "name": "disconnect",
