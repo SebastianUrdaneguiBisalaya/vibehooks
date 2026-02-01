@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 
 import { usePictureInPicture } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
-import LayoutDemo from "@/layouts/Layout";
-import LayoutNotMounted from "@/layouts/LayoutNotMounted";
-import LayoutNotSupported from "@/layouts/LayoutNotSupported";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -18,13 +17,27 @@ export default function Demo() {
     }, 100);
   }, []);
 
-  if (!isMounted) return <LayoutNotMounted />;
-  if (!isSupported) return <LayoutNotSupported title="The Picture-in-Picture API is not supported in this browser."/>;
+  if (!isMounted) {
+    return (
+      <Layout>
+        <Layout.ContentLoading />
+      </Layout>
+    )
+  }
+  if (!isSupported) {
+    return (
+      <Layout>
+        <Layout.ContentNotSupported>
+          The Picture-in-Picture API is not supported in this browser.
+        </Layout.ContentNotSupported>
+      </Layout>
+    )
+  }
 
   return (
-    <LayoutDemo
-      title="Picture in Picture"
-    >
+    <Layout>
+      <Layout.Title>Picture-in-Picture</Layout.Title>
+      <Tag.Primary>Status: {isActive ? 'Active' : 'Inactive'}</Tag.Primary>
       <div className="flex flex-col items-center gap-2">
         <video
           className="aspect-video rounded-md w-full"
@@ -46,10 +59,7 @@ export default function Demo() {
             Exit PiP
           </Button.Secondary>
         </div>
-        <p className="mt-2 text-sm font-reddit-sans text-white/40 text-center">
-          Picture-in-Picture is {isActive ? 'active' : 'inactive'}.
-        </p>
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

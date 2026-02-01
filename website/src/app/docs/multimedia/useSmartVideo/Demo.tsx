@@ -2,7 +2,8 @@
 
 import { useSmartVideo } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
-import LayoutDemo from "@/layouts/Layout";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const { isPlaying, isVisible, pause, play, reset, stop, videoRef } = useSmartVideo({
@@ -13,16 +14,17 @@ export default function Demo() {
   });
 
   return (
-    <LayoutDemo
-      title="Smart Video"
-    >
+    <Layout>
+      <Layout.Title>Smart Video</Layout.Title>
+      <Tag.Primary>Status: {isPlaying ? 'Playing' : 'Paused'}</Tag.Primary>
       <video
         className="aspect-video rounded-md w-full"
         controls
         ref={videoRef}
         src="/video.mp4"
       />
-      <div className="grid grid-cols-2 place-items-center md:grid-cols-4 gap-2">
+      <Tag.Primary>Visibility: {isVisible ? 'Visible' : 'Not visible'}</Tag.Primary>
+      <div className="flex flex-row items-center justify-center gap-2">
         <Button.Secondary onClick={play}>
           Play
         </Button.Secondary>
@@ -36,14 +38,6 @@ export default function Demo() {
           Reset
         </Button.Secondary>
       </div>
-      <div className="flex flex-col md:flex-row items-center gap-0.5 md:gap-2">
-        <p className="mt-2 text-sm font-reddit-sans text-white/40 text-center">
-          Video is <span className="font-bold text-white/80">{isPlaying ? 'Playing' : 'Paused'}</span>.
-        </p>
-        <p className="mt-2 text-sm font-reddit-sans text-white/40 text-center">
-          Video is <span className="font-bold text-white/80">{isVisible ? 'Visible' : 'Not visible'}</span>.
-        </p>
-      </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

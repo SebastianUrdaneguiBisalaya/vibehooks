@@ -2,24 +2,20 @@
 
 import { useAudio } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
-import LayoutDemo from "@/layouts/Layout";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
-  const audio = useAudio({ src: '/music.mp3' });
+  const { error, pause, play, status} = useAudio({ src: '/music.mp3' });
   return (
-    <LayoutDemo
-      title="Audio"
-    >
-      <h4 className="font-reddit-sans text-white/70 text-center">Audio status: <span className="font-bold text-white">{audio.status}</span></h4>
-      {audio.error && <p className="text-red-500 font-semibold">{audio.error.message}</p>}
+    <Layout>
+      <Layout.Title>Audio</Layout.Title>
+      <Tag.Primary>Status: {status}</Tag.Primary>
+      <Layout.Error>Error: {error?.message}</Layout.Error>
       <div className="flex flex-row items-center gap-2">
-        <Button.Primary onClick={audio.play}>
-          Play
-        </Button.Primary>
-        <Button.Secondary onClick={audio.pause}>
-          Pause
-        </Button.Secondary>
+        <Button.Primary onClick={play}>Play</Button.Primary>
+        <Button.Secondary onClick={pause}>Pause</Button.Secondary>
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }
