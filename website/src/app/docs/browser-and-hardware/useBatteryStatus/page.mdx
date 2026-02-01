@@ -36,8 +36,8 @@ This hook is ideal for building progressive web apps (PWAs) that need to adjust 
 import { useState, useEffect } from 'react';
 
 import { useBatteryStatus } from '../../../../../../src/useBatteryStatus';
+import { Tag } from "@/components/ui/Tag";
 import { Layout } from "@/layouts/Layout";
-import { cn } from '@/lib/cn';
 
 export default function Demo() {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -75,14 +75,9 @@ export default function Demo() {
         <Layout.Title>System Battery</Layout.Title>
         <Layout.Caption>Real-time hardware telemetry</Layout.Caption>
       </div>
-      <span
-        className={cn(
-          'px-2 py-1 rounded text-[10px] font-bold uppercase font-reddit-sans',
-          charging ? 'bg-green-100 text-green-800' : 'bg-black/20 text-white/60'
-        )}
-      >
+      <Tag.Primary>
         {charging ? 'Charging' : 'On Battery'}
-      </span>
+      </Tag.Primary>
       <div className='flex flex-col items-center gap-1'>
         <p className="text-4xl font-bold text-white/90 font-sora">{percentage}%</p>
         <p className="text-xs text-white/70 font-reddit-sans">Current Capacity</p>

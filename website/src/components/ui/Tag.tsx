@@ -46,7 +46,7 @@ function Primary({ children, className, ...props }: TagProps) {
       )}
       {...props}
     >
-      {children}
+      <strong>{children}</strong>
     </BaseTag>
   )
 }
