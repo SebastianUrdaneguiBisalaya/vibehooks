@@ -43,14 +43,15 @@ export default function Page() {
         </BlurIn>
         <BlurIn>
           <Link
-            className="relative group flex flex-row items-center font-sora text-sm text-white/80 overflow-hidden hover:text-black cursor-pointer transition-all duration-500 ease-in-out border border-white/40 hover:border-white px-4 py-3 rounded-xl"
+            className="relative group flex flex-row items-center font-sora text-sm text-white/80 overflow-hidden md:hover:text-black cursor-pointer transition-all duration-500 ease-in-out border border-white/40 hover:border-white px-4 py-3 rounded-xl"
             href="/docs/ai/useSpeech"
           >
             <span className="z-20">Get Started</span>
-            <ArrowRight className="z-20 w-4 h-4 ml-2 text-white/80 group-hover:text-black transition-all duration-500 ease-in-out group-hover:translate-x-0.5" />
-            <span className='pointer-events-none absolute inset-0 z-0' />
+            <ArrowRight className="z-20 w-4 h-4 ml-2 text-white/80 md:group-hover:text-black transition-all duration-500 ease-in-out group-hover:translate-x-0.5" />
+            <span className='pointer-events-none absolute inset-0 z-0 max-md:hidden' />
             <span
               className={cn(
+                'max-md:hidden',
                 'pointer-events-none absolute inset-0 z-0 block h-full w-full bg-white',
                 'opacity-0 transition-opacity',
                 'group-focus-visible:opacity-100 group-active:opacity-100',
