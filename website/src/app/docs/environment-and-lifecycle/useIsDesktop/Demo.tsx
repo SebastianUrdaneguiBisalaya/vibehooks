@@ -1,20 +1,18 @@
 'use client';
 
 import { useIsDesktop } from "../../../../../../src";
-import LayoutDemo from "@/layouts/Layout";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const isDesktop = useIsDesktop(1024);
 	return (
-		<LayoutDemo
-      title="Verifying Desktop Environment"
-    >
-      <p className="font-reddit-sans text-sm text-white/60 w-full text-center">
-        Current environment:{' '}
-        <span className="font-reddit-sans text-sm text-white/80 font-bold">
-          {isDesktop ? "🖥️ Desktop View" : "📱 Mobile/Tablet View"}
-        </span>
-      </p>
-		</LayoutDemo>
+		<Layout>
+      <Layout.Title>Verifying Desktop View</Layout.Title>
+      <div className="flex flex-col items-center gap-1.5">
+        <Layout.Caption>Current environment</Layout.Caption>
+        <Tag.Primary>{isDesktop ? "🖥️ Desktop View" : "📱 Mobile/Tablet View"}</Tag.Primary>
+      </div>
+		</Layout>
 	);
 }

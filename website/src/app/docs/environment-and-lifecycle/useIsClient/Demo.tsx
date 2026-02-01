@@ -1,20 +1,19 @@
 'use client';
 
 import { useIsClient } from "../../../../../../src";
-import LayoutDemo from "@/layouts/Layout";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const isClient = useIsClient();
 	return (
-		<LayoutDemo
-      title="Client-side component"
+		<Layout
     >
-      <p className="font-reddit-sans text-sm text-white/60 w-full text-center">
-        Current environment:{' '}
-        <span className="font-reddit-sans text-sm text-white/80 font-bold">
-          {isClient ? 'Client-side' : 'Server-side'}
-        </span>
-      </p>
-		</LayoutDemo>
+      <Layout.Title>Is Client?</Layout.Title>
+      <div className="flex flex-col items-center gap-1.5">
+        <Layout.Caption>Current environment</Layout.Caption>
+        <Tag.Primary>{isClient ? 'Client-side' : 'Server-side'}</Tag.Primary>
+      </div>
+		</Layout>
 	);
 }

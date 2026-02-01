@@ -30,39 +30,27 @@ This hook manages dark/light mode logic. It monitors the **prefers-color-scheme*
 #### Source code
 
 ```tsx
-'use client';
+''use client';
 
-import { usePreferredTheme } from "@vibehooks/react/usePreferredTheme";
-import LayoutDemo from "@/layouts/LayoutDemo";
-import { cn } from "@/lib/cn";
+import { usePreferredTheme } from "../../../../../../src";
+import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
-  const { systemTheme, userTheme, toggleTheme, setUserTheme } = usePreferredTheme();
+  const { setUserTheme, systemTheme, toggleTheme, userTheme } = usePreferredTheme();
 	return (
-		<LayoutDemo
-      className={cn(
-        'transition-colors duration-500 ease-in-out',
-        'dark:bg-neutral-900 bg-neutral-100'
-      )}
-      classNameText={cn(
-        'transition-colors duration-500 ease-in-out',
-        'dark:text-white/80 text-neutral-900',
-      )}
-      title="Theme Manager"
-    >
-      <div className="w-full grid grid-cols-1 md:grid-cols-2">
-        <p className="w-full text-center font-reddit-sans text-sm text-neutral-800 dark:text-white/70">System: <span className="font-bold font-reddit-sans text-neutral-900 dark:text-white">{systemTheme}</span></p>
-        <p className="w-full text-center font-reddit-sans text-sm text-neutral-800 dark:text-white/70">User override: <span className="font-bold font-reddit-sans text-neutral-900 dark:text-white">{userTheme ?? "Follow system"}</span></p>
+		<Layout className='transition-colors duration-500 ease-in-out dark:bg-neutral-900 bg-neutral-100'>
+      <Layout.Title className="transition-colors duration-500 ease-in-out dark:text-white/80 text-neutral-900">Theme Manager</Layout.Title>
+      <div className="flex flex-row items-center justify-center gap-2">
+        <Tag.Primary className="not-dark:bg-white-100 not-dark:text-neutral-900">System: {systemTheme}</Tag.Primary>
+        <Tag.Primary className="not-dark:bg-white-100 not-dark:text-neutral-900">User: {userTheme ?? "Follow system"}</Tag.Primary>
       </div>
-      <div className="flex flex-row w-full items-center gap-4">
-        <button className="w-full font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-transparent dark:border-white/40 px-4 py-3 rounded-md cursor-pointer bg-purple-500 dark:bg-neutral-900 hover:bg-purple-600 dark:hover:bg-neutral-950" onClick={() => toggleTheme()}>
-          Toggle Theme
-        </button>
-        <button className="w-full font-reddit-sans text-sm text-neutral-800 dark:text-white/80 hover:text-neutral-900 dark:hover:text-white/90 transition-colors duration-500 ease-in-out border border-transparent dark:border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-300 dark:bg-neutral-900 hover:bg-neutral-400 dark:hover:bg-neutral-950" onClick={() => setUserTheme(null)}>
-          Reset to system
-        </button>
+      <div className="flex flex-row justify-center items-center gap-2">
+        <Button.Primary onClick={() => toggleTheme()}>Toggle</Button.Primary>
+        <Button.Destructive className="not-dark:bg-red-200 not-dark:text-red-500" onClick={() => setUserTheme(null)}>Reset</Button.Destructive>
       </div>
-		</LayoutDemo>
+		</Layout>
 	);
 }
 ```

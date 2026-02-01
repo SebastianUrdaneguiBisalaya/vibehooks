@@ -1,7 +1,9 @@
 'use client';
 
 import { usePreferredLanguage } from "../../../../../../src";
-import LayoutDemo from "@/layouts/Layout";
+import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const { language , setUserLanguage, systemLanguage, userLanguage } = usePreferredLanguage();
@@ -10,25 +12,18 @@ export default function Demo() {
     setUserLanguage(lang);
   }
 	return (
-		<LayoutDemo
-      title="Preferred Language"
-    >
-      <div className="w-full grid grid-cols-1 md:grid-cols-2">
-        <p className="w-full text-center font-reddit-sans text-sm text-white/70">System default: <span className="font-bold font-reddit-sans text-white">{systemLanguage}</span></p>
-        <p className="w-full text-center font-reddit-sans text-sm text-white/70">User choise: <span className="font-bold font-reddit-sans text-white">{userLanguage ?? "None"}</span></p>
+		<Layout>
+      <Layout.Title>Preferred Language</Layout.Title>
+      <div className="flex flex-row items-center justify-center gap-2">
+        <Tag.Primary>System: {systemLanguage}</Tag.Primary>
+        <Tag.Primary>User: {userLanguage}</Tag.Primary>
       </div>
-      <p className="font-reddit-sans text-white/60 text-sm">Resolved Language: <span>{language}</span></p>
-      <div className="flex flex-row w-full items-center gap-4">
-        <button className="w-full font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-900 hover:bg-neutral-950" onClick={() => handleChangeLanguage("en")}>
-          English
-        </button>
-        <button className="w-full font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-900 hover:bg-neutral-950" onClick={() => handleChangeLanguage("es-PE")}>
-          Spanish
-        </button>
-        <button className="w-full font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-900 hover:bg-neutral-950" onClick={() => handleChangeLanguage("")}>
-          Clear
-        </button>
+      <Layout.Caption>Resolved Language: <strong>{language}</strong></Layout.Caption>
+      <div className="flex flex-row w-full items-center justify-center gap-2">
+        <Button.Secondary onClick={() => handleChangeLanguage("en")}>English</Button.Secondary>
+        <Button.Secondary onClick={() => handleChangeLanguage("es-PE")}>Spanish</Button.Secondary>
+        <Button.Destructive onClick={() => handleChangeLanguage("")}>Clear</Button.Destructive>
       </div>
-		</LayoutDemo>
+		</Layout>
 	);
 }

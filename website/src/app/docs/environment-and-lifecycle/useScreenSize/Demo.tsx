@@ -1,21 +1,18 @@
 'use client';
 
 import { useScreenSize } from "../../../../../../src";
-import LayoutDemo from "@/layouts/Layout";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
 	const { height, width } = useScreenSize();
 
   return (
-		<LayoutDemo
-      title="Screen Size"
-    >
-      <div className="flex flex-col items-center max-w-xs w-full bg-neutral-900 border border-white/50 border-dashed px-2 py-6">
-        <p className="font-reddit-sans font-bold text-white/90 text-center w-full">{width} x {height}</p>
+		<Layout>
+      <Layout.Title>Screen Size</Layout.Title>
+      <div className="flex flex-col items-center max-w-48 w-full rounded-md bg-neutral-900 border border-white/50 border-dashed px-2 py-6">
+       <Layout.Paragraph>{width} x {height}</Layout.Paragraph>
       </div>
-      <p className="text-xs font-reddit-sans text-white/40">
-        Resize your browser to see changes
-      </p>
-		</LayoutDemo>
+      <Layout.Caption>Resize your browser to see changes</Layout.Caption>
+		</Layout>
 	);
 }

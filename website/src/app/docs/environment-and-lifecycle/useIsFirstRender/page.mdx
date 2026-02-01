@@ -33,8 +33,10 @@ Utilizes a **useRef** to persist a boolean flag that is only **true** during the
 'use client';
 
 import { useState, useEffect } from "react";
-import { useIsFirstRender } from "@vibehooks/react/useIsFirstRender";
-import LayoutDemo from "@/layouts/LayoutDemo";
+
+import { useIsFirstRender } from "../../../../../../src";
+import { Button } from "@/components/ui/Button";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const isFirstRender = useIsFirstRender();
@@ -56,41 +58,28 @@ export default function Demo() {
   }, [count, isFirstRender]);
 
 	return (
-		<LayoutDemo
-      title="Analyzing if the component is the first render"
-    >
+		<Layout>
+      <Layout.Title>Is First Render?</Layout.Title>
       <div className="flex flex-col items-center gap-2 w-full">
-        <p className="w-full font-reddit-sans text-sm text-center text-white/60">
-          Click the button to change the count.
-        </p>
-        <button
-          className="font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-900 hover:bg-neutral-950"
-          onClick={handleClick}
-        >
-          Increment (Count: {count})
-        </button>
+        <Layout.Caption>Click the button to change the count.</Layout.Caption>
+        <Button.Primary onClick={handleClick}>Increment</Button.Primary>
       </div>
       <div className="w-full">
-        <p className="w-full text-center font-reddit-sans text-sm text-white/60 font-semibold"></p>
-        <ul className="flex flex-col items-center gap-2 w-full">
-          {
-            logs.length === 0 && (
-              <li className="font-reddit-sans w-full text-center text-sm text-white/70">No effects executed yet.</li>
-            )
-          }
+        <div className="flex flex-col items-center gap-2 w-full">
+          {logs.length === 0 && <Layout.Caption>No effects executed yet.</Layout.Caption>}
           {
             logs.map((log, idx) => (
-              <li
+              <div
                 className="font-reddit-sans w-full text-center text-sm text-white/80"
                 key={idx}
               >
-                {log}
-              </li>
+                <Layout.Caption>{log}</Layout.Caption>
+              </div>
             ))
           }
-        </ul>
+        </div>
       </div>
-		</LayoutDemo>
+		</Layout>
 	);
 }
 ```
