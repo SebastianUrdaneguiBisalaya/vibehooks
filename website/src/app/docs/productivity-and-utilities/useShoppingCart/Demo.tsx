@@ -1,7 +1,8 @@
 'use client';
 
 import { useShoppingCart } from "../../../../../../src";
-import LayoutDemo from "@/layouts/Layout";
+import { Button } from "@/components/ui/Button";
+import { Layout } from "@/layouts/Layout";
 
 export interface Product {
   id: string;
@@ -11,54 +12,50 @@ export interface Product {
 }
 
 export default function Demo() {
-  const cart = useShoppingCart<Product>({
+  const {
+    addItem,
+		clear,
+		getDetails,
+		getItemCount,
+		getTotal,
+		getTotalQuantity,
+  } = useShoppingCart<Product>({
     getItemKey: (item) => item.id,
     getItemPrice: (item) => item.price,
     getItemQuantity: (item) => item.quantity,
   });
 
   const addDummy = () => {
-    cart.addItem({ id: Date.now().toString(), name: "Product", price: 100, quantity: 1 });
+    addItem({ id: Date.now().toString(), name: "Product", price: 100, quantity: 1 });
   }
 
   return (
-    <LayoutDemo
-      title="Shopping Cart"
-    >
-      <div className="flex flex-row items-center justify-center self-center gap-4 w-full">
-        <button
-          className="font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-900 hover:bg-neutral-950"
-          onClick={addDummy}
-        >
-          Add $100 Item
-        </button>
-        <button
-          className="font-reddit-sans text-sm text-white/80 hover:text-white/90 transition-colors duration-500 ease-in-out border border-white/40 px-4 py-3 rounded-md cursor-pointer bg-neutral-900 hover:bg-neutral-950"
-          onClick={cart.clear}
-        >
-          Clear Cart
-        </button>
+    <Layout>
+      <Layout.Title>Shopping Cart</Layout.Title>
+      <div className="flex flex-row items-center justify-center gap-2">
+        <Button.Secondary onClick={addDummy}>Add $100 Item</Button.Secondary>
+        <Button.Warning onClick={clear}>Clear</Button.Warning>
       </div>
 
       <div className="flex flex-col items-center w-full gap-2">
-        <p className="font-reddit-sans text-white/90 text-sm">Items in cart: {cart.getItemCount()}</p>
-        <p className="font-reddit-sans text-white/90 text-sm">Total Quantity: {cart.getTotalQuantity()}</p>
-        <p className="font-reddit-sans text-white/90 text-sm"><b>Total Amount: ${cart.getTotal()}</b></p>
+        <Layout.Caption>Items in cart: {getItemCount()}</Layout.Caption>
+        <Layout.Caption>Total Quantity: {getTotalQuantity()}</Layout.Caption>
+        <Layout.Caption><b>Total Amount: ${getTotal()}</b></Layout.Caption>
       </div>
 
-      <div className="w-full flex flex-col items-center gap-1">
-        <p className="font-reddit-sans mb-2 text-white/80 text-sm">Details</p>
+      <div className="w-full flex flex-col items-center gap-1.5">
+        <Layout.Caption>Details</Layout.Caption>
         {
-          cart.getDetails().map(detail => (
-            <li
+          getDetails().map(detail => (
+            <div
               className="font-reddit-sans text-sm text-white/90"
               key={detail.key}
             >
-              Item {detail.key}: {detail.quantity} x ${detail.unitPrice} = <b>${detail.total}</b>
-            </li>
+              <Layout.Caption>Item {detail.key}: {detail.quantity} x ${detail.unitPrice} = <b>${detail.total}</b></Layout.Caption>
+            </div>
           ))
         }
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

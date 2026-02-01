@@ -161,8 +161,8 @@ const hooksList: HooksListProps[] = [
         path: "/docs/productivity-and-utilities/useFile",
       },
       {
-        name: "useLocaleNotifications",
-        path: "/docs/productivity-and-utilities/useLocaleNotifications",
+        name: "useLocalNotifications",
+        path: "/docs/productivity-and-utilities/useLocalNotifications",
       },
       {
         name: "useShoppingCart",

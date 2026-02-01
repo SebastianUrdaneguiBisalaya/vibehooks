@@ -27,7 +27,7 @@ export interface UseNotificationOptions extends NotificationOptions {
  * @version 0.0.1
  *
  */
-export function useLocaleNotifications(): UseLocalNotificationResult {
+export function useLocalNotifications(): UseLocalNotificationResult {
 	const [permission, setPermission] = React.useState<NotificationPermission>(
 		typeof window !== 'undefined' && 'Notification' in window
 			? Notification.permission

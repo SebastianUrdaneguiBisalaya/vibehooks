@@ -22,7 +22,7 @@ export { useIsDesktop } from './useIsDesktop';
 export { useIsFirstRender } from './useIsFirstRender';
 export { useList } from './useList';
 export { useLocalStorage } from './useLocalStorage';
-export { useLocaleNotifications } from './useLocaleNotifications';
+export { useLocalNotifications } from './useLocalNotifications';
 export { useNetworkInformation } from './useNetworkInformation';
 export { usePageVisibility } from './usePageVisibility';
 export { usePermissions } from './usePermissions';
