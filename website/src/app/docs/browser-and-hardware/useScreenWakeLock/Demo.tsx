@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import { useScreenWakeLock } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
 import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
@@ -51,19 +52,18 @@ export default function Demo() {
   return (
     <Layout>
       <Layout.Title>Screen Wake Lock</Layout.Title>
-      <Layout.Caption>
-        {isActive
-          ? "Your screen is now prevented from dimming or locking."
-          : "Enable wake lock to keep your screen active during use."}
-      </Layout.Caption>
+      <Tag.Primary>
+        Status: {isActive ? 'Active' : 'Inactive'}
+      </Tag.Primary>
       <Button.Primary
         onClick={toggleWakeLock}
       >
         {isActive ? 'Release Wake Lock' : 'Request Wake Lock'}
       </Button.Primary>
-
       <Layout.Caption>
-        Status: {isActive ? 'Active' : 'Inactive'}
+        {isActive
+          ? "Your screen is now prevented from dimming or locking."
+          : "Enable wake lock to keep your screen active during use."}
       </Layout.Caption>
     </Layout>
   )
