@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-import { usePermissions, type PermissionState } from "../../../../../../src/usePermissions";
+import { usePermissions } from "../../../../../../src/usePermissions";
+import { Tag } from "@/components/ui/Tag";
 import { Layout } from "@/layouts/Layout";
-import { cn } from '@/lib/cn';
 
 const PERMISSIONS_TO_TRACK: PermissionName[] = [
   'camera',
@@ -52,7 +52,9 @@ export default function Demo() {
                 return (
                   <div className="flex gap-4 items-center justify-between p-2 border border-white/20 rounded-lg" key={name}>
                     <Layout.Paragraph className="capitalize">{name}</Layout.Paragraph>
-                    <StatusBadge status={status} />
+                    <Tag.Primary className="capitalize">
+                      {status}
+                    </Tag.Primary>
                   </div>
                 );
               })}
@@ -71,23 +73,3 @@ export default function Demo() {
     </Layout>
   )
 }
-
-function StatusBadge({ status }: { status?: PermissionState }) {
-  const colors: Record<string, string> = {
-    denied: 'bg-red-100 text-red-800',
-    granted: 'bg-green-100 text-green-800',
-    loading: 'bg-gray-100 text-gray-400',
-    prompt: 'bg-yellow-100 text-yellow-800',
-  };
-
-  const currentStatus = status || 'loading';
-
-  return (
-    <span className={cn(
-      'px-2 py-1 rounded text-xs font-reddit-sans font-medium capitalize',
-      colors[currentStatus]
-    )}>
-      {currentStatus}
-    </span>
-  );
-};
