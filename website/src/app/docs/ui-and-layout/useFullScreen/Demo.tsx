@@ -4,27 +4,25 @@ import { useRef } from "react";
 
 import { useFullscreen } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
-import LayoutDemo from "@/layouts/Layout";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const ref = useRef<HTMLDivElement>(null);
   const { isFullscreen, toggle } = useFullscreen<HTMLDivElement>(ref);
 
   return (
-    <LayoutDemo
-      title="Fullscreen"
-    >
+    <Layout>
+      <Layout.Title>Fullscreen</Layout.Title>
       <div
         className="w-full flex flex-col items-center justify-center gap-2"
         ref={ref}
       >
-        <p className="font-reddit-sans text-sm text-white/70 w-full text-center">
-          Status: <span className="font-bold">{isFullscreen ? 'Fullscreen' : 'Normal'}</span>
-        </p>
+        <Tag.Primary>Status: {isFullscreen ? 'Fullscreen' : 'Normal'}</Tag.Primary>
         <Button.Primary onClick={toggle}>
           Toggle Fullscreen
         </Button.Primary>
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

@@ -2,7 +2,7 @@
 
 import { useHoverIntent } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
-import LayoutDemo from "@/layouts/Layout";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const hover = useHoverIntent({
@@ -10,9 +10,8 @@ export default function Demo() {
     tolerance: 8,
   });
   return (
-    <LayoutDemo
-      title="Hover Intent"
-    >
+    <Layout>
+      <Layout.Title>Hover Intent</Layout.Title>
       <div className="flex flex-col items-center relative w-full">
         <Button.Primary
           {...hover.handlers}
@@ -22,13 +21,11 @@ export default function Demo() {
         {
           hover.isIntent && (
             <div className="bg-neutral-900 absolute top-full mt-2 rounded-xl border border-white/20 px-3 py-2">
-              <span className="font-reddit-sans font-semibold text-sm text-white">
-                Tooltip content 👌
-              </span>
+              <Layout.Caption>Tooltip content 👌</Layout.Caption>
             </div>
           )
         }
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

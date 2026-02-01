@@ -36,9 +36,10 @@ The **useAutoScroll** is designed for chat interfaces, logs, or feed-based UIs w
 'use client';
 
 import { useState, useEffect } from "react";
-import { useAutoScroll } from "@vibehooks/react/useAutoScroll";
-import LayoutDemo from "@/layouts/LayoutDemo";
+
+import { useAutoScroll } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
+import { Layout } from "@/layouts/Layout";
 import { cn } from "@/lib/cn";
 
 export interface Message {
@@ -47,9 +48,9 @@ export interface Message {
 }
 
 export default function Demo() {
-  const { ref, isAtBottom, enableAutoScroll } = useAutoScroll({
-    threshold: 80,
-    behavior: 'smooth'
+  const { enableAutoScroll, isAtBottom, ref } = useAutoScroll({
+    behavior: 'smooth',
+    threshold: 80
   });
 
   const [messages, setMessages] = useState<Message[]>([]);
@@ -74,10 +75,8 @@ export default function Demo() {
   }, []);
 
   return (
-    <LayoutDemo
-      className="overflow-hidden"
-      title="Auto Scroll"
-    >
+    <Layout className="overflow-hidden">
+      <Layout.Title>Auto-scroll</Layout.Title>
       <div
         className="w-full flex flex-col items-center h-52 gap-0.5 overflow-y-auto"
         ref={ref}
@@ -90,14 +89,7 @@ export default function Demo() {
             )}
             key={idx}
           >
-            <span
-              className={cn(
-                'font-reddit-sans text-sm text-white/80 w-full',
-                msg.from === 'user' ? 'text-right' : 'text-left'
-              )}
-            >
-              {msg.content}
-            </span>
+            <Layout.Caption>{msg.content}</Layout.Caption>
           </div>
         ))}
       </div>
@@ -110,7 +102,7 @@ export default function Demo() {
           </Button.Primary>
         )
       }
-    </LayoutDemo>
+    </Layout>
   )
 }
 ```

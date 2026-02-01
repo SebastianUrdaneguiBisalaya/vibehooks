@@ -1,7 +1,7 @@
 'use client';
 
 import { useIntersectionObserver } from "../../../../../../src";
-import LayoutDemo from "@/layouts/Layout";
+import { Layout } from "@/layouts/Layout";
 import { cn } from "@/lib/cn";
 
 export default function Demo() {
@@ -11,9 +11,8 @@ export default function Demo() {
   });
 
   return (
-    <LayoutDemo
-      title="Intersection Observer"
-    >
+    <Layout>
+      <Layout.Title>Intersection Observer</Layout.Title>
       <div
         className={cn(
           'transition-all duration-700 rounded-2xl bg-neutral-900 border border-white/20 p-4',
@@ -21,10 +20,8 @@ export default function Demo() {
         )}
         ref={ref}
       >
-        <p className="font-reddit-sans text-sm text-white w-full text-center">
-          Visible on scroll 👀
-        </p>
+        <Layout.Caption>Visible on scroll 👀</Layout.Caption>
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

@@ -36,30 +36,29 @@ The **useFullscreen** hook abstracts the complexity of the Fullscreen API, provi
 'use client';
 
 import { useRef } from "react";
-import { useFullscreen } from "@vibehooks/react/useFullscreen";
-import LayoutDemo from "@/layouts/LayoutDemo";
+
+import { useFullscreen } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const ref = useRef<HTMLDivElement>(null);
-  const { toggle, isFullscreen } = useFullscreen<HTMLDivElement>(ref);
+  const { isFullscreen, toggle } = useFullscreen<HTMLDivElement>(ref);
 
   return (
-    <LayoutDemo
-      title="Fullscreen"
-    >
+    <Layout>
+      <Layout.Title>Fullscreen</Layout.Title>
       <div
         className="w-full flex flex-col items-center justify-center gap-2"
         ref={ref}
       >
-        <p className="font-reddit-sans text-sm text-white/70 w-full text-center">
-          Status: <span className="font-bold">{isFullscreen ? 'Fullscreen' : 'Normal'}</span>
-        </p>
+        <Tag.Primary>Status: {isFullscreen ? 'Fullscreen' : 'Normal'}</Tag.Primary>
         <Button.Primary onClick={toggle}>
           Toggle Fullscreen
         </Button.Primary>
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }
 ```

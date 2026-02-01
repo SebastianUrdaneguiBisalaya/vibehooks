@@ -2,14 +2,13 @@
 
 import { usePopover } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
-import LayoutDemo from "@/layouts/Layout";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
   const { anchorRef, isOpen, popoverRef, toggle } = usePopover<HTMLButtonElement, HTMLDivElement>();
   return (
-    <LayoutDemo
-      title="Popover"
-    >
+    <Layout>
+      <Layout.Title>Popover</Layout.Title>
       <div className="relative flex flex-col items-center w-fit">
         <Button.Primary
           onClick={toggle}
@@ -26,13 +25,13 @@ export default function Demo() {
               <Button.Secondary>
                 Edit
               </Button.Secondary>
-              <Button.Secondary>
+              <Button.Destructive>
                 Delete
-              </Button.Secondary>
+              </Button.Destructive>
             </div>
           )
         }
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }

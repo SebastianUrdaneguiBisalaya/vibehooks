@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import { useAutoScroll } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
-import LayoutDemo from "@/layouts/Layout";
+import { Layout } from "@/layouts/Layout";
 import { cn } from "@/lib/cn";
 
 export interface Message {
@@ -40,10 +40,8 @@ export default function Demo() {
   }, []);
 
   return (
-    <LayoutDemo
-      className="overflow-hidden"
-      title="Auto Scroll"
-    >
+    <Layout className="overflow-hidden">
+      <Layout.Title>Auto-scroll</Layout.Title>
       <div
         className="w-full flex flex-col items-center h-52 gap-0.5 overflow-y-auto"
         ref={ref}
@@ -56,14 +54,7 @@ export default function Demo() {
             )}
             key={idx}
           >
-            <span
-              className={cn(
-                'font-reddit-sans text-sm text-white/80 w-full',
-                msg.from === 'user' ? 'text-right' : 'text-left'
-              )}
-            >
-              {msg.content}
-            </span>
+            <Layout.Caption>{msg.content}</Layout.Caption>
           </div>
         ))}
       </div>
@@ -76,6 +67,6 @@ export default function Demo() {
           </Button.Primary>
         )
       }
-    </LayoutDemo>
+    </Layout>
   )
 }

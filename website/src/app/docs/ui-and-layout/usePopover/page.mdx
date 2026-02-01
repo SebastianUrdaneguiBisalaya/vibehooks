@@ -31,20 +31,19 @@ The **usePopover** manages the open/closed state of an overlay anchored to a tri
 ```tsx
 'use client';
 
-import { usePopover } from "@vibehooks/react/usePopover";
-import LayoutDemo from "@/layouts/LayoutDemo";
+import { usePopover } from "../../../../../../src";
 import { Button } from "@/components/ui/Button";
+import { Layout } from "@/layouts/Layout";
 
 export default function Demo() {
-  const { isOpen, toggle, anchorRef, popoverRef } = usePopover<HTMLButtonElement, HTMLDivElement>();
+  const { anchorRef, isOpen, popoverRef, toggle } = usePopover<HTMLButtonElement, HTMLDivElement>();
   return (
-    <LayoutDemo
-      title="Popover"
-    >
+    <Layout>
+      <Layout.Title>Popover</Layout.Title>
       <div className="relative flex flex-col items-center w-fit">
         <Button.Primary
-          ref={anchorRef}
           onClick={toggle}
+          ref={anchorRef}
         >
           Actions
         </Button.Primary>
@@ -57,14 +56,14 @@ export default function Demo() {
               <Button.Secondary>
                 Edit
               </Button.Secondary>
-              <Button.Secondary>
+              <Button.Destructive>
                 Delete
-              </Button.Secondary>
+              </Button.Destructive>
             </div>
           )
         }
       </div>
-    </LayoutDemo>
+    </Layout>
   )
 }
 ```
