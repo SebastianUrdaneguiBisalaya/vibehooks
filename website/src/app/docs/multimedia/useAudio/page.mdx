@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/multimedia/useAudio/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/multimedia/useAudio/data.json";
 # useAudio
 
 ### A React hook providing a declarative and unopinionated interface to manage the HTML5 Audio API lifecycle.
+
+<Blockquote.Warning>
+  <Blockquote.Content>Browsers often block audio from playing automatically <strong>(autoplay)</strong> unless the user has interacted with the domain first or the audio is muted.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Caution>
+  <Blockquote.Content>When the <strong>src</strong> changes, the hook creates a new <strong>Audio</strong> instance. Ensure you handle state cleanup in your UI if you are switching tracks rapidly to avoid overlapping sounds.</Blockquote.Content>
+</Blockquote.Caution>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/multimedia/useSmartVideo/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,18 @@ import data from "@/app/docs/multimedia/useSmartVideo/data.json";
 # useSmartVideo
 
 ### An advanced video hook that combines intersection logic with playback control for automated "smart" behavior.
+
+<Blockquote.Important>
+  <Blockquote.Content>For <strong>autoPlay</strong> to work reliably across all browsers, the video element MUST have the <strong>muted</strong> and <strong>playsInline</strong> attributes set. Most browsers will block unmuted autoplay.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Tip>
+  <Blockquote.Content>This hook depends on <strong>useIntersectionObserver</strong>. Ensure that the parent container doesn't have <strong>overflow: hidden</strong> in a way that prevents the observer from detecting visibility correctly.</Blockquote.Content>
+</Blockquote.Tip>
+
+<Blockquote.Note>
+  <Blockquote.Content>The <strong>threshold</strong> value determines how much of the video must be visible before <strong>autoPlay</strong> triggers. A value of <strong>0.5</strong> means 50% of the video must be in the viewport.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 
