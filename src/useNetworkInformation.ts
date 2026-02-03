@@ -184,7 +184,7 @@ function subscribe(listener: Listener) {
 	};
 }
 
-export interface UseNetworkInformationResult extends NetworkInformationSnapshot {
+export interface UseNetworkInformationReturn extends NetworkInformationSnapshot {
 	supported: boolean;
 }
 
@@ -216,7 +216,7 @@ export interface UseNetworkInformationResult extends NetworkInformationSnapshot 
  * @version 0.0.1
  *
  */
-export function useNetworkInformation(): UseNetworkInformationResult {
+export function useNetworkInformation(): UseNetworkInformationReturn {
 	const snapshot = React.useSyncExternalStore(
 		subscribe,
 		getSnapshot,

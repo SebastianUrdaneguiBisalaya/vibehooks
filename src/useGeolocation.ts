@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export type GeolocationPermissionState = PermissionState | 'unsupported';
 
-export interface UseGeolocationResult {
+export interface UseGeolocationReturn {
 	/**
 	 * Clears a watcher.
 	 */
@@ -57,7 +57,7 @@ export interface UseGeolocationResult {
  * @version 0.0.1
  *
  */
-export function useGeolocation(): UseGeolocationResult {
+export function useGeolocation(): UseGeolocationReturn {
 	const isClient =
 		typeof window !== 'undefined' && typeof navigator !== 'undefined';
 	const isSupported = isClient && 'geolocation' in navigator;

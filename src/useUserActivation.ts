@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface UseUserActivationResult {
+export interface UseUserActivationReturn {
 	/**
 	 * Whether the user has ever interacted with the document.
 	 */
@@ -46,7 +46,7 @@ export interface UseUserActivationResult {
  * @version 0.0.1
  *
  */
-export function useUserActivation(): UseUserActivationResult {
+export function useUserActivation(): UseUserActivationReturn {
 	const isSupported =
 		typeof navigator !== 'undefined' &&
 		typeof navigator.userActivation !== 'undefined';

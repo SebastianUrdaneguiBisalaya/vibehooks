@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface FullScreen {
+export interface FullScreenReturn {
 	enter: () => Promise<void>;
 	exit: () => Promise<void>;
 	isFullscreen: boolean;
@@ -23,7 +23,7 @@ export interface FullScreen {
  */
 export function useFullscreen<T extends HTMLElement>(
 	ref: React.RefObject<T | null>
-): FullScreen {
+): FullScreenReturn {
 	const [isFullscreen, setIsFullscreen] = React.useState<boolean>(false);
 
 	const enter = React.useCallback(async () => {

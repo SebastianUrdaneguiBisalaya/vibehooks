@@ -28,7 +28,7 @@ export interface UseServerSentEventOptions {
 	withCredentials?: boolean;
 }
 
-export interface UseServerSentEventResult {
+export interface UseServerSentEventReturn {
 	/**
 	 * Manually closes the connection.
 	 */
@@ -70,7 +70,7 @@ export type SSEReadyState = 0 | 1 | 2;
 export function useServerSentEvent(
 	url: string,
 	options: UseServerSentEventOptions = {}
-): UseServerSentEventResult {
+): UseServerSentEventReturn {
 	const {
 		enabled = true,
 		onError,

@@ -18,7 +18,7 @@ export interface UseFileOptions {
 	multiple?: boolean;
 }
 
-export interface UseFileResult {
+export interface UseFileReturn {
 	/**
 	 * Currently selected files.
 	 */
@@ -82,7 +82,7 @@ export interface UseFileResult {
  * @version 0.0.1
  *
  */
-export function useFile(options: UseFileOptions = {}): UseFileResult {
+export function useFile(options: UseFileOptions = {}): UseFileReturn {
 	const { accept, disabled, multiple = false } = options;
 	const [files, setInternalFiles] = React.useState<File[]>([]);
 	const inputRef = React.useRef<HTMLInputElement | null>(null);

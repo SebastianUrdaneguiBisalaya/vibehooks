@@ -21,7 +21,7 @@ export interface UseIdleOptions {
 	timeout?: number;
 }
 
-export interface UseIdleResult {
+export interface UseIdleReturn {
 	/**
 	 * Whether the user is currently idle.
 	 */
@@ -54,7 +54,7 @@ export interface UseIdleResult {
  * @version 0.0.1
  *
  */
-export function useIdle(options: UseIdleOptions = {}): UseIdleResult {
+export function useIdle(options: UseIdleOptions = {}): UseIdleReturn {
 	const {
 		events = ['mousemove', 'keydown', 'mousedown', 'touchstart', 'scroll'],
 		initialState = false,

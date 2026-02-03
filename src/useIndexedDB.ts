@@ -25,7 +25,7 @@ export interface UseIndexedDBTransactionOptions {
 	mode?: IDBTransactionMode;
 }
 
-export interface UseIndexedDBTransactionResult {
+export interface UseIndexedDBTransactionReturn {
 	/**
 	 * Closes the database connection
 	 */
@@ -80,7 +80,7 @@ export interface UseIndexedDBTransactionResult {
  */
 export function useIndexedDB(
 	options: UseIndexedDBOptions
-): UseIndexedDBTransactionResult {
+): UseIndexedDBTransactionReturn {
 	const dbRef = React.useRef<IDBDatabase | null>(null);
 
 	const isSupported =

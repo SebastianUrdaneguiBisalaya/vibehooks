@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface UseScreenWakeLockResult {
+export interface UseScreenWakeLockReturn {
 	/**
 	 * Whether the wake lock is currently active.
 	 */
@@ -43,7 +43,7 @@ export interface UseScreenWakeLockResult {
  * @version 0.0.1
  *
  */
-export function useScreenWakeLock(): UseScreenWakeLockResult {
+export function useScreenWakeLock(): UseScreenWakeLockReturn {
 	const isSupported =
 		typeof navigator !== 'undefined' && 'wakeLock' in navigator;
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type ScrollAxis = 'x' | 'y' | 'both';
+export type ScrollAxis = 'x' | 'y' | 'both';
 
 export interface BodyScrollFreezeOptions {
 	/**

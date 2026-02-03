@@ -6,6 +6,11 @@ export type PermissionsSnapshot = Partial<
 	Record<PermissionName, PermissionState>
 >;
 
+export interface UsePermissionReturn {
+  isSupported: boolean;
+  permissions: PermissionsSnapshot;
+}
+
 /**
  * `usePermissions` is a React hook unopinionated to observe in real-time the permission status of browser using the Permissions API.
  * This hook does not manage permissions, it only observes them.
@@ -32,7 +37,7 @@ export type PermissionsSnapshot = Partial<
  */
 export function usePermissions<T extends readonly PermissionName[]>(
 	permissionNames: T
-): { isSupported: boolean; permissions: PermissionsSnapshot } {
+): UsePermissionReturn {
 	const isBrowser =
 		typeof window !== 'undefined' && typeof navigator !== 'undefined';
 	const isSupported = isBrowser && 'permissions' in navigator;

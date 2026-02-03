@@ -25,7 +25,7 @@ type OrientationType =
 	| 'landscape-primary'
 	| 'landscape-secondary';
 
-export interface UseScreenOrientationResult {
+export interface UseScreenOrientationReturn {
 	/**
 	 * Current orientation angle in degrees.
 	 */
@@ -72,7 +72,7 @@ export interface UseScreenOrientationResult {
  * @version 0.0.1
  *
  */
-export function useScreenOrientation(): UseScreenOrientationResult {
+export function useScreenOrientation(): UseScreenOrientationReturn {
 	const isSupported =
 		typeof screen !== 'undefined' && screen.orientation !== undefined;
 	const [type, setType] = React.useState<OrientationType | null>(

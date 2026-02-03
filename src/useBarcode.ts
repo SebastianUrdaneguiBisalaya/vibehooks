@@ -20,7 +20,7 @@ declare global {
 	}
 }
 
-export interface UseBarcodeResult {
+export interface UseBarcodeReturn {
 	/**
 	 * Raw value of the barcode.
 	 */
@@ -106,7 +106,7 @@ export function useBarcode({
 		'unknown',
 	],
 	onDetect,
-}: UseBarcodeOptions = {}): UseBarcodeResult {
+}: UseBarcodeOptions = {}): UseBarcodeReturn {
 	const [current, setCurrent] = React.useState<DetectorBarcode | null>(null);
 	const [supported, setSupported] = React.useState<boolean>(false);
 

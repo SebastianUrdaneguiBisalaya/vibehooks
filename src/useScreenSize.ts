@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface ScreenSize {
+export interface ScreenSizeReturn {
 	height: number;
 	width: number;
 }
@@ -19,8 +19,8 @@ export interface ScreenSize {
  * @version 0.0.1
  *
  */
-export function useScreenSize(): ScreenSize {
-	const [size, setSize] = React.useState<ScreenSize>({
+export function useScreenSize(): ScreenSizeReturn {
+	const [size, setSize] = React.useState<ScreenSizeReturn>({
 		height: 0,
 		width: 0,
 	});

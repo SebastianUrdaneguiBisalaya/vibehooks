@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface UseLocalNotificationResult {
+export interface UseLocalNotificationReturn {
 	isSupported: boolean;
 	notify: (options: UseNotificationOptions) => void;
 	permission: NotificationPermission;
@@ -27,7 +27,7 @@ export interface UseNotificationOptions extends NotificationOptions {
  * @version 0.0.1
  *
  */
-export function useLocalNotifications(): UseLocalNotificationResult {
+export function useLocalNotifications(): UseLocalNotificationReturn {
 	const [permission, setPermission] = React.useState<NotificationPermission>(
 		typeof window !== 'undefined' && 'Notification' in window
 			? Notification.permission

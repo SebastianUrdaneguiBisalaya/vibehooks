@@ -7,7 +7,7 @@ export interface UseThrottledCallbackOptions {
 	delay: number;
 }
 
-export type ThrottledCallback<TArgs extends readonly unknown[]> = (
+export type ThrottledCallbackReturn<TArgs extends readonly unknown[]> = (
 	...args: TArgs
 ) => void;
 
@@ -41,11 +41,11 @@ export type ThrottledCallback<TArgs extends readonly unknown[]> = (
 export function useThrottledCallback<TArgs extends readonly unknown[]>(
 	callback: (...args: TArgs) => void,
 	options: UseThrottledCallbackOptions
-): ThrottledCallback<TArgs> {
+): ThrottledCallbackReturn<TArgs> {
 	const { delay } = options;
 
 	const lastCallRef = React.useRef<number>(0);
-	const callbackRef = React.useRef<ThrottledCallback<TArgs>>(callback);
+	const callbackRef = React.useRef<ThrottledCallbackReturn<TArgs>>(callback);
 
 	React.useEffect(() => {
 		callbackRef.current = callback;

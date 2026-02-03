@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface UsePictureInPictureResult {
+export interface UsePictureInPictureReturn {
 	/**
 	 * Requests Picture-in-Picture for the attached video element.
 	 */
@@ -52,7 +52,7 @@ export interface UsePictureInPictureResult {
  * @version 0.0.1
  *
  */
-export function usePictureInPicture(): UsePictureInPictureResult {
+export function usePictureInPicture(): UsePictureInPictureReturn {
 	const videoRef = React.useRef<HTMLVideoElement | null>(null);
 	const [isActive, setIsActive] = React.useState<boolean>(false);
 

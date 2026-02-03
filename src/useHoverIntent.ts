@@ -12,7 +12,7 @@ export interface UseHoverIntentOptions {
 	tolerance?: number;
 }
 
-export interface UseHoverIntentResult {
+export interface UseHoverIntentReturn {
 	/**
 	 * Event handlers to spread on the target element.
 	 */
@@ -51,7 +51,7 @@ export interface UseHoverIntentResult {
  */
 export function useHoverIntent(
 	options: UseHoverIntentOptions = {}
-): UseHoverIntentResult {
+): UseHoverIntentReturn {
 	const { delay = 100, tolerance = 6 } = options;
 	const [isIntent, setIsIntent] = React.useState<boolean>(false);
 

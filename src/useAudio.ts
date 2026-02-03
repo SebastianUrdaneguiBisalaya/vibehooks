@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type AudioStatus =
+export type AudioStatus =
 	| 'idle'
 	| 'loading'
 	| 'playing'
@@ -14,7 +14,7 @@ export interface UseAudioOptions {
 	volume?: number;
 }
 
-export interface UseAudioResult {
+export interface UseAudioReturn {
 	audio: HTMLAudioElement | null;
 	error: Error | null;
 	pause: () => void;
@@ -37,7 +37,7 @@ export interface UseAudioResult {
  * @version 0.0.1
  *
  */
-export function useAudio(options: UseAudioOptions = {}): UseAudioResult {
+export function useAudio(options: UseAudioOptions = {}): UseAudioReturn {
 	const audioRef = React.useRef<HTMLAudioElement | null>(null);
 	const mountedRef = React.useRef<boolean>(false);
 

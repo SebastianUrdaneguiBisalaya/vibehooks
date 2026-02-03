@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface UsePopoverResult<
+export interface UsePopoverReturn<
 	TAnchor extends HTMLElement,
 	TPopover extends HTMLElement,
 > {
@@ -66,7 +66,7 @@ export interface UsePopoverResult<
 export function usePopover<
 	TAnchor extends HTMLElement = HTMLElement,
 	TPopover extends HTMLElement = HTMLElement,
->(): UsePopoverResult<TAnchor, TPopover> {
+>(): UsePopoverReturn<TAnchor, TPopover> {
 	const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
 	const anchorRef = React.useRef<TAnchor | null>(null);

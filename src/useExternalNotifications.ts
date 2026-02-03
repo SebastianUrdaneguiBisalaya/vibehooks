@@ -6,7 +6,7 @@ export interface NotificationPayload extends NotificationOptions {
 	title: string;
 }
 
-type Listener = () => void;
+export type Listener = () => void;
 
 let notifications: NotificationPayload[] = [];
 const listeners = new Set<Listener>();
@@ -60,7 +60,7 @@ export const notificationStore = {
 	suscribe,
 };
 
-export interface UseExternalNotificationResult {
+export interface UseExternalNotificationReturn {
 	isSupported: boolean;
 	notifications: NotificationPayload[] | null;
 	notify: (notification: Omit<NotificationPayload, 'createdAt'>) => void;
@@ -134,7 +134,7 @@ export interface UseExternalNotificationResult {
  * @version 0.0.1
  *
  */
-export function useExternalNotifications(): UseExternalNotificationResult {
+export function useExternalNotifications(): UseExternalNotificationReturn {
 	const notifications = React.useSyncExternalStore(
 		notificationStore.suscribe,
 		notificationStore.getSnapshot,

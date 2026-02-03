@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type AsyncState<T> = {
+export type AsyncState<T> = {
 	data: T | null;
 	error: Error | null;
 	isError: boolean;
@@ -9,7 +9,7 @@ type AsyncState<T> = {
 	isSuccess: boolean;
 };
 
-type FetchConfig = RequestInit & {
+export type FetchConfig = RequestInit & {
 	onError?: (error: Error) => void;
 	onSuccess?: (data: unknown) => void;
 	params?: Record<string, string | number | boolean>;
@@ -18,7 +18,7 @@ type FetchConfig = RequestInit & {
 	timeout?: number;
 };
 
-type UseAsyncStateReturn<T> = AsyncState<T> & {
+export type UseAsyncStateReturn<T> = AsyncState<T> & {
 	execute: (url: string, config?: FetchConfig) => Promise<T | null>;
 	mutate: (data: T) => void;
 	reset: () => void;

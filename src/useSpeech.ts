@@ -63,7 +63,7 @@ export interface UseSpeechOptions {
 	lang?: string;
 }
 
-export interface UseSpeechResult {
+export interface UseSpeechReturn {
 	error: Error | null;
 	finalTranscript: string;
 	interimTranscript: string;
@@ -104,7 +104,7 @@ function isChrome(): boolean {
  * @version 0.0.2
  *
  */
-export function useSpeech(options: UseSpeechOptions = {}): UseSpeechResult {
+export function useSpeech(options: UseSpeechOptions = {}): UseSpeechReturn {
 	const isClient = typeof window !== 'undefined';
 	const isChromeBrowser = React.useMemo(() => isChrome(), []);
 

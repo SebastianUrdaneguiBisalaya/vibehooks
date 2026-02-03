@@ -6,7 +6,7 @@ import * as React from 'react';
  */
 export type VibrationPattern = number | number[];
 
-export interface UseVibrationResult {
+export interface UseVibrationReturn {
 	/**
 	 * Cancels any ongoing vibration.
 	 * During SSR or when unsupported, does nothing.
@@ -61,7 +61,7 @@ export interface UseVibrationResult {
  * @version 0.0.1
  *
  */
-export function useVibration(): UseVibrationResult {
+export function useVibration(): UseVibrationReturn {
 	const isClient =
 		typeof window !== 'undefined' && typeof navigator !== 'undefined';
 	const isSupported = isClient && typeof navigator.vibrate === 'function';

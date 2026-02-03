@@ -5,7 +5,7 @@ export interface Task<T = unknown> {
 	run: () => Promise<T>;
 }
 
-export interface UseTaskQueueResult<T = unknown> {
+export interface UseTaskQueueReturn<T = unknown> {
 	enqueue: (task: Task<T>) => void;
 	queue: Task<T>[];
 	running: boolean;
@@ -29,7 +29,7 @@ export interface UseTaskQueueResult<T = unknown> {
  * @version 0.0.1
  *
  */
-export function useTaskQueue<T = unknown>(): UseTaskQueueResult<T> {
+export function useTaskQueue<T = unknown>(): UseTaskQueueReturn<T> {
 	const [queue, setQueue] = React.useState<Task<T>[]>([]);
 	const [running, setRunning] = React.useState<boolean>(false);
 

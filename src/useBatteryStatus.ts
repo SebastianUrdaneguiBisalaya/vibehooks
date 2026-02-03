@@ -22,8 +22,6 @@ export interface UseBatteryStatusReturn {
 	isSupported: boolean;
 }
 
-export {};
-
 declare global {
 	interface BatteryManager extends EventTarget {
 		addEventListener(

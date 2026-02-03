@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface UseDeviceMemoryResult {
+export interface UseDeviceMemoryReturn {
 	/**
 	 * Approximate amount of device memory in gigabytes.
 	 *
@@ -17,8 +17,6 @@ export interface UseDeviceMemoryResult {
 
 /**
  * `useDeviceMemory` is a react hook to safely access the Device Memory API in an unopinionated and SSR-sage way
- *
- * @returns {UseDeviceMemoryResult} An object containing the device memory value (if available) and a support flag.
  *
  * @example
  * ```tsx
@@ -43,7 +41,7 @@ export interface UseDeviceMemoryResult {
  * @version 0.0.1
  *
  */
-export function useDeviceMemory(): UseDeviceMemoryResult {
+export function useDeviceMemory(): UseDeviceMemoryReturn {
 	const isClient =
 		typeof window !== 'undefined' && typeof navigator !== 'undefined';
 	const isSupported = isClient && 'deviceMemory' in navigator;
