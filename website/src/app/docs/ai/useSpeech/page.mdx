@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/ai/useSpeech/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,18 @@ import data from "@/app/docs/ai/useSpeech/data.json";
 # useSpeech
 
 ### Provides unopinionated, high-level access to the Web Speech API for speech-to-text recognition.
+
+<Blockquote.Warning>
+  <Blockquote.Content>Browser support is strictly limited to Google Chrome. Brave and Edge are explicitly filtered out due to inconsistent Speech API implementations.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Important>
+  <Blockquote.Content>The <strong>start()</strong> method must be triggered by a user gesture (e.g., a click event) to comply with browser security policies regarding microphone access.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Note>
+  <Blockquote.Content>The hook includes an auto-restart mechanism for the <strong>no-speech</strong> error to keep the session alive unless <strong>stop()</strong> is called manually.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 
@@ -17,8 +30,6 @@ import data from "@/app/docs/ai/useSpeech/data.json";
 #### Description
 
 The **useSpeech** wraps the **SpeechRecognition** interface, allowing developers to convert audio from a microphone into real-time text strings. It handles cross-browser prefixes (e.g., **webkitSpeechRecognition**), manages internal state transitions (listening, stopped, error), and cleans up listeners automatically.
-
-**Important:** The **useSpeech** hook depends on the Web Speech API. At the time of writing, this API is only production-ready in **Google Chrome**. Other browsers may partially implement the interfaces but do not provide a stable recognition service.
 
 To avoid non-deterministic behavior, crashes, or infinite restart loops, this hook performs a runtime browser check and will not activate outside of Chrome.
 
