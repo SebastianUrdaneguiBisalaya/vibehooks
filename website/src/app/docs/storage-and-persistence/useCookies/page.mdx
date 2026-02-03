@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/storage-and-persistence/useCookies/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/storage-and-persistence/useCookies/data.json";
 # useCookies
 
 ### A React hook that provides an unopinionated interface for managing browser cookies with standard configuration options.
+
+<Blockquote.Important>
+  <Blockquote.Content>When using <strong>remove()</strong>, you must provide the same <strong>path</strong> and <strong>domain</strong> options used when the cookie was originally set; otherwise, the browser will fail to delete it.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook is purely imperative and does not sync with React state. Changing a cookie will not trigger a re-render of your components.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

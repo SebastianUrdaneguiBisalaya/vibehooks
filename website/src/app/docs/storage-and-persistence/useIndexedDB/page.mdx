@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/storage-and-persistence/useIndexedDB/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,18 @@ import data from "@/app/docs/storage-and-persistence/useIndexedDB/data.json";
 # useIndexedDB
 
 ### A React hook that abstracts the boilerplate of the IndexedDB API, facilitating database connections and transaction management.
+
+<Blockquote.Important>
+  <Blockquote.Content>The <strong>onUpgrade</strong> callback is only triggered when the <strong>version</strong> number is incremented. This is the only place where you can safely create or modify object stores.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Caution>
+  <Blockquote.Content>The <strong>store</strong> instance provided inside the <strong>withStore</strong> callback is only valid for the duration of that specific transaction. Do not store or use it outside the callback.</Blockquote.Content>
+</Blockquote.Caution>
+
+<Blockquote.Note>
+  <Blockquote.Content>Database connections are persistent once opened. Remember to call <strong>close()</strong> to release the database lock when the component is unmounted or the operation is finished.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 
