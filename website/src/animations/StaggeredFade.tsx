@@ -31,7 +31,7 @@ export default function StaggeredFade ({
     <motion.h2
       animate={isInView ? 'show' : ''}
       className={cn(
-        'font-sora text-sm max-w-sm text-center self-center text-white/70',
+        'font-sora text-sm max-w-sm text-center self-center text-white',
         className
       )}
       initial="hidden"
