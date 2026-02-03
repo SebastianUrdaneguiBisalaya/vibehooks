@@ -49,7 +49,7 @@ const components = {
 
       return (
         <CodeBlock
-          classNameCode='cascadia-code text-sm'
+          classNameCode='cascadia-code text-sm bg-transparent'
           code={code}
           language={language}
         />

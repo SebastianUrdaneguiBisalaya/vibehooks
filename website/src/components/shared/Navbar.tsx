@@ -18,8 +18,8 @@ export default function Navbar() {
   return (
     <nav className="flex gap-4 w-full items-center justify-between pb-8 md:pb-12">
       <Link className="flex" href="/">
-        <span className="font-jersey-15 text-3xl md:text-4xl">vibe</span>
-        <span className="font-jersey-15 text-purple-500 text-3xl md:text-4xl">Hooks</span>
+        <span className="font-jersey-15 text-white/80 text-3xl md:text-4xl">vibe</span>
+        <span className="font-jersey-15 text-white text-3xl md:text-4xl">Hooks</span>
       </Link>
       <div className="w-full flex flex-row items-center justify-between md:justify-end gap-4">
         <Link className="group flex flex-row items-center gap-3 cursor-pointer text-white/70 hover:text-white hover:scale-[1.05] transition-all duration-500 ease-in-out border border-white/20 px-3 py-1.5 rounded-2xl" href='https://github.com/SebastianUrdaneguiBisalaya/vibehooks' target="_blank">

@@ -19,7 +19,7 @@ export interface HooksListProps {
 }
 
 
-export default function NavigationList({ toggleMobile }: { toggleMobile: () => void }) {
+export default function NavigationList({ toggleMobile }: { toggleMobile?: () => void }) {
   const pathname = usePathname();
 
   const listMajorItems = hooksList.map(item => ({
