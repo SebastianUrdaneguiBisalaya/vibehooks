@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/productivity-and-utilities/useShoppingCart/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,18 @@ import data from "@/app/docs/productivity-and-utilities/useShoppingCart/data";
 # useShoppingCart
 
 ### A generic, domain-agnostic hook for managing complex shopping cart logic and calculations.
+
+<Blockquote.Important>
+  <Blockquote.Content>This hook is stateless across page reloads. If you want the cart to persist after a browser refresh, you should wrap its initialization logic with <strong>localStorage</strong> or use a persistence provider.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Tip>
+  <Blockquote.Content>The <strong>getDetails()</strong> method automatically aggregates items with the same key. Use this for your "Cart Summary" view to show combined quantities and subtotals.</Blockquote.Content>
+</Blockquote.Tip>
+
+<Blockquote.Note>
+  <Blockquote.Content>All calculation logic (taxes, discounts, totals) is derived from the extractor functions you provide. Ensure these functions handle edge cases like <strong>null</strong> or <strong>undefined</strong> prices gracefully.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/productivity-and-utilities/useFile/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/productivity-and-utilities/useFile/data";
 # useFile
 
 ### Manages file selection state and provides input-ready props for uploads and drag-and-drop.
+
+<Blockquote.Tip>
+  <Blockquote.Content>To allow users to select multiple files, ensure you pass the <strong>multiple: true</strong> option. Otherwise, the hook will default to a single-file selection.</Blockquote.Content>
+</Blockquote.Tip>
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook provides the state and logic for file handling but does not perform the actual upload. You should use the <strong>files</strong> array to build a <strong>FormData</strong> object for your API calls.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/productivity-and-utilities/useLocalNotifications/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/productivity-and-utilities/useLocalNotifications/da
 # useLocalNotifications
 
 ### Provides a direct interface to trigger browser system notifications within a component.
+
+<Blockquote.Important>
+  <Blockquote.Content>Unlike the external version, this hook manages notification state locally within the component. It still requires HTTPS and explicit user permission to show system-level alerts.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Caution>
+  <Blockquote.Content>Most mobile browsers ignore the <strong>silent</strong> and <strong>requireInteraction</strong> options due to OS-level power management and notification center constraints.</Blockquote.Content>
+</Blockquote.Caution>
 
 #### Installation
 

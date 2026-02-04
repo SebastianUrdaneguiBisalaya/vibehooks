@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/productivity-and-utilities/useCopyToClipboard/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/productivity-and-utilities/useCopyToClipboard/data"
 # useCopyToClipboard
 
 ### A hook to copy text to the system clipboard using the modern Clipboard API.
+
+<Blockquote.Warning>
+  <Blockquote.Content>The Clipboard API requires a <strong>Secure Context (HTTPS)</strong>. On non-secure origins, <strong>navigator.clipboard</strong> will be undefined, and the hook will throw an error.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Important>
+  <Blockquote.Content>This method must be called within a short delay after a user interaction (like a <strong>click</strong> event) to be permitted by the browser's security model.</Blockquote.Content>
+</Blockquote.Important>
 
 #### Installation
 
