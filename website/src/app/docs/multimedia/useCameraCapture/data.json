@@ -1,6 +1,11 @@
 {
   "parameters": [
     {
+      "name": "options.format",
+      "type": "CameraCaptureOutput",
+      "description": "Optional output format for the captured image. Default: type: image/png, quality: 0.8"
+    },
+    {
       "name": "options.onCapture",
       "type": "(dataUrl: string, blob: Blob) => void",
       "description": "Optional callback triggered after a successful capture. Provides both the Base64 string and the raw File Blob."
