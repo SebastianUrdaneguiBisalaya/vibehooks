@@ -15,10 +15,225 @@
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
 		},
-		"./package.json": "./package.json"
+		"./useAsyncState": {
+			"import": "./dist/useAsyncState.js",
+			"types": "./dist/useAsyncState.d.ts"
+		},
+		"./useAudio": {
+			"import": "./dist/useAudio.js",
+			"types": "./dist/useAudio.d.ts"
+		},
+		"./useAutoScroll": {
+			"import": "./dist/useAutoScroll.js",
+			"types": "./dist/useAutoScroll.d.ts"
+		},
+		"./useBarcode": {
+			"import": "./dist/useBarcode.js",
+			"types": "./dist/useBarcode.d.ts"
+		},
+		"./useBatteryStatus": {
+			"import": "./dist/useBatteryStatus.js",
+			"types": "./dist/useBatteryStatus.d.ts"
+		},
+		"./useBodyScrollFreeze": {
+			"import": "./dist/useBodyScrollFreeze.js",
+			"types": "./dist/useBodyScrollFreeze.d.ts"
+		},
+		"./useCameraCapture": {
+			"import": "./dist/useCameraCapture.js",
+			"types": "./dist/useCameraCapture.d.ts"
+		},
+		"./useCookies": {
+			"import": "./dist/useCookies.js",
+			"types": "./dist/useCookies.d.ts"
+		},
+		"./useCopyToClipboard": {
+			"import": "./dist/useCopyToClipboard.js",
+			"types": "./dist/useCopyToClipboard.d.ts"
+		},
+		"./useCountDown": {
+			"import": "./dist/useCountDown.js",
+			"types": "./dist/useCountDown.d.ts"
+		},
+		"./useDebouncedState": {
+			"import": "./dist/useDebouncedState.js",
+			"types": "./dist/useDebouncedState.d.ts"
+		},
+		"./useDeviceMemory": {
+			"import": "./dist/useDeviceMemory.js",
+			"types": "./dist/useDeviceMemory.d.ts"
+		},
+		"./useExternalNotifications": {
+			"import": "./dist/useExternalNotifications.js",
+			"types": "./dist/useExternalNotifications.d.ts"
+		},
+		"./useFile": {
+			"import": "./dist/useFile.js",
+			"types": "./dist/useFile.d.ts"
+		},
+		"./useFullScreen": {
+			"import": "./dist/useFullScreen.js",
+			"types": "./dist/useFullScreen.d.ts"
+		},
+		"./useGeolocation": {
+			"import": "./dist/useGeolocation.js",
+			"types": "./dist/useGeolocation.d.ts"
+		},
+		"./useHoverIntent": {
+			"import": "./dist/useHoverIntent.js",
+			"types": "./dist/useHoverIntent.d.ts"
+		},
+		"./useIdle": {
+			"import": "./dist/useIdle.js",
+			"types": "./dist/useIdle.d.ts"
+		},
+		"./useIndexedDB": {
+			"import": "./dist/useIndexedDB.js",
+			"types": "./dist/useIndexedDB.d.ts"
+		},
+		"./useIntersectionObserver": {
+			"import": "./dist/useIntersectionObserver.js",
+			"types": "./dist/useIntersectionObserver.d.ts"
+		},
+		"./useIntervalSafe": {
+			"import": "./dist/useIntervalSafe.js",
+			"types": "./dist/useIntervalSafe.d.ts"
+		},
+		"./useIsClient": {
+			"import": "./dist/useIsClient.js",
+			"types": "./dist/useIsClient.d.ts"
+		},
+		"./useIsDesktop": {
+			"import": "./dist/useIsDesktop.js",
+			"types": "./dist/useIsDesktop.d.ts"
+		},
+		"./useIsFirstRender": {
+			"import": "./dist/useIsFirstRender.js",
+			"types": "./dist/useIsFirstRender.d.ts"
+		},
+		"./useList": {
+			"import": "./dist/useList.js",
+			"types": "./dist/useList.d.ts"
+		},
+		"./useLocalNotifications": {
+			"import": "./dist/useLocalNotifications.js",
+			"types": "./dist/useLocalNotifications.d.ts"
+		},
+		"./useLocalStorage": {
+			"import": "./dist/useLocalStorage.js",
+			"types": "./dist/useLocalStorage.d.ts"
+		},
+		"./useNetworkInformation": {
+			"import": "./dist/useNetworkInformation.js",
+			"types": "./dist/useNetworkInformation.d.ts"
+		},
+		"./useOnline": {
+			"import": "./dist/useOnline.js",
+			"types": "./dist/useOnline.d.ts"
+		},
+		"./usePageVisibility": {
+			"import": "./dist/usePageVisibility.js",
+			"types": "./dist/usePageVisibility.d.ts"
+		},
+		"./usePermissions": {
+			"import": "./dist/usePermissions.js",
+			"types": "./dist/usePermissions.d.ts"
+		},
+		"./usePictureInPicture": {
+			"import": "./dist/usePictureInPicture.js",
+			"types": "./dist/usePictureInPicture.d.ts"
+		},
+		"./usePopover": {
+			"import": "./dist/usePopover.js",
+			"types": "./dist/usePopover.d.ts"
+		},
+		"./usePreferredLanguage": {
+			"import": "./dist/usePreferredLanguage.js",
+			"types": "./dist/usePreferredLanguage.d.ts"
+		},
+		"./usePreferredTheme": {
+			"import": "./dist/usePreferredTheme.js",
+			"types": "./dist/usePreferredTheme.d.ts"
+		},
+		"./usePreviousDistinct": {
+			"import": "./dist/usePreviousDistinct.js",
+			"types": "./dist/usePreviousDistinct.d.ts"
+		},
+		"./useResettableState": {
+			"import": "./dist/useResettableState.js",
+			"types": "./dist/useResettableState.d.ts"
+		},
+		"./useScreenOrientation": {
+			"import": "./dist/useScreenOrientation.js",
+			"types": "./dist/useScreenOrientation.d.ts"
+		},
+		"./useScreenSize": {
+			"import": "./dist/useScreenSize.js",
+			"types": "./dist/useScreenSize.d.ts"
+		},
+		"./useScreenWakeLock": {
+			"import": "./dist/useScreenWakeLock.js",
+			"types": "./dist/useScreenWakeLock.d.ts"
+		},
+		"./useServerSentEvent": {
+			"import": "./dist/useServerSentEvent.js",
+			"types": "./dist/useServerSentEvent.d.ts"
+		},
+		"./useShoppingCart": {
+			"import": "./dist/useShoppingCart.js",
+			"types": "./dist/useShoppingCart.d.ts"
+		},
+		"./useSmartVideo": {
+			"import": "./dist/useSmartVideo.js",
+			"types": "./dist/useSmartVideo.d.ts"
+		},
+		"./useSpeech": {
+			"import": "./dist/useSpeech.js",
+			"types": "./dist/useSpeech.d.ts"
+		},
+		"./useSummarizer": {
+			"import": "./dist/useSummarizer.js",
+			"types": "./dist/useSummarizer.d.ts"
+		},
+		"./useTaskQueue": {
+			"import": "./dist/useTaskQueue.js",
+			"types": "./dist/useTaskQueue.d.ts"
+		},
+		"./useThrottledCallback": {
+			"import": "./dist/useThrottledCallback.js",
+			"types": "./dist/useThrottledCallback.d.ts"
+		},
+		"./useTimeout": {
+			"import": "./dist/useTimeout.js",
+			"types": "./dist/useTimeout.d.ts"
+		},
+		"./useToggle": {
+			"import": "./dist/useToggle.js",
+			"types": "./dist/useToggle.d.ts"
+		},
+		"./useTraceUpdates": {
+			"import": "./dist/useTraceUpdates.js",
+			"types": "./dist/useTraceUpdates.d.ts"
+		},
+		"./useTranslator": {
+			"import": "./dist/useTranslator.js",
+			"types": "./dist/useTranslator.d.ts"
+		},
+		"./useUserActivation": {
+			"import": "./dist/useUserActivation.js",
+			"types": "./dist/useUserActivation.d.ts"
+		},
+		"./useVibration": {
+			"import": "./dist/useVibration.js",
+			"types": "./dist/useVibration.d.ts"
+		},
+		"./useWebsocket": {
+			"import": "./dist/useWebsocket.js",
+			"types": "./dist/useWebsocket.d.ts"
+		}
 	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
