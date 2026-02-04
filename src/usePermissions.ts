@@ -7,8 +7,8 @@ export type PermissionsSnapshot = Partial<
 >;
 
 export interface UsePermissionReturn {
-  isSupported: boolean;
-  permissions: PermissionsSnapshot;
+	isSupported: boolean;
+	permissions: PermissionsSnapshot;
 }
 
 /**

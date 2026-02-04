@@ -74,15 +74,11 @@ export interface UseIntervalReturn {
  */
 export function useIntervalSafe(
 	callback: () => void,
-	{
-		delay,
-		maxExecutions,
-		startOnMount = true,
-	}: UseIntervalOptions
+	{ delay, maxExecutions, startOnMount = true }: UseIntervalOptions
 ): UseIntervalReturn {
 	const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
 	const callbackRef = React.useRef<typeof callback>(callback);
-  const executionsRef = React.useRef<number>(0);
+	const executionsRef = React.useRef<number>(0);
 
 	const [isActive, setIsActive] = React.useState<boolean>(false);
 	const [executions, setExecutions] = React.useState<number>(0);
@@ -96,28 +92,28 @@ export function useIntervalSafe(
 			clearInterval(intervalRef.current);
 			intervalRef.current = null;
 		}
-    setIsActive(false);
+		setIsActive(false);
 	}, []);
 
-  const tick = React.useCallback(() => {
-    if (maxExecutions !== undefined && executionsRef.current >= maxExecutions) {
-      cancel();
-      return;
-    }
-    callbackRef.current();
-    executionsRef.current += 1;
-    setExecutions(executionsRef.current);
-    if (maxExecutions !== undefined && executionsRef.current >= maxExecutions) {
-      cancel();
-    }
-  }, [cancel, maxExecutions]);
+	const tick = React.useCallback(() => {
+		if (maxExecutions !== undefined && executionsRef.current >= maxExecutions) {
+			cancel();
+			return;
+		}
+		callbackRef.current();
+		executionsRef.current += 1;
+		setExecutions(executionsRef.current);
+		if (maxExecutions !== undefined && executionsRef.current >= maxExecutions) {
+			cancel();
+		}
+	}, [cancel, maxExecutions]);
 
 	const start = React.useCallback(() => {
 		if (delay == null || intervalRef.current) return;
-    executionsRef.current = 0;
-    setExecutions(0);
-    setIsActive(true);
-    intervalRef.current = setInterval(tick, delay);
+		executionsRef.current = 0;
+		setExecutions(0);
+		setIsActive(true);
+		intervalRef.current = setInterval(tick, delay);
 	}, [delay, maxExecutions, tick]);
 
 	const reset = React.useCallback(() => {
@@ -127,8 +123,8 @@ export function useIntervalSafe(
 
 	React.useEffect(() => {
 		if (!startOnMount) return;
-    start();
-    return cancel;
+		start();
+		return cancel;
 	}, [startOnMount]);
 
 	return {

@@ -1,28 +1,28 @@
 import * as React from 'react';
 
 export interface UseOnlineReturn {
-  /**
-   * Whether the browser is considered online.
-   * Note: `true` does not guarantee internet access.
-   */
-  online: boolean;
+	/**
+	 * Whether the browser is considered online.
+	 * Note: `true` does not guarantee internet access.
+	 */
+	online: boolean;
 }
 
 function suscribe(callback: () => void) {
-  window.addEventListener('online', callback);
-  window.addEventListener('offline', callback);
-  return () => {
-    window.removeEventListener('online', callback);
-    window.removeEventListener('offline', callback);
-  };
+	window.addEventListener('online', callback);
+	window.addEventListener('offline', callback);
+	return () => {
+		window.removeEventListener('online', callback);
+		window.removeEventListener('offline', callback);
+	};
 }
 
 function getSnapshot(): boolean {
-  return navigator.onLine;
+	return navigator.onLine;
 }
 
 function getServerSnapshot(): boolean {
-  return true;
+	return true;
 }
 
 /**
@@ -36,12 +36,12 @@ function getServerSnapshot(): boolean {
  * @version 0.0.1
  */
 export function useOnline(): UseOnlineReturn {
-  const online = React.useSyncExternalStore(
-    suscribe,
-    getSnapshot,
-    getServerSnapshot
-  );
-  return {
-    online,
-  };
+	const online = React.useSyncExternalStore(
+		suscribe,
+		getSnapshot,
+		getServerSnapshot
+	);
+	return {
+		online,
+	};
 }

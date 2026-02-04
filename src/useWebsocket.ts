@@ -38,7 +38,7 @@ export interface UseWebsocketOptions<TMessage = unknown> {
 }
 
 export interface UseWebsocketReturn<TMessage = unknown> {
-  /**
+	/**
 	 * Manually reconnect the Websocket
 	 */
 	connect: () => void;
@@ -114,70 +114,74 @@ export function useWebsocket<TMessage = unknown>(
 	const [isConnected, setIsConnected] = React.useState<boolean>(false);
 	const [error, setError] = React.useState<Error | null>(null);
 
-  const socketRef = React.useRef<WebSocket | null>(null);
-  const retriesRef = React.useRef<number>(0);
+	const socketRef = React.useRef<WebSocket | null>(null);
+	const retriesRef = React.useRef<number>(0);
 	const reconnectTimeoutRef = React.useRef<number | null>(null);
-  const manualCloseRef = React.useRef<boolean>(false);
-  const hasOpenedRef = React.useRef<boolean>(false);
+	const manualCloseRef = React.useRef<boolean>(false);
+	const hasOpenedRef = React.useRef<boolean>(false);
 
-  const onMessageRef = React.useRef(onMessage);
-  const onCloseRef = React.useRef(onClose);
-  const onErrorRef = React.useRef(onError);
+	const onMessageRef = React.useRef(onMessage);
+	const onCloseRef = React.useRef(onClose);
+	const onErrorRef = React.useRef(onError);
 
-  React.useEffect(() => {
-    onMessageRef.current = onMessage;
-    onCloseRef.current = onClose;
-    onErrorRef.current = onError;
-  }, [onMessage, onClose, onError]);
+	React.useEffect(() => {
+		onMessageRef.current = onMessage;
+		onCloseRef.current = onClose;
+		onErrorRef.current = onError;
+	}, [onMessage, onClose, onError]);
 
 	const connect = React.useCallback(() => {
 		if (typeof window === 'undefined') return;
-    manualCloseRef.current = false;
-    hasOpenedRef.current = false;
+		manualCloseRef.current = false;
+		hasOpenedRef.current = false;
 
 		const ws = new WebSocket(url);
-    socketRef.current = ws;
+		socketRef.current = ws;
 
 		ws.onopen = () => {
-      hasOpenedRef.current = true;
+			hasOpenedRef.current = true;
 			setIsConnected(true);
-      setError(null);
+			setError(null);
 			retriesRef.current = 0;
 		};
 
 		ws.onmessage = event => {
 			let data: TMessage;
-      try {
-        data = JSON.parse(event.data);
-      } catch {
-        data = event.data as TMessage;
-      }
-      setMessage(data);
-      setMessages(prev => [...prev, data]);
-      onMessageRef.current?.(data);
+			try {
+				data = JSON.parse(event.data);
+			} catch {
+				data = event.data as TMessage;
+			}
+			setMessage(data);
+			setMessages(prev => [...prev, data]);
+			onMessageRef.current?.(data);
 		};
 
 		ws.onclose = event => {
 			setIsConnected(false);
 			onCloseRef.current?.(event);
-			if (hasOpenedRef.current && !manualCloseRef.current && retriesRef.current < maxRetries) {
-        retriesRef.current += 1;
-        reconnectTimeoutRef.current = setTimeout(connect, reconnectionInterval);
-      }
+			if (
+				hasOpenedRef.current &&
+				!manualCloseRef.current &&
+				retriesRef.current < maxRetries
+			) {
+				retriesRef.current += 1;
+				reconnectTimeoutRef.current = setTimeout(connect, reconnectionInterval);
+			}
 		};
 
 		ws.onerror = event => {
-      setError(prev => prev ?? new Error('WebSocket error'));
-      onErrorRef.current?.(event);
+			setError(prev => prev ?? new Error('WebSocket error'));
+			onErrorRef.current?.(event);
 		};
 	}, [url, reconnectionInterval, maxRetries]);
 
 	const disconnect = React.useCallback(() => {
-    manualCloseRef.current = true;
+		manualCloseRef.current = true;
 		if (socketRef.current) {
-      socketRef.current.close();
-      socketRef.current = null;
-    }
+			socketRef.current.close();
+			socketRef.current = null;
+		}
 		if (reconnectTimeoutRef.current) clearTimeout(reconnectTimeoutRef.current);
 	}, []);
 
@@ -188,20 +192,20 @@ export function useWebsocket<TMessage = unknown>(
 
 	React.useEffect(() => {
 		if (!autoConnect) return;
-    connect();
-    return () => {
-      disconnect();
-    };
+		connect();
+		return () => {
+			disconnect();
+		};
 	}, [autoConnect, connect, disconnect]);
 
 	const send = React.useCallback(
 		(data: string | ArrayBuffer | Blob | ArrayBufferView) => {
-      const socket = socketRef.current;
-      if (!socket || socket.readyState !== WebSocket.OPEN) {
-        setError(new Error('WebSocket is not connected. Message not sent.'));
-        return;
-      }
-      socket.send(data);
+			const socket = socketRef.current;
+			if (!socket || socket.readyState !== WebSocket.OPEN) {
+				setError(new Error('WebSocket is not connected. Message not sent.'));
+				return;
+			}
+			socket.send(data);
 		},
 		[]
 	);

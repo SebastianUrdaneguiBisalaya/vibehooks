@@ -80,11 +80,13 @@ export function useServerSentEvent(
 	} = options;
 
 	const sourceRef = React.useRef<EventSource | null>(null);
-	const [readyState, setReadyState] = React.useState<SSEReadyState | null>(null);
+	const [readyState, setReadyState] = React.useState<SSEReadyState | null>(
+		null
+	);
 
-  const onMessageRef = React.useRef(onMessage);
-  const onOpenRef = React.useRef(onOpen);
-  const onErrorRef = React.useRef(onError);
+	const onMessageRef = React.useRef(onMessage);
+	const onOpenRef = React.useRef(onOpen);
+	const onErrorRef = React.useRef(onError);
 
 	const isSupported =
 		typeof window !== 'undefined' && typeof EventSource !== 'undefined';
@@ -95,11 +97,11 @@ export function useServerSentEvent(
 		setReadyState(null);
 	}, []);
 
-  React.useEffect(() => {
-    onMessageRef.current = onMessage;
-    onOpenRef.current = onOpen;
-    onErrorRef.current = onError;
-  }, [onMessageRef, onOpenRef, onErrorRef]);
+	React.useEffect(() => {
+		onMessageRef.current = onMessage;
+		onOpenRef.current = onOpen;
+		onErrorRef.current = onError;
+	}, [onMessageRef, onOpenRef, onErrorRef]);
 
 	React.useEffect(() => {
 		if (!isSupported || !enabled) return;
