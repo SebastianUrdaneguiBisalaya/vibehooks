@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/browser-and-hardware/useBarcode/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,18 @@ import data from "@/app/docs/browser-and-hardware/useBarcode/data";
 # useBarcode
 
 ### A React hook that provides a high-level interface for detecting barcodes and QR codes in real-time using the browser's Barcode Detection API.
+
+<Blockquote.Warning>
+  <Blockquote.Content>The Barcode Detection API is an experimental technology. Currently, it has limited browser support, primarily available in Chromium-based browsers.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Important>
+  <Blockquote.Content>Camera access requires a <strong>Secure Context (HTTPS)</strong> and explicit user permission. The <strong>start()</strong> method will trigger the browser's permission prompt.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Tip>
+  <Blockquote.Content>For optimal performance, provide a specific <strong>formats</strong> list to reduce the detector's processing overhead.</Blockquote.Content>
+</Blockquote.Tip>
 
 #### Installation
 

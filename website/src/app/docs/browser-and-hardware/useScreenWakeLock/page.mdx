@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/browser-and-hardware/useScreenWakeLock/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/browser-and-hardware/useScreenWakeLock/data";
 # useScreenWakeLock
 
 ### A React hook that provides unopinionated access to the Screen Wake Lock API to prevent devices from dimming or locking the screen.
+
+<Blockquote.Caution>
+  <Blockquote.Content>The browser will automatically release the wake lock if the page is minimized, the user switches tabs, or the screen turns off due to system-level power management.</Blockquote.Content>
+</Blockquote.Caution>
+
+<Blockquote.Important>
+  <Blockquote.Content>Requires a <strong>Secure Context (HTTPS)</strong> to operate.</Blockquote.Content>
+</Blockquote.Important>
 
 #### Installation
 

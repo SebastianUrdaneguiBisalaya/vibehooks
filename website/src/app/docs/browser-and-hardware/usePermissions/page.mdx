@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/browser-and-hardware/usePermissions/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/browser-and-hardware/usePermissions/data";
 # usePermissions
 
 ### A reactive hook that observes and synchronizes browser permission statuses in real-time.
+
+<Blockquote.Caution>
+  <Blockquote.Content>The Permissions API does not support all features uniformly. Passing certain strings (like <strong>'camera'</strong>) to the observer may throw errors in browsers where those specific permission names are not yet implemented.</Blockquote.Content>
+</Blockquote.Caution>
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook only <strong>observes</strong> existing status changes. It cannot trigger the permission prompt itself.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

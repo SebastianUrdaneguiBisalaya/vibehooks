@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/browser-and-hardware/useUserActivation/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/browser-and-hardware/useUserActivation/data";
 # useUserActivation
 
 ### A React hook that tracks the browser's User Activation state to determine if a user has interacted with the page.
+
+<Blockquote.Warning>
+  <Blockquote.Content>This API is not fully standardized across all browsers. Always check the <strong>isSupported</strong> flag before using its state in your logic.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Note>
+  <Blockquote.Content>This is particularly useful for verifying if a "transient activation" (a recent click/tap) exists before calling restricted APIs like <strong>requestFullscreen</strong>.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

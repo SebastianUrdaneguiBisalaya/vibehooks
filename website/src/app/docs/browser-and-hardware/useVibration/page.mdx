@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/browser-and-hardware/useVibration/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/browser-and-hardware/useVibration/data";
 # useVibration
 
 ### A React hook that provides an SSR-safe interface to interact with the device's physical vibration hardware.
+
+<Blockquote.Important>
+  <Blockquote.Content>Vibrations can only be triggered after a user interaction (like a click) on the page. Programmatic vibrations without a prior gesture will be blocked by the browser.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Tip>
+  <Blockquote.Content>You can create haptic feedback patterns by passing an array, such as <strong>[200, 100, 200]</strong>, where values represent <strong>[vibrate, pause, vibrate]</strong>.</Blockquote.Content>
+</Blockquote.Tip>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/browser-and-hardware/useGeolocation/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/browser-and-hardware/useGeolocation/data";
 # useGeolocation
 
 ### A comprehensive, SSR-safe hook for interfacing with the Geolocation API and Permissions API to track device coordinates and access status.
+
+<Blockquote.Important>
+  <Blockquote.Content>Geolocation requires explicit user consent. The browser will automatically display a permission prompt when <strong>getCurrentPosition</strong> or <strong>watchPosition</strong> is invoked.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Note>
+  <Blockquote.Content>Using <strong>watchPosition</strong> continuously can significantly impact battery life on mobile devices. Ensure you call <strong>clearWatch</strong> when the tracking is no longer needed.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

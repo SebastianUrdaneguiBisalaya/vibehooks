@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/browser-and-hardware/useNetworkInformation/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/browser-and-hardware/useNetworkInformation/data";
 # useNetworkInformation
 
 ### A performance-aware hook that provides real-time network telemetry and user connectivity preferences to adapt application behavior.
+
+<Blockquote.Warning>
+  <Blockquote.Content>Limited browser support. This experimental API is mostly available in Chrome and Edge. It will return <strong>supported: false</strong> in Safari and Firefox.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Important>
+  <Blockquote.Content>Bandwidth metrics (<strong>downlink</strong>, <strong>rtt</strong>) are heuristics based on recent activity and should be treated as rough estimates for adaptive loading.</Blockquote.Content>
+</Blockquote.Important>
 
 #### Installation
 

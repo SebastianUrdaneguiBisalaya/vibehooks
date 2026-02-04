@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/browser-and-hardware/useIdle/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/browser-and-hardware/useIdle/data";
 # useIdle
 
 ### An SSR-safe hook to monitor user inactivity by tracking browser interaction events and exposing real-time idle status based on a custom timeout.
+
+<Blockquote.Tip>
+  <Blockquote.Content>You can customize the <strong>events</strong> array to exclude specific interactions—for example, removing <strong>scroll</strong> to ignore page movement as an "active" state.</Blockquote.Content>
+</Blockquote.Tip>
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook is a state reporter only; it does not perform automated actions like session timeouts or logouts.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 
