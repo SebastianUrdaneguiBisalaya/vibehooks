@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/ui-and-layout/usePopover/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/ui-and-layout/usePopover/data.json";
 # usePopover
 
 ### A lifecycle management hook for popover UI elements that handles visibility and "click-outside" logic.
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook provides a "Click Outside" and "Escape Key" listener out of the box. Ensure that both the <strong>anchorRef</strong> and <strong>popoverRef</strong> are correctly assigned to avoid the popover closing immediately when clicking the trigger.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

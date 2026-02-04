@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/ui-and-layout/useIntersectionObserver/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/ui-and-layout/useIntersectionObserver/data.json";
 # useIntersectionObserver
 
 ### A hook that monitors the visibility and intersection of a DOM element within a viewport.
+
+<Blockquote.Note>
+  <Blockquote.Content>If you are using this for "Lazy Loading" images or infinite scroll, the <strong>once: true</strong> option is highly recommended to improve performance by disconnecting the observer after the first successful intersection.</Blockquote.Content>
+</Blockquote.Note>
+
+<Blockquote.Tip>
+  <Blockquote.Content>You can pass an <strong>externalRef</strong> as a second argument if you need to share the reference with other hooks or components.</Blockquote.Content>
+</Blockquote.Tip>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/ui-and-layout/useFullscreen/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/ui-and-layout/useFullscreen/data.json";
 # useFullScreen
 
 ### A declarative interface for managing the browser Fullscreen API on a specific DOM element.
+
+<Blockquote.Important>
+  <Blockquote.Content>Entering fullscreen mode must be triggered by a user gesture (e.g., a click or key press). Browsers will block any programmatic attempt to enter fullscreen without a recent interaction.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Caution>
+  <Blockquote.Content>Fullscreen support varies significantly on mobile browsers (especially iOS Safari, where only the <strong>video</strong> element typically supports native fullscreen).</Blockquote.Content>
+</Blockquote.Caution>
 
 #### Installation
 
