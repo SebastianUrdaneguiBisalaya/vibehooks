@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/connectivity-and-async/useOnline/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/connectivity-and-async/useOnline/data.json";
 # useOnline
 
 ### A hook that tracks and returns the browser's current online connectivity status.
+
+<Blockquote.Caution>
+  <Blockquote.Content>A <strong>true</strong> value only indicates that the device is connected to a network; it does not guarantee actual internet access or server reachability.</Blockquote.Content>
+</Blockquote.Caution>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/connectivity-and-async/useTaskQueue/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/connectivity-and-async/useTaskQueue/data.json";
 # useTaskQueue
 
 ### A React hook for managing and executing a sequential queue of asynchronous tasks with automatic concurrency control.
+
+<Blockquote.Note>
+  <Blockquote.Content>This queue processes tasks sequentially (one by one). If a task hangs or takes a long time, it will block all subsequent tasks in the queue.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

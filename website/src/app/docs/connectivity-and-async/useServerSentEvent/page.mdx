@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/connectivity-and-async/useServerSentEvent/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/connectivity-and-async/useServerSentEvent/data.json
 # useServerSentEvent
 
 ### A React hook that provides unopinionated access to the EventSource Web API for receiving real-time server-side updates.
+
+<Blockquote.Warning>
+  <Blockquote.Content>The native <strong>EventSource</strong> API does not support custom HTTP headers (like <strong>Authorization</strong>). If your endpoint requires them, you may need a different approach or a polyfill.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Note>
+  <Blockquote.Content>Server-Sent Events are unidirectional. If you require bidirectional communication (sending data to the server), consider using <strong>useWebsocket</strong>.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

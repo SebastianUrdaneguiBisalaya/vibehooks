@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/connectivity-and-async/useTimeout/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/connectivity-and-async/useTimeout/data.json";
 # useTimeout
 
 ### A declarative React hook for managing the lifecycle of single-execution timers with manual controls and SSR safety.
+
+<Blockquote.Note>
+  <Blockquote.Content>The timer will not be scheduled if the <strong>delay</strong> is <strong>null</strong>. This is useful for conditionally enabling the timeout based on specific logic.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/connectivity-and-async/useIntervalSafe/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/connectivity-and-async/useIntervalSafe/data.json";
 # useIntervalSafe
 
 ### A declarative and robust React hook for managing **setInterval** lifecycles with execution limits and manual controls.
+
+<Blockquote.Note>
+  <Blockquote.Content>Setting the <strong>delay</strong> to <strong>null</strong> or undefined will prevent the interval from starting or will pause it if it is already running.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

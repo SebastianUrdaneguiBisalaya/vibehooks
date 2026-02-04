@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/ui/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/connectivity-and-async/useWebsocket/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/connectivity-and-async/useWebsocket/data.json";
 # useWebsocket
 
 ### A comprehensive React hook for managing WebSocket connections with built-in auto-reconnection logic, message history, and SSR safety.
+
+<Blockquote.Warning>
+  <Blockquote.Content>Calling <strong>send()</strong> while <strong>isConnected</strong> is <strong>false</strong> will not queue the message; the operation will fail and update the <strong>error</strong> state immediately.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Tip>
+  <Blockquote.Content>This hook automatically attempts to parse incoming message data as JSON. If the data is not a valid JSON string, it will return the raw message.</Blockquote.Content>
+</Blockquote.Tip>
 
 #### Installation
 
