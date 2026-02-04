@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/environment-and-lifecycle/useScreenSize/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/environment-and-lifecycle/useScreenSize/data.json";
 # useScreenSize
 
 ### Returns the current inner dimensions of the browser window.
+
+<Blockquote.Caution>
+  <Blockquote.Content>Frequent resizing can trigger many re-renders. If you only need to react to specific breakpoints, consider using <strong>useIsDesktop</strong> or a <strong>matchMedia</strong> based hook instead for better performance.</Blockquote.Content>
+</Blockquote.Caution>
 
 #### Installation
 

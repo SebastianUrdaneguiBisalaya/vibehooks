@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/environment-and-lifecycle/useTraceUpdates/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/environment-and-lifecycle/useTraceUpdates/data.json
 # useTimeout
 
 ### Logs property changes to the console whenever the component updates.
+
+<Blockquote.Warning>
+  <Blockquote.Content>This hook should only be used during development. It performs shallow comparisons on every render, which can impact performance if left in production code.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Note>
+  <Blockquote.Content>To see changes in the console, ensure you pass an object where keys represent the prop or state names you wish to track.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

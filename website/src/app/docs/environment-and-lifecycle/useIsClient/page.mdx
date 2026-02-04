@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/environment-and-lifecycle/useIsClient/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/environment-and-lifecycle/useIsClient/data.json";
 # useIsClient
 
 ### Returns true if the code is running in the browser and false if it is running on the server.
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook is essential for preventing hydration mismatch errors in SSR frameworks like Next.js or Remix. Use it to conditionally render components that rely on browser-only APIs.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

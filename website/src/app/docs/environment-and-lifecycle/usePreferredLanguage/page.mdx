@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/environment-and-lifecycle/usePreferredLanguage/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/environment-and-lifecycle/usePreferredLanguage/data
 # usePreferredLanguage
 
 ### Manages and resolves the application language based on system settings and user overrides.
+
+<Blockquote.Important>
+  <Blockquote.Content>This hook synchronizes the user's language preference across all open browser tabs using <strong>localStorage</strong> and the <strong></strong> event.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Note>
+  <Blockquote.Content>The <strong>language</strong> value follows the BCP 47 standard (e.g., <strong>'en-US'</strong>, <strong>'es-PE'</strong>). Ensure your localization dictionary supports these specific codes or includes a fallback mechanism.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

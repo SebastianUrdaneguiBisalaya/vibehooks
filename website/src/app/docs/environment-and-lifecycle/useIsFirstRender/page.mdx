@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/environment-and-lifecycle/useIsFirstRender/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/environment-and-lifecycle/useIsFirstRender/data.jso
 # useIsFirstRender
 
 ### Tracks whether the current render cycle is the initial mount of the component.
+
+<Blockquote.Note>
+  <Blockquote.Content>This is useful for preventing <strong>useEffect</strong> logic from running on the initial mount, such as skipping an API call or an animation when the component first appears.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/environment-and-lifecycle/usePageVisibility/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/environment-and-lifecycle/usePageVisibility/data.js
 # usePageVisibility
 
 ### Provides the current visibility state of the document using the Page Visibility API.
+
+<Blockquote.Tip>
+  <Blockquote.Content>Use this hook to pause expensive operations—like WebSocket heartbeats, long-polling, or complex animations—when the user switches tabs to save battery and network resources.</Blockquote.Content>
+</Blockquote.Tip>
 
 #### Installation
 
