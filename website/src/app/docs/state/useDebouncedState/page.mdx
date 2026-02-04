@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/state/useDebouncedState/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/state/useDebouncedState/data.json";
 # useDebouncedState
 
 ### A state management hook that tracks immediate value changes while providing a delayed update for performance-heavy operations.
+
+<Blockquote.Note>
+  <Blockquote.Content>Perfect for search inputs or filter bars. It ensures that expensive operations (like API calls) only fire after the user has stopped typing for the duration of the <strong>delay</strong>.</Blockquote.Content>
+</Blockquote.Note>
+
+<Blockquote.Tip>
+  <Blockquote.Content>The <strong>value</strong> property provides the immediate state for a responsive UI, while <strong>debouncedValue</strong> should be used as a dependency for your <strong>useEffect</strong> or data fetching.</Blockquote.Content>
+</Blockquote.Tip>
 
 #### Installation
 

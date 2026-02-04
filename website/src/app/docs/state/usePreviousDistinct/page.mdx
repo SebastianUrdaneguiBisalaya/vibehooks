@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/state/usePreviousDistinct/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/state/usePreviousDistinct/data.json";
 # usePreviousDistinct
 
 ### A utility hook that captures the last distinct value of a variable, filtering out redundant consecutive updates.
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook uses <strong>Object.is</strong> for comparison. It only updates the "previous" reference when the current value actually changes, making it ideal for tracking props or IDs.</Blockquote.Content>
+</Blockquote.Note>
 
 #### Installation
 

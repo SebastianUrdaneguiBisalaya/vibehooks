@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/state/useThrottledCallback/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/state/useThrottledCallback/data.json";
 # useThrottledCallback
 
 ### A performance-optimization hook that limits the execution frequency of a callback to one per specified time window.
+
+<Blockquote.Important>
+  <Blockquote.Content>Throttling is ideal for high-frequency events like <strong>scroll</strong>, <strong>resize</strong>, or <strong>mousemove</strong>. It guarantees the callback runs at a consistent rate (once every <strong>delay</strong> ms).</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Caution>
+  <Blockquote.Content>Unlike debounce, throttle will execute the first call immediately but will discard subsequent calls until the delay has passed.</Blockquote.Content>
+</Blockquote.Caution>
 
 #### Installation
 

@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/state/useCountDown/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,14 @@ import data from "@/app/docs/state/useCountDown/data.json";
 # useCountDown
 
 ### High-precision React hook for managing synchronized countdown timers with manual lifecycle controls and drift-correction.
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook uses a reference timestamp approach rather than a simple counter. This prevents "time drift," ensuring the countdown stays accurate even if the browser's event loop is busy.</Blockquote.Content>
+</Blockquote.Note>
+
+<Blockquote.Tip>
+  <Blockquote.Content>You can use the <strong>increment</strong> control to add "bonus time" to a game or session without resetting the entire countdown logic.</Blockquote.Content>
+</Blockquote.Tip>
 
 #### Installation
 

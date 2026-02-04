@@ -1,3 +1,4 @@
+import { Blockquote } from "@/components/shared/Blockquote";
 import CodeBlock from "@/components/shared/Codeblock";
 import Demo from "@/app/docs/state/useResettableState/Demo";
 import Table from "@/components/shared/Table";
@@ -6,6 +7,10 @@ import data from "@/app/docs/state/useResettableState/data.json";
 # useResettableState
 
 ### Extends standard state management with a memoized reset mechanism to revert to the initial value.
+
+<Blockquote.Tip>
+  <Blockquote.Content>Highly useful for complex forms or filters. Instead of manually setting every field back to its default, a single call to <strong>reset()</strong> restores the state to its exact <strong>initialState</strong>.</Blockquote.Content>
+</Blockquote.Tip>
 
 #### Installation
 
