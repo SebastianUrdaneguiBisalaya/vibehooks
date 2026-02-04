@@ -4,6 +4,7 @@ export { useAutoScroll } from './useAutoScroll';
 export { useBarcode } from './useBarcode';
 export { useBatteryStatus } from './useBatteryStatus';
 export { useBodyScrollFreeze } from './useBodyScrollFreeze';
+export { useCameraCapture } from './useCameraCapture';
 export { useCookies } from './useCookies';
 export { useCopyToClipboard } from './useCopyToClipboard';
 export { useCountDown } from './useCountDown';

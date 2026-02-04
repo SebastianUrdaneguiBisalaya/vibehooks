@@ -140,6 +140,10 @@ const hooksList: HooksListProps[] = [
         path: "/docs/multimedia/useAudio",
       },
       {
+        name: "useCameraCapture",
+        path: "/docs/multimedia/useCameraCapture",
+      },
+      {
         name: "usePictureInPicture",
         path: "/docs/multimedia/usePictureInPicture",
       },

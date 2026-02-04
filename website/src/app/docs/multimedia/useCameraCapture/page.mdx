@@ -1,0 +1,127 @@
+import { Blockquote } from "@/components/shared/Blockquote";
+import CodeBlock from "@/components/shared/Codeblock";
+import Demo from "@/app/docs/multimedia/useCameraCapture/Demo";
+import Table from "@/components/shared/Table";
+import data from "@/app/docs/multimedia/useCameraCapture/data.json";
+
+# useCameraCapture
+
+### A hook that manages camera access and simplifies capturing still images from a live video stream via a canvas element.
+
+<Blockquote.Important>
+  <Blockquote.Content><strong>navigator.mediaDevices.getUserMedia</strong> only works in secure contexts (HTTPS). It will also work on localhost for development purposes, but it will fail silently or throw errors on standard HTTP deployments.</Blockquote.Content>
+</Blockquote.Important>
+
+<Blockquote.Warning>
+  <Blockquote.Content>Always call the <strong>stop()</strong> function when the user leaves the camera view. Leaving the camera active drains battery and keeps the hardware "in-use" light on, which is a poor user experience.</Blockquote.Content>
+</Blockquote.Warning>
+
+<Blockquote.Caution>
+  <Blockquote.Content>Some older mobile browsers or embedded webviews (like those inside social media apps) may not fully support the <strong>mediaDevices API</strong>. Always check the return value of <strong>requestPermission</strong>.</Blockquote.Content>
+</Blockquote.Caution>
+
+<Blockquote.Note>
+  <Blockquote.Content>This hook automatically calculates the height based on the video's natural aspect ratio. Ensure your CSS for the <strong>video</strong> and <strong>img</strong> elements accounts for dynamic heights to prevent layout shifts.</Blockquote.Content>
+</Blockquote.Note>
+
+<Blockquote.Tip>
+  <Blockquote.Content>Use the <strong>blob</strong> provided in the <strong>onCapture</strong> callback if you intend to upload the image to a server (e.g., via <strong>FormData</strong>). It is significantly more efficient than sending a large Base64 string.</Blockquote.Content>
+</Blockquote.Tip>
+
+#### Installation
+
+<CodeBlock
+  code={`npm install @vibehooks/react/useCameraCapture`}
+  language="bash"
+/>
+
+#### Description
+
+This hook provides an end-to-end interface for handling the MediaDevices API. It handles permission requests, manages the video stream lifecycle (start/stop), calculates aspect ratios automatically based on a desired width, and provides helper refs to render the live feed and the final captured image.
+
+#### Parameters
+
+<Table data={data.parameters} />
+
+#### Return values
+
+<Table data={data.returnValues} />
+
+#### Demo
+
+<Demo />
+
+#### Source code
+
+```tsx
+'use client';
+
+import { useCameraCapture } from "../../../../../../src";
+import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
+import { Layout } from "@/layouts/Layout";
+
+export default function Demo() {
+  const {
+    canvasRef,
+    capture,
+    imageRef,
+    requestPermission,
+    stop,
+    usePermission,
+    useStreaming,
+    videoRef,
+  } = useCameraCapture({
+    onCapture: (dataUrl, blob) => {
+      console.log("Photo taken!", {
+        size: blob.size,
+        type: blob.type,
+      })
+    }
+  });
+
+  const hasPermission = usePermission();
+  const isStreaming = useStreaming();
+
+  return (
+    <Layout>
+      <Layout.Title>Camera Capture</Layout.Title>
+      <div className="flex flex-row items-center justify-center gap-2">
+        <Tag.Primary>Permission: {hasPermission ? 'Granted' : 'Denied'}</Tag.Primary>
+        <Tag.Primary>Streaming: {isStreaming ? 'Active' : 'Inactive'}</Tag.Primary>
+      </div>
+      <div className="flex flex-row items-center justify-center gap-2">
+        <Button.Secondary disabled={isStreaming} onClick={requestPermission}>
+          Enable
+        </Button.Secondary>
+        <Button.Primary disabled={!isStreaming} onClick={capture}>
+          Capture
+        </Button.Primary>
+        <Button.Destructive disabled={!isStreaming} onClick={stop}>
+          Stop
+        </Button.Destructive>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-1.5">
+          <Layout.Caption className="text-center">Live Stream</Layout.Caption>
+          <video
+            autoPlay
+            className="aspect-video w-full rounded-md"
+            playsInline
+            ref={videoRef}
+          />
+        </div>
+        <div className="flex flex-col items-center gap-1.5">
+          <Layout.Caption className="text-center">Last Capture</Layout.Caption>
+          <img
+            alt="Last capture"
+            className="aspect-square w-full min-h-28 rounded-md"
+            ref={imageRef}
+          />
+        </div>
+      </div>
+      <canvas className="hidden" ref={canvasRef} />
+    </Layout>
+  )
+}
+```

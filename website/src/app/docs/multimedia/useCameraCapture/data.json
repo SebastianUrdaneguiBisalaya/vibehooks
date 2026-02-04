@@ -1,0 +1,56 @@
+{
+  "parameters": [
+    {
+      "name": "options.onCapture",
+      "type": "(dataUrl: string, blob: Blob) => void",
+      "description": "Optional callback triggered after a successful capture. Provides both the Base64 string and the raw File Blob."
+    },
+    {
+      "name": "options.width",
+      "type": "number",
+      "description": "The desired output width of the image. Height is scaled automatically. Default: 320."
+    }
+  ],
+  "returnValues": [
+    {
+      "name": "canvasRef",
+      "type": "React.RefObject<HTMLCanvasElement | null>",
+      "description": "Ref to the hidden <canvas /> used for processing the image data."
+    },
+    {
+      "name": "capture",
+      "type": "() => string | null",
+      "description": "Captures the current frame, renders it to the imageRef, and returns the Data URL."
+    },
+    {
+      "name": "imageRef",
+      "type": "React.RefObject<HTMLImageElement | null>",
+      "description": "Ref to attach to an <img /> tag to display the last captured photo."
+    },
+    {
+      "name": "requestPermission",
+      "type": "() => Promise<boolean>",
+      "description": "Async function that prompts the user for camera access and starts the stream."
+    },
+    {
+      "name": "stop",
+      "type": "() => void",
+      "description": "Releases the camera hardware and stops all active media tracks."
+    },
+    {
+      "name": "usePermission",
+      "type": "() => boolean",
+      "description": "Returns whether the user has successfully granted camera access."
+    },
+    {
+      "name": "useStreaming",
+      "type": "() => boolean",
+      "description": "Returns the current active state of the video stream."
+    },
+    {
+      "name": "videoRef",
+      "type": "React.RefObject<HTMLVideoElement | null>",
+      "description": "Ref to attach to the <video /> tag for the live stream."
+    }
+  ]
+}
