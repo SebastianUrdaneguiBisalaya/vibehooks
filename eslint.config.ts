@@ -18,6 +18,8 @@ export default defineConfig([
 		'website/pnpm-lock.yaml',
 		'public',
 		'pnpm-lock.yaml',
+		'.husky',
+		'commitlint.config.js',
 	]),
 	{
 		files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
