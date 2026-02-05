@@ -1,36 +1,42 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/browser-and-hardware/useIdle/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/browser-and-hardware/useIdle/data";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/browser-and-hardware/useIdle/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/browser-and-hardware/useIdle/data';
 
 export const metadata = {
-  title: 'useIdle - vibeHooks',
-  description: 'An SSR-safe hook to monitor user inactivity by tracking browser interaction events and exposing real-time idle status based on a custom timeout.',
-  openGraph: {
-    title: 'useIdle - vibeHooks',
-    description: 'An SSR-safe hook to monitor user inactivity by tracking browser interaction events and exposing real-time idle status based on a custom timeout.',
-  }
-}
+	title: 'useIdle - vibeHooks',
+	description:
+		'An SSR-safe hook to monitor user inactivity by tracking browser interaction events and exposing real-time idle status based on a custom timeout.',
+	openGraph: {
+		title: 'useIdle - vibeHooks',
+		description:
+			'An SSR-safe hook to monitor user inactivity by tracking browser interaction events and exposing real-time idle status based on a custom timeout.',
+	},
+};
 
 # useIdle
 
 ### An SSR-safe hook to monitor user inactivity by tracking browser interaction events and exposing real-time idle status based on a custom timeout.
 
 <Blockquote.Tip>
-  <Blockquote.Content>You can customize the <strong>events</strong> array to exclude specific interactions—for example, removing <strong>scroll</strong> to ignore page movement as an "active" state.</Blockquote.Content>
+	<Blockquote.Content>
+		You can customize the <strong>events</strong> array to exclude specific
+		interactions—for example, removing <strong>scroll</strong> to ignore page
+		movement as an "active" state.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 <Blockquote.Note>
-  <Blockquote.Content>This hook is a state reporter only; it does not perform automated actions like session timeouts or logouts.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook is a state reporter only; it does not perform automated actions
+		like session timeouts or logouts.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -49,47 +55,47 @@ The **useIdle** observes a customizable set of browser events (such as **mousemo
 ```tsx
 'use client';
 
-import { useIdle } from "@vibehooks/react";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
-import { cn } from "@/lib/cn";
+import { useIdle } from '@vibehooks/react';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
+import { cn } from '@/lib/cn';
 
 export default function Demo() {
-  const { isIdle, lastActiveAt } = useIdle({
-    events: ['mousemove', 'keydown', 'mousedown', 'touchstart', 'scroll'],
-    timeout: 5000,
-  });
+	const { isIdle, lastActiveAt } = useIdle({
+		events: ['mousemove', 'keydown', 'mousedown', 'touchstart', 'scroll'],
+		timeout: 5000,
+	});
 
-  return (
-    <Layout>
-      <Layout.Title>Idle</Layout.Title>
-      <div className="flex items-center gap-1.5">
-        <span className='relative flex h-2 w-2'>
-          {!isIdle && (
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          )}
-          <span
-            className={cn(
-              'relative inline-flex rounded-full h-2 w-2',
-              isIdle ? 'bg-amber-500' : 'bg-green-500'
-            )}
-          >
-          </span>
-        </span>
-        <Tag.Primary>
-          Status: {isIdle ? 'User is Idle' : 'User is Active'}
-        </Tag.Primary>
-      </div>
+	return (
+		<Layout>
+			<Layout.Title>Idle</Layout.Title>
+			<div className='flex items-center gap-1.5'>
+				<span className='relative flex h-2 w-2'>
+					{!isIdle && (
+						<span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75'></span>
+					)}
+					<span
+						className={cn(
+							'relative inline-flex rounded-full h-2 w-2',
+							isIdle ? 'bg-amber-500' : 'bg-green-500'
+						)}
+					></span>
+				</span>
+				<Tag.Primary>
+					Status: {isIdle ? 'User is Idle' : 'User is Active'}
+				</Tag.Primary>
+			</div>
 
-      <Layout.Caption>Last Activity: {new Date(lastActiveAt).toLocaleTimeString()}</Layout.Caption>
+			<Layout.Caption>
+				Last Activity: {new Date(lastActiveAt).toLocaleTimeString()}
+			</Layout.Caption>
 
-      {isIdle && (
-        <Layout.Caption className="text-amber-500">
-          Note: Auto-pausing background processes to save resources.
-        </Layout.Caption>
-      )}
-    </Layout>
-  )
+			{isIdle && (
+				<Layout.Caption className='text-amber-500'>
+					Note: Auto-pausing background processes to save resources.
+				</Layout.Caption>
+			)}
+		</Layout>
+	);
 }
 ```
-

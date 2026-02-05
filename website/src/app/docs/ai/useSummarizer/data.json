@@ -1,39 +1,39 @@
 {
-  "returnValues": [
-    {
-      "name": "cancel",
-      "type": "() => void",
-      "description": "Aborts any ongoing summarization or creation task."
-    },
-    {
-      "name": "checkAvailability",
-      "type": "(opts={}) => Promise<SummarizerAvailability>",
-      "description": "Checks if the AI model is 'available', 'unavailable', or 'downloadable'."
-    },
-    {
-      "name": "create",
-      "type": "(opts={}) => Promise<void>",
-      "description": "Instantiates the Summarizer model with specific options (type, length, format)."
-    },
-    {
-      "name": "destroy",
-      "type": "() => void",
-      "description": "Cleans up the model instance and releases browser resources."
-    },
-    {
-      "name": "isAbortError",
-      "type": "(error: unknown) => boolean",
-      "description": "Checks if the provided error is an AbortError."
-    },
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "true if the browser supports the window.Summarizer API."
-    },
-    {
-      "name": "summarize",
-      "type": "(text: string) => Promise<string>",
-      "description": "Asynchronously processes the input text and returns a summary."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "cancel",
+			"type": "() => void",
+			"description": "Aborts any ongoing summarization or creation task."
+		},
+		{
+			"name": "checkAvailability",
+			"type": "(opts={}) => Promise<SummarizerAvailability>",
+			"description": "Checks if the AI model is 'available', 'unavailable', or 'downloadable'."
+		},
+		{
+			"name": "create",
+			"type": "(opts={}) => Promise<void>",
+			"description": "Instantiates the Summarizer model with specific options (type, length, format)."
+		},
+		{
+			"name": "destroy",
+			"type": "() => void",
+			"description": "Cleans up the model instance and releases browser resources."
+		},
+		{
+			"name": "isAbortError",
+			"type": "(error: unknown) => boolean",
+			"description": "Checks if the provided error is an AbortError."
+		},
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "true if the browser supports the window.Summarizer API."
+		},
+		{
+			"name": "summarize",
+			"type": "(text: string) => Promise<string>",
+			"description": "Asynchronously processes the input text and returns a summary."
+		}
+	]
 }

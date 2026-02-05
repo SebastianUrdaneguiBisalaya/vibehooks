@@ -1,36 +1,43 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/productivity-and-utilities/useCopyToClipboard/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/productivity-and-utilities/useCopyToClipboard/data";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/productivity-and-utilities/useCopyToClipboard/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/productivity-and-utilities/useCopyToClipboard/data';
 
 export const metadata = {
-  title: 'useCopyToClipboard - vibeHooks',
-  description: 'A hook to copy text to the system clipboard using the modern Clipboard API.',
-  openGraph: {
-    title: 'useCopyToClipboard - vibeHooks',
-    description: 'A hook to copy text to the system clipboard using the modern Clipboard API.',
-  }
-}
+	title: 'useCopyToClipboard - vibeHooks',
+	description:
+		'A hook to copy text to the system clipboard using the modern Clipboard API.',
+	openGraph: {
+		title: 'useCopyToClipboard - vibeHooks',
+		description:
+			'A hook to copy text to the system clipboard using the modern Clipboard API.',
+	},
+};
 
 # useCopyToClipboard
 
 ### A hook to copy text to the system clipboard using the modern Clipboard API.
 
 <Blockquote.Warning>
-  <Blockquote.Content>The Clipboard API requires a <strong>Secure Context (HTTPS)</strong>. On non-secure origins, <strong>navigator.clipboard</strong> will be undefined, and the hook will throw an error.</Blockquote.Content>
+	<Blockquote.Content>
+		The Clipboard API requires a <strong>Secure Context (HTTPS)</strong>. On
+		non-secure origins, <strong>navigator.clipboard</strong> will be undefined,
+		and the hook will throw an error.
+	</Blockquote.Content>
 </Blockquote.Warning>
 
 <Blockquote.Important>
-  <Blockquote.Content>This method must be called within a short delay after a user interaction (like a <strong>click</strong> event) to be permitted by the browser's security model.</Blockquote.Content>
+	<Blockquote.Content>
+		This method must be called within a short delay after a user interaction
+		(like a <strong>click</strong> event) to be permitted by the browser's
+		security model.
+	</Blockquote.Content>
 </Blockquote.Important>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -49,21 +56,22 @@ This hook provides a robust way to interact with the **navigator.clipboard API**
 ```tsx
 'use client';
 
-import { useCopyToClipboard } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout"
+import { useCopyToClipboard } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { copyToClipboard, textCopied } = useCopyToClipboard();
-  const sampleText = "Hello world! ✋🏻";
-  return (
-    <Layout>
-      <Layout.Title>Copy to Clipboard</Layout.Title>
-      <Button.Primary onClick={() => copyToClipboard(sampleText)}>Copy to clipboard</Button.Primary>
-      {
-        textCopied && <Tag.Primary>Successfully copied</Tag.Primary>}
-    </Layout>
-  )
+	const { copyToClipboard, textCopied } = useCopyToClipboard();
+	const sampleText = 'Hello world! ✋🏻';
+	return (
+		<Layout>
+			<Layout.Title>Copy to Clipboard</Layout.Title>
+			<Button.Primary onClick={() => copyToClipboard(sampleText)}>
+				Copy to clipboard
+			</Button.Primary>
+			{textCopied && <Tag.Primary>Successfully copied</Tag.Primary>}
+		</Layout>
+	);
 }
 ```

@@ -1,71 +1,71 @@
 {
-  "parameters": [
-    {
-      "name": "options",
-      "type": "UseShoppingCartOptions<T>",
-      "description": "Required. Configuration to interpret the item type T."
-    },
-    {
-      "name": "getItemKey",
-      "type": "(item: T) => string | number",
-      "description": "Required. Returns the unique identifier for an item."
-    },
-    {
-      "name": "getItemPrice",
-      "type": "(item: T) => number",
-      "description": "Required. Returns the unit price of the item."
-    },
-    {
-      "name": "getItemQuantity",
-      "type": "(item: T) => number",
-      "description": "Required. Returns current quantity."
-    },
-    {
-      "name": "getItemTax",
-      "type": "(item: T) => number",
-      "description": "Optional. Returns tax per unit. Default: 0."
-    },
-    {
-      "name": "getItemDiscount",
-      "type": "(item: T) => number",
-      "description": "Optional. Returns discount per unit. Default: 0."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "items",
-      "type": "T[]",
-      "description": "The raw array of items in the cart."
-    },
-    {
-      "name": "addItem",
-      "type": "(item: T) => void",
-      "description": "Appends a new item to the cart."
-    },
-    {
-      "name": "removeItem",
-      "type": "(key: number | string) => void",
-      "description": "Removes an item by its key."
-    },
-    {
-      "name": "updateItem",
-      "type": "(key: number | string, patch: Partial<T>) => void",
-      "description": "Updates specific properties of an item."
-    },
-    {
-      "name": "getTotal",
-      "type": "() => number",
-      "description": "Calculates total: Subtotal + Tax − Discount."
-    },
-    {
-      "name": "getDetails",
-      "type": "() => ShoppingCartItemDetail[]",
-      "description": "Returns a derived list of aggregated items with math details."
-    },
-    {
-      "name": "clear",
-      "type": "() => void",
-      "description": "Removes all items from the cart."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options",
+			"type": "UseShoppingCartOptions<T>",
+			"description": "Required. Configuration to interpret the item type T."
+		},
+		{
+			"name": "getItemKey",
+			"type": "(item: T) => string | number",
+			"description": "Required. Returns the unique identifier for an item."
+		},
+		{
+			"name": "getItemPrice",
+			"type": "(item: T) => number",
+			"description": "Required. Returns the unit price of the item."
+		},
+		{
+			"name": "getItemQuantity",
+			"type": "(item: T) => number",
+			"description": "Required. Returns current quantity."
+		},
+		{
+			"name": "getItemTax",
+			"type": "(item: T) => number",
+			"description": "Optional. Returns tax per unit. Default: 0."
+		},
+		{
+			"name": "getItemDiscount",
+			"type": "(item: T) => number",
+			"description": "Optional. Returns discount per unit. Default: 0."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "items",
+			"type": "T[]",
+			"description": "The raw array of items in the cart."
+		},
+		{
+			"name": "addItem",
+			"type": "(item: T) => void",
+			"description": "Appends a new item to the cart."
+		},
+		{
+			"name": "removeItem",
+			"type": "(key: number | string) => void",
+			"description": "Removes an item by its key."
+		},
+		{
+			"name": "updateItem",
+			"type": "(key: number | string, patch: Partial<T>) => void",
+			"description": "Updates specific properties of an item."
+		},
+		{
+			"name": "getTotal",
+			"type": "() => number",
+			"description": "Calculates total: Subtotal + Tax − Discount."
+		},
+		{
+			"name": "getDetails",
+			"type": "() => ShoppingCartItemDetail[]",
+			"description": "Returns a derived list of aggregated items with math details."
+		},
+		{
+			"name": "clear",
+			"type": "() => void",
+			"description": "Removes all items from the cart."
+		}
+	]
 }

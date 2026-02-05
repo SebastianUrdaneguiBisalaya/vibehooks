@@ -1,9 +1,9 @@
 {
-  "returnValues": [
-    {
-      "name": "isFirstRender",
-      "type": "boolean",
-      "description": "true only on the initial render of the component."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "isFirstRender",
+			"type": "boolean",
+			"description": "true only on the initial render of the component."
+		}
+	]
 }

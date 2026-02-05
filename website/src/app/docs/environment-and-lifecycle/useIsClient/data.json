@@ -1,9 +1,9 @@
 {
-  "returnValues": [
-    {
-      "name": "isClient",
-      "type": "boolean",
-      "description": "true if the component is mounted in the browser, false otherwise."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "isClient",
+			"type": "boolean",
+			"description": "true if the component is mounted in the browser, false otherwise."
+		}
+	]
 }

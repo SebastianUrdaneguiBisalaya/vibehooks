@@ -41,12 +41,12 @@
 		"lint-fix": "eslint . --fix",
 		"prepare": "husky"
 	},
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
+	"lint-staged": {
+		"*.{js,ts,tsx,mdx}": [
+			"eslint --fix",
+			"prettier --write"
+		]
+	},
 	"peerDependencies": {
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0"

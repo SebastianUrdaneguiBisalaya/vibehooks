@@ -1,19 +1,19 @@
 {
-  "returnValues": [
-    {
-      "name": "enqueue",
-      "type": "(task: Task<T>) => void",
-      "description": "Adds a new task to the end of the queue."
-    },
-    {
-      "name": "queue",
-      "type": "Task<T>[]",
-      "description": "A reactive array containing the tasks currently waiting in the queue."
-    },
-    {
-      "name": "running",
-      "type": "boolean",
-      "description": "A reactive state indicating if a task is currently being executed."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "enqueue",
+			"type": "(task: Task<T>) => void",
+			"description": "Adds a new task to the end of the queue."
+		},
+		{
+			"name": "queue",
+			"type": "Task<T>[]",
+			"description": "A reactive array containing the tasks currently waiting in the queue."
+		},
+		{
+			"name": "running",
+			"type": "boolean",
+			"description": "A reactive state indicating if a task is currently being executed."
+		}
+	]
 }

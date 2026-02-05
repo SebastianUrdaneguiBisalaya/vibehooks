@@ -1,51 +1,51 @@
 {
-  "parameters": [
-    {
-      "name": "options.root",
-      "type": "Element | Document",
-      "description": "The element that is used as the viewport for checking visibility."
-    },
-    {
-      "name": "options.rootMargin",
-      "type": "string",
-      "description": "Margin around the root (e.g., '10px 20px 30px 40px'). Default: '0px'."
-    },
-    {
-      "name": "options.threshold",
-      "type": "number | number[]",
-      "description": "Percentage of the target's visibility at which the observer's callback should execute. Default: 0."
-    },
-    {
-      "name": "options.once",
-      "type": "boolean",
-      "description": "If true, the observer disconnects after the first time the element becomes visible. Default: 'false'."
-    },
-    {
-      "name": "options.onChange",
-      "type": "(entry) => void",
-      "description": "Callback triggered whenever an intersection change occurs."
-    },
-    {
-      "name": "externalRef",
-      "type": "React.RefObject<T>",
-      "description": "Optional external ref to use instead of the internally created ref."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "entry",
-      "type": "IntersectionObserverEntry | null",
-      "description": "The latest intersection entry object containing detailed position and ratio data."
-    },
-    {
-      "name": "isVisible",
-      "type": "boolean",
-      "description": "Reactive state indicating if the element is currently intersecting with the root."
-    },
-    {
-      "name": "ref",
-      "type": "React.RefObject<T>",
-      "description": "The ref to be assigned to the element you wish to observe."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.root",
+			"type": "Element | Document",
+			"description": "The element that is used as the viewport for checking visibility."
+		},
+		{
+			"name": "options.rootMargin",
+			"type": "string",
+			"description": "Margin around the root (e.g., '10px 20px 30px 40px'). Default: '0px'."
+		},
+		{
+			"name": "options.threshold",
+			"type": "number | number[]",
+			"description": "Percentage of the target's visibility at which the observer's callback should execute. Default: 0."
+		},
+		{
+			"name": "options.once",
+			"type": "boolean",
+			"description": "If true, the observer disconnects after the first time the element becomes visible. Default: 'false'."
+		},
+		{
+			"name": "options.onChange",
+			"type": "(entry) => void",
+			"description": "Callback triggered whenever an intersection change occurs."
+		},
+		{
+			"name": "externalRef",
+			"type": "React.RefObject<T>",
+			"description": "Optional external ref to use instead of the internally created ref."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "entry",
+			"type": "IntersectionObserverEntry | null",
+			"description": "The latest intersection entry object containing detailed position and ratio data."
+		},
+		{
+			"name": "isVisible",
+			"type": "boolean",
+			"description": "Reactive state indicating if the element is currently intersecting with the root."
+		},
+		{
+			"name": "ref",
+			"type": "React.RefObject<T>",
+			"description": "The ref to be assigned to the element you wish to observe."
+		}
+	]
 }

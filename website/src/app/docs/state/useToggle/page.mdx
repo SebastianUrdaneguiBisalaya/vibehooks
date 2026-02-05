@@ -1,36 +1,39 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/state/useToggle/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/state/useToggle/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/state/useToggle/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/state/useToggle/data.json';
 
 export const metadata = {
-  title: 'useToggle - vibeHooks',
-  description: 'A lightweight, unopinionated hook to manage boolean state toggling with memoized handlers.',
-  openGraph: {
-    title: 'useToggle - vibeHooks',
-    description: 'A lightweight, unopinionated hook to manage boolean state toggling with memoized handlers.',
-  }
-}
+	title: 'useToggle - vibeHooks',
+	description:
+		'A lightweight, unopinionated hook to manage boolean state toggling with memoized handlers.',
+	openGraph: {
+		title: 'useToggle - vibeHooks',
+		description:
+			'A lightweight, unopinionated hook to manage boolean state toggling with memoized handlers.',
+	},
+};
 
 # useToggle
 
 ### A lightweight, unopinionated hook to manage boolean state toggling with memoized handlers.
 
 <Blockquote.Tip>
-  <Blockquote.Content>A simple, semantic alternative to <strong>useState(false)</strong>. Use it for modals, checkboxes, or "Show More" sections to make your code more readable.</Blockquote.Content>
+	<Blockquote.Content>
+		A simple, semantic alternative to <strong>useState(false)</strong>. Use it
+		for modals, checkboxes, or "Show More" sections to make your code more
+		readable.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
-The **useToggle** simplifies the management of binary states such as switches, modals, and visibility toggles. By encapsulating a boolean state and providing memoized update function, it ensures that child components do not undergo  unnecessary re-renders when the toggle logic is passed down as a prop.
+The **useToggle** simplifies the management of binary states such as switches, modals, and visibility toggles. By encapsulating a boolean state and providing memoized update function, it ensures that child components do not undergo unnecessary re-renders when the toggle logic is passed down as a prop.
 
 This hook is designed to be highly predictable and minimal, serving as a foundational utility for UI components that require a simple **"on/off"** mechanism without the boilerplate of manual state management.
 
@@ -52,35 +55,38 @@ This hook is designed to be highly predictable and minimal, serving as a foundat
 'use client';
 
 import { useToggle } from '@vibehooks/react';
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 import { cn } from '@/lib/cn';
 
 export default function Demo() {
-  const { handleToggle, status } = useToggle({ defaultValue: false });
-  return (
-    <Layout>
-      <Layout.Title>Toggle</Layout.Title>
-      <Tag.Primary>Status: {status.toString().charAt(0).toUpperCase() + status.toString().slice(1)}</Tag.Primary>
-      <button
-        className={cn(
-          'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent',
-          'transition-colors duration-200 ease-in-out',
-          status ? 'bg-black' : 'bg-white/20',
-        )}
-        onClick={handleToggle}
-        type='button'
-      >
-        <span
-          className={cn(
-            'pointer-events-none inline-block h-5 w-5 transform rounded-full',
-            'transition duration-200 ease-in-out',
-            status ? 'translate-x-5' : 'translate-x-0',
-            status ? 'bg-white' : 'bg-white/60',
-          )}
-        />
-      </button>
-    </Layout>
-  )
+	const { handleToggle, status } = useToggle({ defaultValue: false });
+	return (
+		<Layout>
+			<Layout.Title>Toggle</Layout.Title>
+			<Tag.Primary>
+				Status:{' '}
+				{status.toString().charAt(0).toUpperCase() + status.toString().slice(1)}
+			</Tag.Primary>
+			<button
+				className={cn(
+					'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent',
+					'transition-colors duration-200 ease-in-out',
+					status ? 'bg-black' : 'bg-white/20'
+				)}
+				onClick={handleToggle}
+				type='button'
+			>
+				<span
+					className={cn(
+						'pointer-events-none inline-block h-5 w-5 transform rounded-full',
+						'transition duration-200 ease-in-out',
+						status ? 'translate-x-5' : 'translate-x-0',
+						status ? 'bg-white' : 'bg-white/60'
+					)}
+				/>
+			</button>
+		</Layout>
+	);
 }
 ```

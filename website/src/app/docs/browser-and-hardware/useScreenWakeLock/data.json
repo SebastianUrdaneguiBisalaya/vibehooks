@@ -1,24 +1,24 @@
 {
-  "returnValues": [
-    {
-      "name": "isActive",
-      "type": "boolean",
-      "description": "Indicates whether the screen wake lock is currently active and the screen is prevented from sleeping."
-    },
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Indicates if the Screen Wake Lock API is available in the current browser/device."
-    },
-    {
-      "name": "release",
-      "type": "() => Promise<void>",
-      "description": "An asynchronous function to manually release the wake lock and allow the screen to sleep again."
-    },
-    {
-      "name": "request",
-      "type": "() => Promise<void>",
-      "description": "An asynchronous function to request a new screen wake lock."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "isActive",
+			"type": "boolean",
+			"description": "Indicates whether the screen wake lock is currently active and the screen is prevented from sleeping."
+		},
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Indicates if the Screen Wake Lock API is available in the current browser/device."
+		},
+		{
+			"name": "release",
+			"type": "() => Promise<void>",
+			"description": "An asynchronous function to manually release the wake lock and allow the screen to sleep again."
+		},
+		{
+			"name": "request",
+			"type": "() => Promise<void>",
+			"description": "An asynchronous function to request a new screen wake lock."
+		}
+	]
 }

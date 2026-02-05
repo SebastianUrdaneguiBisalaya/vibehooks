@@ -1,36 +1,43 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/ui-and-layout/useIntersectionObserver/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/ui-and-layout/useIntersectionObserver/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/ui-and-layout/useIntersectionObserver/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/ui-and-layout/useIntersectionObserver/data.json';
 
 export const metadata = {
-  title: 'useIntersectionObserver - vibeHooks',
-  description: 'A hook that monitors the visibility and intersection of a DOM element within a viewport.',
-  openGraph: {
-    title: 'useIntersectionObserver - vibeHooks',
-    description: 'A hook that monitors the visibility and intersection of a DOM element within a viewport.',
-  }
-}
+	title: 'useIntersectionObserver - vibeHooks',
+	description:
+		'A hook that monitors the visibility and intersection of a DOM element within a viewport.',
+	openGraph: {
+		title: 'useIntersectionObserver - vibeHooks',
+		description:
+			'A hook that monitors the visibility and intersection of a DOM element within a viewport.',
+	},
+};
 
 # useIntersectionObserver
 
 ### A hook that monitors the visibility and intersection of a DOM element within a viewport.
 
 <Blockquote.Note>
-  <Blockquote.Content>If you are using this for "Lazy Loading" images or infinite scroll, the <strong>once: true</strong> option is highly recommended to improve performance by disconnecting the observer after the first successful intersection.</Blockquote.Content>
+	<Blockquote.Content>
+		If you are using this for "Lazy Loading" images or infinite scroll, the{' '}
+		<strong>once: true</strong> option is highly recommended to improve
+		performance by disconnecting the observer after the first successful
+		intersection.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 <Blockquote.Tip>
-  <Blockquote.Content>You can pass an <strong>externalRef</strong> as a second argument if you need to share the reference with other hooks or components.</Blockquote.Content>
+	<Blockquote.Content>
+		You can pass an <strong>externalRef</strong> as a second argument if you
+		need to share the reference with other hooks or components.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -53,29 +60,29 @@ The **useIntersectionObserver** provides a declarative wrapper around the native
 ```tsx
 'use client';
 
-import { useIntersectionObserver } from "@vibehooks/react";
-import { Layout } from "@/layouts/Layout";
-import { cn } from "@/lib/cn";
+import { useIntersectionObserver } from '@vibehooks/react';
+import { Layout } from '@/layouts/Layout';
+import { cn } from '@/lib/cn';
 
 export default function Demo() {
-  const { isVisible, ref } = useIntersectionObserver<HTMLDivElement>({
-    once: true,
-    threshold: 0.5,
-  });
+	const { isVisible, ref } = useIntersectionObserver<HTMLDivElement>({
+		once: true,
+		threshold: 0.5,
+	});
 
-  return (
-    <Layout>
-      <Layout.Title>Intersection Observer</Layout.Title>
-      <div
-        className={cn(
-          'transition-all duration-700 rounded-2xl bg-neutral-900 border border-white/20 p-4',
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        )}
-        ref={ref}
-      >
-        <Layout.Caption>Visible on scroll 👀</Layout.Caption>
-      </div>
-    </Layout>
-  )
+	return (
+		<Layout>
+			<Layout.Title>Intersection Observer</Layout.Title>
+			<div
+				className={cn(
+					'transition-all duration-700 rounded-2xl bg-neutral-900 border border-white/20 p-4',
+					isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+				)}
+				ref={ref}
+			>
+				<Layout.Caption>Visible on scroll 👀</Layout.Caption>
+			</div>
+		</Layout>
+	);
 }
 ```

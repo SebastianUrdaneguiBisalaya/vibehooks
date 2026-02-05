@@ -1,29 +1,29 @@
 {
-  "returnValues": [
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Indicates if the browser supports the Notification API."
-    },
-    {
-      "name": "notifications",
-      "type": "NotificationPayload[]",
-      "description": "An array of all notifications stored in the global history."
-    },
-    {
-      "name": "notify",
-      "type": "(notification: Omit<NotificationPayload, 'createdAt'>) => void",
-      "description": "Function to trigger a new system notification and save it to the store."
-    },
-    {
-      "name": "permission",
-      "type": "NotificationPermission",
-      "description": "Current permission status ('granted', 'denied', or 'default')."
-    },
-    {
-      "name": "requestPermission",
-      "type": "() => Promise<NotificationPermission>",
-      "description": "Triggers the browser prompt to request notification permissions."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Indicates if the browser supports the Notification API."
+		},
+		{
+			"name": "notifications",
+			"type": "NotificationPayload[]",
+			"description": "An array of all notifications stored in the global history."
+		},
+		{
+			"name": "notify",
+			"type": "(notification: Omit<NotificationPayload, 'createdAt'>) => void",
+			"description": "Function to trigger a new system notification and save it to the store."
+		},
+		{
+			"name": "permission",
+			"type": "NotificationPermission",
+			"description": "Current permission status ('granted', 'denied', or 'default')."
+		},
+		{
+			"name": "requestPermission",
+			"type": "() => Promise<NotificationPermission>",
+			"description": "Triggers the browser prompt to request notification permissions."
+		}
+	]
 }

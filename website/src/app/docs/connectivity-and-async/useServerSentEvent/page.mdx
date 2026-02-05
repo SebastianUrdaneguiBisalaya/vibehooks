@@ -1,36 +1,43 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/connectivity-and-async/useServerSentEvent/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/connectivity-and-async/useServerSentEvent/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/connectivity-and-async/useServerSentEvent/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/connectivity-and-async/useServerSentEvent/data.json';
 
 export const metadata = {
-  title: 'useServerSentEvent - vibeHooks',
-  description: 'A React hook that provides unopinionated access to the EventSource Web API for receiving real-time server-side updates.',
-  openGraph: {
-    title: 'useServerSentEvent - vibeHooks',
-    description: 'A React hook that provides unopinionated access to the EventSource Web API for receiving real-time server-side updates.',
-  }
-}
+	title: 'useServerSentEvent - vibeHooks',
+	description:
+		'A React hook that provides unopinionated access to the EventSource Web API for receiving real-time server-side updates.',
+	openGraph: {
+		title: 'useServerSentEvent - vibeHooks',
+		description:
+			'A React hook that provides unopinionated access to the EventSource Web API for receiving real-time server-side updates.',
+	},
+};
 
 # useServerSentEvent
 
 ### A React hook that provides unopinionated access to the EventSource Web API for receiving real-time server-side updates.
 
 <Blockquote.Warning>
-  <Blockquote.Content>The native <strong>EventSource</strong> API does not support custom HTTP headers (like <strong>Authorization</strong>). If your endpoint requires them, you may need a different approach or a polyfill.</Blockquote.Content>
+	<Blockquote.Content>
+		The native <strong>EventSource</strong> API does not support custom HTTP
+		headers (like <strong>Authorization</strong>). If your endpoint requires
+		them, you may need a different approach or a polyfill.
+	</Blockquote.Content>
 </Blockquote.Warning>
 
 <Blockquote.Note>
-  <Blockquote.Content>Server-Sent Events are unidirectional. If you require bidirectional communication (sending data to the server), consider using <strong>useWebsocket</strong>.</Blockquote.Content>
+	<Blockquote.Content>
+		Server-Sent Events are unidirectional. If you require bidirectional
+		communication (sending data to the server), consider using{' '}
+		<strong>useWebsocket</strong>.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -55,21 +62,21 @@ This demo uses a public SSE endpoint that only sends keep-alive comments. Connec
 ```tsx
 'use client';
 
-import { useServerSentEvent } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { useServerSentEvent } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { close, readyState } = useServerSentEvent(
-    'https://echo.websocket.org/.sse',
-  )
-  return (
-    <Layout>
-      <Layout.Title>Server-Sent Event</Layout.Title>
-      <Tag.Primary>Status: {readyState}</Tag.Primary>
-      <Button.Destructive onClick={close}>Close</Button.Destructive>
-    </Layout>
-  )
+	const { close, readyState } = useServerSentEvent(
+		'https://echo.websocket.org/.sse'
+	);
+	return (
+		<Layout>
+			<Layout.Title>Server-Sent Event</Layout.Title>
+			<Tag.Primary>Status: {readyState}</Tag.Primary>
+			<Button.Destructive onClick={close}>Close</Button.Destructive>
+		</Layout>
+	);
 }
 ```

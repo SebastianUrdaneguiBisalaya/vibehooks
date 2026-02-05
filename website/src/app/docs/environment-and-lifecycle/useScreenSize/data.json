@@ -1,14 +1,14 @@
 {
-  "returnValues": [
-    {
-      "name": "height",
-      "type": "number",
-      "description": "The current window.innerHeight."
-    },
-    {
-      "name": "width",
-      "type": "number",
-      "description": "The current window.innerWidth."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "height",
+			"type": "number",
+			"description": "The current window.innerHeight."
+		},
+		{
+			"name": "width",
+			"type": "number",
+			"description": "The current window.innerWidth."
+		}
+	]
 }

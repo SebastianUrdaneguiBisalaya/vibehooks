@@ -1,29 +1,29 @@
 {
-  "returnValues": [
-    {
-      "name": "videoRef",
-      "type": "React.RefObject<HTMLVideoElement | null>",
-      "description": "The ref that must be attached to the <video> element."
-    },
-    {
-      "name": "isActive",
-      "type": "boolean",
-      "description": "Reactive state indicating if the video is currently in PiP mode."
-    },
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Indicates if the current browser environment supports the PiP API."
-    },
-    {
-      "name": "enter",
-      "type": "() => Promise<void>",
-      "description": "Requests the browser to move the video into a PiP window."
-    },
-    {
-      "name": "exit",
-      "type": "() => Promise<void>",
-      "description": "Closes the PiP window and returns the video to the page."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "videoRef",
+			"type": "React.RefObject<HTMLVideoElement | null>",
+			"description": "The ref that must be attached to the <video> element."
+		},
+		{
+			"name": "isActive",
+			"type": "boolean",
+			"description": "Reactive state indicating if the video is currently in PiP mode."
+		},
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Indicates if the current browser environment supports the PiP API."
+		},
+		{
+			"name": "enter",
+			"type": "() => Promise<void>",
+			"description": "Requests the browser to move the video into a PiP window."
+		},
+		{
+			"name": "exit",
+			"type": "() => Promise<void>",
+			"description": "Closes the PiP window and returns the video to the page."
+		}
+	]
 }

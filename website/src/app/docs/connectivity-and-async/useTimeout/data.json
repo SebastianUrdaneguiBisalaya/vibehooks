@@ -1,41 +1,41 @@
 {
-  "parameters": [
-    {
-      "name": "callback",
-      "type": "() => void",
-      "description": "The function to be executed once the delay expires."
-    },
-    {
-      "name": "options.delay",
-      "type": "number | null",
-      "description": "Time in milliseconds before execution. If null, the timeout is disabled."
-    },
-    {
-      "name": "options.startOnMount",
-      "type": "boolean",
-      "description": "If true, the timer starts as soon as the component mounts. Default: true."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "cancel",
-      "type": "() => void",
-      "description": "Clears the pending timeout and sets isActive to false."
-    },
-    {
-      "name": "isActive",
-      "type": "boolean",
-      "description": "A reactive boolean indicating if a timer is currently counting down."
-    },
-    {
-      "name": "reset",
-      "type": "() => void",
-      "description": "Cancels any current timer and starts a fresh one from zero."
-    },
-    {
-      "name": "start",
-      "type": "() => void",
-      "description": "Manually triggers the timeout logic."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "callback",
+			"type": "() => void",
+			"description": "The function to be executed once the delay expires."
+		},
+		{
+			"name": "options.delay",
+			"type": "number | null",
+			"description": "Time in milliseconds before execution. If null, the timeout is disabled."
+		},
+		{
+			"name": "options.startOnMount",
+			"type": "boolean",
+			"description": "If true, the timer starts as soon as the component mounts. Default: true."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "cancel",
+			"type": "() => void",
+			"description": "Clears the pending timeout and sets isActive to false."
+		},
+		{
+			"name": "isActive",
+			"type": "boolean",
+			"description": "A reactive boolean indicating if a timer is currently counting down."
+		},
+		{
+			"name": "reset",
+			"type": "() => void",
+			"description": "Cancels any current timer and starts a fresh one from zero."
+		},
+		{
+			"name": "start",
+			"type": "() => void",
+			"description": "Manually triggers the timeout logic."
+		}
+	]
 }

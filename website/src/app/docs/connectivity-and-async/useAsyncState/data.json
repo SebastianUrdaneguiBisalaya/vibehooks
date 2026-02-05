@@ -1,71 +1,71 @@
 {
-  "parameters": [
-    {
-      "name": "options.initialData",
-      "type": "T | null",
-      "description": "The initial value for the data state. Default is null."
-    },
-    {
-      "name": "options.onSuccess",
-      "type": "(data: T) => void",
-      "description": "Global callback triggered when any request initialed by this hook succeeds."
-    },
-    {
-      "name": "options.onError",
-      "type": "(error: Error) => void",
-      "description": "Global callback triggered when a request fails after all retries are exhausted."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "data",
-      "type": "T | null",
-      "description": "The current data returned by the last successful asynchronous operation."
-    },
-    {
-      "name": "error",
-      "type": "Error | null",
-      "description": "The error object if the last operation failed."
-    },
-    {
-      "name": "isLoading",
-      "type": "boolean",
-      "description": "true if a request is currently in progress."
-    },
-    {
-      "name": "isError",
-      "type": "boolean",
-      "description": "true if the last operation resulted in an error."
-    },
-    {
-      "name": "isSuccess",
-      "type": "boolean",
-      "description": "true if the last operation completed successfully."
-    },
-    {
-      "name": "isIdle",
-      "type": "boolean",
-      "description": "true if no request has been initiated yet."
-    },
-    {
-      "name": "execute",
-      "type": "(url: string, config?: FetchConfig) => Promise<T | null>",
-      "description": "Function to trigger a new request with custom headers, params, and retry settings."
-    },
-    {
-      "name": "mutate",
-      "type": "(data: T) => void",
-      "description": "Directly updates the local data state (useful for optimist UI updates)."
-    },
-    {
-      "name": "reset",
-      "type": "() => void",
-      "description": "Cancels pending requests and restores the state to its initial values."
-    },
-    {
-      "name": "retry",
-      "type": "() => Promise<T | null>",
-      "description": "Re-executes the last request using the exact same configuration and URL."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.initialData",
+			"type": "T | null",
+			"description": "The initial value for the data state. Default is null."
+		},
+		{
+			"name": "options.onSuccess",
+			"type": "(data: T) => void",
+			"description": "Global callback triggered when any request initialed by this hook succeeds."
+		},
+		{
+			"name": "options.onError",
+			"type": "(error: Error) => void",
+			"description": "Global callback triggered when a request fails after all retries are exhausted."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "data",
+			"type": "T | null",
+			"description": "The current data returned by the last successful asynchronous operation."
+		},
+		{
+			"name": "error",
+			"type": "Error | null",
+			"description": "The error object if the last operation failed."
+		},
+		{
+			"name": "isLoading",
+			"type": "boolean",
+			"description": "true if a request is currently in progress."
+		},
+		{
+			"name": "isError",
+			"type": "boolean",
+			"description": "true if the last operation resulted in an error."
+		},
+		{
+			"name": "isSuccess",
+			"type": "boolean",
+			"description": "true if the last operation completed successfully."
+		},
+		{
+			"name": "isIdle",
+			"type": "boolean",
+			"description": "true if no request has been initiated yet."
+		},
+		{
+			"name": "execute",
+			"type": "(url: string, config?: FetchConfig) => Promise<T | null>",
+			"description": "Function to trigger a new request with custom headers, params, and retry settings."
+		},
+		{
+			"name": "mutate",
+			"type": "(data: T) => void",
+			"description": "Directly updates the local data state (useful for optimist UI updates)."
+		},
+		{
+			"name": "reset",
+			"type": "() => void",
+			"description": "Cancels pending requests and restores the state to its initial values."
+		},
+		{
+			"name": "retry",
+			"type": "() => Promise<T | null>",
+			"description": "Re-executes the last request using the exact same configuration and URL."
+		}
+	]
 }

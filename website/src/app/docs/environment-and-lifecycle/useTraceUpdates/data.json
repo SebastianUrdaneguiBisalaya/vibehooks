@@ -1,14 +1,14 @@
 {
-  "parameters": [
-    {
-      "name": "value",
-      "type": "Record<string, unknown>",
-      "description": "An object containing the props or state variables to track. Required."
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "description": "A label to identify the component in console logs. Default: 'Component'."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "value",
+			"type": "Record<string, unknown>",
+			"description": "An object containing the props or state variables to track. Required."
+		},
+		{
+			"name": "name",
+			"type": "string",
+			"description": "A label to identify the component in console logs. Default: 'Component'."
+		}
+	]
 }

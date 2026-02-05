@@ -1,24 +1,24 @@
 {
-  "returnValues": [
-    {
-      "name": "language",
-      "type": "string",
-      "description": "The active language code (User selection or System fallback)."
-    },
-    {
-      "name": "setUserLanguage",
-      "type": "(lang: string) => void",
-      "description": "Function to update and persist the user's preferred language."
-    },
-    {
-      "name": "systemLanguage",
-      "type": "string",
-      "description": "The default language detected from the browser."
-    },
-    {
-      "name": "userLanguage",
-      "type": "string | null",
-      "description": "The specific language saved by the user, if any."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "language",
+			"type": "string",
+			"description": "The active language code (User selection or System fallback)."
+		},
+		{
+			"name": "setUserLanguage",
+			"type": "(lang: string) => void",
+			"description": "Function to update and persist the user's preferred language."
+		},
+		{
+			"name": "systemLanguage",
+			"type": "string",
+			"description": "The default language detected from the browser."
+		},
+		{
+			"name": "userLanguage",
+			"type": "string | null",
+			"description": "The specific language saved by the user, if any."
+		}
+	]
 }

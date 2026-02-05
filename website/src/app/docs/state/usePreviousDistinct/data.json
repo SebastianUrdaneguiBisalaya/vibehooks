@@ -1,16 +1,16 @@
 {
-  "parameters": [
-    {
-      "name": "value",
-      "type": "T Generic",
-      "description": "The variable or state to track for distinct changes."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "previous",
-      "type": "T Generic | undefined",
-      "description": "The previous value of the tracked variable."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "value",
+			"type": "T Generic",
+			"description": "The variable or state to track for distinct changes."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "previous",
+			"type": "T Generic | undefined",
+			"description": "The previous value of the tracked variable."
+		}
+	]
 }

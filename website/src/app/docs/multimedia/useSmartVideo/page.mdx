@@ -1,40 +1,52 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/multimedia/useSmartVideo/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/multimedia/useSmartVideo/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/multimedia/useSmartVideo/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/multimedia/useSmartVideo/data.json';
 
 export const metadata = {
-  title: 'useSmartVideo - vibeHooks',
-  description: 'An advanced video hook that combines intersection logic with playback control for automated "smart" behavior.',
-  openGraph: {
-    title: 'useSmartVideo - vibeHooks',
-    description: 'An advanced video hook that combines intersection logic with playback control for automated "smart" behavior.',
-  }
-}
+	title: 'useSmartVideo - vibeHooks',
+	description:
+		'An advanced video hook that combines intersection logic with playback control for automated "smart" behavior.',
+	openGraph: {
+		title: 'useSmartVideo - vibeHooks',
+		description:
+			'An advanced video hook that combines intersection logic with playback control for automated "smart" behavior.',
+	},
+};
 
 # useSmartVideo
 
 ### An advanced video hook that combines intersection logic with playback control for automated "smart" behavior.
 
 <Blockquote.Important>
-  <Blockquote.Content>For <strong>autoPlay</strong> to work reliably across all browsers, the video element MUST have the <strong>muted</strong> and <strong>playsInline</strong> attributes set. Most browsers will block unmuted autoplay.</Blockquote.Content>
+	<Blockquote.Content>
+		For <strong>autoPlay</strong> to work reliably across all browsers, the
+		video element MUST have the <strong>muted</strong> and{' '}
+		<strong>playsInline</strong> attributes set. Most browsers will block
+		unmuted autoplay.
+	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Tip>
-  <Blockquote.Content>This hook depends on <strong>useIntersectionObserver</strong>. Ensure that the parent container doesn't have <strong>overflow: hidden</strong> in a way that prevents the observer from detecting visibility correctly.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook depends on <strong>useIntersectionObserver</strong>. Ensure that
+		the parent container doesn't have <strong>overflow: hidden</strong> in a way
+		that prevents the observer from detecting visibility correctly.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 <Blockquote.Note>
-  <Blockquote.Content>The <strong>threshold</strong> value determines how much of the video must be visible before <strong>autoPlay</strong> triggers. A value of <strong>0.5</strong> means 50% of the video must be in the viewport.</Blockquote.Content>
+	<Blockquote.Content>
+		The <strong>threshold</strong> value determines how much of the video must
+		be visible before <strong>autoPlay</strong> triggers. A value of{' '}
+		<strong>0.5</strong> means 50% of the video must be in the viewport.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -57,45 +69,40 @@ The **useSmartVideo** leverages the **useIntersectionObserver** to trigger video
 ```tsx
 'use client';
 
-import { useSmartVideo } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { useSmartVideo } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { isPlaying, isVisible, pause, play, reset, stop, videoRef } = useSmartVideo({
-    autoPlay: true,
-    pauseOnExit: true,
-    resetOnExit: true,
-    threshold: 0.5,
-  });
+	const { isPlaying, isVisible, pause, play, reset, stop, videoRef } =
+		useSmartVideo({
+			autoPlay: true,
+			pauseOnExit: true,
+			resetOnExit: true,
+			threshold: 0.5,
+		});
 
-  return (
-    <Layout>
-      <Layout.Title>Smart Video</Layout.Title>
-      <Tag.Primary>Status: {isPlaying ? 'Playing' : 'Paused'}</Tag.Primary>
-      <video
-        className="aspect-video rounded-md w-full"
-        controls
-        ref={videoRef}
-        src="/video.mp4"
-      />
-      <Tag.Primary>Visibility: {isVisible ? 'Visible' : 'Not visible'}</Tag.Primary>
-      <div className="flex flex-row items-center justify-center gap-2">
-        <Button.Secondary onClick={play}>
-          Play
-        </Button.Secondary>
-        <Button.Secondary onClick={pause}>
-          Pause
-        </Button.Secondary>
-        <Button.Secondary onClick={stop}>
-          Stop
-        </Button.Secondary>
-        <Button.Secondary onClick={reset}>
-          Reset
-        </Button.Secondary>
-      </div>
-    </Layout>
-  )
+	return (
+		<Layout>
+			<Layout.Title>Smart Video</Layout.Title>
+			<Tag.Primary>Status: {isPlaying ? 'Playing' : 'Paused'}</Tag.Primary>
+			<video
+				className='aspect-video rounded-md w-full'
+				controls
+				ref={videoRef}
+				src='/video.mp4'
+			/>
+			<Tag.Primary>
+				Visibility: {isVisible ? 'Visible' : 'Not visible'}
+			</Tag.Primary>
+			<div className='flex flex-row items-center justify-center gap-2'>
+				<Button.Secondary onClick={play}>Play</Button.Secondary>
+				<Button.Secondary onClick={pause}>Pause</Button.Secondary>
+				<Button.Secondary onClick={stop}>Stop</Button.Secondary>
+				<Button.Secondary onClick={reset}>Reset</Button.Secondary>
+			</div>
+		</Layout>
+	);
 }
 ```

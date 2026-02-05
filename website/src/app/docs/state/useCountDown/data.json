@@ -1,66 +1,66 @@
 {
-  "parameters": [
-    {
-      "name": "endTime",
-      "type": "number",
-      "description": "The target Unix timestamp (ms) to count down to."
-    },
-    {
-      "name": "startOnMount",
-      "type": "boolean",
-      "description": "Whether the timer starts automatically on component mount. Default: false."
-    },
-    {
-      "name": "options.interval",
-      "type": "number",
-      "description": "Frequency of UI updates in milliseconds. Default: 1000."
-    },
-    {
-      "name": "options.onTick",
-      "type": "(time: number) => void",
-      "description": "Callback triggered on every tick with the current remaining time."
-    },
-    {
-      "name": "options.onComplete",
-      "type": "() => void",
-      "description": "Callback triggered once the remaining time reaches zero."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "count",
-      "type": "number",
-      "description": "The current remaining time in milliseconds."
-    },
-    {
-      "name": "status",
-      "type": "string",
-      "description": "The current status of the timer. Status types are 'start', 'running', 'paused', and 'completed'."
-    },
-    {
-      "name": "controls.start",
-      "type": "() => void",
-      "description": "Initiates the countdown if status is 'start'"
-    },
-    {
-      "name": "controls.pause",
-      "type": "() => void",
-      "description": "Pauses the timer and stores the remaining duration."
-    },
-    {
-      "name": "controls.resume",
-      "type": "() => void",
-      "description": "Resumes a paused timer by calculating a new end timestamp."
-    },
-    {
-      "name": "controls.reset",
-      "type": "() => void",
-      "description": "Clears the timer and reverts to the initial duration."
-    },
-    {
-      "name": "controls.increment",
-      "type": "(ms?: number) => void",
-      "description": "Adds the specified milliseconds to the current countdown."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "endTime",
+			"type": "number",
+			"description": "The target Unix timestamp (ms) to count down to."
+		},
+		{
+			"name": "startOnMount",
+			"type": "boolean",
+			"description": "Whether the timer starts automatically on component mount. Default: false."
+		},
+		{
+			"name": "options.interval",
+			"type": "number",
+			"description": "Frequency of UI updates in milliseconds. Default: 1000."
+		},
+		{
+			"name": "options.onTick",
+			"type": "(time: number) => void",
+			"description": "Callback triggered on every tick with the current remaining time."
+		},
+		{
+			"name": "options.onComplete",
+			"type": "() => void",
+			"description": "Callback triggered once the remaining time reaches zero."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "count",
+			"type": "number",
+			"description": "The current remaining time in milliseconds."
+		},
+		{
+			"name": "status",
+			"type": "string",
+			"description": "The current status of the timer. Status types are 'start', 'running', 'paused', and 'completed'."
+		},
+		{
+			"name": "controls.start",
+			"type": "() => void",
+			"description": "Initiates the countdown if status is 'start'"
+		},
+		{
+			"name": "controls.pause",
+			"type": "() => void",
+			"description": "Pauses the timer and stores the remaining duration."
+		},
+		{
+			"name": "controls.resume",
+			"type": "() => void",
+			"description": "Resumes a paused timer by calculating a new end timestamp."
+		},
+		{
+			"name": "controls.reset",
+			"type": "() => void",
+			"description": "Clears the timer and reverts to the initial duration."
+		},
+		{
+			"name": "controls.increment",
+			"type": "(ms?: number) => void",
+			"description": "Adds the specified milliseconds to the current countdown."
+		}
+	]
 }

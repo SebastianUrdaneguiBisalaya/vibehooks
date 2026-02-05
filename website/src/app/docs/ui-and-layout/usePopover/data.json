@@ -1,34 +1,34 @@
 {
-  "returnValues": [
-    {
-      "name": "anchorRef",
-      "type": "React.RefObject<T>",
-      "description": "Ref to be assigned to the trigger element (e.g., a button)."
-    },
-    {
-      "name": "popoverRef",
-      "type": "React.RefObject<T>",
-      "description": "Ref to be assigned to the floating content element."
-    },
-    {
-      "name": "isOpen",
-      "type": "boolean",
-      "description": "Reactive state indicating if the popover is currently visible."
-    },
-    {
-      "name": "open",
-      "type": "() => void",
-      "description": "Function to set isOpen to true."
-    },
-    {
-      "name": "close",
-      "type": "() => void",
-      "description": "Function to set isOpen to false."
-    },
-    {
-      "name": "toggle",
-      "type": "() => void",
-      "description": "Function to flip the current visibility state."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "anchorRef",
+			"type": "React.RefObject<T>",
+			"description": "Ref to be assigned to the trigger element (e.g., a button)."
+		},
+		{
+			"name": "popoverRef",
+			"type": "React.RefObject<T>",
+			"description": "Ref to be assigned to the floating content element."
+		},
+		{
+			"name": "isOpen",
+			"type": "boolean",
+			"description": "Reactive state indicating if the popover is currently visible."
+		},
+		{
+			"name": "open",
+			"type": "() => void",
+			"description": "Function to set isOpen to true."
+		},
+		{
+			"name": "close",
+			"type": "() => void",
+			"description": "Function to set isOpen to false."
+		},
+		{
+			"name": "toggle",
+			"type": "() => void",
+			"description": "Function to flip the current visibility state."
+		}
+	]
 }

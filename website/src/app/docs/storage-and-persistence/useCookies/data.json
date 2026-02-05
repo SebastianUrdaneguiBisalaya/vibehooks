@@ -1,24 +1,24 @@
 {
-  "returnValues": [
-    {
-      "name": "get",
-      "type": "(name: string) => string | null",
-      "description": "Retrieves the value of a specific cookie by its name."
-    },
-    {
-      "name": "getAll",
-      "type": "() => Record<string, string>",
-      "description": "Returns all available cookies as a key-value object."
-    },
-    {
-      "name": "remove",
-      "type": "(name: string, options?: UseCookieOptions) => void",
-      "description": "Deletes a cookie by setting its max-age to 0."
-    },
-    {
-      "name": "set",
-      "type": "(name: string, value: string, options?: UseCookieOptions) => void",
-      "description": "Creates or updates a cookie with the specified value and attributes."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "get",
+			"type": "(name: string) => string | null",
+			"description": "Retrieves the value of a specific cookie by its name."
+		},
+		{
+			"name": "getAll",
+			"type": "() => Record<string, string>",
+			"description": "Returns all available cookies as a key-value object."
+		},
+		{
+			"name": "remove",
+			"type": "(name: string, options?: UseCookieOptions) => void",
+			"description": "Deletes a cookie by setting its max-age to 0."
+		},
+		{
+			"name": "set",
+			"type": "(name: string, value: string, options?: UseCookieOptions) => void",
+			"description": "Creates or updates a cookie with the specified value and attributes."
+		}
+	]
 }

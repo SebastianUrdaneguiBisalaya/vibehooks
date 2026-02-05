@@ -1,14 +1,14 @@
 {
-  "returnValues": [
-    {
-      "name": "copyToClipboard",
-      "type": "(text: string) => Promise<void>",
-      "description": "Async function that writes the provided string to the clipboard."
-    },
-    {
-      "name": "textCopied",
-      "type": "string | null",
-      "description": "The last successfully copied string. Defaults to null."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "copyToClipboard",
+			"type": "(text: string) => Promise<void>",
+			"description": "Async function that writes the provided string to the clipboard."
+		},
+		{
+			"name": "textCopied",
+			"type": "string | null",
+			"description": "The last successfully copied string. Defaults to null."
+		}
+	]
 }

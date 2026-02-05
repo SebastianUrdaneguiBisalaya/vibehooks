@@ -4,6 +4,10 @@ package-lock.json
 .eslintrc.js
 node_modules
 public
-website
 .husky
 commitlint.config.js
+website/node_modules
+website/.next
+website/public
+website/pnpm-workspace.yaml
+website/pnpm-lock.yaml

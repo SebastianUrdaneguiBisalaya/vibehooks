@@ -1,31 +1,31 @@
 {
-  "parameters": [
-    {
-      "name": "events",
-      "type": "readonly (keyof WindowEventMap)[]",
-      "description": "DOM events that will reset the activity timer."
-    },
-    {
-      "name": "initialState",
-      "type": "boolean",
-      "description": "The initial idle state. Useful for SSR or background tab scenarios."
-    },
-    {
-      "name": "timeout",
-      "type": "number",
-      "description": "Duration in milliseconds before the user is considered idle."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "isIdle",
-      "type": "boolean",
-      "description": "Returns true if the timeout has been reached without user interaction."
-    },
-    {
-      "name": "lastActiveAt",
-      "type": "number",
-      "description": "The timestamp (ms) of the most recent user activity detected."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "events",
+			"type": "readonly (keyof WindowEventMap)[]",
+			"description": "DOM events that will reset the activity timer."
+		},
+		{
+			"name": "initialState",
+			"type": "boolean",
+			"description": "The initial idle state. Useful for SSR or background tab scenarios."
+		},
+		{
+			"name": "timeout",
+			"type": "number",
+			"description": "Duration in milliseconds before the user is considered idle."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "isIdle",
+			"type": "boolean",
+			"description": "Returns true if the timeout has been reached without user interaction."
+		},
+		{
+			"name": "lastActiveAt",
+			"type": "number",
+			"description": "The timestamp (ms) of the most recent user activity detected."
+		}
+	]
 }

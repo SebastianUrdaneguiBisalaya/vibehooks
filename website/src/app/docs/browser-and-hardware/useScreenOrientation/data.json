@@ -1,29 +1,29 @@
 {
-  "returnValues": [
-    {
-      "name": "angle",
-      "type": "number | null",
-      "description": "The current rotation angle of the screen in degrees (0, 90, 180, or 270)."
-    },
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Indicates if the Screen Orientation API is available in the current browser/device."
-    },
-    {
-      "name": "lock",
-      "type": "(orientation: ScreenOrientationLock) => Promise<void>",
-      "description": "Function to lock the screen to a specific orientation (e.g., 'landscape' or 'portrait')."
-    },
-    {
-      "name": "type",
-      "type": "OrientationType | null",
-      "description": "The specific orientation typpe (e.g., 'portrait-primary', 'landscape-secondary')."
-    },
-    {
-      "name": "unlock",
-      "type": "() => void",
-      "description": "Function to release a previously applied orientation lock."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "angle",
+			"type": "number | null",
+			"description": "The current rotation angle of the screen in degrees (0, 90, 180, or 270)."
+		},
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Indicates if the Screen Orientation API is available in the current browser/device."
+		},
+		{
+			"name": "lock",
+			"type": "(orientation: ScreenOrientationLock) => Promise<void>",
+			"description": "Function to lock the screen to a specific orientation (e.g., 'landscape' or 'portrait')."
+		},
+		{
+			"name": "type",
+			"type": "OrientationType | null",
+			"description": "The specific orientation typpe (e.g., 'portrait-primary', 'landscape-secondary')."
+		},
+		{
+			"name": "unlock",
+			"type": "() => void",
+			"description": "Function to release a previously applied orientation lock."
+		}
+	]
 }

@@ -1,46 +1,46 @@
 {
-  "parameters": [
-    {
-      "name": "options.src",
-      "type": "string",
-      "description": "The URL of the audio file to be loaded."
-    },
-    {
-      "name": "options.loop",
-      "type": "boolean",
-      "description": "Whether the audio should start over again when it reaches the end. Default: false"
-    },
-    {
-      "name": "options.volume",
-      "type": "number",
-      "description": "The volume level, ranging from 0.0 to 1.0. Default: 1.0"
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "audio",
-      "type": "HTMLAudioElement | null",
-      "description": "The underlying native audio instance for advanced direct manipulation."
-    },
-    {
-      "name": "error",
-      "type": "Error | null",
-      "description": "Contains an error object if the audio fails to load or play."
-    },
-    {
-      "name": "pause",
-      "type": "() => void",
-      "description": "Function to pause the current playback."
-    },
-    {
-      "name": "play",
-      "type": "() => Promise<void>",
-      "description": "Async function to start playback; handles the browser's play promise."
-    },
-    {
-      "name": "status",
-      "type": "AudioStatus",
-      "description": "Reactive string representing the current state: 'idle', 'loading', etc."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.src",
+			"type": "string",
+			"description": "The URL of the audio file to be loaded."
+		},
+		{
+			"name": "options.loop",
+			"type": "boolean",
+			"description": "Whether the audio should start over again when it reaches the end. Default: false"
+		},
+		{
+			"name": "options.volume",
+			"type": "number",
+			"description": "The volume level, ranging from 0.0 to 1.0. Default: 1.0"
+		}
+	],
+	"returnValues": [
+		{
+			"name": "audio",
+			"type": "HTMLAudioElement | null",
+			"description": "The underlying native audio instance for advanced direct manipulation."
+		},
+		{
+			"name": "error",
+			"type": "Error | null",
+			"description": "Contains an error object if the audio fails to load or play."
+		},
+		{
+			"name": "pause",
+			"type": "() => void",
+			"description": "Function to pause the current playback."
+		},
+		{
+			"name": "play",
+			"type": "() => Promise<void>",
+			"description": "Async function to start playback; handles the browser's play promise."
+		},
+		{
+			"name": "status",
+			"type": "AudioStatus",
+			"description": "Reactive string representing the current state: 'idle', 'loading', etc."
+		}
+	]
 }

@@ -1,36 +1,42 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/connectivity-and-async/useWebsocket/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/connectivity-and-async/useWebsocket/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/connectivity-and-async/useWebsocket/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/connectivity-and-async/useWebsocket/data.json';
 
 export const metadata = {
-  title: 'useWebsocket - vibeHooks',
-  description: 'A comprehensive React hook for managing WebSocket connections with built-in auto-reconnection logic, message history, and SSR safety.',
-  openGraph: {
-    title: 'useWebsocket - vibeHooks',
-    description: 'A comprehensive React hook for managing WebSocket connections with built-in auto-reconnection logic, message history, and SSR safety.',
-  }
-}
+	title: 'useWebsocket - vibeHooks',
+	description:
+		'A comprehensive React hook for managing WebSocket connections with built-in auto-reconnection logic, message history, and SSR safety.',
+	openGraph: {
+		title: 'useWebsocket - vibeHooks',
+		description:
+			'A comprehensive React hook for managing WebSocket connections with built-in auto-reconnection logic, message history, and SSR safety.',
+	},
+};
 
 # useWebsocket
 
 ### A comprehensive React hook for managing WebSocket connections with built-in auto-reconnection logic, message history, and SSR safety.
 
 <Blockquote.Warning>
-  <Blockquote.Content>Calling <strong>send()</strong> while <strong>isConnected</strong> is <strong>false</strong> will not queue the message; the operation will fail and update the <strong>error</strong> state immediately.</Blockquote.Content>
+	<Blockquote.Content>
+		Calling <strong>send()</strong> while <strong>isConnected</strong> is{' '}
+		<strong>false</strong> will not queue the message; the operation will fail
+		and update the <strong>error</strong> state immediately.
+	</Blockquote.Content>
 </Blockquote.Warning>
 
 <Blockquote.Tip>
-  <Blockquote.Content>This hook automatically attempts to parse incoming message data as JSON. If the data is not a valid JSON string, it will return the raw message.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook automatically attempts to parse incoming message data as JSON. If
+		the data is not a valid JSON string, it will return the raw message.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -48,60 +54,65 @@ The **useWebsocket** hook simplifies full-duplex communication in React applicat
 
 <Demo />
 
-
 #### Source code
 
 ```tsx
 'use client';
 
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { useWebsocket } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Layout } from "@/layouts/Layout";
+import { useWebsocket } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const handleOnMessage = useCallback((msg: string) => {
-    console.log(msg);
-  }, []);
+	const handleOnMessage = useCallback((msg: string) => {
+		console.log(msg);
+	}, []);
 
-  const {
-    connect,
-    disconnect,
-    error,
-    isConnected,
-    messages,
-    send
-  } = useWebsocket<string>({
-    autoConnect: false,
-    onMessage: handleOnMessage,
-    url: 'wss://echo.websocket.org',
-  })
+	const { connect, disconnect, error, isConnected, messages, send } =
+		useWebsocket<string>({
+			autoConnect: false,
+			onMessage: handleOnMessage,
+			url: 'wss://echo.websocket.org',
+		});
 
-  const handleSend = () => {
-    send('Hello world!');
-  }
-  return (
-    <Layout>
-      <Layout.Title>Websocket</Layout.Title>
-      <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center gap-2">
-        <Button.Secondary className="max-md:w-full" disabled={isConnected} onClick={connect}>
-          Connect
-        </Button.Secondary>
-        <Button.Primary className="max-md:w-full" disabled={!isConnected} onClick={handleSend}>
-          Send message
-        </Button.Primary>
-        <Button.Destructive className="max-md:col-span-full max-md:w-full"disabled={!isConnected} onClick={disconnect}>
-          Disconnect
-        </Button.Destructive>
-      </div>
-      <div className="flex flex-col gap-1.5 items-center justify-center">
-        {messages?.map((msg, idx) => (
-          <Layout.Caption key={idx}>{JSON.stringify(msg)}</Layout.Caption>
-        ))}
-      </div>
-      <Layout.Error>{error?.message}</Layout.Error>
-    </Layout>
-  )
+	const handleSend = () => {
+		send('Hello world!');
+	};
+	return (
+		<Layout>
+			<Layout.Title>Websocket</Layout.Title>
+			<div className='grid grid-cols-2 md:flex md:flex-row items-center justify-center gap-2'>
+				<Button.Secondary
+					className='max-md:w-full'
+					disabled={isConnected}
+					onClick={connect}
+				>
+					Connect
+				</Button.Secondary>
+				<Button.Primary
+					className='max-md:w-full'
+					disabled={!isConnected}
+					onClick={handleSend}
+				>
+					Send message
+				</Button.Primary>
+				<Button.Destructive
+					className='max-md:col-span-full max-md:w-full'
+					disabled={!isConnected}
+					onClick={disconnect}
+				>
+					Disconnect
+				</Button.Destructive>
+			</div>
+			<div className='flex flex-col gap-1.5 items-center justify-center'>
+				{messages?.map((msg, idx) => (
+					<Layout.Caption key={idx}>{JSON.stringify(msg)}</Layout.Caption>
+				))}
+			</div>
+			<Layout.Error>{error?.message}</Layout.Error>
+		</Layout>
+	);
 }
 ```

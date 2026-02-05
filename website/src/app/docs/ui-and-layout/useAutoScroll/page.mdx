@@ -1,36 +1,43 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/ui-and-layout/useAutoScroll/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/ui-and-layout/useAutoScroll/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/ui-and-layout/useAutoScroll/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/ui-and-layout/useAutoScroll/data.json';
 
 export const metadata = {
-  title: 'useAutoScroll - vibeHooks',
-  description: 'A custom hook that automatically manages scrolling to the bottom of a container while respecting manual user navigation.',
-  openGraph: {
-    title: 'useAutoScroll - vibeHooks',
-    description: 'A custom hook that automatically manages scrolling to the bottom of a container while respecting manual user navigation.',
-  }
-}
+	title: 'useAutoScroll - vibeHooks',
+	description:
+		'A custom hook that automatically manages scrolling to the bottom of a container while respecting manual user navigation.',
+	openGraph: {
+		title: 'useAutoScroll - vibeHooks',
+		description:
+			'A custom hook that automatically manages scrolling to the bottom of a container while respecting manual user navigation.',
+	},
+};
 
 # useAutoScroll
 
 ### A custom hook that automatically manages scrolling to the bottom of a container while respecting manual user navigation.
 
 <Blockquote.Note>
-  <Blockquote.Content>The auto-scroll behavior is intelligently paused if the user manually scrolls up to read previous content. It will resume automatically once the user scrolls back within the <strong>threshold</strong> area.</Blockquote.Content>
+	<Blockquote.Content>
+		The auto-scroll behavior is intelligently paused if the user manually
+		scrolls up to read previous content. It will resume automatically once the
+		user scrolls back within the <strong>threshold</strong> area.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 <Blockquote.Tip>
-  <Blockquote.Content>This hook includes an image load listener. This ensures that if images are added to a chat (which change the scroll height as they load), the container will still correctly adjust its scroll position.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook includes an image load listener. This ensures that if images are
+		added to a chat (which change the scroll height as they load), the container
+		will still correctly adjust its scroll position.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -53,74 +60,68 @@ The **useAutoScroll** is designed for chat interfaces, logs, or feed-based UIs w
 ```tsx
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import { useAutoScroll } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Layout } from "@/layouts/Layout";
-import { cn } from "@/lib/cn";
+import { useAutoScroll } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Layout } from '@/layouts/Layout';
+import { cn } from '@/lib/cn';
 
 export interface Message {
-  content: string;
-  from: 'user' | 'bot';
+	content: string;
+	from: 'user' | 'bot';
 }
 
 export default function Demo() {
-  const { enableAutoScroll, isAtBottom, ref } = useAutoScroll({
-    behavior: 'smooth',
-    threshold: 80
-  });
+	const { enableAutoScroll, isAtBottom, ref } = useAutoScroll({
+		behavior: 'smooth',
+		threshold: 80,
+	});
 
-  const [messages, setMessages] = useState<Message[]>([]);
+	const [messages, setMessages] = useState<Message[]>([]);
 
-  useEffect(() => {
-    const start = Date.now();
-    const id = setInterval(() => {
-      const elapsed = Date.now() - start;
-      if (elapsed >= 30_000) {
-        clearInterval(id);
-        return;
-      }
-      setMessages(prev => [
-        ...prev,
-        {
-          content: `Message ${prev.length + 1}`,
-          from: prev.length % 2 === 0 ? 'user' : 'bot',
-        },
-      ]);
-    }, 2000);
-    return () => clearInterval(id);
-  }, []);
+	useEffect(() => {
+		const start = Date.now();
+		const id = setInterval(() => {
+			const elapsed = Date.now() - start;
+			if (elapsed >= 30_000) {
+				clearInterval(id);
+				return;
+			}
+			setMessages(prev => [
+				...prev,
+				{
+					content: `Message ${prev.length + 1}`,
+					from: prev.length % 2 === 0 ? 'user' : 'bot',
+				},
+			]);
+		}, 2000);
+		return () => clearInterval(id);
+	}, []);
 
-  return (
-    <Layout className="overflow-hidden">
-      <Layout.Title>Auto-scroll</Layout.Title>
-      <div
-        className="w-full flex flex-col items-center h-52 gap-0.5 overflow-y-auto"
-        ref={ref}
-      >
-        {messages.map((msg, idx) => (
-          <div
-            className={cn(
-              'max-w-40 rounded-lg px-6 py-2 w-full flex',
-              msg.from === 'user' ? 'self-end bg-neutral-950' : 'self-start'
-            )}
-            key={idx}
-          >
-            <Layout.Caption>{msg.content}</Layout.Caption>
-          </div>
-        ))}
-      </div>
-      {
-        !isAtBottom && (
-          <Button.Primary
-            onClick={enableAutoScroll}
-          >
-            Go to bottom
-          </Button.Primary>
-        )
-      }
-    </Layout>
-  )
+	return (
+		<Layout className='overflow-hidden'>
+			<Layout.Title>Auto-scroll</Layout.Title>
+			<div
+				className='w-full flex flex-col items-center h-52 gap-0.5 overflow-y-auto'
+				ref={ref}
+			>
+				{messages.map((msg, idx) => (
+					<div
+						className={cn(
+							'max-w-40 rounded-lg px-6 py-2 w-full flex',
+							msg.from === 'user' ? 'self-end bg-neutral-950' : 'self-start'
+						)}
+						key={idx}
+					>
+						<Layout.Caption>{msg.content}</Layout.Caption>
+					</div>
+				))}
+			</div>
+			{!isAtBottom && (
+				<Button.Primary onClick={enableAutoScroll}>Go to bottom</Button.Primary>
+			)}
+		</Layout>
+	);
 }
 ```

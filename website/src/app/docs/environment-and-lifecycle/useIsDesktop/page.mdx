@@ -1,32 +1,35 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/environment-and-lifecycle/useIsDesktop/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/environment-and-lifecycle/useIsDesktop/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/environment-and-lifecycle/useIsDesktop/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/environment-and-lifecycle/useIsDesktop/data.json';
 
 export const metadata = {
-  title: 'useIsDesktop - vibeHooks',
-  description: 'Determines if the current viewport width meets or exceeds a specified desktop breakpoint.',
-  openGraph: {
-    title: 'useIsDesktop - vibeHooks',
-    description: 'Determines if the current viewport width meets or exceeds a specified desktop breakpoint.',
-  }
-}
+	title: 'useIsDesktop - vibeHooks',
+	description:
+		'Determines if the current viewport width meets or exceeds a specified desktop breakpoint.',
+	openGraph: {
+		title: 'useIsDesktop - vibeHooks',
+		description:
+			'Determines if the current viewport width meets or exceeds a specified desktop breakpoint.',
+	},
+};
 
 # useIsDesktop
 
 ### Determines if the current viewport width meets or exceeds a specified desktop breakpoint.
 
 <Blockquote.Tip>
-  <Blockquote.Content>While this hook is convenient, for simple layout changes, consider using <strong>CSS Media Queries</strong> first to avoid the "flash of unstyled content" (FOUC) during the initial hydration.</Blockquote.Content>
+	<Blockquote.Content>
+		While this hook is convenient, for simple layout changes, consider using{' '}
+		<strong>CSS Media Queries</strong> first to avoid the "flash of unstyled
+		content" (FOUC) during the initial hydration.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -49,19 +52,21 @@ A responsive utility hook that monitors window resizing and returns a boolean st
 ```tsx
 'use client';
 
-import { useIsDesktop } from "@vibehooks/react";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { useIsDesktop } from '@vibehooks/react';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const isDesktop = useIsDesktop(1024);
+	const isDesktop = useIsDesktop(1024);
 	return (
 		<Layout>
-      <Layout.Title>Verifying Desktop View</Layout.Title>
-      <div className="flex flex-col items-center gap-1.5">
-        <Layout.Caption>Current environment</Layout.Caption>
-        <Tag.Primary>{isDesktop ? "🖥️ Desktop View" : "📱 Mobile/Tablet View"}</Tag.Primary>
-      </div>
+			<Layout.Title>Verifying Desktop View</Layout.Title>
+			<div className='flex flex-col items-center gap-1.5'>
+				<Layout.Caption>Current environment</Layout.Caption>
+				<Tag.Primary>
+					{isDesktop ? '🖥️ Desktop View' : '📱 Mobile/Tablet View'}
+				</Tag.Primary>
+			</div>
 		</Layout>
 	);
 }

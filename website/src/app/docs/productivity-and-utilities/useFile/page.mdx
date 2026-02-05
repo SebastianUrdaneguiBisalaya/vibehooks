@@ -1,36 +1,43 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/productivity-and-utilities/useFile/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/productivity-and-utilities/useFile/data";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/productivity-and-utilities/useFile/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/productivity-and-utilities/useFile/data';
 
 export const metadata = {
-  title: 'useFile - vibeHooks',
-  description: 'Manages file selection state and provides input-ready props for uploads and drag-and-drop.',
-  openGraph: {
-    title: 'useFile - vibeHooks',
-    description: 'Manages file selection state and provides input-ready props for uploads and drag-and-drop.',
-  }
-}
+	title: 'useFile - vibeHooks',
+	description:
+		'Manages file selection state and provides input-ready props for uploads and drag-and-drop.',
+	openGraph: {
+		title: 'useFile - vibeHooks',
+		description:
+			'Manages file selection state and provides input-ready props for uploads and drag-and-drop.',
+	},
+};
 
 # useFile
 
 ### Manages file selection state and provides input-ready props for uploads and drag-and-drop.
 
 <Blockquote.Tip>
-  <Blockquote.Content>To allow users to select multiple files, ensure you pass the <strong>multiple: true</strong> option. Otherwise, the hook will default to a single-file selection.</Blockquote.Content>
+	<Blockquote.Content>
+		To allow users to select multiple files, ensure you pass the{' '}
+		<strong>multiple: true</strong> option. Otherwise, the hook will default to
+		a single-file selection.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 <Blockquote.Note>
-  <Blockquote.Content>This hook provides the state and logic for file handling but does not perform the actual upload. You should use the <strong>files</strong> array to build a <strong>FormData</strong> object for your API calls.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook provides the state and logic for file handling but does not
+		perform the actual upload. You should use the <strong>files</strong> array
+		to build a <strong>FormData</strong> object for your API calls.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -53,43 +60,45 @@ An unopinionated hook for handling file inputs. It abstracts the boilerplate of 
 ```tsx
 'use client';
 
-import { useFile } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Layout } from "@/layouts/Layout"
+import { useFile } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { files, hasFiles, inputProps, reset } = useFile({
-    accept: "image/*",
-    multiple: true,
-  });
+	const { files, hasFiles, inputProps, reset } = useFile({
+		accept: 'image/*',
+		multiple: true,
+	});
 
-  return (
-    <Layout>
-      <Layout.Title>File Upload</Layout.Title>
-      <Input {...inputProps} placeholder="Click to choose files" type="file" />
-      <Button.Warning disabled={!hasFiles} onClick={reset}>Clear</Button.Warning>
+	return (
+		<Layout>
+			<Layout.Title>File Upload</Layout.Title>
+			<Input {...inputProps} placeholder='Click to choose files' type='file' />
+			<Button.Warning disabled={!hasFiles} onClick={reset}>
+				Clear
+			</Button.Warning>
 
-      <div className="flex flex-col w-full items-center gap-4">
-        <Layout.Caption>List of selected files</Layout.Caption>
-        {
-          hasFiles ? (
-            <div className="flex flex-col items-center w-full gap-2">
-              {
-                files.map(f => (
-                  <li
-                    className="text-sm text-white/80 w-full text-center"
-                    key={f.name}
-                  >
-                    <Layout.Caption>{f.name} ({(f.size / 1024).toFixed(2)} KB)</Layout.Caption>
-                  </li>
-                ))
-              }
-            </div>
-          ) : <Layout.Caption>No files selected.</Layout.Caption>
-        }
-      </div>
-    </Layout>
-  )
+			<div className='flex flex-col w-full items-center gap-4'>
+				<Layout.Caption>List of selected files</Layout.Caption>
+				{hasFiles ? (
+					<div className='flex flex-col items-center w-full gap-2'>
+						{files.map(f => (
+							<li
+								className='text-sm text-white/80 w-full text-center'
+								key={f.name}
+							>
+								<Layout.Caption>
+									{f.name} ({(f.size / 1024).toFixed(2)} KB)
+								</Layout.Caption>
+							</li>
+						))}
+					</div>
+				) : (
+					<Layout.Caption>No files selected.</Layout.Caption>
+				)}
+			</div>
+		</Layout>
+	);
 }
 ```

@@ -1,31 +1,31 @@
 {
-  "parameters": [
-    {
-      "name": "initialValue",
-      "type": "T",
-      "description": "The starting value for both state versions."
-    },
-    {
-      "name": "options.delay",
-      "type": "number",
-      "description": "Inactivity period in milliseconds before updating the debounced value."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "value",
-      "type": "T",
-      "description": "The current, inmediate state (use for controlled inputs)."
-    },
-    {
-      "name": "debouncedValue",
-      "type": "T",
-      "description": "The delayed state (use for effects or API calls)."
-    },
-    {
-      "name": "setValue",
-      "type": "Dispatch<SetStateAction<T>>",
-      "description": "Standard React state setter for the inmediate value."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "initialValue",
+			"type": "T",
+			"description": "The starting value for both state versions."
+		},
+		{
+			"name": "options.delay",
+			"type": "number",
+			"description": "Inactivity period in milliseconds before updating the debounced value."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "value",
+			"type": "T",
+			"description": "The current, inmediate state (use for controlled inputs)."
+		},
+		{
+			"name": "debouncedValue",
+			"type": "T",
+			"description": "The delayed state (use for effects or API calls)."
+		},
+		{
+			"name": "setValue",
+			"type": "Dispatch<SetStateAction<T>>",
+			"description": "Standard React state setter for the inmediate value."
+		}
+	]
 }

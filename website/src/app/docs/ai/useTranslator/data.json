@@ -1,56 +1,56 @@
 {
-  "parameters": [
-    {
-      "name": "options.sourceLanguage",
-      "type": "string",
-      "description": "The BCP 47 code for the source language. Required."
-    },
-    {
-      "name": "options.targetLanguage",
-      "type": "string",
-      "description": "The BCP 47 code for the target language. Required."
-    },
-    {
-      "name": "options.onLanguageSupportCheck",
-      "type": "(supported: boolean) => void",
-      "description": "Callback triggered after checking if the language pair is usable. Default: undefined."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "checkLanguageSupport",
-      "type": "() => Promise<boolean>",
-      "description": "Manually triggers a check for the configured language pair."
-    },
-    {
-      "name": "error",
-      "type": "Error | null",
-      "description": "Captures API errors or unsupported language exceptions."
-    },
-    {
-      "name": "isLanguagePairSupported",
-      "type": "boolean | null",
-      "description": "Result of the support check (null if not yet checked)."
-    },
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "true if the browser supports the window.translator API."
-    },
-    {
-      "name": "isTranslating",
-      "type": "boolean",
-      "description": "true while the AI model is processing the translation."
-    },
-    {
-      "name": "translate",
-      "type": "(text: string) => Promise<string>",
-      "description": "Triggers the translation process for the provided text."
-    },
-    {
-      "name": "translation",
-      "type": "string | null",
-      "description": "The most recent translation result."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.sourceLanguage",
+			"type": "string",
+			"description": "The BCP 47 code for the source language. Required."
+		},
+		{
+			"name": "options.targetLanguage",
+			"type": "string",
+			"description": "The BCP 47 code for the target language. Required."
+		},
+		{
+			"name": "options.onLanguageSupportCheck",
+			"type": "(supported: boolean) => void",
+			"description": "Callback triggered after checking if the language pair is usable. Default: undefined."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "checkLanguageSupport",
+			"type": "() => Promise<boolean>",
+			"description": "Manually triggers a check for the configured language pair."
+		},
+		{
+			"name": "error",
+			"type": "Error | null",
+			"description": "Captures API errors or unsupported language exceptions."
+		},
+		{
+			"name": "isLanguagePairSupported",
+			"type": "boolean | null",
+			"description": "Result of the support check (null if not yet checked)."
+		},
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "true if the browser supports the window.translator API."
+		},
+		{
+			"name": "isTranslating",
+			"type": "boolean",
+			"description": "true while the AI model is processing the translation."
+		},
+		{
+			"name": "translate",
+			"type": "(text: string) => Promise<string>",
+			"description": "Triggers the translation process for the provided text."
+		},
+		{
+			"name": "translation",
+			"type": "string | null",
+			"description": "The most recent translation result."
+		}
+	]
 }

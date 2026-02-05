@@ -1,32 +1,35 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/state/useResettableState/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/state/useResettableState/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/state/useResettableState/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/state/useResettableState/data.json';
 
 export const metadata = {
-  title: 'useResettableState - vibeHooks',
-  description: 'Extends standard state management with a memoized reset mechanism to revert to the initial value.',
-  openGraph: {
-    title: 'useResettableState - vibeHooks',
-    description: 'Extends standard state management with a memoized reset mechanism to revert to the initial value.',
-  }
-}
+	title: 'useResettableState - vibeHooks',
+	description:
+		'Extends standard state management with a memoized reset mechanism to revert to the initial value.',
+	openGraph: {
+		title: 'useResettableState - vibeHooks',
+		description:
+			'Extends standard state management with a memoized reset mechanism to revert to the initial value.',
+	},
+};
 
 # useResettableState
 
 ### Extends standard state management with a memoized reset mechanism to revert to the initial value.
 
 <Blockquote.Tip>
-  <Blockquote.Content>Highly useful for complex forms or filters. Instead of manually setting every field back to its default, a single call to <strong>reset()</strong> restores the state to its exact <strong>initialState</strong>.</Blockquote.Content>
+	<Blockquote.Content>
+		Highly useful for complex forms or filters. Instead of manually setting
+		every field back to its default, a single call to <strong>reset()</strong>{' '}
+		restores the state to its exact <strong>initialState</strong>.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -51,43 +54,46 @@ This hook is particularly useful for managing temporary inputs, filters, or comp
 ```tsx
 'use client';
 
-import { useResettableState } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Layout } from "@/layouts/Layout";
+import { useResettableState } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const [filters, setFilters, resetFilters] = useResettableState({
-    category: 'all',
-    query: '',
-    sortBy: 'relevance'
-  });
+	const [filters, setFilters, resetFilters] = useResettableState({
+		category: 'all',
+		query: '',
+		sortBy: 'relevance',
+	});
 
-  const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilters(prev => ({ ...prev, query: e.target.value }));
-  };
+	const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setFilters(prev => ({ ...prev, query: e.target.value }));
+	};
 
-  return (
-    <Layout>
-      <Layout.Title>Resettable State</Layout.Title>
-      <div className="w-full max-w-sm flex flex-col items-center gap-2">
-        <Input.Primary
-          onChange={handleQueryChange}
-          placeholder="Search products..."
-          type="text"
-          value={filters.query}
-        />
-        <div className="w-full flex flex-row items-center justify-center gap-2">
-          <Button.Primary onClick={() => console.log('Applying:', filters)}>Apply filters</Button.Primary>
-          <Button.Destructive onClick={resetFilters}>Reset to default</Button.Destructive>
-        </div>
-      </div>
+	return (
+		<Layout>
+			<Layout.Title>Resettable State</Layout.Title>
+			<div className='w-full max-w-sm flex flex-col items-center gap-2'>
+				<Input.Primary
+					onChange={handleQueryChange}
+					placeholder='Search products...'
+					type='text'
+					value={filters.query}
+				/>
+				<div className='w-full flex flex-row items-center justify-center gap-2'>
+					<Button.Primary onClick={() => console.log('Applying:', filters)}>
+						Apply filters
+					</Button.Primary>
+					<Button.Destructive onClick={resetFilters}>
+						Reset to default
+					</Button.Destructive>
+				</div>
+			</div>
 
-      <pre className="w-full flex flex-col text-white/60 items-center max-w-sm p-2 text-sm rounded font-reddit-sans">
-        {JSON.stringify(filters, null, 2)}
-      </pre>
-    </Layout>
-  );
+			<pre className='w-full flex flex-col text-white/60 items-center max-w-sm p-2 text-sm rounded font-reddit-sans'>
+				{JSON.stringify(filters, null, 2)}
+			</pre>
+		</Layout>
+	);
 }
 ```
-

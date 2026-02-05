@@ -1,21 +1,21 @@
 {
-  "parameters": [
-    {
-      "name": "permissionNames",
-      "type": "readonly PermissionName[]",
-      "description": "An array of permission names to observe. This parameter is required and has not default."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Returns true if the current environment/browser supports the native Permissions API."
-    },
-    {
-      "name": "permissions",
-      "type": "PermissionsSnapshot",
-      "description": "A reactive object where keys are the permission names and values are the current state: 'granted', 'denied', or 'prompt'."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "permissionNames",
+			"type": "readonly PermissionName[]",
+			"description": "An array of permission names to observe. This parameter is required and has not default."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Returns true if the current environment/browser supports the native Permissions API."
+		},
+		{
+			"name": "permissions",
+			"type": "PermissionsSnapshot",
+			"description": "A reactive object where keys are the permission names and values are the current state: 'granted', 'denied', or 'prompt'."
+		}
+	]
 }

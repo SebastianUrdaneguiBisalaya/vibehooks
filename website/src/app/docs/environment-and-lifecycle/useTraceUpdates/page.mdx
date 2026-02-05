@@ -1,36 +1,42 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/environment-and-lifecycle/useTraceUpdates/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/environment-and-lifecycle/useTraceUpdates/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/environment-and-lifecycle/useTraceUpdates/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/environment-and-lifecycle/useTraceUpdates/data.json';
 
 export const metadata = {
-  title: 'useTraceUpdates - vibeHooks',
-  description: 'Logs property changes to the console whenever the component updates.',
-  openGraph: {
-    title: 'useTraceUpdates - vibeHooks',
-    description: 'Logs property changes to the console whenever the component updates.',
-  }
-}
+	title: 'useTraceUpdates - vibeHooks',
+	description:
+		'Logs property changes to the console whenever the component updates.',
+	openGraph: {
+		title: 'useTraceUpdates - vibeHooks',
+		description:
+			'Logs property changes to the console whenever the component updates.',
+	},
+};
 
 # useTimeout
 
 ### Logs property changes to the console whenever the component updates.
 
 <Blockquote.Warning>
-  <Blockquote.Content>This hook should only be used during development. It performs shallow comparisons on every render, which can impact performance if left in production code.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook should only be used during development. It performs shallow
+		comparisons on every render, which can impact performance if left in
+		production code.
+	</Blockquote.Content>
 </Blockquote.Warning>
 
 <Blockquote.Note>
-  <Blockquote.Content>To see changes in the console, ensure you pass an object where keys represent the prop or state names you wish to track.</Blockquote.Content>
+	<Blockquote.Content>
+		To see changes in the console, ensure you pass an object where keys
+		represent the prop or state names you wish to track.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -49,40 +55,45 @@ A development-only debugging utility. When a component re-renders, this hook com
 ```tsx
 'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useTraceUpdates } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Layout } from "@/layouts/Layout";
+import { useTraceUpdates } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const [count, setCount] = useState<number>(0);
-  const [text, setText] = useState<string>("");
+	const [count, setCount] = useState<number>(0);
+	const [text, setText] = useState<string>('');
 
-  const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  }
+	const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setText(e.target.value);
+	};
 
-  const handleClick = () => {
-    setCount(prevCount => prevCount + 1);
-  }
+	const handleClick = () => {
+		setCount(prevCount => prevCount + 1);
+	};
 
-  useTraceUpdates({
-    count,
-    text,
-  }, 'TraceDemoComponent');
+	useTraceUpdates(
+		{
+			count,
+			text,
+		},
+		'TraceDemoComponent'
+	);
 
 	return (
 		<Layout>
-      <Layout.Title>Trace Updates</Layout.Title>
-      <Button.Primary onClick={() => handleClick()}>Change count</Button.Primary>
-      <Input.Primary
-        onChange={handleChangeText}
-        placeholder="Type to trigger trace..."
-        type="text"
-        value={text}
-      />
+			<Layout.Title>Trace Updates</Layout.Title>
+			<Button.Primary onClick={() => handleClick()}>
+				Change count
+			</Button.Primary>
+			<Input.Primary
+				onChange={handleChangeText}
+				placeholder='Type to trigger trace...'
+				type='text'
+				value={text}
+			/>
 		</Layout>
 	);
 }

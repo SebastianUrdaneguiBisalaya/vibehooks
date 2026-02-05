@@ -1,37 +1,39 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/connectivity-and-async/useIntervalSafe/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/connectivity-and-async/useIntervalSafe/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/connectivity-and-async/useIntervalSafe/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/connectivity-and-async/useIntervalSafe/data.json';
 
 export const metadata = {
-  title: 'useIntervalSafe - vibeHooks',
-  description: 'A declarative and robust React hook for managing **setInterval** lifecycles with execution limits and manual controls.',
-  openGraph: {
-    title: 'useIntervalSafe - vibeHooks',
-    description: 'A declarative and robust React hook for managing **setInterval** lifecycles with execution limits and manual controls.',
-  }
-}
+	title: 'useIntervalSafe - vibeHooks',
+	description:
+		'A declarative and robust React hook for managing **setInterval** lifecycles with execution limits and manual controls.',
+	openGraph: {
+		title: 'useIntervalSafe - vibeHooks',
+		description:
+			'A declarative and robust React hook for managing **setInterval** lifecycles with execution limits and manual controls.',
+	},
+};
 
 # useIntervalSafe
 
 ### A declarative and robust React hook for managing **setInterval** lifecycles with execution limits and manual controls.
 
 <Blockquote.Note>
-  <Blockquote.Content>Setting the <strong>delay</strong> to <strong>null</strong> or undefined will prevent the interval from starting or will pause it if it is already running.</Blockquote.Content>
+	<Blockquote.Content>
+		Setting the <strong>delay</strong> to <strong>null</strong> or undefined
+		will prevent the interval from starting or will pause it if it is already
+		running.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
 The **useIntervalSafe** hook provides a safe way to handle intervals in React by using a **ref** for the callback to prevent stale closures. It extends the native **setInterval** functionality by adding features such as execution capping (**maxExecutions**), start on mount, and a managed **isActive** state. It is designed to be SSR-safe and automatically cleans up the interval when the component unmounts to prevent memory leaks.
-
 
 #### Parameters
 
@@ -45,82 +47,77 @@ The **useIntervalSafe** hook provides a safe way to handle intervals in React by
 
 <Demo />
 
-
 #### Source code
 
 ```tsx
 'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useIntervalSafe } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { useIntervalSafe } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const [logs, setLogs] = useState<string[]>([]);
-  const {
-    cancel,
-    executionCount,
-    isActive,
-    reset,
-    start,
-  } = useIntervalSafe(
-    () => {
-      const timestamp = new Date().toLocaleTimeString();
-      setLogs((prev) => [`Tick a ${timestamp}`, ...prev].slice(0, 6));
-    },
-    {
-      delay: 2000,
-      maxExecutions: 6,
-      startOnMount: false,
-    }
-  )
+	const [logs, setLogs] = useState<string[]>([]);
+	const { cancel, executionCount, isActive, reset, start } = useIntervalSafe(
+		() => {
+			const timestamp = new Date().toLocaleTimeString();
+			setLogs(prev => [`Tick a ${timestamp}`, ...prev].slice(0, 6));
+		},
+		{
+			delay: 2000,
+			maxExecutions: 6,
+			startOnMount: false,
+		}
+	);
 
-  const handleReset = () => {
-    reset();
-    setLogs([]);
-  }
+	const handleReset = () => {
+		reset();
+		setLogs([]);
+	};
 
-  return (
-    <Layout>
-      <Layout.Title>Interval Safe</Layout.Title>
-      <Tag.Primary><strong>Status:</strong> {isActive ? 'Running' : 'Idle'}</Tag.Primary>
-      <div className="rounded-md p-2 border border-white/20 max-w-48 w-full">
-        <div className="flex flex-row justify-between gap-2 mb-2">
-          <Layout.Caption className="text-left">Execution:</Layout.Caption>
-          <Layout.Caption className="text-right">{executionCount}/6</Layout.Caption>
-        </div>
-        <div className="w-full bg-neutral-600 h-2 rounded-full overflow-hidden">
-          <div
-            className="bg-neutral-800 h-full transition-all duration-500"
-            style={{ width: `${(executionCount / 6) * 100}%` }}
-          />
-        </div>
-      </div>
+	return (
+		<Layout>
+			<Layout.Title>Interval Safe</Layout.Title>
+			<Tag.Primary>
+				<strong>Status:</strong> {isActive ? 'Running' : 'Idle'}
+			</Tag.Primary>
+			<div className='rounded-md p-2 border border-white/20 max-w-48 w-full'>
+				<div className='flex flex-row justify-between gap-2 mb-2'>
+					<Layout.Caption className='text-left'>Execution:</Layout.Caption>
+					<Layout.Caption className='text-right'>
+						{executionCount}/6
+					</Layout.Caption>
+				</div>
+				<div className='w-full bg-neutral-600 h-2 rounded-full overflow-hidden'>
+					<div
+						className='bg-neutral-800 h-full transition-all duration-500'
+						style={{ width: `${(executionCount / 6) * 100}%` }}
+					/>
+				</div>
+			</div>
 
-      <div className="grid grid-cols-3 gap-x-2 gap-y-3 place-items-center">
-        {logs.map((log, i) => (
-          <div className="border border-white/20 px-2 py-1 rounded-xl" key={i}>
-            <Layout.Caption>{log}</Layout.Caption>
-          </div>
-        ))}
-      </div>
+			<div className='grid grid-cols-3 gap-x-2 gap-y-3 place-items-center'>
+				{logs.map((log, i) => (
+					<div className='border border-white/20 px-2 py-1 rounded-xl' key={i}>
+						<Layout.Caption>{log}</Layout.Caption>
+					</div>
+				))}
+			</div>
 
-      <div className="flex flex-row items-center gap-2">
-        <Button.Primary onClick={isActive ? cancel : start}>
-          {isActive ? 'Pause' : 'Start'}
-        </Button.Primary>
-        <Button.Warning onClick={handleReset}>
-          Reset
-        </Button.Warning>
-      </div>
+			<div className='flex flex-row items-center gap-2'>
+				<Button.Primary onClick={isActive ? cancel : start}>
+					{isActive ? 'Pause' : 'Start'}
+				</Button.Primary>
+				<Button.Warning onClick={handleReset}>Reset</Button.Warning>
+			</div>
 
-      <Layout.Caption>
-        This interval is configured to stop automatically after 6 ticks.
-      </Layout.Caption>
-    </Layout>
-  )
+			<Layout.Caption>
+				This interval is configured to stop automatically after 6 ticks.
+			</Layout.Caption>
+		</Layout>
+	);
 }
 ```

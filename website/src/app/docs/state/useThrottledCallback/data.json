@@ -1,21 +1,21 @@
 {
-  "parameters": [
-    {
-      "name": "callback",
-      "type": "(...args: TArgs) => void",
-      "description": "The function to be throttled."
-    },
-    {
-      "name": "options.delay",
-      "type": "number",
-      "description": "Minimum time in milliseconds between executions."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "throttledCallback",
-      "type": "(...args: TArgs) => void",
-      "description": "The rate-limited version of the provided callback."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "callback",
+			"type": "(...args: TArgs) => void",
+			"description": "The function to be throttled."
+		},
+		{
+			"name": "options.delay",
+			"type": "number",
+			"description": "Minimum time in milliseconds between executions."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "throttledCallback",
+			"type": "(...args: TArgs) => void",
+			"description": "The rate-limited version of the provided callback."
+		}
+	]
 }

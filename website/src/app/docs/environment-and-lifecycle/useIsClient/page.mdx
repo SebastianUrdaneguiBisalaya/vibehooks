@@ -1,32 +1,35 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/environment-and-lifecycle/useIsClient/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/environment-and-lifecycle/useIsClient/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/environment-and-lifecycle/useIsClient/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/environment-and-lifecycle/useIsClient/data.json';
 
 export const metadata = {
-  title: 'useIsClient - vibeHooks',
-  description: 'Returns true if the code is running in the browser and false if it is running on the server.',
-  openGraph: {
-    title: 'useIsClient - vibeHooks',
-    description: 'Returns true if the code is running in the browser and false if it is running on the server.',
-  }
-}
+	title: 'useIsClient - vibeHooks',
+	description:
+		'Returns true if the code is running in the browser and false if it is running on the server.',
+	openGraph: {
+		title: 'useIsClient - vibeHooks',
+		description:
+			'Returns true if the code is running in the browser and false if it is running on the server.',
+	},
+};
 
 # useIsClient
 
 ### Returns true if the code is running in the browser and false if it is running on the server.
 
 <Blockquote.Note>
-  <Blockquote.Content>This hook is essential for preventing hydration mismatch errors in SSR frameworks like Next.js or Remix. Use it to conditionally render components that rely on browser-only APIs.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook is essential for preventing hydration mismatch errors in SSR
+		frameworks like Next.js or Remix. Use it to conditionally render components
+		that rely on browser-only APIs.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -45,20 +48,19 @@ The **useIsClient** is essential for SSR (Server-Side Rendering) environments li
 ```tsx
 'use client';
 
-import { useIsClient } from "@vibehooks/react";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { useIsClient } from '@vibehooks/react';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const isClient = useIsClient();
+	const isClient = useIsClient();
 	return (
-		<Layout
-    >
-      <Layout.Title>Is Client?</Layout.Title>
-      <div className="flex flex-col items-center gap-1.5">
-        <Layout.Caption>Current environment:</Layout.Caption>
-        <Tag.Primary>{isClient ? 'Client-side' : 'Server-side'}</Tag.Primary>
-      </div>
+		<Layout>
+			<Layout.Title>Is Client?</Layout.Title>
+			<div className='flex flex-col items-center gap-1.5'>
+				<Layout.Caption>Current environment:</Layout.Caption>
+				<Tag.Primary>{isClient ? 'Client-side' : 'Server-side'}</Tag.Primary>
+			</div>
 		</Layout>
 	);
 }

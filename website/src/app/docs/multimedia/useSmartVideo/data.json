@@ -1,61 +1,61 @@
 {
-  "parameters": [
-    {
-      "name": "options.autoPlay",
-      "type": "boolean",
-      "description": "If true, the video plays automatically when it becomes visible. Default: 'false'."
-    },
-    {
-      "name": "options.pauseOnExit",
-      "type": "boolean",
-      "description": "If true, the video pauses when it leaves the viewport. Default: 'false'."
-    },
-    {
-      "name": "options.resetOnExit",
-      "type": "boolean",
-      "description": "If true, resets the video to the beginning when it leaves the viewport. Default: 'false'."
-    },
-    {
-      "name": "options.threshold",
-      "type": "number",
-      "description": "Visibility ratio (0.0 to 1.0) required to trigger 'visible' state. Default: 0.5."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "videoRef",
-      "type": "React.RefObject<HTMLVideoElement | null>",
-      "description": "The ref to be assigned to the <video> element."
-    },
-    {
-      "name": "isPlaying",
-      "type": "boolean",
-      "description": "Reactive state indicating if the video is currently playing."
-    },
-    {
-      "name": "isVisible",
-      "type": "boolean",
-      "description": "Reactive state indicating if the video is currently within the viewport threshold."
-    },
-    {
-      "name": "play",
-      "type": "() => Promise<void>",
-      "description": "Imperative function to start video playback."
-    },
-    {
-      "name": "pause",
-      "type": "() => void",
-      "description": "Imperative function to pause video playback."
-    },
-    {
-      "name": "stop",
-      "type": "() => void",
-      "description": "Pauses the video and resets currentTime to 0."
-    },
-    {
-      "name": "reset",
-      "type": "() => void",
-      "description": "Resets currentTime to 0 without changing the playback state."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.autoPlay",
+			"type": "boolean",
+			"description": "If true, the video plays automatically when it becomes visible. Default: 'false'."
+		},
+		{
+			"name": "options.pauseOnExit",
+			"type": "boolean",
+			"description": "If true, the video pauses when it leaves the viewport. Default: 'false'."
+		},
+		{
+			"name": "options.resetOnExit",
+			"type": "boolean",
+			"description": "If true, resets the video to the beginning when it leaves the viewport. Default: 'false'."
+		},
+		{
+			"name": "options.threshold",
+			"type": "number",
+			"description": "Visibility ratio (0.0 to 1.0) required to trigger 'visible' state. Default: 0.5."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "videoRef",
+			"type": "React.RefObject<HTMLVideoElement | null>",
+			"description": "The ref to be assigned to the <video> element."
+		},
+		{
+			"name": "isPlaying",
+			"type": "boolean",
+			"description": "Reactive state indicating if the video is currently playing."
+		},
+		{
+			"name": "isVisible",
+			"type": "boolean",
+			"description": "Reactive state indicating if the video is currently within the viewport threshold."
+		},
+		{
+			"name": "play",
+			"type": "() => Promise<void>",
+			"description": "Imperative function to start video playback."
+		},
+		{
+			"name": "pause",
+			"type": "() => void",
+			"description": "Imperative function to pause video playback."
+		},
+		{
+			"name": "stop",
+			"type": "() => void",
+			"description": "Pauses the video and resets currentTime to 0."
+		},
+		{
+			"name": "reset",
+			"type": "() => void",
+			"description": "Resets currentTime to 0 without changing the playback state."
+		}
+	]
 }

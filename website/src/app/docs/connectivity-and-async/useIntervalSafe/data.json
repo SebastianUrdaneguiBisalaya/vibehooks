@@ -1,51 +1,51 @@
 {
-  "parameters": [
-    {
-      "name": "callback",
-      "type": "() => void",
-      "description": "The function to be executed at each interval tick."
-    },
-    {
-      "name": "options.delay",
-      "type": "number | null",
-      "description": "Delay in milliseconds. If null, the interval will not start."
-    },
-    {
-      "name": "options.maxExecutions",
-      "type": "number",
-      "description": "The maximum number of times the interval should run before self-cancelling."
-    },
-    {
-      "name": "options.startOnMount",
-      "type": "boolean",
-      "description": "Whether the interval should begin automatically when the component mounts. Default: true."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "cancel",
-      "type": "() => void",
-      "description": "Stops the current interval and sets isActive to false."
-    },
-    {
-      "name": "executionCount",
-      "type": "number",
-      "description": "The total number of times the callback has been successfully executed."
-    },
-    {
-      "name": "isActive",
-      "type": "boolean",
-      "description": "Reactive state indicating if the interval is currently running."
-    },
-    {
-      "name": "reset",
-      "type": "() => void",
-      "description": "Clears the current interval, resets the executionCount to zero, and restarts."
-    },
-    {
-      "name": "start",
-      "type": "() => void",
-      "description": "Starts or restarts the interval based on the current configuration."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "callback",
+			"type": "() => void",
+			"description": "The function to be executed at each interval tick."
+		},
+		{
+			"name": "options.delay",
+			"type": "number | null",
+			"description": "Delay in milliseconds. If null, the interval will not start."
+		},
+		{
+			"name": "options.maxExecutions",
+			"type": "number",
+			"description": "The maximum number of times the interval should run before self-cancelling."
+		},
+		{
+			"name": "options.startOnMount",
+			"type": "boolean",
+			"description": "Whether the interval should begin automatically when the component mounts. Default: true."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "cancel",
+			"type": "() => void",
+			"description": "Stops the current interval and sets isActive to false."
+		},
+		{
+			"name": "executionCount",
+			"type": "number",
+			"description": "The total number of times the callback has been successfully executed."
+		},
+		{
+			"name": "isActive",
+			"type": "boolean",
+			"description": "Reactive state indicating if the interval is currently running."
+		},
+		{
+			"name": "reset",
+			"type": "() => void",
+			"description": "Clears the current interval, resets the executionCount to zero, and restarts."
+		},
+		{
+			"name": "start",
+			"type": "() => void",
+			"description": "Starts or restarts the interval based on the current configuration."
+		}
+	]
 }

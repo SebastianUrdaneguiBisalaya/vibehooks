@@ -1,41 +1,41 @@
 {
-  "parameters": [
-    {
-      "name": "options.name",
-      "type": "string",
-      "description": "The name of the database to open."
-    },
-    {
-      "name": "options.version",
-      "type": "number",
-      "description": "The version of the database schema. Triggers onUpgrade if higher than current."
-    },
-    {
-      "name": "options.onUpgrade",
-      "type": "(db, old, new) => void",
-      "description": "Callback to define or update the database schema (e.g., creating object stores)."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "close",
-      "type": "() => void",
-      "description": "Closes the active database connection and clears the internal reference."
-    },
-    {
-      "name": "deleteDatabase",
-      "type": "() => Promise<void>",
-      "description": "Closes the connection and deletes the database from the browser."
-    },
-    {
-      "name": "open",
-      "type": "() => Promise<IDBDatabase>",
-      "description": "Manually opens a connection to the database."
-    },
-    {
-      "name": "withStore",
-      "type": "(storeName, fn, options) => Promise",
-      "description": "Wraps a function in a transaction, providing direct access to a specific object store."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.name",
+			"type": "string",
+			"description": "The name of the database to open."
+		},
+		{
+			"name": "options.version",
+			"type": "number",
+			"description": "The version of the database schema. Triggers onUpgrade if higher than current."
+		},
+		{
+			"name": "options.onUpgrade",
+			"type": "(db, old, new) => void",
+			"description": "Callback to define or update the database schema (e.g., creating object stores)."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "close",
+			"type": "() => void",
+			"description": "Closes the active database connection and clears the internal reference."
+		},
+		{
+			"name": "deleteDatabase",
+			"type": "() => Promise<void>",
+			"description": "Closes the connection and deletes the database from the browser."
+		},
+		{
+			"name": "open",
+			"type": "() => Promise<IDBDatabase>",
+			"description": "Manually opens a connection to the database."
+		},
+		{
+			"name": "withStore",
+			"type": "(storeName, fn, options) => Promise",
+			"description": "Wraps a function in a transaction, providing direct access to a specific object store."
+		}
+	]
 }

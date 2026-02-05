@@ -1,21 +1,21 @@
 {
-  "parameters": [
-    {
-      "name": "defaultValue",
-      "type": "boolean",
-      "description": "The initial state of the toggle. Default: false"
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "status",
-      "type": "boolean",
-      "description": "The current active state of the toggle."
-    },
-    {
-      "name": "handleToggle",
-      "type": "() => void",
-      "description": "A stable, memoized function that flips the status to its opposite value."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "defaultValue",
+			"type": "boolean",
+			"description": "The initial state of the toggle. Default: false"
+		}
+	],
+	"returnValues": [
+		{
+			"name": "status",
+			"type": "boolean",
+			"description": "The current active state of the toggle."
+		},
+		{
+			"name": "handleToggle",
+			"type": "() => void",
+			"description": "A stable, memoized function that flips the status to its opposite value."
+		}
+	]
 }

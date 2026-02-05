@@ -1,32 +1,36 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/ui-and-layout/usePopover/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/ui-and-layout/usePopover/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/ui-and-layout/usePopover/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/ui-and-layout/usePopover/data.json';
 
 export const metadata = {
-  title: 'usePopover - vibeHooks',
-  description: 'A lifecycle management hook for popover UI elements that handles visibility and "click-outside" logic.',
-  openGraph: {
-    title: 'usePopover - vibeHooks',
-    description: 'A lifecycle management hook for popover UI elements that handles visibility and "click-outside" logic.',
-  }
-}
+	title: 'usePopover - vibeHooks',
+	description:
+		'A lifecycle management hook for popover UI elements that handles visibility and "click-outside" logic.',
+	openGraph: {
+		title: 'usePopover - vibeHooks',
+		description:
+			'A lifecycle management hook for popover UI elements that handles visibility and "click-outside" logic.',
+	},
+};
 
 # usePopover
 
 ### A lifecycle management hook for popover UI elements that handles visibility and "click-outside" logic.
 
 <Blockquote.Note>
-  <Blockquote.Content>This hook provides a "Click Outside" and "Escape Key" listener out of the box. Ensure that both the <strong>anchorRef</strong> and <strong>popoverRef</strong> are correctly assigned to avoid the popover closing immediately when clicking the trigger.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook provides a "Click Outside" and "Escape Key" listener out of the
+		box. Ensure that both the <strong>anchorRef</strong> and{' '}
+		<strong>popoverRef</strong> are correctly assigned to avoid the popover
+		closing immediately when clicking the trigger.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -45,39 +49,33 @@ The **usePopover** manages the open/closed state of an overlay anchored to a tri
 ```tsx
 'use client';
 
-import { usePopover } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Layout } from "@/layouts/Layout";
+import { usePopover } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { anchorRef, isOpen, popoverRef, toggle } = usePopover<HTMLButtonElement, HTMLDivElement>();
-  return (
-    <Layout>
-      <Layout.Title>Popover</Layout.Title>
-      <div className="relative flex flex-col items-center w-fit">
-        <Button.Primary
-          onClick={toggle}
-          ref={anchorRef}
-        >
-          Actions
-        </Button.Primary>
-        {
-          isOpen && (
-            <div
-              className="flex flex-row items-center gap-2 bg-neutral-900 absolute top-full mt-2 rounded-xl border border-white/20 px-3 py-2 shadow-xl"
-              ref={popoverRef}
-            >
-              <Button.Secondary>
-                Edit
-              </Button.Secondary>
-              <Button.Destructive>
-                Delete
-              </Button.Destructive>
-            </div>
-          )
-        }
-      </div>
-    </Layout>
-  )
+	const { anchorRef, isOpen, popoverRef, toggle } = usePopover<
+		HTMLButtonElement,
+		HTMLDivElement
+	>();
+	return (
+		<Layout>
+			<Layout.Title>Popover</Layout.Title>
+			<div className='relative flex flex-col items-center w-fit'>
+				<Button.Primary onClick={toggle} ref={anchorRef}>
+					Actions
+				</Button.Primary>
+				{isOpen && (
+					<div
+						className='flex flex-row items-center gap-2 bg-neutral-900 absolute top-full mt-2 rounded-xl border border-white/20 px-3 py-2 shadow-xl'
+						ref={popoverRef}
+					>
+						<Button.Secondary>Edit</Button.Secondary>
+						<Button.Destructive>Delete</Button.Destructive>
+					</div>
+				)}
+			</div>
+		</Layout>
+	);
 }
 ```

@@ -1,40 +1,51 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/storage-and-persistence/useIndexedDB/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/storage-and-persistence/useIndexedDB/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/storage-and-persistence/useIndexedDB/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/storage-and-persistence/useIndexedDB/data.json';
 
 export const metadata = {
-  title: 'useIndexedDB - vibeHooks',
-  description: 'A React hook that abstracts the boilerplate of the IndexedDB API, facilitating database connections and transaction management.',
-  openGraph: {
-    title: 'useIndexedDB - vibeHooks',
-    description: 'A React hook that abstracts the boilerplate of the IndexedDB API, facilitating database connections and transaction management.',
-  }
-}
+	title: 'useIndexedDB - vibeHooks',
+	description:
+		'A React hook that abstracts the boilerplate of the IndexedDB API, facilitating database connections and transaction management.',
+	openGraph: {
+		title: 'useIndexedDB - vibeHooks',
+		description:
+			'A React hook that abstracts the boilerplate of the IndexedDB API, facilitating database connections and transaction management.',
+	},
+};
 
 # useIndexedDB
 
 ### A React hook that abstracts the boilerplate of the IndexedDB API, facilitating database connections and transaction management.
 
 <Blockquote.Important>
-  <Blockquote.Content>The <strong>onUpgrade</strong> callback is only triggered when the <strong>version</strong> number is incremented. This is the only place where you can safely create or modify object stores.</Blockquote.Content>
+	<Blockquote.Content>
+		The <strong>onUpgrade</strong> callback is only triggered when the{' '}
+		<strong>version</strong> number is incremented. This is the only place where
+		you can safely create or modify object stores.
+	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Caution>
-  <Blockquote.Content>The <strong>store</strong> instance provided inside the <strong>withStore</strong> callback is only valid for the duration of that specific transaction. Do not store or use it outside the callback.</Blockquote.Content>
+	<Blockquote.Content>
+		The <strong>store</strong> instance provided inside the{' '}
+		<strong>withStore</strong> callback is only valid for the duration of that
+		specific transaction. Do not store or use it outside the callback.
+	</Blockquote.Content>
 </Blockquote.Caution>
 
 <Blockquote.Note>
-  <Blockquote.Content>Database connections are persistent once opened. Remember to call <strong>close()</strong> to release the database lock when the component is unmounted or the operation is finished.</Blockquote.Content>
+	<Blockquote.Content>
+		Database connections are persistent once opened. Remember to call{' '}
+		<strong>close()</strong> to release the database lock when the component is
+		unmounted or the operation is finished.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -57,89 +68,85 @@ The **useIndexedDB** hook simplifies working with the browser's low-level object
 ```tsx
 'use client';
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from 'react';
 
-import { useIndexedDB } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Layout } from "@/layouts/Layout";
+import { useIndexedDB } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Layout } from '@/layouts/Layout';
 
 export interface Note {
-  createdAt: number;
-  id?: number;
-  text: string;
+	createdAt: number;
+	id?: number;
+	text: string;
 }
 
 export default function Demo() {
-  const db = useIndexedDB({
-    name: 'notes-db',
-    onUpgrade(db) {
-      if (!db.objectStoreNames.contains('notes')) {
-        db.createObjectStore('notes', {
-          autoIncrement: true,
-          keyPath: 'id',
-        })
-      }
-    },
-    version: 1
-  });
+	const db = useIndexedDB({
+		name: 'notes-db',
+		onUpgrade(db) {
+			if (!db.objectStoreNames.contains('notes')) {
+				db.createObjectStore('notes', {
+					autoIncrement: true,
+					keyPath: 'id',
+				});
+			}
+		},
+		version: 1,
+	});
 
-  const [notes, setNotes] = useState<Note[]>([]);
-  const [text, setText] = useState<string>('');
+	const [notes, setNotes] = useState<Note[]>([]);
+	const [text, setText] = useState<string>('');
 
-  const loadNotes = useCallback(async () => {
-    const result = await db.withStore('notes', store => {
-      return new Promise<Note[]>(resolve => {
-        const request = store.getAll();
-        request.onsuccess = () => {
-          resolve(request.result);
-        };
-      });
-    })
-    setNotes(result.reverse());
-  }, [db]);
+	const loadNotes = useCallback(async () => {
+		const result = await db.withStore('notes', store => {
+			return new Promise<Note[]>(resolve => {
+				const request = store.getAll();
+				request.onsuccess = () => {
+					resolve(request.result);
+				};
+			});
+		});
+		setNotes(result.reverse());
+	}, [db]);
 
-  const addNote = async () => {
-    if (!text.trim()) return;
-    await db.withStore('notes', store => {
-      store.add({ createdAt: Date.now(), text });
-      return Promise.resolve();
-    });
-    setText('');
-    loadNotes();
-  }
+	const addNote = async () => {
+		if (!text.trim()) return;
+		await db.withStore('notes', store => {
+			store.add({ createdAt: Date.now(), text });
+			return Promise.resolve();
+		});
+		setText('');
+		loadNotes();
+	};
 
-  useEffect(() => {
-    setTimeout(() => {
-      loadNotes();
-    }, 100);
-  }, [loadNotes]);
+	useEffect(() => {
+		setTimeout(() => {
+			loadNotes();
+		}, 100);
+	}, [loadNotes]);
 
-  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
-  }
+	const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setText(event.target.value);
+	};
 
-  return (
-    <Layout>
-      <Layout.Title>IndexedDB</Layout.Title>
-      <div className="w-full flex flex-row items-center justify-center gap-2">
-        <Input.Primary
-          onChange={handleOnChange}
-          placeholder="Write something here"
-          value={text}
-        />
-        <Button.Primary
-          onClick={addNote}
-        >
-          Save
-        </Button.Primary>
-      </div>
-      <div className="flex flex-col items-center gap-2">
-        {notes.map(note => (
-          <Layout.Caption key={note.id}>{note.text}</Layout.Caption>
-        ))}
-      </div>
-    </Layout>
-  )
+	return (
+		<Layout>
+			<Layout.Title>IndexedDB</Layout.Title>
+			<div className='w-full flex flex-row items-center justify-center gap-2'>
+				<Input.Primary
+					onChange={handleOnChange}
+					placeholder='Write something here'
+					value={text}
+				/>
+				<Button.Primary onClick={addNote}>Save</Button.Primary>
+			</div>
+			<div className='flex flex-col items-center gap-2'>
+				{notes.map(note => (
+					<Layout.Caption key={note.id}>{note.text}</Layout.Caption>
+				))}
+			</div>
+		</Layout>
+	);
 }
 ```

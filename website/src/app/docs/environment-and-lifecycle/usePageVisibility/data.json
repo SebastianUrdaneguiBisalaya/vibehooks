@@ -1,14 +1,14 @@
 {
-  "returnValues": [
-    {
-      "name": "isVisible",
-      "type": "boolean",
-      "description": "Derived boolean: true if visibilityState is 'visible'."
-    },
-    {
-      "name": "visibilityState",
-      "type": "DocumentVisibilityState",
-      "description": "The raw API value: 'visible', 'hidden', etc."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "isVisible",
+			"type": "boolean",
+			"description": "Derived boolean: true if visibilityState is 'visible'."
+		},
+		{
+			"name": "visibilityState",
+			"type": "DocumentVisibilityState",
+			"description": "The raw API value: 'visible', 'hidden', etc."
+		}
+	]
 }

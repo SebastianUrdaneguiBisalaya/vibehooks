@@ -1,39 +1,39 @@
 {
-  "returnValues": [
-    {
-      "name": "supported",
-      "type": "boolean",
-      "description": "Indicates if the Network Information API is available."
-    },
-    {
-      "name": "type",
-      "type": "'bluetooth' | 'cellular' | 'ethernet' | 'node' | 'wifi' | 'wimax' | 'other' | 'unknown'",
-      "description": "Physical connection type."
-    },
-    {
-      "name": "effectiveType",
-      "type": "'slow-2g' | '2g' | '3g' | '4g'",
-      "description": "Estimated effective connection type."
-    },
-    {
-      "name": "downlink",
-      "type": "number",
-      "description": "Estimated bandwidth in Mb/s."
-    },
-    {
-      "name": "downlinkMax",
-      "type": "number",
-      "description": "Estimated maximum bandwidth in Mb/s."
-    },
-    {
-      "name": "rtt",
-      "type": "number",
-      "description": "Estimated round-trip time in ms."
-    },
-    {
-      "name": "saveData",
-      "type": "boolean",
-      "description": "Indicates if the user has enabled a reduced data usage mode."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "supported",
+			"type": "boolean",
+			"description": "Indicates if the Network Information API is available."
+		},
+		{
+			"name": "type",
+			"type": "'bluetooth' | 'cellular' | 'ethernet' | 'node' | 'wifi' | 'wimax' | 'other' | 'unknown'",
+			"description": "Physical connection type."
+		},
+		{
+			"name": "effectiveType",
+			"type": "'slow-2g' | '2g' | '3g' | '4g'",
+			"description": "Estimated effective connection type."
+		},
+		{
+			"name": "downlink",
+			"type": "number",
+			"description": "Estimated bandwidth in Mb/s."
+		},
+		{
+			"name": "downlinkMax",
+			"type": "number",
+			"description": "Estimated maximum bandwidth in Mb/s."
+		},
+		{
+			"name": "rtt",
+			"type": "number",
+			"description": "Estimated round-trip time in ms."
+		},
+		{
+			"name": "saveData",
+			"type": "boolean",
+			"description": "Indicates if the user has enabled a reduced data usage mode."
+		}
+	]
 }

@@ -1,31 +1,31 @@
 {
-  "parameters": [
-    {
-      "name": "ref",
-      "type": "React.RefObject<T>",
-      "description": "The ref of the element that should be displayed in fullscreen mode."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "enter",
-      "type": "() => Promise<void>",
-      "description": "Requests the browser to display the target element in fullscreen."
-    },
-    {
-      "name": "exit",
-      "type": "() => Promise<void>",
-      "description": "Exits fullscreen mode for the document."
-    },
-    {
-      "name": "isFullscreen",
-      "type": "boolean",
-      "description": "Reactive state indicating if the target element is currently fullscreen."
-    },
-    {
-      "name": "toggle",
-      "type": "() => Promise<void>",
-      "description": "Switches between entering and exiting fullscreen based on current state."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "ref",
+			"type": "React.RefObject<T>",
+			"description": "The ref of the element that should be displayed in fullscreen mode."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "enter",
+			"type": "() => Promise<void>",
+			"description": "Requests the browser to display the target element in fullscreen."
+		},
+		{
+			"name": "exit",
+			"type": "() => Promise<void>",
+			"description": "Exits fullscreen mode for the document."
+		},
+		{
+			"name": "isFullscreen",
+			"type": "boolean",
+			"description": "Reactive state indicating if the target element is currently fullscreen."
+		},
+		{
+			"name": "toggle",
+			"type": "() => Promise<void>",
+			"description": "Switches between entering and exiting fullscreen based on current state."
+		}
+	]
 }

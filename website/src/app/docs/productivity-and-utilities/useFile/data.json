@@ -1,46 +1,46 @@
 {
-  "parameters": [
-    {
-      "name": "options.accept",
-      "type": "string",
-      "description": "File types accepted (e.g., '.png, .pdf'). Default: undefined."
-    },
-    {
-      "name": "options.disabled",
-      "type": "boolean",
-      "description": "Disables the file input. Default: false."
-    },
-    {
-      "name": "options.multiple",
-      "type": "boolean",
-      "description": "Allows selecting more than one file. Default: false."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "files",
-      "type": "File[]",
-      "description": "Array of currently selected File objects."
-    },
-    {
-      "name": "hasFiles",
-      "type": "boolean",
-      "description": "Utility boolean that is true if at least one file is selected."
-    },
-    {
-      "name": "inputProps",
-      "type": "React.InputHTMLAttributes<HTMLInputElement>",
-      "description": "Props to be spread onto a <input type='file' /> element."
-    },
-    {
-      "name": "reset",
-      "type": "() => void",
-      "description": "Function to clear the current selection."
-    },
-    {
-      "name": "setFiles",
-      "type": "(files: File[] | FileList) => void",
-      "description": "Manual setter for files (ideal for Drag & Drop implementations)."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.accept",
+			"type": "string",
+			"description": "File types accepted (e.g., '.png, .pdf'). Default: undefined."
+		},
+		{
+			"name": "options.disabled",
+			"type": "boolean",
+			"description": "Disables the file input. Default: false."
+		},
+		{
+			"name": "options.multiple",
+			"type": "boolean",
+			"description": "Allows selecting more than one file. Default: false."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "files",
+			"type": "File[]",
+			"description": "Array of currently selected File objects."
+		},
+		{
+			"name": "hasFiles",
+			"type": "boolean",
+			"description": "Utility boolean that is true if at least one file is selected."
+		},
+		{
+			"name": "inputProps",
+			"type": "React.InputHTMLAttributes<HTMLInputElement>",
+			"description": "Props to be spread onto a <input type='file' /> element."
+		},
+		{
+			"name": "reset",
+			"type": "() => void",
+			"description": "Function to clear the current selection."
+		},
+		{
+			"name": "setFiles",
+			"type": "(files: File[] | FileList) => void",
+			"description": "Manual setter for files (ideal for Drag & Drop implementations)."
+		}
+	]
 }

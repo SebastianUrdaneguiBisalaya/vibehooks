@@ -1,51 +1,51 @@
 {
-  "parameters": [
-    {
-      "name": "options.behavior",
-      "type": "'auto' | 'smooth'",
-      "description": "Defines the scrolling transition animation. Default 'auto'."
-    },
-    {
-      "name": "options.enabled",
-      "type": "boolean",
-      "description": "Initial state of the auto-scroll functionality. Default: 'true'."
-    },
-    {
-      "name": "options.threshold",
-      "type": "number",
-      "description": "Distance in pixels from the bottom to consider the user at the end. Default 100."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "autoScrollEnabled",
-      "type": "boolean",
-      "description": "Reactive state indicating if auto-scrolling is currently active."
-    },
-    {
-      "name": "disableAutoScroll",
-      "type": "() => void",
-      "description": "Function to manually turn off the auto-scrolling logic."
-    },
-    {
-      "name": "enableAutoScroll",
-      "type": "() => void",
-      "description": "Function to manually turn on auto-scrolling and immediately scroll to the bottom."
-    },
-    {
-      "name": "isAtBottom",
-      "type": "boolean",
-      "description": "Reactive state indicating if the container is currently scrolled to the end."
-    },
-    {
-      "name": "ref",
-      "type": "React.RefObject<HTMLDivElement>",
-      "description": "The ref that must be attached to the scrollable container element."
-    },
-    {
-      "name": "scrollToBottom",
-      "type": "(forceSmooth?: boolean) => void",
-      "description": "Imperative function to scroll the container to the bottom."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.behavior",
+			"type": "'auto' | 'smooth'",
+			"description": "Defines the scrolling transition animation. Default 'auto'."
+		},
+		{
+			"name": "options.enabled",
+			"type": "boolean",
+			"description": "Initial state of the auto-scroll functionality. Default: 'true'."
+		},
+		{
+			"name": "options.threshold",
+			"type": "number",
+			"description": "Distance in pixels from the bottom to consider the user at the end. Default 100."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "autoScrollEnabled",
+			"type": "boolean",
+			"description": "Reactive state indicating if auto-scrolling is currently active."
+		},
+		{
+			"name": "disableAutoScroll",
+			"type": "() => void",
+			"description": "Function to manually turn off the auto-scrolling logic."
+		},
+		{
+			"name": "enableAutoScroll",
+			"type": "() => void",
+			"description": "Function to manually turn on auto-scrolling and immediately scroll to the bottom."
+		},
+		{
+			"name": "isAtBottom",
+			"type": "boolean",
+			"description": "Reactive state indicating if the container is currently scrolled to the end."
+		},
+		{
+			"name": "ref",
+			"type": "React.RefObject<HTMLDivElement>",
+			"description": "The ref that must be attached to the scrollable container element."
+		},
+		{
+			"name": "scrollToBottom",
+			"type": "(forceSmooth?: boolean) => void",
+			"description": "Imperative function to scroll the container to the bottom."
+		}
+	]
 }

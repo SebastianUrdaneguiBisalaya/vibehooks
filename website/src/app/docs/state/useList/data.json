@@ -1,36 +1,36 @@
 {
-  "parameters": [
-    {
-      "name": "data",
-      "type": "T[]",
-      "description": "The initial array to populate the state. Default: []"
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "items",
-      "type": "T[]",
-      "description": "The current stateful array."
-    },
-    {
-      "name": "push",
-      "type": "(item: T) => void",
-      "description": "Appends a new item to the end of the array."
-    },
-    {
-      "name": "insert",
-      "type": "(idx: number, item: T) => void",
-      "description": "Inserts a new item at the specified index."
-    },
-    {
-      "name": "update",
-      "type": "(idx: number, item: T) => void",
-      "description": "Updates an item at the specified index."
-    },
-    {
-      "name": "remove",
-      "type": "(idx: number) => void",
-      "description": "Removes an item at the specified index."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "data",
+			"type": "T[]",
+			"description": "The initial array to populate the state. Default: []"
+		}
+	],
+	"returnValues": [
+		{
+			"name": "items",
+			"type": "T[]",
+			"description": "The current stateful array."
+		},
+		{
+			"name": "push",
+			"type": "(item: T) => void",
+			"description": "Appends a new item to the end of the array."
+		},
+		{
+			"name": "insert",
+			"type": "(idx: number, item: T) => void",
+			"description": "Inserts a new item at the specified index."
+		},
+		{
+			"name": "update",
+			"type": "(idx: number, item: T) => void",
+			"description": "Updates an item at the specified index."
+		},
+		{
+			"name": "remove",
+			"type": "(idx: number) => void",
+			"description": "Removes an item at the specified index."
+		}
+	]
 }

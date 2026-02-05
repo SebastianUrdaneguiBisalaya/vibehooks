@@ -1,24 +1,24 @@
 {
-  "returnValues": [
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Whether the browser environment supports the Notification API."
-    },
-    {
-      "name": "notify",
-      "type": "(options: UseNotificationOptions) => void",
-      "description": "Function to display a local notification."
-    },
-    {
-      "name": "permission",
-      "type": "NotificationPermission",
-      "description": "Reactive state of the current notification permission."
-    },
-    {
-      "name": "requestPermission",
-      "type": "() => Promise<NotificationPermission>",
-      "description": "Method to prompt the user for notification access."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Whether the browser environment supports the Notification API."
+		},
+		{
+			"name": "notify",
+			"type": "(options: UseNotificationOptions) => void",
+			"description": "Function to display a local notification."
+		},
+		{
+			"name": "permission",
+			"type": "NotificationPermission",
+			"description": "Reactive state of the current notification permission."
+		},
+		{
+			"name": "requestPermission",
+			"type": "() => Promise<NotificationPermission>",
+			"description": "Method to prompt the user for notification access."
+		}
+	]
 }

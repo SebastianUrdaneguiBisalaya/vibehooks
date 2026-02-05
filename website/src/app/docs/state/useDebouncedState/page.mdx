@@ -1,36 +1,43 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/state/useDebouncedState/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/state/useDebouncedState/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/state/useDebouncedState/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/state/useDebouncedState/data.json';
 
 export const metadata = {
-  title: 'useDebouncedState - vibeHooks',
-  description: 'A state management hook that tracks immediate value changes while providing a delayed update for performance-heavy operations.',
-  openGraph: {
-    title: 'useDebouncedState - vibeHooks',
-    description: 'A state management hook that tracks immediate value changes while providing a delayed update for performance-heavy operations.',
-  }
-}
+	title: 'useDebouncedState - vibeHooks',
+	description:
+		'A state management hook that tracks immediate value changes while providing a delayed update for performance-heavy operations.',
+	openGraph: {
+		title: 'useDebouncedState - vibeHooks',
+		description:
+			'A state management hook that tracks immediate value changes while providing a delayed update for performance-heavy operations.',
+	},
+};
 
 # useDebouncedState
 
 ### A state management hook that tracks immediate value changes while providing a delayed update for performance-heavy operations.
 
 <Blockquote.Note>
-  <Blockquote.Content>Perfect for search inputs or filter bars. It ensures that expensive operations (like API calls) only fire after the user has stopped typing for the duration of the <strong>delay</strong>.</Blockquote.Content>
+	<Blockquote.Content>
+		Perfect for search inputs or filter bars. It ensures that expensive
+		operations (like API calls) only fire after the user has stopped typing for
+		the duration of the <strong>delay</strong>.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 <Blockquote.Tip>
-  <Blockquote.Content>The <strong>value</strong> property provides the immediate state for a responsive UI, while <strong>debouncedValue</strong> should be used as a dependency for your <strong>useEffect</strong> or data fetching.</Blockquote.Content>
+	<Blockquote.Content>
+		The <strong>value</strong> property provides the immediate state for a
+		responsive UI, while <strong>debouncedValue</strong> should be used as a
+		dependency for your <strong>useEffect</strong> or data fetching.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -55,48 +62,51 @@ This pattern is the industry standard for search bars, preventing "server hammer
 ```tsx
 'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import { useDebouncedState } from "@vibehooks/react";
-import { Input } from "@/components/ui/Input";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { useDebouncedState } from '@vibehooks/react';
+import { Input } from '@/components/ui/Input';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { debouncedValue, setValue, value } = useDebouncedState('', { delay: 500 });
-  const isSearching = value !== debouncedValue && Boolean(value);
+	const { debouncedValue, setValue, value } = useDebouncedState('', {
+		delay: 500,
+	});
+	const isSearching = value !== debouncedValue && Boolean(value);
 
-  useEffect(() => {
-    if (!debouncedValue) return;
-    const timer = setTimeout(() => {
-      console.log(`Searching for: ${debouncedValue}`);
-    }, 800);
+	useEffect(() => {
+		if (!debouncedValue) return;
+		const timer = setTimeout(() => {
+			console.log(`Searching for: ${debouncedValue}`);
+		}, 800);
 
-    return () => clearTimeout(timer);
-  }, [debouncedValue]);
+		return () => clearTimeout(timer);
+	}, [debouncedValue]);
 
-  return (
-    <Layout>
-      <Layout.Title>Debounced State</Layout.Title>
-      <Input.Primary
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Type quickly..."
-        value={value}
-      />
-      {isSearching && <Tag.Loading>Searching</Tag.Loading>}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
-        <div className="p-2 flex flex-col items-center gap-1.5 rounded-lg border border-white/20">
-          <Layout.Caption>Immediate</Layout.Caption>
-          <Layout.Caption>{value || '—'}</Layout.Caption>
-        </div>
-        <div className="p-2 flex flex-col items-center gap-1.5 rounded-lg border border-white/20">
-          <Layout.Caption>Debounced</Layout.Caption>
-          <Layout.Caption>{debouncedValue || '—'}</Layout.Caption>
-        </div>
-      </div>
-      <Layout.Caption>The Debounced state only catches up 500ms after you stop typing.</Layout.Caption>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<Layout.Title>Debounced State</Layout.Title>
+			<Input.Primary
+				onChange={e => setValue(e.target.value)}
+				placeholder='Type quickly...'
+				value={value}
+			/>
+			{isSearching && <Tag.Loading>Searching</Tag.Loading>}
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-4 text-center'>
+				<div className='p-2 flex flex-col items-center gap-1.5 rounded-lg border border-white/20'>
+					<Layout.Caption>Immediate</Layout.Caption>
+					<Layout.Caption>{value || '—'}</Layout.Caption>
+				</div>
+				<div className='p-2 flex flex-col items-center gap-1.5 rounded-lg border border-white/20'>
+					<Layout.Caption>Debounced</Layout.Caption>
+					<Layout.Caption>{debouncedValue || '—'}</Layout.Caption>
+				</div>
+			</div>
+			<Layout.Caption>
+				The Debounced state only catches up 500ms after you stop typing.
+			</Layout.Caption>
+		</Layout>
+	);
 }
 ```
-

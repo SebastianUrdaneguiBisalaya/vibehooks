@@ -1,19 +1,19 @@
 {
-  "returnValues": [
-    {
-      "name": "cancel",
-      "type": "() => void",
-      "description": "Immediately stops any ongoing vibration by calling the API with a 0 duration."
-    },
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Indicates if the browser and device hardware support the Vibration API."
-    },
-    {
-      "name": "vibrate",
-      "type": "(pattern: VibrationPattern) => boolean",
-      "description": "Triggers vibration based on a number (ms) or an array (vibrate/pause ms). Returns true if successful."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "cancel",
+			"type": "() => void",
+			"description": "Immediately stops any ongoing vibration by calling the API with a 0 duration."
+		},
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Indicates if the browser and device hardware support the Vibration API."
+		},
+		{
+			"name": "vibrate",
+			"type": "(pattern: VibrationPattern) => boolean",
+			"description": "Triggers vibration based on a number (ms) or an array (vibrate/pause ms). Returns true if successful."
+		}
+	]
 }

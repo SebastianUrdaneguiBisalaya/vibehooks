@@ -1,40 +1,53 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/ai/useSpeech/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/ai/useSpeech/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/ai/useSpeech/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/ai/useSpeech/data.json';
 
 export const metadata = {
-  title: 'useSpeech - vibeHooks',
-  description: 'Provides unopinionated, high-level access to the Web Speech API for speech-to-text recognition.',
-  openGraph: {
-    title: 'useSpeech - vibeHooks',
-    description: 'Provides unopinionated, high-level access to the Web Speech API for speech-to-text recognition.',
-  }
-}
+	title: 'useSpeech - vibeHooks',
+	description:
+		'Provides unopinionated, high-level access to the Web Speech API for speech-to-text recognition.',
+	openGraph: {
+		title: 'useSpeech - vibeHooks',
+		description:
+			'Provides unopinionated, high-level access to the Web Speech API for speech-to-text recognition.',
+	},
+};
 
 # useSpeech
 
 ### Provides unopinionated, high-level access to the Web Speech API for speech-to-text recognition.
 
 <Blockquote.Warning>
-  <Blockquote.Content>Browser support is strictly limited to Google Chrome. Brave and Edge are explicitly filtered out due to inconsistent Speech API implementations.</Blockquote.Content>
+	<Blockquote.Content>
+		Browser support is strictly limited to Google Chrome. Brave and Edge are
+		explicitly filtered out due to inconsistent Speech API implementations.
+	</Blockquote.Content>
 </Blockquote.Warning>
 
 <Blockquote.Important>
-  <Blockquote.Content>The <strong>start()</strong> method must be triggered by a user gesture (e.g., a click event) to comply with browser security policies regarding microphone access.</Blockquote.Content>
+	<Blockquote.Content>
+		The <strong>start()</strong> method must be triggered by a user gesture
+		(e.g., a click event) to comply with browser security policies regarding
+		microphone access.
+	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Note>
-  <Blockquote.Content>The hook includes an auto-restart mechanism for the <strong>no-speech</strong> error to keep the session alive unless <strong>stop()</strong> is called manually.</Blockquote.Content>
+	<Blockquote.Content>
+		The hook includes an auto-restart mechanism for the{' '}
+		<strong>no-speech</strong> error to keep the session alive unless{' '}
+		<strong>stop()</strong> is called manually.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
 <CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-  classNameCode="bg-transparent"
+	code={`npm install @vibehooks/react`}
+	language='bash'
+	classNameCode='bg-transparent'
 />
 
 #### Description
@@ -60,53 +73,43 @@ To avoid non-deterministic behavior, crashes, or infinite restart loops, this ho
 ```tsx
 'use client';
 
-import { useSpeech } from "@vibehooks/react";
-import { Layout } from "@/layouts/Layout";
-import { Button } from "@/components/ui/Button";
-import { TextArea } from "@/components/ui/TextArea";
+import { useSpeech } from '@vibehooks/react';
+import { Layout } from '@/layouts/Layout';
+import { Button } from '@/components/ui/Button';
+import { TextArea } from '@/components/ui/TextArea';
 
 export default function Demo() {
-  const { error, reset, start, status, stop, transcript } = useSpeech({
-    lang: 'en-PE',
-    continuous: true,
-    interimResults: true,
-  });
+	const { error, reset, start, status, stop, transcript } = useSpeech({
+		lang: 'en-PE',
+		continuous: true,
+		interimResults: true,
+	});
 
-  if (status === 'unsupported') {
-    return (
-      <Layout>
-        <Layout.ContentNotSupported>
-          Speech API is not supported in this browser.
-        </Layout.ContentNotSupported>
-      </Layout>
-    )
-  };
+	if (status === 'unsupported') {
+		return (
+			<Layout>
+				<Layout.ContentNotSupported>
+					Speech API is not supported in this browser.
+				</Layout.ContentNotSupported>
+			</Layout>
+		);
+	}
 
 	return (
 		<Layout>
-      <Layout.Title>
-        Speech AI
-      </Layout.Title>
-      <Layout.Caption>
-        Status: {status}
-      </Layout.Caption>
-      {error && <Layout.Error>Error: {error?.message}</Layout.Error>}
-      <div className="flex flex-row gap-2">
-        <Button.Primary onClick={start}>
-          Start
-        </Button.Primary>
-        <Button.Warning onClick={stop}>
-          Stop
-        </Button.Warning>
-        <Button.Destructive onClick={reset}>
-          Cancel
-        </Button.Destructive>
-      </div>
-      <TextArea.Primary
-        readOnly
-        value={transcript}
-        placeholder="Transcript will appear here..."
-      />
+			<Layout.Title>Speech AI</Layout.Title>
+			<Layout.Caption>Status: {status}</Layout.Caption>
+			{error && <Layout.Error>Error: {error?.message}</Layout.Error>}
+			<div className='flex flex-row gap-2'>
+				<Button.Primary onClick={start}>Start</Button.Primary>
+				<Button.Warning onClick={stop}>Stop</Button.Warning>
+				<Button.Destructive onClick={reset}>Cancel</Button.Destructive>
+			</div>
+			<TextArea.Primary
+				readOnly
+				value={transcript}
+				placeholder='Transcript will appear here...'
+			/>
 		</Layout>
 	);
 }

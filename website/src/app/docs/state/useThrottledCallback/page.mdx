@@ -1,36 +1,42 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/state/useThrottledCallback/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/state/useThrottledCallback/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/state/useThrottledCallback/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/state/useThrottledCallback/data.json';
 
 export const metadata = {
-  title: 'useThrottledCallback - vibeHooks',
-  description: 'A performance-optimization hook that limits the execution frequency of a callback to one per specified time window.',
-  openGraph: {
-    title: 'useThrottledCallback - vibeHooks',
-    description: 'A performance-optimization hook that limits the execution frequency of a callback to one per specified time window.',
-  }
-}
+	title: 'useThrottledCallback - vibeHooks',
+	description:
+		'A performance-optimization hook that limits the execution frequency of a callback to one per specified time window.',
+	openGraph: {
+		title: 'useThrottledCallback - vibeHooks',
+		description:
+			'A performance-optimization hook that limits the execution frequency of a callback to one per specified time window.',
+	},
+};
 
 # useThrottledCallback
 
 ### A performance-optimization hook that limits the execution frequency of a callback to one per specified time window.
 
 <Blockquote.Important>
-  <Blockquote.Content>Throttling is ideal for high-frequency events like <strong>scroll</strong>, <strong>resize</strong>, or <strong>mousemove</strong>. It guarantees the callback runs at a consistent rate (once every <strong>delay</strong> ms).</Blockquote.Content>
+	<Blockquote.Content>
+		Throttling is ideal for high-frequency events like <strong>scroll</strong>,{' '}
+		<strong>resize</strong>, or <strong>mousemove</strong>. It guarantees the
+		callback runs at a consistent rate (once every <strong>delay</strong> ms).
+	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Caution>
-  <Blockquote.Content>Unlike debounce, throttle will execute the first call immediately but will discard subsequent calls until the delay has passed.</Blockquote.Content>
+	<Blockquote.Content>
+		Unlike debounce, throttle will execute the first call immediately but will
+		discard subsequent calls until the delay has passed.
+	</Blockquote.Content>
 </Blockquote.Caution>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -58,48 +64,48 @@ The hook utilizes a **Leading-Edge** execution strategy: the first invocation tr
 import { useState } from 'react';
 
 import { useThrottledCallback } from '@vibehooks/react';
-import { Layout } from "@/layouts/Layout";
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const [rawCount, setRawCount] = useState<number>(0);
-  const [throttledCount, setThrottledCount] = useState<number>(0);
+	const [rawCount, setRawCount] = useState<number>(0);
+	const [throttledCount, setThrottledCount] = useState<number>(0);
 
-  const throttledHandler = useThrottledCallback(
-    () => {
-      setThrottledCount(prevCount => prevCount + 1);
-    },
-    { delay: 100 }
-  );
+	const throttledHandler = useThrottledCallback(
+		() => {
+			setThrottledCount(prevCount => prevCount + 1);
+		},
+		{ delay: 100 }
+	);
 
-  const handleMouseMove = () => {
-    setRawCount(prevCount => prevCount + 1);
-    throttledHandler();
-  };
-  return (
-    <Layout>
-      <Layout.Title>Throttled Callback</Layout.Title>
-      <div
-        className="h-32 w-full bg-black/40 rounded-xl flex flex-col items-center justify-center border border-dashed border-white/20 cursor-crosshair group transition-colors hover:border-white/90"
-        onMouseMove={handleMouseMove}
-      >
-        <Layout.Paragraph>Move mouse here</Layout.Paragraph>
-        <Layout.Caption>Check the counters below</Layout.Caption>
-      </div>
+	const handleMouseMove = () => {
+		setRawCount(prevCount => prevCount + 1);
+		throttledHandler();
+	};
+	return (
+		<Layout>
+			<Layout.Title>Throttled Callback</Layout.Title>
+			<div
+				className='h-32 w-full bg-black/40 rounded-xl flex flex-col items-center justify-center border border-dashed border-white/20 cursor-crosshair group transition-colors hover:border-white/90'
+				onMouseMove={handleMouseMove}
+			>
+				<Layout.Paragraph>Move mouse here</Layout.Paragraph>
+				<Layout.Caption>Check the counters below</Layout.Caption>
+			</div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <div className="p-4 bg-black/40 border border-white/20 rounded-lg shadow-sm">
-          <Layout.Caption>Raw events</Layout.Caption>
-          <Layout.Paragraph>{rawCount}</Layout.Paragraph>
-          <Layout.Caption>Updating ~60-120fps</Layout.Caption>
-        </div>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
+				<div className='p-4 bg-black/40 border border-white/20 rounded-lg shadow-sm'>
+					<Layout.Caption>Raw events</Layout.Caption>
+					<Layout.Paragraph>{rawCount}</Layout.Paragraph>
+					<Layout.Caption>Updating ~60-120fps</Layout.Caption>
+				</div>
 
-        <div className="p-4 bg-black/40 border border-white/20 rounded-lg shadow-sm">
-          <Layout.Caption>Throttled (100ms)</Layout.Caption>
-          <Layout.Paragraph>{throttledCount}</Layout.Paragraph>
-          <Layout.Caption>Max 10 updates per second</Layout.Caption>
-        </div>
-      </div>
-    </Layout>
-  )
+				<div className='p-4 bg-black/40 border border-white/20 rounded-lg shadow-sm'>
+					<Layout.Caption>Throttled (100ms)</Layout.Caption>
+					<Layout.Paragraph>{throttledCount}</Layout.Paragraph>
+					<Layout.Caption>Max 10 updates per second</Layout.Caption>
+				</div>
+			</div>
+		</Layout>
+	);
 }
 ```

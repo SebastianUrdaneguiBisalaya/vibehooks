@@ -1,36 +1,36 @@
 {
-  "parameters": [
-    {
-      "name": "key",
-      "type": "string",
-      "description": "The key under which the data is stored in localStorage."
-    },
-    {
-      "name": "options.fallback",
-      "type": "T",
-      "description": "The value to return if the key does not exist or parsing fails."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "value",
-      "type": "T",
-      "description": "The current value of the key."
-    },
-    {
-      "name": "remove",
-      "type": "() => void",
-      "description": "Specifically removes the entry associated with the provided key."
-    },
-    {
-      "name": "set",
-      "type": "(value: T) => void",
-      "description": "Serializes and saves the value to localStorage."
-    },
-    {
-      "name": "update",
-      "type": "(updater: (prev) => T) => void",
-      "description": "Updates the value using a callback function (similar to setState)."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "key",
+			"type": "string",
+			"description": "The key under which the data is stored in localStorage."
+		},
+		{
+			"name": "options.fallback",
+			"type": "T",
+			"description": "The value to return if the key does not exist or parsing fails."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "value",
+			"type": "T",
+			"description": "The current value of the key."
+		},
+		{
+			"name": "remove",
+			"type": "() => void",
+			"description": "Specifically removes the entry associated with the provided key."
+		},
+		{
+			"name": "set",
+			"type": "(value: T) => void",
+			"description": "Serializes and saves the value to localStorage."
+		},
+		{
+			"name": "update",
+			"type": "(updater: (prev) => T) => void",
+			"description": "Updates the value using a callback function (similar to setState)."
+		}
+	]
 }

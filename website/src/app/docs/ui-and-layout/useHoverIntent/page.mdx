@@ -1,32 +1,35 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/ui-and-layout/useHoverIntent/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/ui-and-layout/useHoverIntent/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/ui-and-layout/useHoverIntent/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/ui-and-layout/useHoverIntent/data.json';
 
 export const metadata = {
-  title: 'useHoverIntent - vibeHooks',
-  description: 'A detection hook that distinguishes between accidental mouse-overs and intentional user hovers.',
-  openGraph: {
-    title: 'useHoverIntent - vibeHooks',
-    description: 'A detection hook that distinguishes between accidental mouse-overs and intentional user hovers.',
-  }
-}
+	title: 'useHoverIntent - vibeHooks',
+	description:
+		'A detection hook that distinguishes between accidental mouse-overs and intentional user hovers.',
+	openGraph: {
+		title: 'useHoverIntent - vibeHooks',
+		description:
+			'A detection hook that distinguishes between accidental mouse-overs and intentional user hovers.',
+	},
+};
 
 # useHoverIntent
 
 ### A detection hook that distinguishes between accidental mouse-overs and intentional user hovers.
 
 <Blockquote.Tip>
-  <Blockquote.Content>Use this to prevent "hover tunneling" or accidental triggers on tooltips and menus. The <strong>tolerance</strong> parameter allows the user to move the mouse slightly without immediately canceling the hover state.</Blockquote.Content>
+	<Blockquote.Content>
+		Use this to prevent "hover tunneling" or accidental triggers on tooltips and
+		menus. The <strong>tolerance</strong> parameter allows the user to move the
+		mouse slightly without immediately canceling the hover state.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -49,33 +52,27 @@ The **useHoverIntent** helps prevent "flickering" UI elements (like tooltips or 
 ```tsx
 'use client';
 
-import { useHoverIntent } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Layout } from "@/layouts/Layout";
+import { useHoverIntent } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const hover = useHoverIntent({
-    delay: 150,
-    tolerance: 8,
-  });
-  return (
-    <Layout>
-      <Layout.Title>Hover Intent</Layout.Title>
-      <div className="flex flex-col items-center relative w-full">
-        <Button.Primary
-          {...hover.handlers}
-        >
-          Hover me
-        </Button.Primary>
-        {
-          hover.isIntent && (
-            <div className="bg-neutral-900 absolute top-full mt-2 rounded-xl border border-white/20 px-3 py-2">
-              <Layout.Caption>Tooltip content 👌</Layout.Caption>
-            </div>
-          )
-        }
-      </div>
-    </Layout>
-  )
+	const hover = useHoverIntent({
+		delay: 150,
+		tolerance: 8,
+	});
+	return (
+		<Layout>
+			<Layout.Title>Hover Intent</Layout.Title>
+			<div className='flex flex-col items-center relative w-full'>
+				<Button.Primary {...hover.handlers}>Hover me</Button.Primary>
+				{hover.isIntent && (
+					<div className='bg-neutral-900 absolute top-full mt-2 rounded-xl border border-white/20 px-3 py-2'>
+						<Layout.Caption>Tooltip content 👌</Layout.Caption>
+					</div>
+				)}
+			</div>
+		</Layout>
+	);
 }
 ```

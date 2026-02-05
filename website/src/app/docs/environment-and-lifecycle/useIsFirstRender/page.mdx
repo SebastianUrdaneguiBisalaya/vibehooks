@@ -1,32 +1,35 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/environment-and-lifecycle/useIsFirstRender/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/environment-and-lifecycle/useIsFirstRender/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/environment-and-lifecycle/useIsFirstRender/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/environment-and-lifecycle/useIsFirstRender/data.json';
 
 export const metadata = {
-  title: 'useIsFirstRender - vibeHooks',
-  description: 'Tracks whether the current render cycle is the initial mount of the component.',
-  openGraph: {
-    title: 'useIsFirstRender - vibeHooks',
-    description: 'Tracks whether the current render cycle is the initial mount of the component.',
-  }
-}
+	title: 'useIsFirstRender - vibeHooks',
+	description:
+		'Tracks whether the current render cycle is the initial mount of the component.',
+	openGraph: {
+		title: 'useIsFirstRender - vibeHooks',
+		description:
+			'Tracks whether the current render cycle is the initial mount of the component.',
+	},
+};
 
 # useIsFirstRender
 
 ### Tracks whether the current render cycle is the initial mount of the component.
 
 <Blockquote.Note>
-  <Blockquote.Content>This is useful for preventing <strong>useEffect</strong> logic from running on the initial mount, such as skipping an API call or an animation when the component first appears.</Blockquote.Content>
+	<Blockquote.Content>
+		This is useful for preventing <strong>useEffect</strong> logic from running
+		on the initial mount, such as skipping an API call or an animation when the
+		component first appears.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -40,59 +43,55 @@ Utilizes a **useRef** to persist a boolean flag that is only **true** during the
 
 <Demo />
 
-
 #### Source code
 
 ```tsx
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import { useIsFirstRender } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Layout } from "@/layouts/Layout";
+import { useIsFirstRender } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const isFirstRender = useIsFirstRender();
-  const [count, setCount] = useState<number>(0);
-  const [logs, setLogs] = useState<string[]>([]);
+	const isFirstRender = useIsFirstRender();
+	const [count, setCount] = useState<number>(0);
+	const [logs, setLogs] = useState<string[]>([]);
 
-  const handleClick = () => {
-    setCount(prevCount => prevCount + 1);
-  }
+	const handleClick = () => {
+		setCount(prevCount => prevCount + 1);
+	};
 
-  useEffect(() => {
-    if (isFirstRender) return;
-    setTimeout(() => {
-      setLogs(prev => [
-        ...prev,
-        `Count changed to ${count}`
-      ]);
-    }, 100);
-  }, [count, isFirstRender]);
+	useEffect(() => {
+		if (isFirstRender) return;
+		setTimeout(() => {
+			setLogs(prev => [...prev, `Count changed to ${count}`]);
+		}, 100);
+	}, [count, isFirstRender]);
 
 	return (
 		<Layout>
-      <Layout.Title>Is First Render?</Layout.Title>
-      <div className="flex flex-col items-center gap-2 w-full">
-        <Layout.Caption>Click the button to change the count.</Layout.Caption>
-        <Button.Primary onClick={handleClick}>Increment</Button.Primary>
-      </div>
-      <div className="w-full">
-        <div className="flex flex-col items-center gap-2 w-full">
-          {logs.length === 0 && <Layout.Caption>No effects executed yet.</Layout.Caption>}
-          {
-            logs.map((log, idx) => (
-              <div
-                className="font-reddit-sans w-full text-center text-sm text-white/80"
-                key={idx}
-              >
-                <Layout.Caption>{log}</Layout.Caption>
-              </div>
-            ))
-          }
-        </div>
-      </div>
+			<Layout.Title>Is First Render?</Layout.Title>
+			<div className='flex flex-col items-center gap-2 w-full'>
+				<Layout.Caption>Click the button to change the count.</Layout.Caption>
+				<Button.Primary onClick={handleClick}>Increment</Button.Primary>
+			</div>
+			<div className='w-full'>
+				<div className='flex flex-col items-center gap-2 w-full'>
+					{logs.length === 0 && (
+						<Layout.Caption>No effects executed yet.</Layout.Caption>
+					)}
+					{logs.map((log, idx) => (
+						<div
+							className='font-reddit-sans w-full text-center text-sm text-white/80'
+							key={idx}
+						>
+							<Layout.Caption>{log}</Layout.Caption>
+						</div>
+					))}
+				</div>
+			</div>
 		</Layout>
 	);
 }

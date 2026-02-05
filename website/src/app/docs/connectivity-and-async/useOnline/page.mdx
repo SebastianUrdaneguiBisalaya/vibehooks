@@ -1,32 +1,35 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/connectivity-and-async/useOnline/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/connectivity-and-async/useOnline/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/connectivity-and-async/useOnline/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/connectivity-and-async/useOnline/data.json';
 
 export const metadata = {
-  title: 'useOnline - vibeHooks',
-  description: 'A hook that tracks and returns the browser\'s current online connectivity status.',
-  openGraph: {
-    title: 'useOnline - vibeHooks',
-    description: 'A hook that tracks and returns the browser\'s current online connectivity status.',
-  }
-}
+	title: 'useOnline - vibeHooks',
+	description:
+		"A hook that tracks and returns the browser's current online connectivity status.",
+	openGraph: {
+		title: 'useOnline - vibeHooks',
+		description:
+			"A hook that tracks and returns the browser's current online connectivity status.",
+	},
+};
 
 # useOnline
 
 ### A hook that tracks and returns the browser's current online connectivity status.
 
 <Blockquote.Caution>
-  <Blockquote.Content>A <strong>true</strong> value only indicates that the device is connected to a network; it does not guarantee actual internet access or server reachability.</Blockquote.Content>
+	<Blockquote.Content>
+		A <strong>true</strong> value only indicates that the device is connected to
+		a network; it does not guarantee actual internet access or server
+		reachability.
+	</Blockquote.Content>
 </Blockquote.Caution>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -40,28 +43,27 @@ The **useOnline** hook utilizes **useSyncExternalStore** to subscribe to the bro
 
 <Demo />
 
-
 #### Source code
 
 ```tsx
 'use client';
 
-import { useOnline } from "@vibehooks/react";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { useOnline } from '@vibehooks/react';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { online } = useOnline();
-  return (
-    <Layout>
-      <Layout.Title>Connectivity Monitor</Layout.Title>
-      <Tag.Primary>Status: {online ? '🌐 Online' : '🔌 Offline'}</Tag.Primary>
-      <Layout.Caption>
-        {online
-          ? "You are connected to the network. Proceed with requests."
-          : "Connection lost. Some features may be limited."}
-      </Layout.Caption>
-    </Layout>
-  )
+	const { online } = useOnline();
+	return (
+		<Layout>
+			<Layout.Title>Connectivity Monitor</Layout.Title>
+			<Tag.Primary>Status: {online ? '🌐 Online' : '🔌 Offline'}</Tag.Primary>
+			<Layout.Caption>
+				{online
+					? 'You are connected to the network. Proceed with requests.'
+					: 'Connection lost. Some features may be limited.'}
+			</Layout.Caption>
+		</Layout>
+	);
 }
 ```

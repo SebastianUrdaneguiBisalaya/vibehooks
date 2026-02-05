@@ -1,26 +1,26 @@
 {
-  "parameters": [
-    {
-      "name": "options.delay",
-      "type": "number",
-      "description": "Time in milliseconds the pointer must dwell over the element. Default: 100."
-    },
-    {
-      "name": "options.tolerance",
-      "type": "number",
-      "description": "Pixel movement allowed before the intent timer resets. Default: 6."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "handlers",
-      "type": "Object",
-      "description": "Mouse event handlers (onMouseEnter, onMouseLeave, onMouseMove) to be spread on the target element."
-    },
-    {
-      "name": "isIntent",
-      "type": "boolean",
-      "description": "Reactive state that becomes true only when a hover is deemed intentional."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.delay",
+			"type": "number",
+			"description": "Time in milliseconds the pointer must dwell over the element. Default: 100."
+		},
+		{
+			"name": "options.tolerance",
+			"type": "number",
+			"description": "Pixel movement allowed before the intent timer resets. Default: 6."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "handlers",
+			"type": "Object",
+			"description": "Mouse event handlers (onMouseEnter, onMouseLeave, onMouseMove) to be spread on the target element."
+		},
+		{
+			"name": "isIntent",
+			"type": "boolean",
+			"description": "Reactive state that becomes true only when a hover is deemed intentional."
+		}
+	]
 }

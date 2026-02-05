@@ -1,36 +1,42 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/state/useCountDown/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/state/useCountDown/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/state/useCountDown/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/state/useCountDown/data.json';
 
 export const metadata = {
-  title: 'useCountDown - vibeHooks',
-  description: 'High-precision React hook for managing synchronized countdown timers with manual lifecycle controls and drift-correction.',
-  openGraph: {
-    title: 'useCountDown - vibeHooks',
-    description: 'High-precision React hook for managing synchronized countdown timers with manual lifecycle controls and drift-correction.',
-  }
-}
+	title: 'useCountDown - vibeHooks',
+	description:
+		'High-precision React hook for managing synchronized countdown timers with manual lifecycle controls and drift-correction.',
+	openGraph: {
+		title: 'useCountDown - vibeHooks',
+		description:
+			'High-precision React hook for managing synchronized countdown timers with manual lifecycle controls and drift-correction.',
+	},
+};
 
 # useCountDown
 
 ### High-precision React hook for managing synchronized countdown timers with manual lifecycle controls and drift-correction.
 
 <Blockquote.Note>
-  <Blockquote.Content>This hook uses a reference timestamp approach rather than a simple counter. This prevents "time drift," ensuring the countdown stays accurate even if the browser's event loop is busy.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook uses a reference timestamp approach rather than a simple counter.
+		This prevents "time drift," ensuring the countdown stays accurate even if
+		the browser's event loop is busy.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 <Blockquote.Tip>
-  <Blockquote.Content>You can use the <strong>increment</strong> control to add "bonus time" to a game or session without resetting the entire countdown logic.</Blockquote.Content>
+	<Blockquote.Content>
+		You can use the <strong>increment</strong> control to add "bonus time" to a
+		game or session without resetting the entire countdown logic.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -58,45 +64,51 @@ The hook provides explicit lifecycle management via a **status** state and memoi
 import { useState } from 'react';
 
 import { useCountDown } from '@vibehooks/react';
-import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { Button } from '@/components/ui/Button';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const [endTime] = useState(() => Date.now() + 10_000);
+	const [endTime] = useState(() => Date.now() + 10_000);
 
-  const {
-    controls: { increment, pause, reset, resume, start },
-    count,
-    status
-  } = useCountDown({
-    endTime: endTime,
-    options: {
-      interval: 100,
-      onComplete: () => {
-        console.log("Countdown finished!");
-      },
-      onTick: (remaining) => {
-        if (remaining < 10000) console.log("Final stretch!");
-      }
-    },
-    startOnMount: false
-  });
+	const {
+		controls: { increment, pause, reset, resume, start },
+		count,
+		status,
+	} = useCountDown({
+		endTime: endTime,
+		options: {
+			interval: 100,
+			onComplete: () => {
+				console.log('Countdown finished!');
+			},
+			onTick: remaining => {
+				if (remaining < 10000) console.log('Final stretch!');
+			},
+		},
+		startOnMount: false,
+	});
 
-  const formatTime = (ms: number) => (ms / 1000).toFixed(0);
+	const formatTime = (ms: number) => (ms / 1000).toFixed(0);
 
-  return (
-      <Layout>
-        <Layout.Title>Countdown</Layout.Title>
-        <Tag.Primary>Status: {status.charAt(0).toUpperCase() + status.slice(1)}</Tag.Primary>
-        <Tag.Primary>Remaining: {formatTime(count ?? 0)}s</Tag.Primary>
-        <div className="flex flex-row items-center justify-center gap-2">
-          <Button.Primary onClick={() => start()}>Start</Button.Primary>
-          <Button.Secondary onClick={status === 'paused' ? resume : pause}>{status === 'paused' ? 'Resume' : 'Pause'}</Button.Secondary>
-          <Button.Secondary onClick={() => increment(10_000)}>10s +</Button.Secondary>
-          <Button.Destructive onClick={() => reset()}>Reset</Button.Destructive>
-        </div>
-      </Layout>
-  );
+	return (
+		<Layout>
+			<Layout.Title>Countdown</Layout.Title>
+			<Tag.Primary>
+				Status: {status.charAt(0).toUpperCase() + status.slice(1)}
+			</Tag.Primary>
+			<Tag.Primary>Remaining: {formatTime(count ?? 0)}s</Tag.Primary>
+			<div className='flex flex-row items-center justify-center gap-2'>
+				<Button.Primary onClick={() => start()}>Start</Button.Primary>
+				<Button.Secondary onClick={status === 'paused' ? resume : pause}>
+					{status === 'paused' ? 'Resume' : 'Pause'}
+				</Button.Secondary>
+				<Button.Secondary onClick={() => increment(10_000)}>
+					10s +
+				</Button.Secondary>
+				<Button.Destructive onClick={() => reset()}>Reset</Button.Destructive>
+			</div>
+		</Layout>
+	);
 }
 ```

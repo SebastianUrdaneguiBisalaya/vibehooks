@@ -1,76 +1,76 @@
 {
-  "parameters": [
-    {
-      "name": "url",
-      "type": "string",
-      "description": "The WebSocket URL to connect to (e.g., wss://echo.websocket.org). Required."
-    },
-    {
-      "name": "autoConnect",
-      "type": "boolean",
-      "description": "If true, the socket connects immediately on mount. Default: true."
-    },
-    {
-      "name": "maxRetries",
-      "type": "number",
-      "description": "Maximum number of reconnection attempts before giving up. Default: Infinity."
-    },
-    {
-      "name": "reconnectionInterval",
-      "type": "number",
-      "description": "Delay in milliseconds between reconnection attempts. Default: 3000."
-    },
-    {
-      "name": "onMessage",
-      "type": "(message: T) => void",
-      "description": "Callback triggered whenever a new message is successfully received and parsed."
-    },
-    {
-      "name": "onClose",
-      "type": "(event: CloseEvent) => void",
-      "description": "Callback triggered when the connection is closed."
-    },
-    {
-      "name": "onError",
-      "type": "(event: Event) => void",
-      "description": "Callback triggered when a connection error occurs."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "connect",
-      "type": "() => void",
-      "description": "Manually connect the Websocket."
-    },
-    {
-      "name": "isConnected",
-      "type": "boolean",
-      "description": "Reactive state indicating if the connection is currently open."
-    },
-    {
-      "name": "message",
-      "type": "T | null",
-      "description": "The most recently received and parsed message."
-    },
-    {
-      "name": "messages",
-      "type": "T[]",
-      "description": "An array containing the history of all messages received during the current session."
-    },
-    {
-      "name": "error",
-      "type": "string",
-      "description": "Contains the error message if a connection or parsing error occurs."
-    },
-    {
-      "name": "send",
-      "type": "(data) => void",
-      "description": "Function to transmit data through the socket."
-    },
-    {
-      "name": "disconnect",
-      "type": "() => void",
-      "description": "Manually closes the connection and cancels any pending reconnection timers."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "url",
+			"type": "string",
+			"description": "The WebSocket URL to connect to (e.g., wss://echo.websocket.org). Required."
+		},
+		{
+			"name": "autoConnect",
+			"type": "boolean",
+			"description": "If true, the socket connects immediately on mount. Default: true."
+		},
+		{
+			"name": "maxRetries",
+			"type": "number",
+			"description": "Maximum number of reconnection attempts before giving up. Default: Infinity."
+		},
+		{
+			"name": "reconnectionInterval",
+			"type": "number",
+			"description": "Delay in milliseconds between reconnection attempts. Default: 3000."
+		},
+		{
+			"name": "onMessage",
+			"type": "(message: T) => void",
+			"description": "Callback triggered whenever a new message is successfully received and parsed."
+		},
+		{
+			"name": "onClose",
+			"type": "(event: CloseEvent) => void",
+			"description": "Callback triggered when the connection is closed."
+		},
+		{
+			"name": "onError",
+			"type": "(event: Event) => void",
+			"description": "Callback triggered when a connection error occurs."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "connect",
+			"type": "() => void",
+			"description": "Manually connect the Websocket."
+		},
+		{
+			"name": "isConnected",
+			"type": "boolean",
+			"description": "Reactive state indicating if the connection is currently open."
+		},
+		{
+			"name": "message",
+			"type": "T | null",
+			"description": "The most recently received and parsed message."
+		},
+		{
+			"name": "messages",
+			"type": "T[]",
+			"description": "An array containing the history of all messages received during the current session."
+		},
+		{
+			"name": "error",
+			"type": "string",
+			"description": "Contains the error message if a connection or parsing error occurs."
+		},
+		{
+			"name": "send",
+			"type": "(data) => void",
+			"description": "Function to transmit data through the socket."
+		},
+		{
+			"name": "disconnect",
+			"type": "() => void",
+			"description": "Manually closes the connection and cancels any pending reconnection timers."
+		}
+	]
 }

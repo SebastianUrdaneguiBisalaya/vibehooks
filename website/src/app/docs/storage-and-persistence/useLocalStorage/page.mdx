@@ -1,40 +1,50 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/storage-and-persistence/useLocalStorage/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/storage-and-persistence/useLocalStorage/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/storage-and-persistence/useLocalStorage/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/storage-and-persistence/useLocalStorage/data.json';
 
 export const metadata = {
-  title: 'useLocalStorage - vibeHooks',
-  description: 'A typed React hook for interacting with the Web Storage API, providing automatic JSON serialization and fallback support.',
-  openGraph: {
-    title: 'useLocalStorage - vibeHooks',
-    description: 'A typed React hook for interacting with the Web Storage API, providing automatic JSON serialization and fallback support.',
-  }
-}
+	title: 'useLocalStorage - vibeHooks',
+	description:
+		'A typed React hook for interacting with the Web Storage API, providing automatic JSON serialization and fallback support.',
+	openGraph: {
+		title: 'useLocalStorage - vibeHooks',
+		description:
+			'A typed React hook for interacting with the Web Storage API, providing automatic JSON serialization and fallback support.',
+	},
+};
 
 # useLocalStorage
 
 ### A typed React hook for interacting with the Web Storage API, providing automatic JSON serialization and fallback support.
 
 <Blockquote.Important>
-  <Blockquote.Content>Data is serialized using <strong>JSON.stringify()</strong>. Ensure your data types are JSON-compatible (avoid using <strong>Map</strong>, <strong>Set</strong>, or objects with circular references).</Blockquote.Content>
+	<Blockquote.Content>
+		Data is serialized using <strong>JSON.stringify()</strong>. Ensure your data
+		types are JSON-compatible (avoid using <strong>Map</strong>,{' '}
+		<strong>Set</strong>, or objects with circular references).
+	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Tip>
-  <Blockquote.Content>This hook uses <strong>useSyncExternalStore</strong>, which automatically synchronizes the state across all components in your application that share the same key.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook uses <strong>useSyncExternalStore</strong>, which automatically
+		synchronizes the state across all components in your application that share
+		the same key.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 <Blockquote.Note>
-  <Blockquote.Content>An internal cache is used to prevent redundant <strong>localStorage</strong> reads, optimizing performance during frequent re-renders.</Blockquote.Content>
+	<Blockquote.Content>
+		An internal cache is used to prevent redundant <strong>localStorage</strong>{' '}
+		reads, optimizing performance during frequent re-renders.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -57,69 +67,66 @@ The **useLocalStorage** provides a clean, typed API for **window.localStorage**.
 ```tsx
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import { useLocalStorage } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
-import { cn } from "@/lib/cn";
+import { useLocalStorage } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
+import { cn } from '@/lib/cn';
 
 export interface Preferences {
-  compactMode: boolean;
+	compactMode: boolean;
 }
 
 export default function Demo() {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const storage = useLocalStorage<Preferences>('preferences', {
-    fallback: {
-      compactMode: false,
-    }
-  });
+	const [isMounted, setIsMounted] = useState<boolean>(false);
+	const storage = useLocalStorage<Preferences>('preferences', {
+		fallback: {
+			compactMode: false,
+		},
+	});
 
-  const prefs = storage.value;
+	const prefs = storage.value;
 
-  const handleToggle = () => {
-    storage.update(prev => ({
-      ...prev,
-      compactMode: !prev!.compactMode,
-    }))
-  }
+	const handleToggle = () => {
+		storage.update(prev => ({
+			...prev,
+			compactMode: !prev!.compactMode,
+		}));
+	};
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsMounted(true);
-    }, 100);
-  }, []);
+	useEffect(() => {
+		setTimeout(() => {
+			setIsMounted(true);
+		}, 100);
+	}, []);
 
-  if (!isMounted) {
-    return (
-      <Layout>
-        <Layout.ContentLoading />
-      </Layout>
-    )
-  }
+	if (!isMounted) {
+		return (
+			<Layout>
+				<Layout.ContentLoading />
+			</Layout>
+		);
+	}
 
-  if (!prefs) return null;
+	if (!prefs) return null;
 
-  return (
-    <Layout>
-      <Layout.Title>Local Storage</Layout.Title>
-      <div className="w-full flex flex-row items-center gap-4 justify-center">
-        <Tag.Primary>Compact Mode</Tag.Primary>
-        <Button.Secondary
-          className="rounded-full"
-          onClick={handleToggle}
-        >
-          <div
-            className={cn(
-              'h-5 w-5 bg-white-100 rounded-full transition-transform duration-500 ease-in-out',
-              prefs.compactMode ? 'translate-x-3' : '-translate-x-3'
-            )}
-          />
-        </Button.Secondary>
-      </div>
-    </Layout>
-  )
+	return (
+		<Layout>
+			<Layout.Title>Local Storage</Layout.Title>
+			<div className='w-full flex flex-row items-center gap-4 justify-center'>
+				<Tag.Primary>Compact Mode</Tag.Primary>
+				<Button.Secondary className='rounded-full' onClick={handleToggle}>
+					<div
+						className={cn(
+							'h-5 w-5 bg-white-100 rounded-full transition-transform duration-500 ease-in-out',
+							prefs.compactMode ? 'translate-x-3' : '-translate-x-3'
+						)}
+					/>
+				</Button.Secondary>
+			</div>
+		</Layout>
+	);
 }
 ```

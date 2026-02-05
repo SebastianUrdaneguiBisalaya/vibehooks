@@ -1,39 +1,39 @@
 {
-  "returnValues": [
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Indicates if navigator.geolocation is available in the environment."
-    },
-    {
-      "name": "permissionState",
-      "type": "GeolocationPermissionState",
-      "description": "Current status of the permission: granted, denied, prompt, or unsupported."
-    },
-    {
-      "name": "position",
-      "type": "GeolocationPosition | null",
-      "description": "The most recently acquired set of coordinates and accuracy data."
-    },
-    {
-      "name": "error",
-      "type": "GeolocationPositionError | null",
-      "description": "The error object if the last location request failed."
-    },
-    {
-      "name": "getCurrentPosition",
-      "type": "(options?: PositionOptions) => void",
-      "description": "Triggers a one-time requests for the current location."
-    },
-    {
-      "name": "watchPosition",
-      "type": "(options?: PositionOptions) => number | null",
-      "description": "Starts a continuous watch of the position; returns a watcher ID."
-    },
-    {
-      "name": "clearWatch",
-      "type": "(id: number) => void",
-      "description": "Stops a watch session using the provided ID."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Indicates if navigator.geolocation is available in the environment."
+		},
+		{
+			"name": "permissionState",
+			"type": "GeolocationPermissionState",
+			"description": "Current status of the permission: granted, denied, prompt, or unsupported."
+		},
+		{
+			"name": "position",
+			"type": "GeolocationPosition | null",
+			"description": "The most recently acquired set of coordinates and accuracy data."
+		},
+		{
+			"name": "error",
+			"type": "GeolocationPositionError | null",
+			"description": "The error object if the last location request failed."
+		},
+		{
+			"name": "getCurrentPosition",
+			"type": "(options?: PositionOptions) => void",
+			"description": "Triggers a one-time requests for the current location."
+		},
+		{
+			"name": "watchPosition",
+			"type": "(options?: PositionOptions) => number | null",
+			"description": "Starts a continuous watch of the position; returns a watcher ID."
+		},
+		{
+			"name": "clearWatch",
+			"type": "(id: number) => void",
+			"description": "Stops a watch session using the provided ID."
+		}
+	]
 }

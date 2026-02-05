@@ -1,24 +1,24 @@
 {
-  "returnValues": [
-    {
-      "name": "hasBeenActive",
-      "type": "boolean",
-      "description": "Indicates if the user has performed at least one interaction (sticky activation) since the page loaded."
-    },
-    {
-      "name": "isActive",
-      "type": "boolean",
-      "description": "Indicates if the user has interacted with the page recently enough to allow 'gated' APIs (transient activation)."
-    },
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Indicates whether the UserActivation API is supported in the current browser."
-    },
-    {
-      "name": "refresh",
-      "type": "() => void",
-      "description": "Manually triggers a re-read of the navigator.userActivation state."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "hasBeenActive",
+			"type": "boolean",
+			"description": "Indicates if the user has performed at least one interaction (sticky activation) since the page loaded."
+		},
+		{
+			"name": "isActive",
+			"type": "boolean",
+			"description": "Indicates if the user has interacted with the page recently enough to allow 'gated' APIs (transient activation)."
+		},
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Indicates whether the UserActivation API is supported in the current browser."
+		},
+		{
+			"name": "refresh",
+			"type": "() => void",
+			"description": "Manually triggers a re-read of the navigator.userActivation state."
+		}
+	]
 }

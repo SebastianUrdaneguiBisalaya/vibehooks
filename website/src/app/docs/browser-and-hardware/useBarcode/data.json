@@ -1,41 +1,41 @@
 {
-  "parameters": [
-    {
-      "name": "elementRef",
-      "type": "React.RefObject<HTMLVideoElement | HTMLImageElement | HTMLCanvasElement | null>",
-      "description": "A ref pointing to an HTMLVideoElement, HTMLImageElement, HTMLCanvasElement or null. Default is undefined."
-    },
-    {
-      "name": "formats",
-      "type": "string[]",
-      "description": "An array of barcode formats to detect (e.g., ['qr_code', 'ean_13']). Defaults to a comprehensive list of common formats."
-    },
-    {
-      "name": "onDetect",
-      "type": "(barcode: DetectorBarcode) => void",
-      "description": "Optional callback to be called when a barcode is detected."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "current",
-      "type": "DetectorBarcode | null",
-      "description": "An object containing the format, rawValue, and boundingBox of the detected barcode, or null if none found."
-    },
-    {
-      "name": "start",
-      "type": "() => Promise<void>",
-      "description": "A function to start the scanning process."
-    },
-    {
-      "name": "stop",
-      "type": "() => void",
-      "description": "A function to stop the scanning process."
-    },
-    {
-      "name": "supported",
-      "type": "boolean",
-      "description": "Indicates if the BarcodeDetector API is available in the user's browser environment."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "elementRef",
+			"type": "React.RefObject<HTMLVideoElement | HTMLImageElement | HTMLCanvasElement | null>",
+			"description": "A ref pointing to an HTMLVideoElement, HTMLImageElement, HTMLCanvasElement or null. Default is undefined."
+		},
+		{
+			"name": "formats",
+			"type": "string[]",
+			"description": "An array of barcode formats to detect (e.g., ['qr_code', 'ean_13']). Defaults to a comprehensive list of common formats."
+		},
+		{
+			"name": "onDetect",
+			"type": "(barcode: DetectorBarcode) => void",
+			"description": "Optional callback to be called when a barcode is detected."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "current",
+			"type": "DetectorBarcode | null",
+			"description": "An object containing the format, rawValue, and boundingBox of the detected barcode, or null if none found."
+		},
+		{
+			"name": "start",
+			"type": "() => Promise<void>",
+			"description": "A function to start the scanning process."
+		},
+		{
+			"name": "stop",
+			"type": "() => void",
+			"description": "A function to stop the scanning process."
+		},
+		{
+			"name": "supported",
+			"type": "boolean",
+			"description": "Indicates if the BarcodeDetector API is available in the user's browser environment."
+		}
+	]
 }

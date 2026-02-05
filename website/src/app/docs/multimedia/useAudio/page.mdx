@@ -1,36 +1,43 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/multimedia/useAudio/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/multimedia/useAudio/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/multimedia/useAudio/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/multimedia/useAudio/data.json';
 
 export const metadata = {
-  title: 'useAudio - vibeHooks',
-  description: 'A React hook providing a declarative and unopinionated interface to manage the HTML5 Audio API lifecycle.',
-  openGraph: {
-    title: 'useAudio - vibeHooks',
-    description: 'A React hook providing a declarative and unopinionated interface to manage the HTML5 Audio API lifecycle.',
-  }
-}
+	title: 'useAudio - vibeHooks',
+	description:
+		'A React hook providing a declarative and unopinionated interface to manage the HTML5 Audio API lifecycle.',
+	openGraph: {
+		title: 'useAudio - vibeHooks',
+		description:
+			'A React hook providing a declarative and unopinionated interface to manage the HTML5 Audio API lifecycle.',
+	},
+};
 
 # useAudio
 
 ### A React hook providing a declarative and unopinionated interface to manage the HTML5 Audio API lifecycle.
 
 <Blockquote.Warning>
-  <Blockquote.Content>Browsers often block audio from playing automatically <strong>(autoplay)</strong> unless the user has interacted with the domain first or the audio is muted.</Blockquote.Content>
+	<Blockquote.Content>
+		Browsers often block audio from playing automatically{' '}
+		<strong>(autoplay)</strong> unless the user has interacted with the domain
+		first or the audio is muted.
+	</Blockquote.Content>
 </Blockquote.Warning>
 
 <Blockquote.Caution>
-  <Blockquote.Content>When the <strong>src</strong> changes, the hook creates a new <strong>Audio</strong> instance. Ensure you handle state cleanup in your UI if you are switching tracks rapidly to avoid overlapping sounds.</Blockquote.Content>
+	<Blockquote.Content>
+		When the <strong>src</strong> changes, the hook creates a new{' '}
+		<strong>Audio</strong> instance. Ensure you handle state cleanup in your UI
+		if you are switching tracks rapidly to avoid overlapping sounds.
+	</Blockquote.Content>
 </Blockquote.Caution>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -53,23 +60,23 @@ The **useAudio** abstracts the complexity of the **HTMLAudioElement**, offering 
 ```tsx
 'use client';
 
-import { useAudio } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { useAudio } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { error, pause, play, status} = useAudio({ src: '/music.mp3' });
-  return (
-    <Layout>
-      <Layout.Title>Audio</Layout.Title>
-      <Tag.Primary>Status: {status}</Tag.Primary>
-      <Layout.Error>Error: {error?.message}</Layout.Error>
-      <div className="flex flex-row items-center gap-2">
-        <Button.Primary onClick={play}>Play</Button.Primary>
-        <Button.Secondary onClick={pause}>Pause</Button.Secondary>
-      </div>
-    </Layout>
-  )
+	const { error, pause, play, status } = useAudio({ src: '/music.mp3' });
+	return (
+		<Layout>
+			<Layout.Title>Audio</Layout.Title>
+			<Tag.Primary>Status: {status}</Tag.Primary>
+			<Layout.Error>Error: {error?.message}</Layout.Error>
+			<div className='flex flex-row items-center gap-2'>
+				<Button.Primary onClick={play}>Play</Button.Primary>
+				<Button.Secondary onClick={pause}>Pause</Button.Secondary>
+			</div>
+		</Layout>
+	);
 }
 ```

@@ -1,32 +1,35 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/environment-and-lifecycle/usePageVisibility/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/environment-and-lifecycle/usePageVisibility/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/environment-and-lifecycle/usePageVisibility/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/environment-and-lifecycle/usePageVisibility/data.json';
 
 export const metadata = {
-  title: 'usePageVisibility - vibeHooks',
-  description: 'Provides the current visibility state of the document using the Page Visibility API.',
-  openGraph: {
-    title: 'usePageVisibility - vibeHooks',
-    description: 'Provides the current visibility state of the document using the Page Visibility API.',
-  }
-}
+	title: 'usePageVisibility - vibeHooks',
+	description:
+		'Provides the current visibility state of the document using the Page Visibility API.',
+	openGraph: {
+		title: 'usePageVisibility - vibeHooks',
+		description:
+			'Provides the current visibility state of the document using the Page Visibility API.',
+	},
+};
 
 # usePageVisibility
 
 ### Provides the current visibility state of the document using the Page Visibility API.
 
 <Blockquote.Tip>
-  <Blockquote.Content>Use this hook to pause expensive operations—like WebSocket heartbeats, long-polling, or complex animations—when the user switches tabs to save battery and network resources.</Blockquote.Content>
+	<Blockquote.Content>
+		Use this hook to pause expensive operations—like WebSocket heartbeats,
+		long-polling, or complex animations—when the user switches tabs to save
+		battery and network resources.
+	</Blockquote.Content>
 </Blockquote.Tip>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -45,18 +48,20 @@ Synchronizes with the document's visibility state (whether the tab is active/foc
 ```tsx
 'use client';
 
-import { usePageVisibility } from "@vibehooks/react";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { usePageVisibility } from '@vibehooks/react';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { isVisible, visibilityState } = usePageVisibility();
+	const { isVisible, visibilityState } = usePageVisibility();
 	return (
 		<Layout>
-      <Layout.Title>Page Visibility</Layout.Title>
-      <Tag.Primary>Status: {visibilityState}</Tag.Primary>
-      <Layout.Caption>{isVisible ? 'Visible ✅' : 'Hidden ❌'}</Layout.Caption>
-      <Layout.Caption>Try switching tabs and coming back to see the state change.</Layout.Caption>
+			<Layout.Title>Page Visibility</Layout.Title>
+			<Tag.Primary>Status: {visibilityState}</Tag.Primary>
+			<Layout.Caption>{isVisible ? 'Visible ✅' : 'Hidden ❌'}</Layout.Caption>
+			<Layout.Caption>
+				Try switching tabs and coming back to see the state change.
+			</Layout.Caption>
 		</Layout>
 	);
 }

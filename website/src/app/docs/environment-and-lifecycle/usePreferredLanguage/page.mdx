@@ -1,36 +1,44 @@
-import { Blockquote } from "@/components/shared/Blockquote";
-import CodeBlock from "@/components/shared/Codeblock";
-import Demo from "@/app/docs/environment-and-lifecycle/usePreferredLanguage/Demo";
-import Table from "@/components/shared/Table";
-import data from "@/app/docs/environment-and-lifecycle/usePreferredLanguage/data.json";
+import { Blockquote } from '@/components/shared/Blockquote';
+import CodeBlock from '@/components/shared/Codeblock';
+import Demo from '@/app/docs/environment-and-lifecycle/usePreferredLanguage/Demo';
+import Table from '@/components/shared/Table';
+import data from '@/app/docs/environment-and-lifecycle/usePreferredLanguage/data.json';
 
 export const metadata = {
-  title: 'usePreferredLanguage - vibeHooks',
-  description: 'Manages and resolves the application language based on system settings and user overrides.',
-  openGraph: {
-    title: 'usePreferredLanguage - vibeHooks',
-    description: 'Manages and resolves the application language based on system settings and user overrides.',
-  }
-}
+	title: 'usePreferredLanguage - vibeHooks',
+	description:
+		'Manages and resolves the application language based on system settings and user overrides.',
+	openGraph: {
+		title: 'usePreferredLanguage - vibeHooks',
+		description:
+			'Manages and resolves the application language based on system settings and user overrides.',
+	},
+};
 
 # usePreferredLanguage
 
 ### Manages and resolves the application language based on system settings and user overrides.
 
 <Blockquote.Important>
-  <Blockquote.Content>This hook synchronizes the user's language preference across all open browser tabs using <strong>localStorage</strong> and the <strong></strong> event.</Blockquote.Content>
+	<Blockquote.Content>
+		This hook synchronizes the user's language preference across all open
+		browser tabs using <strong>localStorage</strong> and the <strong></strong>{' '}
+		event.
+	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Note>
-  <Blockquote.Content>The <strong>language</strong> value follows the BCP 47 standard (e.g., <strong>'en-US'</strong>, <strong>'es-PE'</strong>). Ensure your localization dictionary supports these specific codes or includes a fallback mechanism.</Blockquote.Content>
+	<Blockquote.Content>
+		The <strong>language</strong> value follows the BCP 47 standard (e.g.,{' '}
+		<strong>'en-US'</strong>, <strong>'es-PE'</strong>). Ensure your
+		localization dictionary supports these specific codes or includes a fallback
+		mechanism.
+	</Blockquote.Content>
 </Blockquote.Note>
 
 #### Installation
 
-<CodeBlock
-  code={`npm install @vibehooks/react`}
-  language="bash"
-/>
+<CodeBlock code={`npm install @vibehooks/react`} language='bash' />
 
 #### Description
 
@@ -49,30 +57,39 @@ A robust language management hook that looks for a user-defined preference in **
 ```tsx
 'use client';
 
-import { usePreferredLanguage } from "@vibehooks/react";
-import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
-import { Layout } from "@/layouts/Layout";
+import { usePreferredLanguage } from '@vibehooks/react';
+import { Button } from '@/components/ui/Button';
+import { Tag } from '@/components/ui/Tag';
+import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-  const { language , setUserLanguage, systemLanguage, userLanguage } = usePreferredLanguage();
+	const { language, setUserLanguage, systemLanguage, userLanguage } =
+		usePreferredLanguage();
 
-  const handleChangeLanguage = (lang: string) => {
-    setUserLanguage(lang);
-  }
+	const handleChangeLanguage = (lang: string) => {
+		setUserLanguage(lang);
+	};
 	return (
 		<Layout>
-      <Layout.Title>Preferred Language</Layout.Title>
-      <div className="flex flex-row items-center justify-center gap-2">
-        <Tag.Primary>System: {systemLanguage}</Tag.Primary>
-        <Tag.Primary>User: {userLanguage}</Tag.Primary>
-      </div>
-      <Layout.Caption>Resolved Language: <strong>{language}</strong></Layout.Caption>
-      <div className="flex flex-row w-full items-center justify-center gap-2">
-        <Button.Secondary onClick={() => handleChangeLanguage("en")}>English</Button.Secondary>
-        <Button.Secondary onClick={() => handleChangeLanguage("es-PE")}>Spanish</Button.Secondary>
-        <Button.Destructive onClick={() => handleChangeLanguage("")}>Clear</Button.Destructive>
-      </div>
+			<Layout.Title>Preferred Language</Layout.Title>
+			<div className='flex flex-row items-center justify-center gap-2'>
+				<Tag.Primary>System: {systemLanguage}</Tag.Primary>
+				<Tag.Primary>User: {userLanguage}</Tag.Primary>
+			</div>
+			<Layout.Caption>
+				Resolved Language: <strong>{language}</strong>
+			</Layout.Caption>
+			<div className='flex flex-row w-full items-center justify-center gap-2'>
+				<Button.Secondary onClick={() => handleChangeLanguage('en')}>
+					English
+				</Button.Secondary>
+				<Button.Secondary onClick={() => handleChangeLanguage('es-PE')}>
+					Spanish
+				</Button.Secondary>
+				<Button.Destructive onClick={() => handleChangeLanguage('')}>
+					Clear
+				</Button.Destructive>
+			</div>
 		</Layout>
 	);
 }

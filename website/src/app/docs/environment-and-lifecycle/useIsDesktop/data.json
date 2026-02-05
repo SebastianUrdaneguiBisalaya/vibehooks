@@ -1,16 +1,16 @@
 {
-  "parameters": [
-    {
-      "name": "width",
-      "type": "number",
-      "description": "The minimum pixel width to consider the device as 'desktop'. Default: 0"
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "isDesktop",
-      "type": "boolean",
-      "description": "true if the current viewport width ≥ the parameter width."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "width",
+			"type": "number",
+			"description": "The minimum pixel width to consider the device as 'desktop'. Default: 0"
+		}
+	],
+	"returnValues": [
+		{
+			"name": "isDesktop",
+			"type": "boolean",
+			"description": "true if the current viewport width ≥ the parameter width."
+		}
+	]
 }

@@ -1,46 +1,46 @@
 {
-  "parameters": [
-    {
-      "name": "options.continuous",
-      "type": "boolean",
-      "description": "If true, the recognition continues even if the user pauses. Default: false."
-    },
-    {
-      "name": "options.interimResults",
-      "type": "boolean",
-      "description": "If true, partial results are returned while the user is still speaking. Default: false."
-    },
-    {
-      "name": "options.lang",
-      "type": "string",
-      "description": "The BCP 47 language tag for the recognition (e.g., 'en-US'). Default: 'en-US'."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "error",
-      "type": "Error | null",
-      "description": "Contains the error object if recognition fails."
-    },
-    {
-      "name": "start",
-      "type": "() => void",
-      "description": "Function to initialize and start the speech recognition session."
-    },
-    {
-      "name": "status",
-      "type": "SpeechStatus",
-      "description": "Current status: 'idle', 'listening', 'stopped', 'unsupported', or 'error'."
-    },
-    {
-      "name": "stop",
-      "type": "() => void",
-      "description": "Stops the recognition process."
-    },
-    {
-      "name": "transcript",
-      "type": "string",
-      "description": "The accumulated text recognized from the speech input."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "options.continuous",
+			"type": "boolean",
+			"description": "If true, the recognition continues even if the user pauses. Default: false."
+		},
+		{
+			"name": "options.interimResults",
+			"type": "boolean",
+			"description": "If true, partial results are returned while the user is still speaking. Default: false."
+		},
+		{
+			"name": "options.lang",
+			"type": "string",
+			"description": "The BCP 47 language tag for the recognition (e.g., 'en-US'). Default: 'en-US'."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "error",
+			"type": "Error | null",
+			"description": "Contains the error object if recognition fails."
+		},
+		{
+			"name": "start",
+			"type": "() => void",
+			"description": "Function to initialize and start the speech recognition session."
+		},
+		{
+			"name": "status",
+			"type": "SpeechStatus",
+			"description": "Current status: 'idle', 'listening', 'stopped', 'unsupported', or 'error'."
+		},
+		{
+			"name": "stop",
+			"type": "() => void",
+			"description": "Stops the recognition process."
+		},
+		{
+			"name": "transcript",
+			"type": "string",
+			"description": "The accumulated text recognized from the speech input."
+		}
+	]
 }

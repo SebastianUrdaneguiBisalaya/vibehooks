@@ -1,29 +1,29 @@
 {
-  "returnValues": [
-    {
-      "name": "theme",
-      "type": "Theme",
-      "description": "The active theme string (e.g., 'light' or 'dark')."
-    },
-    {
-      "name": "setUserTheme",
-      "type": "(theme: Theme | null) => void",
-      "description": "Manually set a theme or reset to system by passing null."
-    },
-    {
-      "name": "systemTheme",
-      "type": "Theme",
-      "description": "The theme preference reported by the OS."
-    },
-    {
-      "name": "userTheme",
-      "type": "Theme | null",
-      "description": "The stored user override, if it exists."
-    },
-    {
-      "name": "toggleTheme",
-      "type": "(options?: { dark?: Theme; light?: Theme }) => void",
-      "description": "Toggles between two themes (defaults to 'dark'/'light')."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "theme",
+			"type": "Theme",
+			"description": "The active theme string (e.g., 'light' or 'dark')."
+		},
+		{
+			"name": "setUserTheme",
+			"type": "(theme: Theme | null) => void",
+			"description": "Manually set a theme or reset to system by passing null."
+		},
+		{
+			"name": "systemTheme",
+			"type": "Theme",
+			"description": "The theme preference reported by the OS."
+		},
+		{
+			"name": "userTheme",
+			"type": "Theme | null",
+			"description": "The stored user override, if it exists."
+		},
+		{
+			"name": "toggleTheme",
+			"type": "(options?: { dark?: Theme; light?: Theme }) => void",
+			"description": "Toggles between two themes (defaults to 'dark'/'light')."
+		}
+	]
 }

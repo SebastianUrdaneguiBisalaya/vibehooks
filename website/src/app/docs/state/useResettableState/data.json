@@ -1,26 +1,26 @@
 {
-  "parameters": [
-    {
-      "name": "initialState",
-      "type": "T Generic | (() => T Generic)",
-      "description": "The initial state value or a function that returns the initial value."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "state",
-      "type": "T Generic",
-      "description": "The current state value."
-    },
-    {
-      "name": "setState",
-      "type": "Dispatch<SetStateAction<T Generic>>",
-      "description": "The standard React function to update the state."
-    },
-    {
-      "name": "reset",
-      "type": "() => void",
-      "description": "A memoized function that resets the state to the capture initial value."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "initialState",
+			"type": "T Generic | (() => T Generic)",
+			"description": "The initial state value or a function that returns the initial value."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "state",
+			"type": "T Generic",
+			"description": "The current state value."
+		},
+		{
+			"name": "setState",
+			"type": "Dispatch<SetStateAction<T Generic>>",
+			"description": "The standard React function to update the state."
+		},
+		{
+			"name": "reset",
+			"type": "() => void",
+			"description": "A memoized function that resets the state to the capture initial value."
+		}
+	]
 }

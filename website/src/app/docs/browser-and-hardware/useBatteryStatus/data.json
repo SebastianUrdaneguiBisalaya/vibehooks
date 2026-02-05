@@ -1,29 +1,29 @@
 {
-  "returnValues": [
-    {
-      "name": "isSupported",
-      "type": "boolean",
-      "description": "Indicates if the browser supports the Battery Status API."
-    },
-    {
-      "name": "battery.level",
-      "type": "number | null",
-      "description": "Value from 0.0 to 1.0 representing the charge level."
-    },
-    {
-      "name": "battery.charging",
-      "type": "boolean | null",
-      "description": "True if the device is currently plugged in."
-    },
-    {
-      "name": "battery.chargingTime",
-      "type": "number | null",
-      "description": "Seconds until full charge (0 if full, Infinity if unknown)."
-    },
-    {
-      "name": "battery.dischargingTime",
-      "type": "number | null",
-      "description": "Seconds until empty (Infinity if charging or unknown)."
-    }
-  ]
+	"returnValues": [
+		{
+			"name": "isSupported",
+			"type": "boolean",
+			"description": "Indicates if the browser supports the Battery Status API."
+		},
+		{
+			"name": "battery.level",
+			"type": "number | null",
+			"description": "Value from 0.0 to 1.0 representing the charge level."
+		},
+		{
+			"name": "battery.charging",
+			"type": "boolean | null",
+			"description": "True if the device is currently plugged in."
+		},
+		{
+			"name": "battery.chargingTime",
+			"type": "number | null",
+			"description": "Seconds until full charge (0 if full, Infinity if unknown)."
+		},
+		{
+			"name": "battery.dischargingTime",
+			"type": "number | null",
+			"description": "Seconds until empty (Infinity if charging or unknown)."
+		}
+	]
 }

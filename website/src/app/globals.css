@@ -1,17 +1,17 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
 	--background: #0a0a0a;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-white-100: #E5E5E5;
-  --color-black-950: #171717;
-  --font-sora: var(--font-sora);
-  --font-reddit-sans: var(--font-reddit-sans);
-  --font-jersey-15: var(--font-jersey-15);
-  --font-cascadia-code: var(--font-cascadia-code);
+	--color-background: var(--background);
+	--color-white-100: #e5e5e5;
+	--color-black-950: #171717;
+	--font-sora: var(--font-sora);
+	--font-reddit-sans: var(--font-reddit-sans);
+	--font-jersey-15: var(--font-jersey-15);
+	--font-cascadia-code: var(--font-cascadia-code);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -19,7 +19,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
@@ -32,25 +32,25 @@ body {
 	align-items: center;
 	scroll-behavior: smooth;
 	overflow-x: hidden;
-  position: relative;
+	position: relative;
 }
 
 pre code span span {
-  font-family: var(--font-jersey-15);
-  font-size: 1.25rem;
+	font-family: var(--font-jersey-15);
+	font-size: 1.25rem;
 }
 
 .cascadia-code pre code span span {
-  font-family: var(--font-cascadia-code);
-  font-size: 0.85rem;
+	font-family: var(--font-cascadia-code);
+	font-size: 0.85rem;
 }
 
 .motion-slider-gradient {
-  mask-image: linear-gradient(
-    to right,
-    rgba(0,0,0,0),
-    rgba(0,0,0,1) 10%,
-    rgba(0,0,0,1) 90%,
-    rgba(0,0,0,0)
-  );
+	mask-image: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 1) 10%,
+		rgba(0, 0, 0, 1) 90%,
+		rgba(0, 0, 0, 0)
+	);
 }

@@ -1,46 +1,46 @@
 {
-  "parameters": [
-    {
-      "name": "url",
-      "type": "string",
-      "description": "The URL of the server-side script that sends the events."
-    },
-    {
-      "name": "options.enabled",
-      "type": "boolean",
-      "description": "Whether the connection should be established immediately. Default: true."
-    },
-    {
-      "name": "options.onOpen",
-      "type": "(event: Event) => void",
-      "description": "Callback triggered when the connection is successfully opened."
-    },
-    {
-      "name": "options.onMessage",
-      "type": "(event: MessageEvent) => void",
-      "description": "Callback triggered whenever a new message event is received from the server."
-    },
-    {
-      "name": "options.onError",
-      "type": "(event: Event) => void",
-      "description": "Callback triggered when a connection error occurs."
-    },
-    {
-      "name": "options.withCredentials",
-      "type": "boolean",
-      "description": "Whether the browser should send cookies or HTTP authentication with the request. Default: false."
-    }
-  ],
-  "returnValues": [
-    {
-      "name": "readyState",
-      "type": "number | null",
-      "description": "The current state of the connection: 0 (Connecting), 1 (Open), or 2 (Closed)."
-    },
-    {
-      "name": "close",
-      "type": "() => void",
-      "description": "Manually closes the connection and prevents further updates."
-    }
-  ]
+	"parameters": [
+		{
+			"name": "url",
+			"type": "string",
+			"description": "The URL of the server-side script that sends the events."
+		},
+		{
+			"name": "options.enabled",
+			"type": "boolean",
+			"description": "Whether the connection should be established immediately. Default: true."
+		},
+		{
+			"name": "options.onOpen",
+			"type": "(event: Event) => void",
+			"description": "Callback triggered when the connection is successfully opened."
+		},
+		{
+			"name": "options.onMessage",
+			"type": "(event: MessageEvent) => void",
+			"description": "Callback triggered whenever a new message event is received from the server."
+		},
+		{
+			"name": "options.onError",
+			"type": "(event: Event) => void",
+			"description": "Callback triggered when a connection error occurs."
+		},
+		{
+			"name": "options.withCredentials",
+			"type": "boolean",
+			"description": "Whether the browser should send cookies or HTTP authentication with the request. Default: false."
+		}
+	],
+	"returnValues": [
+		{
+			"name": "readyState",
+			"type": "number | null",
+			"description": "The current state of the connection: 0 (Connecting), 1 (Open), or 2 (Closed)."
+		},
+		{
+			"name": "close",
+			"type": "() => void",
+			"description": "Manually closes the connection and prevents further updates."
+		}
+	]
 }
