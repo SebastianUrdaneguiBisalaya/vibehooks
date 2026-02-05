@@ -18,7 +18,7 @@ export default function StaggeredFade ({
     hidden: { opacity: 0 },
     show: (i: number) => ({
       opacity: 1,
-      transition: { delay: i * 0.04 },
+      transition: { delay: i * 0.06 },
       y: 0,
     }),
   };
