@@ -3,13 +3,13 @@ import { defineConfig } from 'tsdown';
 export default defineConfig({
 	clean: true,
 	dts: {
-    sourcemap: false,
-  },
+		sourcemap: false,
+	},
 	entry: 'src/index.ts',
-  exports: {
-    all: false
-  },
+	exports: {
+		all: false,
+	},
 	platform: 'browser',
-  sourcemap: false,
+	sourcemap: false,
 	unbundle: false,
 });
