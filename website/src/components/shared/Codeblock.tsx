@@ -121,7 +121,7 @@ export default function Codeblock({
             </div>
             <div
                 className={cn(
-                  'border-x border-b border-white/20 rounded-b-md py-3 px-4 bg-[rgba(0,0,0,1)] overflow-x-auto',
+                  'border-x border-b border-white/20 rounded-b-md py-3 px-4 overflow-x-auto',
                   classNameCode
                 )}
                 dangerouslySetInnerHTML={{ __html: html }}

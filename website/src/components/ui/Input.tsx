@@ -24,7 +24,7 @@ function Primary(props: InputProps) {
     <BaseInput
       {...props}
       className={cn(
-        'bg-neutral-900 border border-white/20 text-white-100',
+        'border border-white/20 text-white-100',
         props.className
       )}
     />

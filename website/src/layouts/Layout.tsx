@@ -19,7 +19,7 @@ const RootLayout = ({ children, className }: LayoutRootProps) => {
   return (
     <div
       className={cn(
-        'w-full max-w-lg mx-auto flex flex-col items-center gap-4 p-4 bg-neutral-900 rounded-lg shadow-md border border-white/20',
+        'w-full mx-auto flex flex-col items-center gap-4 px-4 py-8 rounded-lg shadow-md border border-white/20',
         className
       )}
     >
