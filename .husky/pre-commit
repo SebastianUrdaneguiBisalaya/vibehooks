@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running Prettier..."
+npm run prettier-fix || exit 1
+
+echo "Running ESLint..."
+npm run lint-fix || exit 1
