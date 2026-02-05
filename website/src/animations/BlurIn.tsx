@@ -14,7 +14,7 @@ export default function BlurIn({ children, className }: { children: React.ReactN
       className={cn(className)}
       initial={{ filter: 'blur(20px)', opacity: 0 }}
       ref={ref}
-      transition={{ duration: 1.6 }}
+      transition={{ duration: 2.5 }}
     >
       {children}
     </motion.div>
