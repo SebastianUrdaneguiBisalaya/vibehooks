@@ -6,12 +6,11 @@
 Modern React and Next.js hooks, unopinionated and focused on developer experience.
 </p>
 
+### **Release: Monday, February 9 2025**
+
 ## **Installation**
 
-**Coming soon...**
-
 You can install the package with the following command:
-By default, these commands will install all the hooks in the package.
 
 Using `npm`:
 
@@ -25,25 +24,11 @@ Using `pnpm`:
 pnpm add @vibehooks/react
 ```
 
-But you can also install only the hooks you need with the following command:
-
-Using `npm`:
-
-```bash
-npm install @vibehooks/use-toggle
-```
-
-Using `pnpm`:
-
-```bash
-pnpm add @vibehooks/use-toggle
-```
-
 That package is fully typed with TypeScript and comes with all the types you need.
 You can use the types just by importing them from the package like this:
 
 ```ts
-import { useToggle, type UseToggleReturn } from '@vibehooks/use-toggle';
+import { useToggle, type UseToggleReturn } from '@vibehooks/react';
 ```
 
 ## **Contributing**
