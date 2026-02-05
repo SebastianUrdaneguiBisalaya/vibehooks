@@ -5,7 +5,7 @@ import NavigationList from "@/components/shared/NavigationList";
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
     <div className="max-w-5xl w-full mx-auto self-center p-6 md:p-8">
-      <div className="flex flex-col items-start fixed -left-60 -top-10 blur-xl z-0 ">
+      <div className="flex flex-col items-start fixed -left-60 top-30 blur-xl z-0 ">
         <div className="h-40 rounded-full w-80 md:w-120 z-1 bg-linear-to-b blur-[8rem] from-green-600 to-sky-600"></div>
         <div className="h-40 rounded-full w-100 md:w-160 z-1 bg-linear-to-b blur-[8rem] from-pink-900 to-yellow-400"></div>
         <div className="h-40 rounded-full w-80 md:w-120 z-1 bg-linear-to-b blur-[8rem] from-yellow-600 to-sky-300"></div>
