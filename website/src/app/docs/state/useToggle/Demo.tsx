@@ -1,6 +1,6 @@
 'use client';
 
-import { useToggle } from '@vibehooks/react/index';
+import { useToggle } from '@vibehooks/react';
 
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';

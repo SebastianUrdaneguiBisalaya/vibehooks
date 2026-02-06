@@ -6,7 +6,7 @@ export interface NotificationPayload extends NotificationOptions {
 	title: string;
 }
 
-export type Listener = () => void;
+type Listener = () => void;
 
 let notifications: NotificationPayload[] = [];
 const listeners = new Set<Listener>();

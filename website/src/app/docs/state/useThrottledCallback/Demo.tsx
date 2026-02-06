@@ -1,6 +1,6 @@
 'use client';
 
-import { useThrottledCallback } from '@vibehooks/react/index';
+import { useThrottledCallback } from '@vibehooks/react';
 import { useState } from 'react';
 
 import { Layout } from '@/layouts/Layout';

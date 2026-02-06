@@ -1,6 +1,6 @@
 'use client';
 
-import { useTaskQueue, type Task } from '@vibehooks/react/useTaskQueue';
+import { useTaskQueue, type Task } from '@vibehooks/react';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/Button';

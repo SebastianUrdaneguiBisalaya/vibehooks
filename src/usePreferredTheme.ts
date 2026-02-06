@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export type Theme = string;
-export type Listener = () => void;
+type Listener = () => void;
 
 const listeners = new Set<Listener>();
 

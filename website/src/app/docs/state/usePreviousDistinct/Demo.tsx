@@ -1,6 +1,6 @@
 'use client';
 
-import { usePreviousDistinct } from '@vibehooks/react/index';
+import { usePreviousDistinct } from '@vibehooks/react';
 import { useState } from 'react';
 
 import { Layout } from '@/layouts/Layout';
