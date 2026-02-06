@@ -26,8 +26,26 @@ const cascadiaCode = Cascadia_Code({
 });
 
 export const metadata: Metadata = {
+	authors: [
+		{
+			name: 'Sebastian Marat Urdanegui Bisalaya',
+			url: 'https://sebastianurdanegui.com',
+		},
+	],
 	description:
 		'Modern and unopinionated React hooks with a focus on developer experience.',
+	keywords: [
+		'react hook library',
+		'typescript hooks',
+		'unopinionated react hooks',
+		'type-safe react state management',
+		'custom hooks for typescript',
+		'open-source',
+		'use hooks',
+		'vibehooks',
+		'react',
+		'typescript',
+	],
 	title: 'vibeHooks - Modern and unopinionated React hooks.',
 };
 
@@ -38,6 +56,36 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
+			<meta content='PE' name='geo.region' />
+			<meta content='Perú' name='geo.placename' />
+			<meta content='general' name='rating' />
+			<meta content='global' name='distribution' />
+			<meta
+				content='vibeHooks - Modern and unopinionated React hooks.'
+				property='og:title'
+			/>
+			<meta
+				content='Modern and unopinionated React hooks with a focus on developer experience.'
+				property='og:description'
+			/>
+			<meta
+				content='vibeHooks - Modern and unopinionated React hooks.'
+				name='twitter:title'
+			/>
+			<meta
+				content='Modern and unopinionated React hooks with a focus on developer experience.'
+				name='twitter:description'
+			/>
+			<meta
+				content='https://vibehooks.sebastianurdanegui.com'
+				property='og:url'
+			/>
+			<meta
+				content='https://vibehooks.sebastianurdanegui.com'
+				property='twitter:url'
+			/>
+			<meta content='website' name='og:type' />
+			<meta content='summary_large_image' name='twitter:card' />
 			<body
 				className={`${sora.variable} ${redditSans.variable} ${jersey15.variable} ${cascadiaCode.variable} antialiased`}
 			>
