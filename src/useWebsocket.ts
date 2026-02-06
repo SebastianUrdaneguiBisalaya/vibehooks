@@ -110,7 +110,9 @@ export function useWebsocket<TMessage = unknown>(
 
 	const socketRef = React.useRef<WebSocket | null>(null);
 	const retriesRef = React.useRef<number>(0);
-	const reconnectTimeoutRef = React.useRef<number | null>(null);
+	const reconnectTimeoutRef = React.useRef<ReturnType<
+		typeof setTimeout
+	> | null>(null);
 	const manualCloseRef = React.useRef<boolean>(false);
 	const hasOpenedRef = React.useRef<boolean>(false);
 
