@@ -11,5 +11,5 @@ export default defineConfig({
 	},
 	platform: 'browser',
 	sourcemap: false,
-	unbundle: false,
+	unbundle: true,
 });
