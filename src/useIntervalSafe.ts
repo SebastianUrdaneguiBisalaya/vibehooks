@@ -65,11 +65,6 @@ export interface UseIntervalReturn {
  * <button onClick={interval.cancel}>Stop</button>
  * <span>Polled {interval.executionCount} times</span>
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useIntervalSafe(
 	callback: () => void,

@@ -68,12 +68,7 @@ function readFromStorage<T>(key: string, fallback: T): T {
  *
  * const user = storage.get();
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/es/docs/Web/API/Window/localStorage
- * @version 0.0.1
- *
  */
 export function useLocalStorage<T>(
 	key: string,

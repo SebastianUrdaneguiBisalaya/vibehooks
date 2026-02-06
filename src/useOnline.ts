@@ -29,10 +29,7 @@ function getServerSnapshot(): boolean {
  * `useOnline` is an unopinionated hook that exposes the browser's online status based on the Navigator.onLine API.
  * It automatically stays in sync with `online` and `offline` events.
  *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/es/docs/Web/API/Navigator/onLine
- * @version 0.0.1
  */
 export function useOnline(): UseOnlineReturn {
 	const online = React.useSyncExternalStore(

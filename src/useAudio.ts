@@ -30,11 +30,6 @@ export interface UseAudioReturn {
  * const audio = useAudio({ src: '/sound.mp3' });
  * audio.play();
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useAudio(options: UseAudioOptions = {}): UseAudioReturn {
 	const audioRef = React.useRef<HTMLAudioElement | null>(null);

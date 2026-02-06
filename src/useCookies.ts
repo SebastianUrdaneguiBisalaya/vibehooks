@@ -41,12 +41,7 @@ export interface UseCookieReturn {
  * cookies.set('token', 'abc', { secure: true });
  * const token = cookies.get('token');
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Cookie_Store_API
- * @version 0.0.1
- *
  */
 export function useCookies(): UseCookieReturn {
 	const isSupported =

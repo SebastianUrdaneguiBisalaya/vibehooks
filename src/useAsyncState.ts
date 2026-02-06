@@ -63,11 +63,6 @@ export interface UseAsyncStateOptions<T> {
  *   return <div>Welcome, {data.name}!</div>;
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useAsyncState<T>(
 	options?: UseAsyncStateOptions<T>

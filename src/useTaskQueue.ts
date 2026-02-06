@@ -22,11 +22,6 @@ export interface UseTaskQueueReturn<T = unknown> {
  *   enqueue({ id: 'task1', run: async () => console.log('Task 1') });
  * }, []);
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useTaskQueue<T = unknown>(): UseTaskQueueReturn<T> {
 	const [queue, setQueue] = React.useState<Task<T>[]>([]);

@@ -208,12 +208,7 @@ export interface UseNetworkInformationReturn extends NetworkInformationSnapshot 
  *   </div>
  * );
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/es/docs/Web/API/Network_Information_API
- * @version 0.0.1
- *
  */
 export function useNetworkInformation(): UseNetworkInformationReturn {
 	const snapshot = React.useSyncExternalStore(

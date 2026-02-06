@@ -76,11 +76,6 @@ export const pageVisibilityStore = visibilityStore();
  *   return null;s
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function usePageVisibility(): PageVisibilityReturn {
 	const visibilityState = React.useSyncExternalStore(

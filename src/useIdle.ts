@@ -47,11 +47,6 @@ export interface UseIdleReturn {
  *   // pause expensive work
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useIdle(options: UseIdleOptions = {}): UseIdleReturn {
 	const {

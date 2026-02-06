@@ -9,11 +9,6 @@ import { useScreenSize } from './useScreenSize';
  * ```tsx
  * const isDesktop = useIsDesktop(1000);
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useIsDesktop(width: number = 0): boolean {
 	const screenSize = useScreenSize();

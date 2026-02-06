@@ -19,12 +19,7 @@ export interface UseNotificationOptions extends NotificationOptions {
  * const { notify, requestPermission, permission } = useNotifications();
  * notify({ title: 'Hello', body: 'World' });
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Notification
- * @version 0.0.1
- *
  */
 export function useLocalNotifications(): UseLocalNotificationReturn {
 	const [permission, setPermission] = React.useState<NotificationPermission>(

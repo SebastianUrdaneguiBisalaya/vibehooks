@@ -42,12 +42,7 @@ export interface IntersectionObserverReturn<T extends Element> {
  *
  * return <div ref={ref}>{isVisible}</div>;
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
- * @version 0.0.1
- *
  */
 export function useIntersectionObserver<T extends Element = HTMLElement>(
 	options?: IntersectionObserverOptions,

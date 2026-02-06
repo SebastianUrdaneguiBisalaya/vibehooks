@@ -26,11 +26,6 @@ export interface ToggleReturn {
  * ```tsx
  * const { status, handleToggle } = useToggle({ defaultValue: false });
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useToggle({
 	defaultValue = false,

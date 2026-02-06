@@ -34,11 +34,6 @@ export interface BodyScrollFreezeReturn {
  * freeze({ axis: 'both' });
  * freeze({ axis: 'x' });
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useBodyScrollFreeze(): BodyScrollFreezeReturn {
 	const originalStyles = React.useRef<{

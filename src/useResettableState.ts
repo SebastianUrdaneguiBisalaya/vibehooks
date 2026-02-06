@@ -7,11 +7,6 @@ import * as React from 'react';
  * ```tsx
  * const [count, setCount, reset] = useResettableState(0);
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useResettableState<T>(
 	initialState: T | (() => T)

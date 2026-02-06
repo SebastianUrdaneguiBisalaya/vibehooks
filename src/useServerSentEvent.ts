@@ -60,11 +60,6 @@ export type SSEReadyState = 0 | 1 | 2;
  *   }
  * });
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useServerSentEvent(
 	url: string,

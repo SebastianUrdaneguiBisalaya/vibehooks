@@ -17,12 +17,7 @@ export interface CopyToClipboardReturn {
  *  Copy
  * </button>
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
- * @version 0.0.1
- *
  */
 export function useCopyToClipboard(): CopyToClipboardReturn {
 	const [textCopied, setTextCopied] = React.useState<string | null>(null);

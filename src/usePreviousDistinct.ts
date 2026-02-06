@@ -7,11 +7,6 @@ import * as React from 'react';
  * ```tsx
  * const prevUserId = usePreviousDistinct(userId);
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function usePreviousDistinct<T>(value: T): T | undefined {
 	const prevRef = React.useRef<T | undefined>(undefined);

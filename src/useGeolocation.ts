@@ -48,13 +48,8 @@ export interface UseGeolocationReturn {
  *
  * @example
  * ```tsx
- *
+ * const { clearWatch, error, getCurrentPosition, isSupported, permissionState, position, watchPosition } = useGeolocation();
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useGeolocation(): UseGeolocationReturn {
 	const isClient =

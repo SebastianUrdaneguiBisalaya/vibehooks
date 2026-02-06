@@ -79,12 +79,7 @@ export interface UseBarcodeOptions {
  *   </div>
  * );
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API
- * @version 0.0.1
- *
  */
 export function useBarcode({
 	elementRef,

@@ -64,12 +64,7 @@ export interface UseScreenOrientationReturn {
  *   // adapt layout
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Screen_Orientation_API
- * @version 0.0.1
- *
  */
 export function useScreenOrientation(): UseScreenOrientationReturn {
 	const isSupported =

@@ -53,12 +53,7 @@ export interface UseVibrationReturn {
  *   );
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API
- * @version 0.0.1
- *
  */
 export function useVibration(): UseVibrationReturn {
 	const isClient =

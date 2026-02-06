@@ -27,12 +27,7 @@ export interface UsePermissionReturn {
  *   // Show a message to the user
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API
- * @version 0.0.1
- *
  */
 export function usePermissions<T extends readonly PermissionName[]>(
 	permissionNames: T

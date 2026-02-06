@@ -34,10 +34,6 @@ export interface UseAutoScrollOptions {
  *   );
  * }
  * ```
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useAutoScroll(options?: UseAutoScrollOptions) {
 	const {

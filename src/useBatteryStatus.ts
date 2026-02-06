@@ -73,12 +73,7 @@ declare global {
  *  </div>
 );
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API
- *
  */
 export function useBatteryStatus(): UseBatteryStatusReturn {
 	const isSupported =

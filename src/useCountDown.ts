@@ -85,11 +85,7 @@ export interface CountDownReturn {
  * `useCountDown` is a controllable countdown hook based on an absolute end timestamp.
  * It uses a reference timestamp approach to prevent time drift commonly association with simple `setInterval` forcing.
  *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/es/docs/Web/API/Window/setInterval
- * @version 0.0.1
- *
  */
 export function useCountDown({
 	endTime,

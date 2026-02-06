@@ -96,11 +96,7 @@ function isChrome(): boolean {
  * const speech = useSpeech({ lang: 'en-US' });
  * speech.start();
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
- * @version 0.0.1
  *
  */
 export function useSpeech(options: UseSpeechOptions = {}): UseSpeechReturn {

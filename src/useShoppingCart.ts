@@ -52,11 +52,6 @@ export interface UseShoppingCartReturn<T extends object> {
  * cart.getTotal();
  * cart.getDetails();
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useShoppingCart<T extends object>(
 	options: UseShoppingCartOptions<T>

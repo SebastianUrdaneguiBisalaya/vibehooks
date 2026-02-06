@@ -7,11 +7,6 @@ import * as React from 'react';
  * ```tsx
  * const isClient = useIsClient();
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useIsClient(): boolean {
 	const [isClient, setIsClient] = React.useState<boolean>(false);

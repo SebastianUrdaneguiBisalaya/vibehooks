@@ -14,11 +14,6 @@ export interface FullScreenReturn {
  * ```tsx
  * const { isFullscreen, enter, exit, toggle } = useFullscreen<HTMLDivElement>(ref);
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useFullscreen<T extends HTMLElement>(
 	ref: React.RefObject<T | null>

@@ -75,11 +75,6 @@ export interface UseFileReturn {
  * file.setFiles(e.dataTransfer.files);
  * };
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useFile(options: UseFileOptions = {}): UseFileReturn {
 	const { accept, disabled, multiple = false } = options;

@@ -52,11 +52,6 @@ export interface UseTimeoutReturn {
  * <button onClick={timeout.cancel}>Cancel</button>
  * <button onClick={timeout.reset}>Reset</button>
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useTimeout(
 	callback: () => void,

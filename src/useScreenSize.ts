@@ -12,11 +12,6 @@ export interface ScreenSizeReturn {
  * ```tsx
  * const { width, height } = useScreenSize();
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useScreenSize(): ScreenSizeReturn {
 	const [size, setSize] = React.useState<ScreenSizeReturn>({

@@ -86,12 +86,7 @@ export interface UseExternalNotificationReturn {
  *   );
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Notification
- * @version 0.0.1
- *
  */
 export function useExternalNotifications(): UseExternalNotificationReturn {
 	const notifications = React.useSyncExternalStore(

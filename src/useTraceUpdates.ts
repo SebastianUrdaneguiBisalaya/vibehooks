@@ -17,11 +17,6 @@ import * as React from 'react';
  *   return <button onClick={() => setCount(c => c + step)} />;
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useTraceUpdates(value: Record<string, unknown>, name?: string) {
 	const prev = React.useRef<Record<string, unknown> | null>(null);

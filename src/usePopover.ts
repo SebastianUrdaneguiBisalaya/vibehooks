@@ -56,11 +56,6 @@ export interface UsePopoverReturn<
  *   </>
  * );
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function usePopover<
 	TAnchor extends HTMLElement = HTMLElement,

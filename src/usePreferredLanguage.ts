@@ -149,11 +149,6 @@ export interface PreferredLanguageReturn {
  *   );
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function usePreferredLanguage(): PreferredLanguageReturn {
 	const systemLanguage = React.useSyncExternalStore(

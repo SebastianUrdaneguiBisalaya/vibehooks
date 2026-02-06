@@ -88,12 +88,7 @@ export interface UseWebsocketReturn<TMessage = unknown> {
  *   if (isConnected) send(JSON.stringify({ hello: 'world' }));
  * }, [isConnected]);
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
- * @version 0.0.1
- *
  */
 export function useWebsocket<TMessage = unknown>(
 	options: UseWebsocketOptions<TMessage>

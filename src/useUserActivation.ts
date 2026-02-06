@@ -38,12 +38,7 @@ export interface UseUserActivationReturn {
  *   runSensitiveAction();
  * }
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/UserActivation
- * @version 0.0.1
- *
  */
 export function useUserActivation(): UseUserActivationReturn {
 	const isSupported =

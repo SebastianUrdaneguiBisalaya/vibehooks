@@ -15,11 +15,6 @@ export interface ListReturn<T> {
  * ```tsx
  * const { items, insert, push, remove, update } = useList<string>(['item1', 'item2']);
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useList<T>(defaultValue: T[] = []): ListReturn<T> {
 	const [items, setItems] = React.useState<T[]>(defaultValue || []);

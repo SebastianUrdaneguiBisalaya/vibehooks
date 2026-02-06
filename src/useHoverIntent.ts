@@ -42,11 +42,6 @@ export interface UseHoverIntentReturn {
  *   </div>
  * );
  * ```
- *
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- *
- * @version 0.0.1
- *
  */
 export function useHoverIntent(
 	options: UseHoverIntentOptions = {}

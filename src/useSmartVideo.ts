@@ -36,10 +36,6 @@ export interface SmartVideoReturn {
 	videoRef: React.RefObject<HTMLVideoElement | null>;
 }
 
-/**
- * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
- * @version 0.0.1
- */
 export function useSmartVideo(
 	options: SmartVideoOptions = {}
 ): SmartVideoReturn {
