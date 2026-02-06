@@ -6,8 +6,6 @@
 Modern React and Next.js hooks, unopinionated and focused on developer experience.
 </p>
 
-### **Release: Monday, February 9 2025**
-
 ## **Installation**
 
 You can install the package with the following command:
