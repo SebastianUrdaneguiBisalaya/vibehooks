@@ -1,6 +1,7 @@
 'use client';
 
-import { useIsClient } from '../../../../../../src';
+import { useIsClient } from '@vibehooks/react';
+
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';
 

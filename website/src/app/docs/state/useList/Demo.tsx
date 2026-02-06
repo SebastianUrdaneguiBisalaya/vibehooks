@@ -1,8 +1,8 @@
 'use client';
 
+import { useList } from '@vibehooks/react';
 import { useState } from 'react';
 
-import { useList } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Layout } from '@/layouts/Layout';

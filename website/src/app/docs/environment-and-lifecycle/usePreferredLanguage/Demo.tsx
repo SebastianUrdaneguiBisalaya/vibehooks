@@ -1,6 +1,7 @@
 'use client';
 
-import { usePreferredLanguage } from '../../../../../../src';
+import { usePreferredLanguage } from '@vibehooks/react';
+
 import { Button } from '@/components/ui/Button';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';

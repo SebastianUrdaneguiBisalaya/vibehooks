@@ -1,6 +1,7 @@
 'use client';
 
-import { useShoppingCart } from '../../../../../../src';
+import { useShoppingCart } from '@vibehooks/react';
+
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

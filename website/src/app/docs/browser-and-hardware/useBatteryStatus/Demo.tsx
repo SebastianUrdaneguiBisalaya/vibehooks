@@ -1,8 +1,8 @@
 'use client';
 
+import { useBatteryStatus } from '@vibehooks/react/useBatteryStatus';
 import { useState, useEffect } from 'react';
 
-import { useBatteryStatus } from '../../../../../../src/useBatteryStatus';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';
 

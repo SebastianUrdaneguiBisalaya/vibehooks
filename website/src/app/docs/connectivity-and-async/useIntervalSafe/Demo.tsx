@@ -1,8 +1,8 @@
 'use client';
 
+import { useIntervalSafe } from '@vibehooks/react';
 import { useState } from 'react';
 
-import { useIntervalSafe } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';

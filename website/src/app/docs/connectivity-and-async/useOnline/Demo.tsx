@@ -1,6 +1,7 @@
 'use client';
 
-import { useOnline } from '../../../../../../src';
+import { useOnline } from '@vibehooks/react';
+
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';
 

@@ -1,6 +1,7 @@
 'use client';
 
-import { useIntersectionObserver } from '../../../../../../src';
+import { useIntersectionObserver } from '@vibehooks/react';
+
 import { Layout } from '@/layouts/Layout';
 import { cn } from '@/lib/cn';
 

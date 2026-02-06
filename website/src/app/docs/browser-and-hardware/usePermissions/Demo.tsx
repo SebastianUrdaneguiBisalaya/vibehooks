@@ -1,8 +1,8 @@
 'use client';
 
+import { usePermissions } from '@vibehooks/react/usePermissions';
 import { useState, useEffect } from 'react';
 
-import { usePermissions } from '../../../../../../src/usePermissions';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';
 

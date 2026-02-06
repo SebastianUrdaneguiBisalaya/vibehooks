@@ -1,8 +1,8 @@
 'use client';
 
+import { useBodyScrollFreeze } from '@vibehooks/react';
 import { useState, useEffect } from 'react';
 
-import { useBodyScrollFreeze } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

@@ -1,8 +1,8 @@
 'use client';
 
+import { useIsFirstRender } from '@vibehooks/react';
 import { useState, useEffect } from 'react';
 
-import { useIsFirstRender } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

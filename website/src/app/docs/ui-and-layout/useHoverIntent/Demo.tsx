@@ -1,6 +1,7 @@
 'use client';
 
-import { useHoverIntent } from '../../../../../../src';
+import { useHoverIntent } from '@vibehooks/react';
+
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

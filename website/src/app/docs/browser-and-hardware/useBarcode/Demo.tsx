@@ -1,8 +1,8 @@
 'use client';
 
+import { useBarcode } from '@vibehooks/react';
 import { useState, useEffect, useRef } from 'react';
 
-import { useBarcode } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

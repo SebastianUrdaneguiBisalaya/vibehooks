@@ -1,8 +1,8 @@
 'use client';
 
+import { useFullscreen } from '@vibehooks/react';
 import { useRef } from 'react';
 
-import { useFullscreen } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';

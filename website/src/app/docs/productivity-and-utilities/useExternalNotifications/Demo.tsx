@@ -1,8 +1,8 @@
 'use client';
 
+import { useExternalNotifications } from '@vibehooks/react';
 import { useState, useEffect } from 'react';
 
-import { useExternalNotifications } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

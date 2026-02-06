@@ -1,6 +1,7 @@
 'use client';
 
-import { useIdle } from '../../../../../../src';
+import { useIdle } from '@vibehooks/react';
+
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';
 import { cn } from '@/lib/cn';

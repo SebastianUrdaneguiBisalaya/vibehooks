@@ -1,8 +1,8 @@
 'use client';
 
+import { useThrottledCallback } from '@vibehooks/react/index';
 import { useState } from 'react';
 
-import { useThrottledCallback } from '../../../../../../src/index';
 import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {

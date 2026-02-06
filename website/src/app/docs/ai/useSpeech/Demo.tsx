@@ -1,6 +1,7 @@
 'use client';
 
-import { useSpeech } from '../../../../../../src';
+import { useSpeech } from '@vibehooks/react';
+
 import { Button } from '@/components/ui/Button';
 import { TextArea } from '@/components/ui/TextArea';
 import { Layout } from '@/layouts/Layout';

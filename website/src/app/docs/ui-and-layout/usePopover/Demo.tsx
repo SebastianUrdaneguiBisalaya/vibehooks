@@ -1,6 +1,7 @@
 'use client';
 
-import { usePopover } from '../../../../../../src';
+import { usePopover } from '@vibehooks/react';
+
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

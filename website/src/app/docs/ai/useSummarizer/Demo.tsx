@@ -1,8 +1,8 @@
 'use client';
 
+import { useSummarizer } from '@vibehooks/react';
 import { useState, useEffect } from 'react';
 
-import { useSummarizer } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { TextArea } from '@/components/ui/TextArea';
 import { Layout } from '@/layouts/Layout';

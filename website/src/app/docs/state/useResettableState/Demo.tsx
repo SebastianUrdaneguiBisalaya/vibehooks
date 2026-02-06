@@ -1,6 +1,7 @@
 'use client';
 
-import { useResettableState } from '../../../../../../src';
+import { useResettableState } from '@vibehooks/react';
+
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Layout } from '@/layouts/Layout';

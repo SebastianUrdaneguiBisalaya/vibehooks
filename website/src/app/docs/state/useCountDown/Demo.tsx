@@ -1,8 +1,8 @@
 'use client';
 
+import { useCountDown } from '@vibehooks/react/index';
 import { useState } from 'react';
 
-import { useCountDown } from '../../../../../../src/index';
 import { Button } from '@/components/ui/Button';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';

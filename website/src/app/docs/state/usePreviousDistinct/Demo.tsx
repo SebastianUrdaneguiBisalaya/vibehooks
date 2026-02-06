@@ -1,8 +1,8 @@
 'use client';
 
+import { usePreviousDistinct } from '@vibehooks/react/index';
 import { useState } from 'react';
 
-import { usePreviousDistinct } from '../../../../../../src/index';
 import { Layout } from '@/layouts/Layout';
 
 const colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b'];

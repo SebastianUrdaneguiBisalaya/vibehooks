@@ -1,8 +1,8 @@
 'use client';
 
+import { useAsyncState } from '@vibehooks/react';
 import { useState } from 'react';
 
-import { useAsyncState } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Tag } from '@/components/ui/Tag';

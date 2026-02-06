@@ -1,6 +1,7 @@
 'use client';
 
-import { usePageVisibility } from '../../../../../../src';
+import { usePageVisibility } from '@vibehooks/react';
+
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';
 

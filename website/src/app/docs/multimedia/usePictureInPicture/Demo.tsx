@@ -1,8 +1,8 @@
 'use client';
 
+import { usePictureInPicture } from '@vibehooks/react';
 import { useState, useEffect } from 'react';
 
-import { usePictureInPicture } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';

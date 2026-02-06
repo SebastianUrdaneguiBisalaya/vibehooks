@@ -1,6 +1,7 @@
 'use client';
 
-import { useScreenSize } from '../../../../../../src';
+import { useScreenSize } from '@vibehooks/react';
+
 import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {

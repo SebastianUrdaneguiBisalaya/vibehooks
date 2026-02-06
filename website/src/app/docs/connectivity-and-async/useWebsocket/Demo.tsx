@@ -1,8 +1,8 @@
 'use client';
 
+import { useWebsocket } from '@vibehooks/react';
 import { useCallback } from 'react';
 
-import { useWebsocket } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

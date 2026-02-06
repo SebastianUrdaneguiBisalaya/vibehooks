@@ -1,8 +1,8 @@
 'use client';
 
+import { useVibration } from '@vibehooks/react';
 import { useState, useEffect } from 'react';
 
-import { useVibration } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 

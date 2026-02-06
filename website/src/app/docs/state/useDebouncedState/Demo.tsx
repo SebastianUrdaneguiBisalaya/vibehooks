@@ -1,8 +1,8 @@
 'use client';
 
+import { useDebouncedState } from '@vibehooks/react';
 import { useEffect } from 'react';
 
-import { useDebouncedState } from '../../../../../../src';
 import { Input } from '@/components/ui/Input';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';

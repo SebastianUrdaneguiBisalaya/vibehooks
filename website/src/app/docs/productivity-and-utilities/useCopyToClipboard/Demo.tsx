@@ -1,6 +1,7 @@
 'use client';
 
-import { useCopyToClipboard } from '../../../../../../src';
+import { useCopyToClipboard } from '@vibehooks/react';
+
 import { Button } from '@/components/ui/Button';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';

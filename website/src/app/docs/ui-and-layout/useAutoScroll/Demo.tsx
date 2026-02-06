@@ -1,8 +1,8 @@
 'use client';
 
+import { useAutoScroll } from '@vibehooks/react';
 import { useState, useEffect } from 'react';
 
-import { useAutoScroll } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Layout } from '@/layouts/Layout';
 import { cn } from '@/lib/cn';

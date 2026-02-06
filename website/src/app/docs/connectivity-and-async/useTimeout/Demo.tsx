@@ -1,8 +1,8 @@
 'use client';
 
+import { useTimeout } from '@vibehooks/react';
 import { useState } from 'react';
 
-import { useTimeout } from '../../../../../../src';
 import { Button } from '@/components/ui/Button';
 import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';
