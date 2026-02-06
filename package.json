@@ -1,7 +1,7 @@
 {
 	"name": "@vibehooks/react",
 	"type": "module",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Modern React and Next.js hooks, unopinionated and focused on developer experience.",
 	"author": "Sebastian Marat Urdanegui Bisalaya <sebasurdanegui@gmail.com>",
 	"license": "MIT",
