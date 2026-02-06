@@ -72,7 +72,6 @@ function readFromStorage<T>(key: string, fallback: T): T {
  * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
  * @see https://developer.mozilla.org/es/docs/Web/API/Window/localStorage
- * @since 0.0.1
  * @version 0.0.1
  *
  */

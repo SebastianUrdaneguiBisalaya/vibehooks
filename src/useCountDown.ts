@@ -88,7 +88,6 @@ export interface CountDownReturn {
  * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
  * @see https://developer.mozilla.org/es/docs/Web/API/Window/setInterval
- * @since 0.0.1
  * @version 0.0.1
  *
  */

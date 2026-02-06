@@ -76,9 +76,7 @@ declare global {
  *
  * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
- * @since 0.0.1
  * @version 0.0.1
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API
  *
  */

@@ -100,8 +100,7 @@ function isChrome(): boolean {
  * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
- * @since 0.0.1
- * @version 0.0.2
+ * @version 0.0.1
  *
  */
 export function useSpeech(options: UseSpeechOptions = {}): UseSpeechReturn {

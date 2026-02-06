@@ -7,15 +7,6 @@ import * as React from 'react';
  *
  * @example
  * ```tsx
- * // Trace props changes
- * function UserCard(props: UserCardProps) {
- *   useTraceUpdates(props, 'UserCard props');
- *   return <div>{props.name}</div>;
- * }
- * ```
- *
- * @example
- * ```tsx
  * // Trace state changes
  * function Counter() {
  *   const [count, setCount] = React.useState(0);
@@ -27,22 +18,8 @@ import * as React from 'react';
  * }
  * ```
  *
- * @example
- * ```tsx
- * // Trace values derived from props or state
- * function Dashboard({ data }: { data: Data[] }) {
- *   const total = React.useMemo(
- *     () => data.reduce((a, b) => a + b.value, 0),
- *     [data]
- *   );
- *
- *   useTraceUpdates({ total, length: data.length }, 'Dashboard metrics');
- * }
- * ```
- *
  * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
- * @since 0.0.1
  * @version 0.0.1
  *
  */

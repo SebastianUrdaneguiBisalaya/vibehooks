@@ -34,38 +34,8 @@ export interface UseAutoScrollOptions {
  *   );
  * }
  * ```
- * @example
- * ```tsx
- * // Con control manual del auto-scroll
- * function AdvancedChat() {
- *   const {
- *     ref,
- *     isAtBottom,
- *     enableAutoScroll,
- *     disableAutoScroll
- *   } = useAutoScroll();
- *
- *   const handleUserScroll = () => {
- *     // Desactivar auto-scroll cuando el usuario scrollea manualmente
- *     if (!isAtBottom) {
- *       disableAutoScroll();
- *     }
- *   };
- *
- *   return (
- *     <div
- *       ref={ref}
- *       onWheel={handleUserScroll}
- *       className="chat-container"
- *     >
- *       {messages.map(msg => <Message key={msg.id} {...msg} />)}
- *     </div>
- *   );
- * }
- * ```
  * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
- * @since 0.0.1
  * @version 0.0.1
  *
  */

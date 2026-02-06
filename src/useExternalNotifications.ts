@@ -87,50 +87,9 @@ export interface UseExternalNotificationReturn {
  * }
  * ```
  *
- * @example
- * ```tsx
- * // Emit notifications from a WebSocket
- * function useChatSocket() {
- *   const { notify } = useExternalNotification();
- *
- *   React.useEffect(() => {
- *     socket.onmessage = (event) => {
- *       notify({
- *         id: crypto.randomUUID(),
- *         title: 'Nuevo mensaje',
- *         body: event.data,
- *       });
- *     };
- *   }, []);
- * }
- * ```
- *
- * @example
- * ```tsx
- * // Emit notifications from an API
- * function useInvoiceStatus(id: string) {
- *   const { notify } = useExternalNotification();
- *
- *   React.useEffect(() => {
- *     fetch(`/api/invoices/${id}`)
- *       .then(res => res.json())
- *       .then(data => {
- *         if (data.status === 'paid') {
- *           notify({
- *             id: id,
- *             title: 'Factura pagada',
- *             body: `La factura ${id} fue pagada`,
- *           });
- *         }
- *       });
- *   }, [id]);
- * }
- * ```
- *
  * @author Sebastian Marat Urdanegui Bisalaya <https://sebastianurdanegui.com>
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Notification
- * @since 0.0.1
  * @version 0.0.1
  *
  */
