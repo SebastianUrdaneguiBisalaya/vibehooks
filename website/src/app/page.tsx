@@ -100,7 +100,7 @@ export default function Page() {
 						with JSDoc.
 					</p>
 				</BlurIn>
-				<BlurIn className='w-full'>
+				<BlurIn className='w-full overflow-x-hidden'>
 					<Slider />
 				</BlurIn>
 				<BlurIn>
