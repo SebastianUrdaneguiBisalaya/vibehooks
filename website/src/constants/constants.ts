@@ -241,7 +241,7 @@ const hooksList: HooksListProps[] = [
 			},
 			{
 				name: 'useFullscreen',
-				path: '/docs/ui-and-layout/useFullscreen',
+				path: '/docs/ui-and-layout/useFullScreen',
 			},
 			{
 				name: 'useHoverIntent',
