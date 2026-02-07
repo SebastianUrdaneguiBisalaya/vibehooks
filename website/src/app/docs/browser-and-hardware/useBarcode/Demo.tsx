@@ -74,7 +74,7 @@ export default function Demo() {
 				<div className='w-full flex flex-col items-center gap-2'>
 					<Layout.Caption>Detected codes:</Layout.Caption>
 					<Layout.Paragraph>
-						{codes.map(word => `"${word}"`).join(', ')}
+						{codes.map(word => `"${word.rawValue}"`).join(', ')}
 					</Layout.Paragraph>
 				</div>
 			)}
