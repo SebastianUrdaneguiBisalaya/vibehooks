@@ -42,6 +42,11 @@
 			"type": "() => void",
 			"description": "Releases the camera hardware and stops all active media tracks."
 		},
+    {
+      "name": "toggleCamera",
+      "type": "() => Promise<boolean>",
+      "description": "Toggles between front and back camera if available."
+    },
 		{
 			"name": "usePermission",
 			"type": "() => boolean",

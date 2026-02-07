@@ -13,6 +13,7 @@ export default function Demo() {
 		imageRef,
 		requestPermission,
 		stop,
+		toggleCamera,
 		usePermission,
 		useStreaming,
 		videoRef,
@@ -45,6 +46,9 @@ export default function Demo() {
 				</Button.Secondary>
 				<Button.Primary disabled={!isStreaming} onClick={capture}>
 					Capture
+				</Button.Primary>
+				<Button.Primary disabled={!isStreaming} onClick={toggleCamera}>
+					Toggle
 				</Button.Primary>
 				<Button.Destructive disabled={!isStreaming} onClick={stop}>
 					Stop
