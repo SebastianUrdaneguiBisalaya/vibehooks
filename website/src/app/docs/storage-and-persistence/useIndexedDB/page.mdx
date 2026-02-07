@@ -21,25 +21,19 @@ export const metadata = {
 
 <Blockquote.Important>
 	<Blockquote.Content>
-		The <strong>onUpgrade</strong> callback is only triggered when the{' '}
-		<strong>version</strong> number is incremented. This is the only place where
-		you can safely create or modify object stores.
+		###### The <strong>onUpgrade</strong> callback is only triggered when the{' '}<strong>version</strong> number is incremented. This is the only place where you can safely create or modify object stores.
 	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Caution>
 	<Blockquote.Content>
-		The <strong>store</strong> instance provided inside the{' '}
-		<strong>withStore</strong> callback is only valid for the duration of that
-		specific transaction. Do not store or use it outside the callback.
+		###### The <strong>store</strong> instance provided inside the{' '}<strong>withStore</strong> callback is only valid for the duration of that specific transaction. Do not store or use it outside the callback.
 	</Blockquote.Content>
 </Blockquote.Caution>
 
 <Blockquote.Note>
 	<Blockquote.Content>
-		Database connections are persistent once opened. Remember to call{' '}
-		<strong>close()</strong> to release the database lock when the component is
-		unmounted or the operation is finished.
+		###### Database connections are persistent once opened. Remember to call{' '}<strong>close()</strong> to release the database lock when the component is unmounted or the operation is finished.
 	</Blockquote.Content>
 </Blockquote.Note>
 

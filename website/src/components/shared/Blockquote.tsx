@@ -20,7 +20,7 @@ const BaseBlockquote = ({ className, ...props }: BlockquoteProps) => {
 	return (
 		<blockquote
 			className={cn(
-				'w-full flex flex-col items-start gap-1.5 border-l-3 p-3 my-2',
+				'w-full flex flex-col items-start gap-1.5 border-l-3 px-3 my-2',
 				className
 			)}
 			{...props}

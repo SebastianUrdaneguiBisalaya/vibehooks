@@ -21,43 +21,31 @@ export const metadata = {
 
 <Blockquote.Important>
 	<Blockquote.Content>
-		<strong>navigator.mediaDevices.getUserMedia</strong> only works in secure
-		contexts (HTTPS). It will also work on localhost for development purposes,
-		but it will fail silently or throw errors on standard HTTP deployments.
+		###### <strong>navigator.mediaDevices.getUserMedia</strong> only works in secure contexts (HTTPS). It will also work on localhost for development purposes, but it will fail silently or throw errors on standard HTTP deployments.
 	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Warning>
 	<Blockquote.Content>
-		Always call the <strong>stop()</strong> function when the user leaves the
-		camera view. Leaving the camera active drains battery and keeps the hardware
-		"in-use" light on, which is a poor user experience.
+		###### Always call the <strong>stop()</strong> function when the user leaves the camera view. Leaving the camera active drains battery and keeps the hardware "in-use" light on, which is a poor user experience.
 	</Blockquote.Content>
 </Blockquote.Warning>
 
 <Blockquote.Caution>
 	<Blockquote.Content>
-		Some older mobile browsers or embedded webviews (like those inside social
-		media apps) may not fully support the <strong>mediaDevices API</strong>.
-		Always check the return value of <strong>requestPermission</strong>.
+		###### Some older mobile browsers or embedded webviews (like those inside social media apps) may not fully support the <strong>mediaDevices API</strong>. Always check the return value of <strong>requestPermission</strong>.
 	</Blockquote.Content>
 </Blockquote.Caution>
 
 <Blockquote.Note>
 	<Blockquote.Content>
-		This hook automatically calculates the height based on the video's natural
-		aspect ratio. Ensure your CSS for the <strong>video</strong> and{' '}
-		<strong>img</strong> elements accounts for dynamic heights to prevent layout
-		shifts.
+		###### This hook automatically calculates the height based on the video's natural aspect ratio. Ensure your CSS for the <strong>video</strong> and{' '}<strong>img</strong> elements accounts for dynamic heights to prevent layout shifts.
 	</Blockquote.Content>
 </Blockquote.Note>
 
 <Blockquote.Tip>
 	<Blockquote.Content>
-		Use the <strong>blob</strong> provided in the <strong>onCapture</strong>{' '}
-		callback if you intend to upload the image to a server (e.g., via{' '}
-		<strong>FormData</strong>). It is significantly more efficient than sending
-		a large Base64 string.
+		###### Use the <strong>blob</strong> provided in the <strong>onCapture</strong>{' '}callback if you intend to upload the image to a server (e.g., via{' '}<strong>FormData</strong>). It is significantly more efficient than sending a large Base64 string.
 	</Blockquote.Content>
 </Blockquote.Tip>
 

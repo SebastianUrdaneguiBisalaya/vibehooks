@@ -27,7 +27,7 @@ const components = {
 	),
 	h5: ({ children }) => <h5 className='font-sora'>{children}</h5>,
 	h6: ({ children }) => (
-		<h6 className='font-reddit-sans text-[13px] text-white/50 mb-[1em] mt-[1em]'>
+		<h6 className='font-reddit-sans text-sm text-white/70'>
 			{children}
 		</h6>
 	),

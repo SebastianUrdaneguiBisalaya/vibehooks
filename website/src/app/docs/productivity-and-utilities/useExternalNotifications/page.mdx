@@ -21,25 +21,19 @@ export const metadata = {
 
 <Blockquote.Important>
 	<Blockquote.Content>
-		This hook uses a global <strong>localStorage</strong> store to synchronize
-		notifications across different browser tabs/windows.
+		###### This hook uses a global <strong>localStorage</strong> store to synchronize notifications across different browser tabs/windows.
 	</Blockquote.Content>
 </Blockquote.Important>
 
 <Blockquote.Caution>
 	<Blockquote.Content>
-		Native OS notifications require explicit permission. You must call{' '}
-		<strong>requestPermission()</strong> and receive a{' '}
-		<strong>'granted'</strong> status before <strong>notify()</strong> can
-		display a visual alert outside the browser.
+		###### Native OS notifications require explicit permission. You must call{' '}<strong>requestPermission()</strong> and receive a{' '}<strong>'granted'</strong> status before <strong>notify()</strong> can display a visual alert outside the browser.
 	</Blockquote.Content>
 </Blockquote.Caution>
 
 <Blockquote.Note>
 	<Blockquote.Content>
-		The global store persists data in <strong>localStorage</strong>. Ensure you
-		manage the lifecycle of this data if your app handles a high volume of
-		notifications to avoid hitting storage limits.
+		###### The global store persists data in <strong>localStorage</strong>. Ensure you manage the lifecycle of this data if your app handles a high volume of notifications to avoid hitting storage limits.
 	</Blockquote.Content>
 </Blockquote.Note>
 

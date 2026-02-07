@@ -21,18 +21,13 @@ export const metadata = {
 
 <Blockquote.Warning>
 	<Blockquote.Content>
-		This hook uses <strong>position: fixed</strong> on the body to prevent
-		"scroll jumping" on iOS Safari. While effective, ensure your layout doesn't
-		rely on absolute positioning relative to the body that might break during
-		the freeze.
+		###### This hook uses <strong>position: fixed</strong> on the body to prevent "scroll jumping" on iOS Safari. While effective, ensure your layout doesn't rely on absolute positioning relative to the body that might break during the freeze.
 	</Blockquote.Content>
 </Blockquote.Warning>
 
 <Blockquote.Important>
 	<Blockquote.Content>
-		Always pair <strong>freeze()</strong> with <strong>unfreeze()</strong>.
-		Although the hook attempts to cleanup on unmount, manual imperative calls
-		should be handled carefully to avoid leaving the UI in a locked state.
+		###### Always pair <strong>freeze()</strong> with <strong>unfreeze()</strong>. Although the hook attempts to cleanup on unmount, manual imperative calls should be handled carefully to avoid leaving the UI in a locked state.
 	</Blockquote.Content>
 </Blockquote.Important>
 
