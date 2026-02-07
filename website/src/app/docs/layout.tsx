@@ -10,8 +10,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 				<div className='h-40 rounded-full w-100 md:w-160 z-1 bg-linear-to-b blur-[8rem] from-pink-900 to-yellow-400'></div>
 				<div className='h-40 rounded-full w-80 md:w-120 z-1 bg-linear-to-b blur-[8rem] from-yellow-600 to-sky-300'></div>
 			</div>
-			<div className='w-full flex flex-row gap-6'>
-				<div className='transition-transform duration-500 ease-in-out z-50 sticky top-8 w-fit hidden md:flex flex-col items-start justify-start left-6 bg-[rgba(255,255,255,0.05)] border-t border-t-[rgba(255,255,255,0.4)] border-l border-l-[rgba(255,255,255,0.3)] shadow-[3px_3px_3px_rgba(0,0,0,0.089)] backdrop-blur-[10px] h-full rounded-lg max-h-[calc(100vh-4rem)] overflow-hidden'>
+			<div className='w-full flex flex-row gap-6 items-start'>
+				<div className='transition-transform duration-500 ease-in-out z-50 sticky top-8 w-fit hidden md:flex flex-col items-start justify-start bg-[rgba(255,255,255,0.05)] border-t border-t-[rgba(255,255,255,0.4)] border-l border-l-[rgba(255,255,255,0.3)] shadow-[3px_3px_3px_rgba(0,0,0,0.089)] backdrop-blur-[10px] rounded-lg max-h-[calc(100svh-4rem)] overflow-hidden'>
 					<NavigationList />
 				</div>
 				<div className='flex-1 min-w-0 flex flex-col z-10'>

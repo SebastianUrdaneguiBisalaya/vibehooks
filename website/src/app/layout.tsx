@@ -87,9 +87,9 @@ export default function RootLayout({
 			<meta content='website' name='og:type' />
 			<meta content='summary_large_image' name='twitter:card' />
 			<body
-				className={`${sora.variable} ${redditSans.variable} ${jersey15.variable} ${cascadiaCode.variable} antialiased overflow-x-hidden`}
+				className={`${sora.variable} ${redditSans.variable} ${jersey15.variable} ${cascadiaCode.variable} antialiased`}
 			>
-				<div className='w-full min-h-svh flex flex-col items-center justify-start overflow-x-hidden'>
+				<div className='w-full min-h-svh flex flex-col items-center justify-start'>
 					{children}
 				</div>
 			</body>
