@@ -89,7 +89,7 @@ export default function RootLayout({
 			<body
 				className={`${sora.variable} ${redditSans.variable} ${jersey15.variable} ${cascadiaCode.variable} antialiased`}
 			>
-				<div className='w-full min-h-screen mx-auto h-full flex flex-col items-center'>
+				<div className='w-full min-h-screen mx-auto h-full flex flex-col items-center overflow-x-hidden'>
 					{children}
 				</div>
 			</body>
