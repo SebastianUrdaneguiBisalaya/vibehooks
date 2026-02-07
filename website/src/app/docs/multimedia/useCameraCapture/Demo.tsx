@@ -64,7 +64,7 @@ export default function Demo() {
 					<Layout.Caption className='text-center'>Last Capture</Layout.Caption>
 					<img
 						alt='Last capture'
-						className='aspect-square w-full min-h-28 rounded-md'
+						className='w-full min-h-28 rounded-md'
 						ref={imageRef}
 					/>
 				</div>

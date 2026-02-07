@@ -26,9 +26,7 @@ export interface UseCameraCaptureOptions {
 
 	/**
 	 * Desired output width for the captured image.
-	 * The height is automatically calculated to preserve the aspect ratio.
-	 *
-	 * @default 320
+	 * If ommited, the image is captured at native camera resolution.
 	 */
 	width?: number;
 }
@@ -59,6 +57,11 @@ export interface UseCameraCaptureReturn {
 	 * Stops all active media tracks and releases the camera.
 	 */
 	stop: () => void;
+
+	/**
+	 * Toggles between front and back camera if available.
+	 */
+	toggleCamera: () => void;
 
 	/**
 	 * Indicates whether camera permissions has been granted.
@@ -116,7 +119,9 @@ export function useCameraCapture(
 
 	const streamRef = React.useRef<MediaStream | null>(null);
 	const streamingRef = React.useRef<boolean>(false);
-	const heightRef = React.useRef<number>(0);
+
+	const devicesRef = React.useRef<MediaDeviceInfo[]>([]);
+	const currentDeviceIndexRef = React.useRef<number>(0);
 
 	const isBrowser = typeof window !== 'undefined';
 
@@ -127,14 +132,49 @@ export function useCameraCapture(
 		createExternalStore(() => streamingRef.current)
 	);
 
+	const isTouchDevice = () => {
+		if (!isBrowser) return false;
+		return (
+			'ontouchstart' in window ||
+			navigator.maxTouchPoints > 0 ||
+			// @ts-expect-error legacy
+			navigator.msMaxTouchPoints > 0
+		);
+	};
+
+	const loadVideDevices = React.useCallback(async () => {
+		if (!navigator.mediaDevices?.enumerateDevices) return;
+		const devices = await navigator.mediaDevices.enumerateDevices();
+		const videoInputs = devices.filter(device => device.kind === 'videoinput');
+		devicesRef.current = videoInputs;
+		if (videoInputs.length === 0) return;
+		const touch = isTouchDevice();
+		const backCameraIndex = videoInputs.findIndex(device =>
+			/back|rear|environment/i.test(device.label)
+		);
+		if (touch && backCameraIndex !== -1) {
+			currentDeviceIndexRef.current = backCameraIndex;
+		} else {
+			currentDeviceIndexRef.current = 0;
+		}
+	}, [isBrowser]);
+
 	const requestPermission = React.useCallback(async (): Promise<boolean> => {
 		if (!isBrowser) return false;
 		if (!navigator.mediaDevices?.getUserMedia) return false;
 
 		try {
+			if (devicesRef.current.length === 0) {
+				const temStream = await navigator.mediaDevices.getUserMedia({
+					video: true,
+				});
+				temStream.getTracks().forEach(track => track.stop());
+				await loadVideDevices();
+			}
+			const device = devicesRef.current[currentDeviceIndexRef.current];
 			const stream = await navigator.mediaDevices.getUserMedia({
 				audio: false,
-				video: true,
+				video: device ? { deviceId: { exact: device.deviceId } } : true,
 			});
 			streamRef.current = stream;
 			permissionStoreRef.current.notify();
@@ -145,25 +185,13 @@ export function useCameraCapture(
 			video.srcObject = stream;
 			await video.play();
 
-			if (!streamingRef.current) {
-				const { videoHeight, videoWidth } = video;
-				heightRef.current = videoHeight / (videoWidth / width);
-				video.width = width;
-				video.height = heightRef.current;
-
-				const canvas = canvasRef.current;
-				if (canvas) {
-					canvas.width = width;
-					canvas.height = heightRef.current;
-				}
-				streamingRef.current = true;
-				streamingStoreRef.current.notify();
-			}
+			streamingRef.current = true;
+			streamingStoreRef.current.notify();
 			return true;
 		} catch {
 			return false;
 		}
-	}, [isBrowser, width]);
+	}, [isBrowser, loadVideDevices]);
 
 	const capture = React.useCallback((): string | null => {
 		const video = videoRef.current;
@@ -175,10 +203,21 @@ export function useCameraCapture(
 		const context = canvas.getContext('2d');
 		if (!context) return null;
 
-		canvas.width = width;
-		canvas.height = heightRef.current;
+		const videoWidth = video.videoWidth;
+		const videoHeight = video.videoHeight;
 
-		context.drawImage(video, 0, 0, width, heightRef.current);
+		if (!videoWidth || !videoHeight) return null;
+
+		if (width) {
+			const scaledHeight = videoHeight / (videoWidth / width);
+			canvas.width = width;
+			canvas.height = scaledHeight;
+			context.drawImage(video, 0, 0, width, scaledHeight);
+		} else {
+			canvas.width = videoWidth;
+			canvas.height = videoHeight;
+			context.drawImage(video, 0, 0, videoWidth, videoHeight);
+		}
 
 		const dataUrl = canvas.toDataURL(output.type, output.quality);
 		image?.setAttribute('src', dataUrl);
@@ -197,11 +236,22 @@ export function useCameraCapture(
 
 	const stop = React.useCallback(() => {
 		streamRef.current?.getTracks().forEach(track => track.stop());
+		if (videoRef.current) {
+			videoRef.current.srcObject = null;
+		}
 		streamRef.current = null;
 		streamingRef.current = false;
 		permissionStoreRef.current.notify();
 		streamingStoreRef.current.notify();
 	}, []);
+
+	const toggleCamera = React.useCallback(async (): Promise<boolean> => {
+		if (devicesRef.current.length <= 1) return false;
+		stop();
+		currentDeviceIndexRef.current =
+			(currentDeviceIndexRef.current + 1) / devicesRef.current.length;
+		return await requestPermission();
+	}, [requestPermission, stop]);
 
 	const usePermission = () =>
 		React.useSyncExternalStore(
@@ -223,6 +273,7 @@ export function useCameraCapture(
 		imageRef,
 		requestPermission,
 		stop,
+		toggleCamera,
 		usePermission,
 		useStreaming,
 		videoRef,
