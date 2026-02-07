@@ -67,39 +67,52 @@ export interface UseScreenOrientationReturn {
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Screen_Orientation_API
  */
 export function useScreenOrientation(): UseScreenOrientationReturn {
+	const isWindow = typeof window !== 'undefined';
+	const orientation =
+		isWindow && 'orientation' in screen ? screen.orientation : null;
 	const isSupported =
-		typeof screen !== 'undefined' && screen.orientation !== undefined;
+		!!orientation &&
+		typeof orientation.lock === 'function' &&
+		typeof orientation.unlock === 'function';
 	const [type, setType] = React.useState<OrientationType | null>(
-		isSupported ? screen.orientation.type : null
+		orientation?.type ?? null
 	);
 	const [angle, setAngle] = React.useState<number | null>(
-		isSupported ? screen.orientation.angle : null
+		orientation?.angle ?? null
 	);
 
 	const lock = React.useCallback(
-		async (orientation: ScreenOrientationLock) => {
-			if (!isSupported) return;
-			await screen.orientation.lock(orientation);
+		async (orientationLock: ScreenOrientationLock) => {
+			if (!isSupported || !orientation) return;
+			try {
+				await orientation.lock(orientationLock);
+			} catch (error) {
+				console.warn('Orientation lock failed:', error);
+			}
 		},
-		[isSupported]
+		[isSupported, orientation]
 	);
 
 	const unlock = React.useCallback(() => {
-		if (!isSupported) return;
-		screen.orientation.unlock();
-	}, [isSupported]);
+		if (!isSupported || !orientation) return;
+		try {
+			orientation.unlock();
+		} catch (error) {
+			console.warn('Orientation unlock failed:', error);
+		}
+	}, [isSupported, orientation]);
 
 	React.useEffect(() => {
-		if (!isSupported) return;
+		if (!orientation) return;
 		const handleChange = () => {
-			setType(screen.orientation.type);
-			setAngle(screen.orientation.angle);
+			setType(orientation.type);
+			setAngle(orientation.angle);
 		};
-		screen.orientation.addEventListener('change', handleChange);
+		orientation.addEventListener('change', handleChange);
 		return () => {
-			screen.orientation.removeEventListener('change', handleChange);
+			orientation.removeEventListener('change', handleChange);
 		};
-	}, [isSupported]);
+	}, [orientation]);
 
 	return {
 		angle,
