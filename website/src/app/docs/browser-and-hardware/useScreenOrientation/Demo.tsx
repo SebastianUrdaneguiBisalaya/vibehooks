@@ -53,9 +53,9 @@ export default function Demo() {
 					<Layout.Paragraph>{angle}°</Layout.Paragraph>
 				</div>
 			</div>
-			<div className='flex flex-col md:flex-row gap-2'>
+			<div className='flex flex-row items-center gap-2'>
 				<Button.Primary onClick={handleLock}>Force Lock</Button.Primary>
-				<Button.Secondary onClick={() => unlock()}>Unlock</Button.Secondary>
+				<Button.Secondary onClick={unlock}>Unlock</Button.Secondary>
 			</div>
 			<Layout.Caption>
 				* Orientation locking usually requires a user gesture or active
