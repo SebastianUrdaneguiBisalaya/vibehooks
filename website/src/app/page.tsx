@@ -11,7 +11,7 @@ import { cn } from '@/lib/cn';
 
 export default function Page() {
 	return (
-		<main className='max-w-3xl w-full grow h-full p-6 md:p-8 flex flex-col items-center justify-start gap-8'>
+		<main className='max-w-3xl w-full grow h-full p-6 md:p-8 flex flex-col items-center justify-start gap-8 overflow-x-hidden'>
 			<div className='absolute inset-0 bg-noise' />
 			<div className='flex flex-col items-end absolute -right-60 -top-10 blur-xl z-0 '>
 				<div className='h-40 rounded-full w-120 md:w-240 z-1 bg-linear-to-b blur-[6rem] from-green-600 to-sky-600'></div>
