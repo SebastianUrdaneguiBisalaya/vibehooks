@@ -21,8 +21,8 @@ importers:
         specifier: ^2.0.13
         version: 2.0.13
       '@vibehooks/react':
-        specifier: ^0.0.5
-        version: 0.0.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^0.0.6
+        version: 0.0.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -614,8 +614,8 @@ packages:
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
 
-  '@vibehooks/react@0.0.5':
-    resolution: {integrity: sha512-SnFeDchusFqEn6xPeZPRvBEFid4JzVp6RsDLli5ZeOcHG7buuHPdyfY7aYGER7JBnEGdVTt0WtqtjzTN/HAESw==}
+  '@vibehooks/react@0.0.6':
+    resolution: {integrity: sha512-j80s8afiHuv9Xh5uTqbRimciTwKpikg+tOyEo374N/Ccc4Yy9ct1IiDCV6vPp0EZZq+m7Fgjku9j5jOwCy2pdg==}
     peerDependencies:
       react: ^19.2.0
       react-dom: ^19.2.0
@@ -2081,7 +2081,7 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vibehooks/react@0.0.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@vibehooks/react@0.0.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
