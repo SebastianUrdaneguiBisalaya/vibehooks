@@ -12,12 +12,13 @@ import { cn } from '@/lib/cn';
 export default function Page() {
 	return (
 		<main className='max-w-3xl w-full grow h-full p-6 md:p-8 flex flex-col items-center justify-start gap-8 overflow-x-hidden'>
-			<div className='absolute inset-0 bg-noise' />
-			<div className='flex flex-col items-end absolute -right-60 -top-10 blur-xl z-0 '>
-				<div className='h-40 rounded-full w-120 md:w-240 z-1 bg-linear-to-b blur-[6rem] from-green-600 to-sky-600'></div>
-				<div className='h-40 rounded-full w-160 md:w-360 z-1 bg-linear-to-b blur-[6rem] from-pink-900 to-yellow-400'></div>
-				<div className='h-40 rounded-full w-120 md:w-240 z-1 bg-linear-to-b blur-[6rem] from-yellow-600 to-sky-500'></div>
-			</div>
+			<div className='pointer-events-none absolute inset-0 -z-10 overflow-hidden'>
+        <div className='flex flex-col items-end will-change-transform'>
+          <div className='h-36 md:h-40 rounded-full w-80 md:w-240 z-1 bg-linear-to-b blur-[6rem] from-green-600 to-sky-600'></div>
+          <div className='h-36 md:h-40 rounded-full w-120 md:w-360 z-1 bg-linear-to-b blur-[6rem] from-pink-900 to-yellow-400'></div>
+          <div className='h-36 md:h-40 rounded-full w-80 md:w-240 z-1 bg-linear-to-b blur-[6rem] from-yellow-600 to-sky-500'></div>
+        </div>
+      </div>
 			<div className='flex flex-col items-center justify-center grow w-full h-full gap-10'>
 				<div className='flex flex-col items-center'>
 					<BlurIn>

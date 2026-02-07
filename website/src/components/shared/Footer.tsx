@@ -6,7 +6,7 @@ export default function Footer() {
 				<span className='font-jersey-15 text-white text-2xl'>Hooks</span>
 			</div>
 			<span className='font-sora text-[10px] text-white/50 md:leading-2'>
-				- developed by{' '}
+				- Developed by{' '}
 				<a
 					className='hover:text-white text-white/50 transition-all duration-500 ease-in-out'
 					href='https://sebastianurdanegui.com'
