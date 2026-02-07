@@ -44,7 +44,7 @@ export default function Demo() {
 					className='aspect-video rounded-md w-full'
 					controls
 					ref={videoRef}
-					src='/video.mp4'
+					src='https://res.cloudinary.com/drzumfcdp/video/upload/v1770480406/projects/video_acllim.mp4'
 				/>
 				<div className='flex flex-row items-center gap-2'>
 					<Button.Primary disabled={!isSupported || isActive} onClick={enter}>

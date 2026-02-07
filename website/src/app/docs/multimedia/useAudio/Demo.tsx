@@ -7,12 +7,14 @@ import { Tag } from '@/components/ui/Tag';
 import { Layout } from '@/layouts/Layout';
 
 export default function Demo() {
-	const { error, pause, play, status } = useAudio({ src: '/music.mp3' });
+	const { error, pause, play, status } = useAudio({
+		src: 'https://res.cloudinary.com/drzumfcdp/video/upload/v1770480394/projects/audio_ozloib.mp3',
+	});
 	return (
 		<Layout>
 			<Layout.Title>Audio</Layout.Title>
 			<Tag.Primary>Status: {status}</Tag.Primary>
-			<Layout.Error>Error: {error?.message}</Layout.Error>
+			{error?.message && <Layout.Error>Error: {error?.message}</Layout.Error>}
 			<div className='flex flex-row items-center gap-2'>
 				<Button.Primary onClick={play}>Play</Button.Primary>
 				<Button.Secondary onClick={pause}>Pause</Button.Secondary>
