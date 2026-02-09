@@ -71,7 +71,7 @@ export default function Navbar() {
 							></polygon>
 						</svg>
 						<span className='font-sora text-sm text-white/70 pt-0.5 group-hover:text-white transition-all duration-500 ease-in-out'>
-							1
+							2
 						</span>
 					</div>
 				</Link>
