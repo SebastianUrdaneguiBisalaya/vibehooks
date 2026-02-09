@@ -73,7 +73,7 @@ export default function Page() {
 									></polygon>
 								</svg>
 								<span className='font-sora text-sm text-white/90 pt-0.5 group-hover:text-white transition-all duration-500 ease-in-out'>
-									1
+									2
 								</span>
 							</div>
 						</Link>
